@@ -1,0 +1,3 @@
+/NFe/infNFe[1]/cobr[1]/dup[CONTADOR]/nDup[1];1;64
+/NFe/infNFe[1]/cobr[1]/dup[CONTADOR]/dVenc[1];1;65
+/NFe/infNFe[1]/cobr[1]/dup[CONTADOR]/vDup[1];1;66

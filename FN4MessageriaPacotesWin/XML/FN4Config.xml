@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Fisconet4.Settings>
+  <setting name="arquivoDeConfiguracaoLog4Net" >
+    <value>C:\tfs\Freelances\Fisconet\Dev\Solution\FN4Common\Log4netConfig.xml</value>
+  </setting>
+  <!-- sistema de messageria NFe4Web -->
+  <setting name="intervaloDeVarreduraDeEmails">
+    <value>86400000</value>
+  </setting>
+  <!-- fim do sistema de messageria NFe4Web -->
+  <!-- AMBIENTE -->
+  <setting name="emailPadrao">
+    <value>suporte@megaideas.net</value>
+  </setting>
+  <setting name="senhaEmailPadrao">
+    <value>123mudar</value>
+  </setting>
+  <setting name="servidorSMTPPadrao">
+    <value>smtp.megaideas.net</value>
+  </setting>
+  <setting name="enableSSLPadrao">
+    <value>0</value>
+  </setting>
+  <setting name="portaSMTPPadrao">
+    <value>default</value>
+  </setting>
+  <setting name="ServidorSMTPRequerAutenticacaoPadrao">
+    <value>1</value>
+  </setting>
+  <setting name="emailbcc">
+    <value>dygos2@gmail.com</value>
+  </setting>
+</Fisconet4.Settings>

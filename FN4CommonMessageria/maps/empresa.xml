@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="empresa" type ="FN4Common.empresaVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="empresaResult" class="empresa">
+      <result property="idEmpresa" column = "idEmpresa"/>
+      <result property="cnpj" column = "cnpj"/>
+      <result property="nome" column = "nome"/>
+      <result property="nomeFantasia" column = "nomeFantasia"/>
+      <result property="logradouro" column = "logradouro"/>
+      <result property="numero" column = "numero"/>
+      <result property="complemento" column = "complemento"/>
+      <result property="bairro" column = "bairro"/>
+      <result property="codigoMunicipio" column = "codigoMunicipio"/>
+      <result property="nomeMunicipio" column = "nomeMunicipio"/>
+      <result property="uf" column = "uf"/>
+      <result property="cep" column = "cep"/>
+      <result property="fone" column = "fone"/>
+      <result property="ie" column = "ie"/>
+      <result property="iest" column = "iest"/>
+      <result property="im" column = "im"/>
+      <result property="cnae" column = "cnae"/>
+      <result property="crt" column = "crt"/>
+      <result property="homologacao" column = "homologacao"/>
+      <result property="receberEmailNota" column ="receberEmailNota" />
+      <result property="delimitador" column ="delimitador"/>
+      <result property="email" column ="email" />
+      <result property="token" column ="token" />
+      <result property="gadget1" column ="gadget1" />
+      <result property="gadget2" column ="gadget2" />
+      <result property="gadget3" column ="gadget3" />
+      <result property="frest" column ="frest" />
+      <result property="prest" column ="prest" />
+    </resultMap>
+
+    <resultMap id="empresaResultComUrlPostBack" class="empresa">
+      <result property="idEmpresa" column = "idEmpresa"/>
+      <result property="cnpj" column = "cnpj"/>
+      <result property="nome" column = "nome"/>
+      <result property="nomeFantasia" column = "nomeFantasia"/>
+      <result property="logradouro" column = "logradouro"/>
+      <result property="numero" column = "numero"/>
+      <result property="complemento" column = "complemento"/>
+      <result property="bairro" column = "bairro"/>
+      <result property="codigoMunicipio" column = "codigoMunicipio"/>
+      <result property="nomeMunicipio" column = "nomeMunicipio"/>
+      <result property="uf" column = "uf"/>
+      <result property="cep" column = "cep"/>
+      <result property="fone" column = "fone"/>
+      <result property="ie" column = "ie"/>
+      <result property="iest" column = "iest"/>
+      <result property="im" column = "im"/>
+      <result property="cnae" column = "cnae"/>
+      <result property="crt" column = "crt"/>
+      <result property="homologacao" column = "homologacao"/>
+      <result property="receberEmailNota" column ="receberEmailNota" />
+      <result property="delimitador" column ="delimitador"/>
+      <result property="email" column ="email" />
+      <result property="token" column ="token" />
+      <result property="gadget1" column ="gadget1" />
+      <result property="gadget2" column ="gadget2" />
+      <result property="gadget3" column ="gadget3" />
+      <result property="urlPostBack" column="urlPostBack" />
+      <result property="frest" column ="frest" />
+      <result property="prest" column ="prest" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="obterEmpresa" parameterClass="System.Collections.IDictionary" resultMap="empresaResult" >
+      SELECT * FROM empresa
+      WHERE cnpj =#cnpj#;
+    </select>
+
+    <select id="obterEmpresasComUrlDePostBack" resultMap="empresaResultComUrlPostBack">
+      SELECT e.*, c.valor AS urlPostBack FROM empresa e INNER JOIN configuracao c ON e.idEmpresa = c.idEmpresa WHERE c.chave = 'urlPostBack';
+    </select>
+
+    <insert id="inserirEmpresa" parameterClass="empresa" >
+      INSERT INTO empresa
+      (cnpj,
+      nome,
+      nomeFantasia,
+      logradouro,
+      numero,
+      complemento,
+      bairro,
+      codigoMunicipio,
+      nomeMunicipio,
+      uf,
+      cep,
+      fone,
+      ie,
+      iest,
+      im,
+      cnae,
+      crt,
+      homologacao,
+      receberEmailNota,
+      email,
+      token,
+      frest,
+      prest)
+      VALUES
+      (
+      #cnpj#,
+      #nome#,
+      #nomeFantasia#,
+      #logradouro#,
+      #numero#,
+      #complemento#,
+      #bairro#,
+      #codigoMunicipio#,
+      #nomeMunicipio#,
+      #uf#,
+      #cep#,
+      #fone#,
+      #ie#,
+      #iest#,
+      #im#,
+      #cnae#,
+      #crt#,
+      #homologacao#,
+      #receberEmailNota#,
+      #email#,
+      #token#,
+      #frest#,
+      #prest#
+      );
+    </insert>
+
+    <update id="alterarGadgets" parameterClass="empresa">
+      UPDATE empresa SET
+      gadget1 = #gadget1#,
+      gadget2 = #gadget2#,
+      gadget3 = #gadget3#
+      WHERE idEmpresa = #idEmpresa#
+    </update>
+
+    <update id="alterarEmpresa" parameterClass="empresa">
+      UPDATE empresa SET
+      nome = #nome#,
+      nomeFantasia = #nomeFantasia#,
+      logradouro = #logradouro#,
+      numero = #numero#,
+      complemento = #complemento#,
+      bairro = #bairro#,
+      codigoMunicipio = #codigoMunicipio#,
+      nomeMunicipio = #nomeMunicipio#,
+      uf = #uf#,
+      cep = #cep#,
+      fone = #fone#,
+      ie = #ie#,
+      iest = #iest#,
+      im = #im#,
+      cnae = #cnae#,
+      crt = #crt#,
+      homologacao = #homologacao#,
+      receberEmailNota = #receberEmailNota#,
+      email = #email#,
+      delimitador = #delimitador#,
+      prest = #prest#,
+      frest = #frest#
+      WHERE idEmpresa = #idEmpresa#;
+    </update>
+
+    <update id="alterarToken" parameterClass="empresa">
+      UPDATE empresa SET
+      token = #token#
+      WHERE idEmpresa = #idEmpresa#;
+    </update>
+
+    <update id="alterarFrest" parameterClass="empresa">
+      UPDATE empresa SET
+      frest = #frest#
+      WHERE idEmpresa = #idEmpresa#;
+    </update>
+
+    <update id="alterarPrest" parameterClass="empresa">
+      UPDATE empresa SET
+      frest = #prest#
+      WHERE idEmpresa = #idEmpresa#;
+    </update>
+  </statements>
+</sqlMap>

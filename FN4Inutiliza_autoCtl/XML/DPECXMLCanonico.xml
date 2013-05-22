@@ -1,0 +1,20 @@
+﻿<envDPEC xmlns="http://www.portalfiscal.inf.br/nfe" versao="">
+  <infDPEC Id="">
+    <ideDec>
+      <cUF />
+      <tpAmb />
+      <verProc />
+      <CNPJ />
+      <IE />
+    </ideDec>
+    <resNFe>
+      <chNFe />
+      <CPF />
+      <CNPJ />
+      <UF />
+      <vNF />
+      <vICMS />
+      <vST />
+    </resNFe>
+  </infDPEC>
+</envDPEC>

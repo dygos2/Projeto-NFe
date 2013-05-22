@@ -1,0 +1,15 @@
+<monitorConfig>
+  <atualizacaoEstatisticas>10</atualizacaoEstatisticas>
+  <atualizacaoMonitoramento>15</atualizacaoMonitoramento>
+  <gadgets>
+    <!--
+    1-Envio em processamento
+    2-Autorizadas
+    3-Contingencia
+    4-Canceladas
+    5-Erro de processamento-->
+    <gadget1>0</gadget1>
+    <gadget2>2</gadget2>
+    <gadget3>3</gadget3>
+  </gadgets>
+</monitorConfig>

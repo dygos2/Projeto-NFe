@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="atualizacao" type ="FN4Common.atualizacaoVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="atualizacaoResult" class="atualizacao">
+      <result property="idHistorico" column = "idHistorico"/>
+      <result property="NFe_ide_nNF" column = "NFe_ide_nNF"/>
+      <result property="NFe_dest_xNome" column = "NFe_dest_xNome"/>
+      <result property="dataHora" column = "dataHora"/>
+      <result property="atualizacao" column = "atualizacao"/>
+      <result property="NFe_emit_CNPJ" column = "NFe_emit_CNPJ"/>
+      <result property="serie" column = "serie"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="obterUltimasAtualizacoes" parameterClass="System.Collections.IDictionary" resultMap="atualizacaoResult" >
+      SELECT * FROM
+      atualizacoesvw
+      WHERE NFe_emit_cnpj = #cnpj#
+      LIMIT #registroInicial#, #registrosPorPagina#;
+    </select>
+
+    <select id="obterAtualizacoes" resultMap="atualizacaoResult" >
+      SELECT * FROM
+      atualizacoesvw
+      WHERE NFe_ide_nNF = #id#
+      AND NFe_emit_CNPJ = #cnpj#;
+    </select>
+
+
+  </statements>
+
+</sqlMap>

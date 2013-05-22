@@ -1,0 +1,1 @@
+sc create FN5Envio_NFe4Web binPath= C:\Fisconet5\NFeCommerce\bin\Fn4IntegradorNFeCommerceSvc.exe

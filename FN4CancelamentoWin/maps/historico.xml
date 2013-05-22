@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="historico" type ="FN4Common.historicoVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="historicoResult" class="historico">
+      <result property="idHistorico" column = "idHistorico"/>
+      <result property="idTpHistorico" column = "idTpHistorico"/>
+      <result property="NFe_ide_nNF" column = "NFe_ide_nNF"/>
+      <result property="dataHora" column = "dataHora"/>
+      <result property="complemento" column = "complemento"/>
+      <result property="serie" column="serie" />
+      </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="obterHistorico" parameterClass="nota" resultMap="historicoResult" >
+      SELECT * FROM historico
+      WHERE NFe_ide_nNF= #NFe_ide_nNF#
+    </select>
+    
+    <insert id="inserirHistorico" parameterClass="historico" >
+      INSERT INTO historico(
+      NFe_ide_nNF,
+      NFe_emit_CNPJ,
+      complemento,
+      idTpHistorico,
+      serie)
+      VALUES(#NFe_ide_nNF#,#NFe_emit_CNPJ#,#complemento#,#idTpHistorico#,#serie#);
+
+    </insert>
+
+    <update id="alterarHistorico" parameterClass="historico" >
+    
+    </update>
+    
+    <delete id="excluirHistorico" parameterClass="int">
+      delete from historico where
+      NFe_ide_nNF = #nNF#
+      and serie = #serie#
+      and NFe_emit_CNPJ = #cnpj#;
+    </delete>
+  </statements>
+
+</sqlMap>

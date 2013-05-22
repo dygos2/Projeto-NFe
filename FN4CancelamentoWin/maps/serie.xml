@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="serie" type ="FN4Common.serieVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="serieResult" class="serie">
+      <result property="numero" column = "serie"/>
+    </resultMap>
+    <resultMap id="notasDaSerie" class="int">
+      <result property="value" column="numero" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="obterSeries" resultMap="serieResult" >
+      select distinct serie from notas order by serie
+    </select>
+    <select id="obterSeriesPorCNPJ" resultMap="serieResult" parameterClass="string">
+      select distinct serie from notas
+      where NFe_emit_CNPJ = #cnpj#
+      order by serie
+    </select>
+
+    <select id="obterNotasPorSerie" parameterClass="int" resultMap="notasDaSerie">
+      select NFe_ide_nNF as numero from notas where serie = #value# order by NFe_ide_nNF
+    </select>
+    <select id="obterNotasPorSerieECnpj" parameterClass="System.Collections.IDictionary" resultMap="notasDaSerie">
+      select
+      NFe_ide_nNF as numero
+      from
+      notas
+      where
+      serie = #serie#
+      AND NFe_emit_CNPJ = #cnpj#
+      order by
+      NFe_ide_nNF
+    </select>
+
+    <select id="obterNotasExistentesASeremInutilizadas" parameterClass="System.Collections.IDictionary" resultMap="notasDaSerie">
+      select
+      NFe_ide_nNF as numero
+      from
+      notas
+      where
+      serie = #serie#
+      AND NFe_emit_CNPJ = #cnpj#
+      AND statusDaNota NOT LIKE '2%'
+      AND statusDaNota NOT LIKE '6%'
+      order by
+      NFe_ide_nNF
+    </select>
+  </statements>
+</sqlMap>

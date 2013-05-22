@@ -1,0 +1,697 @@
+<?xml version="1.0"?>
+<NFe xmlns:p1="http://www.portalfiscal.inf.br/nfe" xmlns="http://www.w3.org/2000/09/xmldsig#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.portalfiscal.inf.br/nfe file:///c:/Projetos/Fisconet4/PL_005c/nfe_v1.10.xsd">
+    <infNFe versao="1.10" Id="ID0">
+        <ide>
+            <cUF>53</cUF>
+            <cNF>000000000</cNF>
+            <natOp>st</natOp>
+            <indPag>2</indPag>
+            <mod>55</mod>
+            <serie>0</serie>
+            <nNF>10</nNF>
+            <dEmi>2000-02-29</dEmi>
+            <!--Element dSaiEnt is optional-->
+            <dSaiEnt>2000-02-29</dSaiEnt>
+            <tpNF>1</tpNF>
+            <cMunFG>0000000</cMunFG>
+            <!--Element NFref is optional, maxOccurs=unbounded-->
+                   <NFref>
+                <refNFe>00000000000000000000000000000000000000000000</refNFe><!--
+                <refNF>
+                    <cUF>53</cUF>
+                    <AAMM>0001</AAMM>
+                    <CNPJ>00000000000000</CNPJ>
+                    <mod>01</mod>
+                    <serie>0</serie>
+                    <nNF>10</nNF>
+                </refNF>-->
+            </NFref>
+            <NFref>
+                <refNFe>00000000000000000000000000000000000000000000</refNFe><!--
+                <refNF>
+                    <cUF>53</cUF>
+                    <AAMM>0001</AAMM>
+                    <CNPJ>00000000000000</CNPJ>
+                    <mod>01</mod>
+                    <serie>0</serie>
+                    <nNF>10</nNF>
+                </refNF>-->
+            </NFref>
+            <tpImp>2</tpImp>
+            <tpEmis>5</tpEmis>
+            <cDV>0</cDV>
+            <tpAmb>2</tpAmb>
+            <finNFe>3</finNFe>
+            <procEmi>3</procEmi>
+            <verProc>st</verProc>
+        </ide>
+        <emit>
+            <CNPJ>00000000000000</CNPJ><!--
+            <CPF>00000000000</CPF>-->
+            <xNome>st</xNome>
+            <!--Element xFant is optional-->
+            <xFant>st</xFant>
+            <enderEmit>
+                <xLgr>st</xLgr>
+                <nro>st</nro>
+                <!--Element xCpl is optional-->
+                <xCpl>st</xCpl>
+                <xBairro>st</xBairro>
+                <cMun>0000000</cMun>
+                <xMun>st</xMun>
+                <UF>TO</UF>
+                <!--Element CEP is optional-->
+                <CEP>00000000</CEP>
+                <!--Element cPais is optional-->
+                <cPais>1058</cPais>
+                <!--Element xPais is optional-->
+                <xPais>BRASIL</xPais>
+                <!--Element fone is optional-->
+                <fone>0</fone>
+            </enderEmit>
+            <IE>00</IE>
+            <!--Element IEST is optional-->
+            <IEST>00</IEST>
+            <!--'Sequence' block is optional-->
+            <IM>st</IM>
+            <CNAE>0000000</CNAE>
+        </emit>
+        <!--Element avulsa is optional-->
+        <avulsa>
+            <CNPJ>00000000000000</CNPJ>
+            <xOrgao>st</xOrgao>
+            <matr>st</matr>
+            <xAgente>st</xAgente>
+            <fone>0</fone>
+            <UF>TO</UF>
+            <nDAR>st</nDAR>
+            <dEmi>2000-02-29</dEmi>
+            <vDAR>0</vDAR>
+            <repEmi>st</repEmi>
+            <!--Element dPag is optional-->
+            <dPag>2000-02-29</dPag>
+        </avulsa>
+        <dest>
+            <CNPJ></CNPJ><!--
+            <CPF>00000000000</CPF>-->
+            <xNome>st</xNome>
+            <enderDest>
+                <xLgr>st</xLgr>
+                <nro>st</nro>
+                <!--Element xCpl is optional-->
+                <xCpl>st</xCpl>
+                <xBairro>st</xBairro>
+                <cMun>0000000</cMun>
+                <xMun>st</xMun>
+                <UF>EX</UF>
+                <!--Element CEP is optional-->
+                <CEP>00000000</CEP>
+                <!--Element cPais is optional-->
+                <cPais>8907</cPais>
+                <!--Element xPais is optional-->
+                <xPais>st</xPais>
+                <!--Element fone is optional-->
+                <fone>0</fone>
+            </enderDest>
+            <IE>0</IE>
+            <!--Element ISUF is optional-->
+            <ISUF>100000000</ISUF>
+        </dest>
+        <!--Element retirada is optional-->
+        <retirada>
+            <CNPJ></CNPJ>
+            <xLgr>st</xLgr>
+            <nro>st</nro>
+            <!--Element xCpl is optional-->
+            <xCpl>st</xCpl>
+            <xBairro>st</xBairro>
+            <cMun>0000000</cMun>
+            <xMun>st</xMun>
+            <UF>EX</UF>
+        </retirada>
+        <!--Element entrega is optional-->
+        <entrega>
+            <CNPJ></CNPJ>
+            <xLgr>st</xLgr>
+            <nro>st</nro>
+            <!--Element xCpl is optional-->
+            <xCpl>st</xCpl>
+            <xBairro>st</xBairro>
+            <cMun>0000000</cMun>
+            <xMun>st</xMun>
+            <UF>EX</UF>
+        </entrega>
+        <!--Element det, maxOccurs=990-->
+        <det nItem="10">
+            <prod>
+                <cProd>st</cProd>
+                <cEAN></cEAN>
+                <xProd>st</xProd>
+                <!--Element NCM is optional-->
+                <NCM>00000000</NCM>
+                <!--Element EXTIPI is optional-->
+                <EXTIPI>00</EXTIPI>
+                <!--Element genero is optional-->
+                <genero>0</genero>
+                <CFOP>7949</CFOP>
+                <uCom>st</uCom>
+                <qCom>0</qCom>
+                <vUnCom>0</vUnCom>
+                <vProd>0</vProd>
+                <cEANTrib></cEANTrib>
+                <uTrib>st</uTrib>
+                <qTrib>0</qTrib>
+                <vUnTrib>0</vUnTrib>
+                <!--Element vFrete is optional-->
+                <vFrete>0.01</vFrete>
+                <!--Element vSeg is optional-->
+                <vSeg>0.01</vSeg>
+                <!--Element vDesc is optional-->
+                <vDesc>0.01</vDesc>
+                <!--Element DI is optional, maxOccurs=unbounded-->
+                <DI>
+                    <nDI>st</nDI>
+                    <dDI>2000-02-29</dDI>
+                    <xLocDesemb>st</xLocDesemb>
+                    <UFDesemb>TO</UFDesemb>
+                    <dDesemb>2000-02-29</dDesemb>
+                    <cExportador>st</cExportador>
+                    <!--Element adi, maxOccurs=unbounded-->
+                    <adi>
+                        <nAdicao>10</nAdicao>
+                        <nSeqAdic>10</nSeqAdic>
+                        <cFabricante>st</cFabricante>
+                        <!--Element vDescDI is optional-->
+                        <vDescDI>0.01</vDescDI>
+                    </adi>
+                    <adi>
+                        <nAdicao>10</nAdicao>
+                        <nSeqAdic>10</nSeqAdic>
+                        <cFabricante>st</cFabricante>
+                        <!--Element vDescDI is optional-->
+                        <vDescDI>0.01</vDescDI>
+                    </adi>
+                    <adi>
+                        <nAdicao>10</nAdicao>
+                        <nSeqAdic>10</nSeqAdic>
+                        <cFabricante>st</cFabricante>
+                        <!--Element vDescDI is optional-->
+                        <vDescDI>0.01</vDescDI>
+                    </adi>
+                </DI>
+                <DI>
+                    <nDI>st</nDI>
+                    <dDI>2000-02-29</dDI>
+                    <xLocDesemb>st</xLocDesemb>
+                    <UFDesemb>TO</UFDesemb>
+                    <dDesemb>2000-02-29</dDesemb>
+                    <cExportador>st</cExportador>
+                    <!--Element adi, maxOccurs=unbounded-->
+                    <adi>
+                        <nAdicao>10</nAdicao>
+                        <nSeqAdic>10</nSeqAdic>
+                        <cFabricante>st</cFabricante>
+                        <!--Element vDescDI is optional-->
+                        <vDescDI>0.01</vDescDI>
+                    </adi>
+                    <adi>
+                        <nAdicao>10</nAdicao>
+                        <nSeqAdic>10</nSeqAdic>
+                        <cFabricante>st</cFabricante>
+                        <!--Element vDescDI is optional-->
+                        <vDescDI>0.01</vDescDI>
+                    </adi>
+                    <adi>
+                        <nAdicao>10</nAdicao>
+                        <nSeqAdic>10</nSeqAdic>
+                        <cFabricante>st</cFabricante>
+                        <!--Element vDescDI is optional-->
+                        <vDescDI>0.01</vDescDI>
+                    </adi>
+                </DI>
+                <DI>
+                    <nDI>st</nDI>
+                    <dDI>2000-02-29</dDI>
+                    <xLocDesemb>st</xLocDesemb>
+                    <UFDesemb>TO</UFDesemb>
+                    <dDesemb>2000-02-29</dDesemb>
+                    <cExportador>st</cExportador>
+                    <!--Element adi, maxOccurs=unbounded-->
+                    <adi>
+                        <nAdicao>10</nAdicao>
+                        <nSeqAdic>10</nSeqAdic>
+                        <cFabricante>st</cFabricante>
+                        <!--Element vDescDI is optional-->
+                        <vDescDI>0.01</vDescDI>
+                    </adi>
+                    <adi>
+                        <nAdicao>10</nAdicao>
+                        <nSeqAdic>10</nSeqAdic>
+                        <cFabricante>st</cFabricante>
+                        <!--Element vDescDI is optional-->
+                        <vDescDI>0.01</vDescDI>
+                    </adi>
+                    <adi>
+                        <nAdicao>10</nAdicao>
+                        <nSeqAdic>10</nSeqAdic>
+                        <cFabricante>st</cFabricante>
+                        <!--Element vDescDI is optional-->
+                        <vDescDI>0.01</vDescDI>
+                    </adi>
+                </DI>
+                         </prod>
+            <imposto>
+                <ICMS>
+                    <ICMS00>
+                        <orig>2</orig>
+                        <CST>00</CST>
+                        <modBC>3</modBC>
+                        <vBC>0</vBC>
+                        <pICMS>0</pICMS>
+                        <vICMS>0</vICMS>
+                    </ICMS00>
+                    <ICMS10>
+                        <orig>2</orig>
+                        <CST>10</CST>
+                        <modBC>3</modBC>
+                        <vBC>0</vBC>
+                        <pICMS>0</pICMS>
+                        <vICMS>0</vICMS>
+                        <modBCST>5</modBCST>
+                       
+                        <pMVAST>0.01</pMVAST>
+                      
+                        <pRedBCST>0.01</pRedBCST>
+                        <vBCST>0</vBCST>
+                        <pICMSST>0</pICMSST>
+                        <vICMSST>0</vICMSST>
+                    </ICMS10>
+                    <ICMS20>
+                        <orig>2</orig>
+                        <CST>20</CST>
+                        <modBC>3</modBC>
+                        <pRedBC>0</pRedBC>
+                        <vBC>0</vBC>
+                        <pICMS>0</pICMS>
+                        <vICMS>0</vICMS>
+                    </ICMS20>
+                    <ICMS30>
+                        <orig>2</orig>
+                        <CST>30</CST>
+                        <modBCST>5</modBCST>
+                                            <pMVAST>0.01</pMVAST>
+                                    <pRedBCST>0.01</pRedBCST>
+                        <vBCST>0</vBCST>
+                        <pICMSST>0</pICMSST>
+                        <vICMSST>0</vICMSST>
+                    </ICMS30>
+                    <ICMS40>
+                        <orig>2</orig>
+                        <CST>50</CST>
+                    </ICMS40>
+                    <ICMS51>
+                        <orig>2</orig>
+                        <CST>51</CST>
+                        <modBC>3</modBC>
+                        <pRedBC>0</pRedBC>
+                        <vBC>0</vBC>
+                        <pICMS>0</pICMS>
+                        <vICMS>0</vICMS>
+                    </ICMS51>
+                    <ICMS60>
+                        <orig>2</orig>
+                        <CST>60</CST>
+                        <vBCST>0</vBCST>
+                        <vICMSST>0</vICMSST>
+                    </ICMS60>
+					                    <ICMS70>
+                        <orig>2</orig>
+                        <CST>70</CST>
+                        <modBC>3</modBC>
+                        <pRedBC>0</pRedBC>
+                        <vBC>0</vBC>
+                        <pICMS>0</pICMS>
+                        <vICMS>0</vICMS>
+                        <modBCST>5</modBCST>
+                        <pMVAST>0.01</pMVAST>
+                        <pRedBCST>0.01</pRedBCST>
+                        <vBCST>0</vBCST>
+                        <pICMSST>0</pICMSST>
+                        <vICMSST>0</vICMSST>
+                    </ICMS70>
+                    <ICMS90>
+                        <orig>2</orig>
+                        <CST>90</CST>
+                        <modBC>3</modBC>
+                        <vBC>0</vBC>
+                        <pRedBC>0.01</pRedBC>
+                        <pICMS>0</pICMS>
+                        <vICMS>0</vICMS>
+                        <modBCST>5</modBCST>
+                        <pMVAST>0.01</pMVAST>
+                        <pRedBCST>0.01</pRedBCST>
+                        <vBCST>0</vBCST>
+                        <pICMSST>0</pICMSST>
+                        <vICMSST>0</vICMSST>
+                    </ICMS90>
+                </ICMS>
+                <IPI>
+             
+                    <clEnq>st</clEnq>
+                  
+         <CNPJProd>00000000000000</CNPJProd>
+            
+                    <cSelo>st</cSelo>
+                
+                    <qSelo>0</qSelo>
+                    <cEnq>st</cEnq>
+                    <IPITrib>
+                        <CST>99</CST>
+                        <vBC>0</vBC>
+                        <pIPI>0</pIPI>
+                        <qUnid>0</qUnid>
+                        <vUnid>0</vUnid>
+                        <vIPI>0</vIPI>
+                    </IPITrib>
+                    <IPINT>
+                        <CST>55</CST>
+                    </IPINT>
+                </IPI>
+                               <II>
+                    <vBC>0</vBC>
+                    <vDespAdu>0</vDespAdu>
+                    <vII>0</vII>
+                    <vIOF>0</vIOF>
+                </II>
+                <PIS>
+                    <PISAliq>
+                        <CST>02</CST>
+                        <vBC>0</vBC>
+                        <pPIS>0</pPIS>
+                        <vPIS>0</vPIS>
+                    </PISAliq>
+                    <PISQtde>
+                        <CST>03</CST>
+                        <qBCProd>0</qBCProd>
+                        <vAliqProd>0</vAliqProd>
+                        <vPIS>0</vPIS>
+                    </PISQtde>
+                    <PISNT>
+                        <CST>09</CST>
+                    </PISNT>--><!--
+                    <PISOutr>
+                        <CST>99</CST>
+                        <vBC>0</vBC>
+                        <pPIS>0</pPIS><!&#x2D;&#x2D;
+                        <qBCProd>0</qBCProd>
+                        <vAliqProd>0</vAliqProd>&#x2D;&#x2D;>
+                        <vPIS>0</vPIS>
+                    </PISOutr>-->
+                </PIS>
+                <!--Element PISST is optional-->
+                <PISST>
+                    <vBC>0.01</vBC>
+                    <pPIS>0.01</pPIS><!--
+                    <qBCProd>0.1000</qBCProd>
+                    <vAliqProd>0.1000</vAliqProd>-->
+                    <vPIS>0.01</vPIS>
+                </PISST>
+                <COFINS>
+                    <COFINSAliq>
+                        <CST>02</CST>
+                        <vBC>0</vBC>
+                        <pCOFINS>0</pCOFINS>
+                        <vCOFINS>0</vCOFINS>
+                    </COFINSAliq>
+                    <COFINSQtde>
+                        <CST>03</CST>
+                        <qBCProd>0</qBCProd>
+                        <vAliqProd>0</vAliqProd>
+                        <vCOFINS>0</vCOFINS>
+                    </COFINSQtde>
+                    <COFINSNT>
+                        <CST>09</CST>
+                    </COFINSNT>
+                    <COFINSOutr>
+                        <CST>99</CST>
+                        <vBC>0</vBC>
+                        <pCOFINS>0</pCOFINS><!&#x2D;&#x2D;
+                        <qBCProd>0</qBCProd>
+                        <vAliqProd>0</vAliqProd>&#x2D;&#x2D;>
+                        <vCOFINS>0</vCOFINS>
+                    </COFINSOutr>
+                </COFINS>
+                <!--Element COFINSST is optional-->
+                <COFINSST>
+                    <vBC>0.01</vBC>
+                    <pCOFINS>0.01</pCOFINS>
+                    <qBCProd>0.1000</qBCProd>
+                    <vAliqProd>0.1000</vAliqProd>
+                    <vCOFINS>0.01</vCOFINS>
+                </COFINSST>
+                <!--Element ISSQN is optional-->
+                <ISSQN>
+                    <vBC>0</vBC>
+                    <vAliq>0</vAliq>
+                    <vISSQN>0</vISSQN>
+                    <cMunFG>0000000</cMunFG>
+                    <cListServ>4001</cListServ>
+                </ISSQN>
+            </imposto>
+            <!--Element infAdProd is optional-->
+            <infAdProd>st</infAdProd>
+        </det>
+       
+        <total>
+            <ICMSTot>
+                <vBC>0</vBC>
+                <vICMS>0</vICMS>
+                <vBCST>0</vBCST>
+                <vST>0</vST>
+                <vProd>0</vProd>
+                <vFrete>0</vFrete>
+                <vSeg>0</vSeg>
+                <vDesc>0</vDesc>
+                <vII>0</vII>
+                <vIPI>0</vIPI>
+                <vPIS>0</vPIS>
+                <vCOFINS>0</vCOFINS>
+                <vOutro>0</vOutro>
+                <vNF>0</vNF>
+            </ICMSTot>
+            <!--Element ISSQNtot is optional-->
+            <ISSQNtot>
+                <!--Element vServ is optional-->
+                <vServ>0.01</vServ>
+                <!--Element vBC is optional-->
+                <vBC>0.01</vBC>
+                <!--Element vISS is optional-->
+                <vISS>0.01</vISS>
+                <!--Element vPIS is optional-->
+                <vPIS>0.01</vPIS>
+                <!--Element vCOFINS is optional-->
+                <vCOFINS>0.01</vCOFINS>
+            </ISSQNtot>
+            <!--Element retTrib is optional-->
+            <retTrib>
+                <!--Element vRetPIS is optional-->
+                <vRetPIS>0.01</vRetPIS>
+                <!--Element vRetCOFINS is optional-->
+                <vRetCOFINS>0.01</vRetCOFINS>
+                <!--Element vRetCSLL is optional-->
+                <vRetCSLL>0.01</vRetCSLL>
+                <!--Element vBCIRRF is optional-->
+                <vBCIRRF>0.01</vBCIRRF>
+                <!--Element vIRRF is optional-->
+                <vIRRF>0.01</vIRRF>
+                <!--Element vBCRetPrev is optional-->
+                <vBCRetPrev>0.01</vBCRetPrev>
+                <!--Element vRetPrev is optional-->
+                <vRetPrev>0.01</vRetPrev>
+            </retTrib>
+        </total>
+        <transp>
+            <modFrete>1</modFrete>
+            <!--Element transporta is optional-->
+            <transporta>
+                <!--'Choice' block is optional-->
+                <CNPJ>00000000000000</CNPJ><!--
+                <CPF>00000000000</CPF>-->
+                <!--Element xNome is optional-->
+                <xNome>st</xNome>
+                <!--Element IE is optional-->
+                <IE>st</IE>
+                <!--Element xEnder is optional-->
+                <xEnder>st</xEnder>
+                <!--Element xMun is optional-->
+                <xMun>st</xMun>
+                <!--Element UF is optional-->
+                <UF>EX</UF>
+            </transporta>
+            <!--Element retTransp is optional-->
+            <retTransp>
+                <vServ>0</vServ>
+                <vBCRet>0</vBCRet>
+                <pICMSRet>0</pICMSRet>
+                <vICMSRet>0</vICMSRet>
+                <CFOP>7949</CFOP>
+                <cMunFG>0000000</cMunFG>
+            </retTransp>
+            <!--Element veicTransp is optional-->
+            <veicTransp>
+                <placa>0</placa>
+                <UF>EX</UF>
+                <!--Element RNTC is optional-->
+                <RNTC>st</RNTC>
+            </veicTransp>
+            <!--Element reboque is optional, maxOccurs=2-->
+            <reboque>
+                <placa>0</placa>
+                <UF>EX</UF>
+                <!--Element RNTC is optional-->
+                <RNTC>st</RNTC>
+            </reboque>
+            <reboque>
+                <placa>0</placa>
+                <UF>EX</UF>
+                <!--Element RNTC is optional-->
+                <RNTC>st</RNTC>
+            </reboque>
+            <!--Element vol is optional, maxOccurs=unbounded-->
+            <vol>
+                <!--Element qVol is optional-->
+                <qVol>0</qVol>
+                <!--Element esp is optional-->
+                <esp>st</esp>
+                <!--Element marca is optional-->
+                <marca>st</marca>
+                <!--Element nVol is optional-->
+                <nVol>st</nVol>
+                <!--Element pesoL is optional-->
+                <pesoL>0</pesoL>
+                <!--Element pesoB is optional-->
+                <pesoB>0</pesoB>
+                <!--Element lacres is optional, maxOccurs=unbounded-->
+                <lacres>
+                    <nLacre>st</nLacre>
+                </lacres>
+                <lacres>
+                    <nLacre>st</nLacre>
+                </lacres>
+                <lacres>
+                    <nLacre>st</nLacre>
+                </lacres>
+            </vol>
+            <vol>
+                <!--Element qVol is optional-->
+                <qVol>0</qVol>
+                <!--Element esp is optional-->
+                <esp>st</esp>
+                <!--Element marca is optional-->
+                <marca>st</marca>
+                <!--Element nVol is optional-->
+                <nVol>st</nVol>
+                <!--Element pesoL is optional-->
+                <pesoL>0</pesoL>
+                <!--Element pesoB is optional-->
+                <pesoB>0</pesoB>
+                <!--Element lacres is optional, maxOccurs=unbounded-->
+                <lacres>
+                    <nLacre>st</nLacre>
+                </lacres>
+                <lacres>
+                    <nLacre>st</nLacre>
+                </lacres>
+                <lacres>
+                    <nLacre>st</nLacre>
+                </lacres>
+            </vol>
+            <vol>
+                <!--Element qVol is optional-->
+                <qVol>0</qVol>
+                <!--Element esp is optional-->
+                <esp>st</esp>
+                <!--Element marca is optional-->
+                <marca>st</marca>
+                <!--Element nVol is optional-->
+                <nVol>st</nVol>
+                <!--Element pesoL is optional-->
+                <pesoL>0</pesoL>
+                <!--Element pesoB is optional-->
+                <pesoB>0</pesoB>
+                <!--Element lacres is optional, maxOccurs=unbounded-->
+                <lacres>
+                    <nLacre>st</nLacre>
+                </lacres>
+                <lacres>
+                    <nLacre>st</nLacre>
+                </lacres>
+                <lacres>
+                    <nLacre>st</nLacre>
+                </lacres>
+            </vol>
+        </transp>
+        <!--Element cobr is optional-->
+        <cobr>
+            <!--Element fat is optional-->
+            <fat>
+                <!--Element nFat is optional-->
+                <nFat>st</nFat>
+                <!--Element vOrig is optional-->
+                <vOrig>0.01</vOrig>
+                <!--Element vDesc is optional-->
+                <vDesc>0.01</vDesc>
+                <!--Element vLiq is optional-->
+                <vLiq>0.01</vLiq>
+            </fat>
+            <!--Element dup is optional, maxOccurs=unbounded-->
+            <dup>
+                <!--Element nDup is optional-->
+                <nDup>st</nDup>
+                <!--Element dVenc is optional-->
+                <dVenc>2000-02-29</dVenc>
+                <!--Element vDup is optional-->
+                <vDup>0.01</vDup>
+            </dup>
+            <dup>
+                <!--Element nDup is optional-->
+                <nDup>st</nDup>
+                <!--Element dVenc is optional-->
+                <dVenc>2000-02-29</dVenc>
+                <!--Element vDup is optional-->
+                <vDup>0.01</vDup>
+            </dup>
+            <dup>
+                <!--Element nDup is optional-->
+                <nDup>st</nDup>
+                <!--Element dVenc is optional-->
+                <dVenc>2000-02-29</dVenc>
+                <!--Element vDup is optional-->
+                <vDup>0.01</vDup>
+            </dup>
+        </cobr>
+        <!--Element infAdic is optional-->
+        <infAdic>
+            <!--Element infAdFisco is optional-->
+            <infAdFisco>st</infAdFisco>
+            <!--Element infCpl is optional-->
+            <infCpl>st</infCpl>
+            <!--Element obsCont is optional, maxOccurs=10-->
+                 </infAdic>
+        <!--Element exporta is optional-->
+        <exporta>
+            <UFEmbarq>EX</UFEmbarq>
+            <xLocEmbarq>st</xLocEmbarq>
+        </exporta>
+        <!--Element compra is optional-->
+        <compra>
+            <!--Element xNEmp is optional-->
+            <xNEmp>st</xNEmp>
+            <!--Element xPed is optional-->
+            <xPed>st</xPed>
+            <!--Element xCont is optional-->
+            <xCont>st</xCont>
+        </compra>
+    </infNFe>
+   
+</NFe>

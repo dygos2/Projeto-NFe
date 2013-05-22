@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://fisconet4.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://fisconet4.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://fisconet4.com/">
+      <s:element name="obterListaDeNotas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="registroInicial" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="registrosPorPagina" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cnpj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obterListaDeNotasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obterListaDeNotasResult" type="tns:listaDeNotasVO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="listaDeNotasVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="listaDeNotas" type="tns:ArrayOfNotaVO" />
+          <s:element minOccurs="1" maxOccurs="1" name="quantidadeDeRegistros" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfNotaVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="notaVO" nillable="true" type="tns:notaVO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="notaVO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="NFe_ide_nNF" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="pastaDeTrabalho" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="statusDaNota" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="tentativasDeInclusao" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NFe_ide_dEmi" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="dEmiString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NFe_infNFe_id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NFe_emit_CNPJ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NFe_emit_CPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NFe_emit_xNome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NFe_dest_CNPJ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NFe_dest_CPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NFe_dest_xNome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NFe_dest_UF" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NFe_total_ICMSTot_vNF" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="retEnviNFe_infRec_nRec" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="retEnviNFe_cStat" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="retEnviNFe_xMotivo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="protNfe_nProt" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="emailDestinatario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dataUltimaAtualizacao" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="impressaoSolicitada" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="impressoEmContingencia" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="historicos" type="tns:ArrayOfHistoricoVO" />
+          <s:element minOccurs="0" maxOccurs="1" name="statusDaNotaString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="atualizacoes" type="tns:ArrayOfAtualizacaoVO" />
+          <s:element minOccurs="0" maxOccurs="1" name="impressora" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="serie" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="imprimeDanfe" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ret_post_data" nillable="true" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfHistoricoVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="historicoVO" nillable="true" type="tns:historicoVO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="historicoVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NFe_emit_CNPJ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="idHistorico" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="idTpHistorico" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NFe_ide_nNF" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="dataHora" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="complemento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="mensagem" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="serie" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAtualizacaoVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="atualizacaoVO" nillable="true" type="tns:atualizacaoVO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="atualizacaoVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="NFe_emit_CNPJ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="idHistorico" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NFe_ide_nNF" type="s:long" />
+          <s:element minOccurs="0" maxOccurs="1" name="NFe_dest_xNome" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dataHora" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="dataString" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="atualizacao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="serie" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="obterUltimasAtualizacoes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="registroInicial" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="registrosPorPagina" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cnpj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obterUltimasAtualizacoesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obterUltimasAtualizacoesResult" type="tns:ArrayOfAtualizacaoVO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscarNotas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="tipoDeBusca" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="parametro" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="registroInicial" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="registrosPorPagina" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="cnpj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="buscarNotasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="buscarNotasResult" type="tns:listaDeNotasVO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obterNota">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nNF" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CNPJ" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="serie" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obterNotaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obterNotaResult" type="tns:notaVO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelarNota">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nNf" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="serie" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="justificativa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CNPJ" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cancelarNotaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cancelarNotaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="solicitarImpressao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nNf" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="serie" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CNPJ" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantidade" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="solicitarImpressaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="solicitarImpressaoResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="solicitarInutilizacao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="inicio" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fim" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="justificativa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CNPJ" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serie" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="solicitarInutilizacaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="solicitarInutilizacaoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="solicitarReenvio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="nNF" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CNPJ" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="serie" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="solicitarReenvioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="solicitarReenvioResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarEmailEReenviar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cnpj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="nnf" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="serie" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="novoEmail" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarEmailEReenviarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AlterarEmailEReenviarResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obterNotasASeremInutilizadas">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cnpj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="obterNotasASeremInutilizadasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="obterNotasASeremInutilizadasResult" type="tns:ArrayOfSerieVO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSerieVO">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="serieVO" nillable="true" type="tns:serieVO" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="serieVO">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="numero" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="notas" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="obterListaDeNotasSoapIn">
+    <wsdl:part name="parameters" element="tns:obterListaDeNotas" />
+  </wsdl:message>
+  <wsdl:message name="obterListaDeNotasSoapOut">
+    <wsdl:part name="parameters" element="tns:obterListaDeNotasResponse" />
+  </wsdl:message>
+  <wsdl:message name="obterUltimasAtualizacoesSoapIn">
+    <wsdl:part name="parameters" element="tns:obterUltimasAtualizacoes" />
+  </wsdl:message>
+  <wsdl:message name="obterUltimasAtualizacoesSoapOut">
+    <wsdl:part name="parameters" element="tns:obterUltimasAtualizacoesResponse" />
+  </wsdl:message>
+  <wsdl:message name="buscarNotasSoapIn">
+    <wsdl:part name="parameters" element="tns:buscarNotas" />
+  </wsdl:message>
+  <wsdl:message name="buscarNotasSoapOut">
+    <wsdl:part name="parameters" element="tns:buscarNotasResponse" />
+  </wsdl:message>
+  <wsdl:message name="obterNotaSoapIn">
+    <wsdl:part name="parameters" element="tns:obterNota" />
+  </wsdl:message>
+  <wsdl:message name="obterNotaSoapOut">
+    <wsdl:part name="parameters" element="tns:obterNotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="cancelarNotaSoapIn">
+    <wsdl:part name="parameters" element="tns:cancelarNota" />
+  </wsdl:message>
+  <wsdl:message name="cancelarNotaSoapOut">
+    <wsdl:part name="parameters" element="tns:cancelarNotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="solicitarImpressaoSoapIn">
+    <wsdl:part name="parameters" element="tns:solicitarImpressao" />
+  </wsdl:message>
+  <wsdl:message name="solicitarImpressaoSoapOut">
+    <wsdl:part name="parameters" element="tns:solicitarImpressaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="solicitarInutilizacaoSoapIn">
+    <wsdl:part name="parameters" element="tns:solicitarInutilizacao" />
+  </wsdl:message>
+  <wsdl:message name="solicitarInutilizacaoSoapOut">
+    <wsdl:part name="parameters" element="tns:solicitarInutilizacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="solicitarReenvioSoapIn">
+    <wsdl:part name="parameters" element="tns:solicitarReenvio" />
+  </wsdl:message>
+  <wsdl:message name="solicitarReenvioSoapOut">
+    <wsdl:part name="parameters" element="tns:solicitarReenvioResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarEmailEReenviarSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarEmailEReenviar" />
+  </wsdl:message>
+  <wsdl:message name="AlterarEmailEReenviarSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarEmailEReenviarResponse" />
+  </wsdl:message>
+  <wsdl:message name="obterNotasASeremInutilizadasSoapIn">
+    <wsdl:part name="parameters" element="tns:obterNotasASeremInutilizadas" />
+  </wsdl:message>
+  <wsdl:message name="obterNotasASeremInutilizadasSoapOut">
+    <wsdl:part name="parameters" element="tns:obterNotasASeremInutilizadasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="FN4NotasServiceSoap">
+    <wsdl:operation name="obterListaDeNotas">
+      <wsdl:input message="tns:obterListaDeNotasSoapIn" />
+      <wsdl:output message="tns:obterListaDeNotasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obterUltimasAtualizacoes">
+      <wsdl:input message="tns:obterUltimasAtualizacoesSoapIn" />
+      <wsdl:output message="tns:obterUltimasAtualizacoesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="buscarNotas">
+      <wsdl:input message="tns:buscarNotasSoapIn" />
+      <wsdl:output message="tns:buscarNotasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obterNota">
+      <wsdl:input message="tns:obterNotaSoapIn" />
+      <wsdl:output message="tns:obterNotaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cancelarNota">
+      <wsdl:input message="tns:cancelarNotaSoapIn" />
+      <wsdl:output message="tns:cancelarNotaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="solicitarImpressao">
+      <wsdl:input message="tns:solicitarImpressaoSoapIn" />
+      <wsdl:output message="tns:solicitarImpressaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="solicitarInutilizacao">
+      <wsdl:input message="tns:solicitarInutilizacaoSoapIn" />
+      <wsdl:output message="tns:solicitarInutilizacaoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="solicitarReenvio">
+      <wsdl:input message="tns:solicitarReenvioSoapIn" />
+      <wsdl:output message="tns:solicitarReenvioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEmailEReenviar">
+      <wsdl:input message="tns:AlterarEmailEReenviarSoapIn" />
+      <wsdl:output message="tns:AlterarEmailEReenviarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="obterNotasASeremInutilizadas">
+      <wsdl:input message="tns:obterNotasASeremInutilizadasSoapIn" />
+      <wsdl:output message="tns:obterNotasASeremInutilizadasSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FN4NotasServiceSoap" type="tns:FN4NotasServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obterListaDeNotas">
+      <soap:operation soapAction="http://fisconet4.com/obterListaDeNotas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterUltimasAtualizacoes">
+      <soap:operation soapAction="http://fisconet4.com/obterUltimasAtualizacoes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarNotas">
+      <soap:operation soapAction="http://fisconet4.com/buscarNotas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterNota">
+      <soap:operation soapAction="http://fisconet4.com/obterNota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarNota">
+      <soap:operation soapAction="http://fisconet4.com/cancelarNota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="solicitarImpressao">
+      <soap:operation soapAction="http://fisconet4.com/solicitarImpressao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="solicitarInutilizacao">
+      <soap:operation soapAction="http://fisconet4.com/solicitarInutilizacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="solicitarReenvio">
+      <soap:operation soapAction="http://fisconet4.com/solicitarReenvio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEmailEReenviar">
+      <soap:operation soapAction="http://fisconet4.com/AlterarEmailEReenviar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterNotasASeremInutilizadas">
+      <soap:operation soapAction="http://fisconet4.com/obterNotasASeremInutilizadas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FN4NotasServiceSoap12" type="tns:FN4NotasServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="obterListaDeNotas">
+      <soap12:operation soapAction="http://fisconet4.com/obterListaDeNotas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterUltimasAtualizacoes">
+      <soap12:operation soapAction="http://fisconet4.com/obterUltimasAtualizacoes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="buscarNotas">
+      <soap12:operation soapAction="http://fisconet4.com/buscarNotas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterNota">
+      <soap12:operation soapAction="http://fisconet4.com/obterNota" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cancelarNota">
+      <soap12:operation soapAction="http://fisconet4.com/cancelarNota" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="solicitarImpressao">
+      <soap12:operation soapAction="http://fisconet4.com/solicitarImpressao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="solicitarInutilizacao">
+      <soap12:operation soapAction="http://fisconet4.com/solicitarInutilizacao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="solicitarReenvio">
+      <soap12:operation soapAction="http://fisconet4.com/solicitarReenvio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarEmailEReenviar">
+      <soap12:operation soapAction="http://fisconet4.com/AlterarEmailEReenviar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="obterNotasASeremInutilizadas">
+      <soap12:operation soapAction="http://fisconet4.com/obterNotasASeremInutilizadas" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FN4NotasService">
+    <wsdl:port name="FN4NotasServiceSoap" binding="tns:FN4NotasServiceSoap">
+      <soap:address location="http://localhost:2281/FN4NotasService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FN4NotasServiceSoap12" binding="tns:FN4NotasServiceSoap12">
+      <soap12:address location="http://localhost:2281/FN4NotasService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

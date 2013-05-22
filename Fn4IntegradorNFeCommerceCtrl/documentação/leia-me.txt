@@ -1,0 +1,66 @@
+================================================================
+Documentação para utilizar o sistemas de envio NFeCommerceSender
+Versão 1.0
+14/11/2011
+================================================================
+
+Requisitos para utilização do sistema
+=====================================
+
+1- O computador deve ter instalado o .Net framework 3.5 (http://www.microsoft.com/download/en/details.aspx?id=21)
+2- Deverá ter acesso a internet e possuir permissões no Firewall ao IP 208.109.236.57
+3- Permissão de gravação de arquivos nas pastas abaixo de C:\Fisconet5\NFeCommerce\
+
+Passos para a configuração
+==========================
+
+1- O sistema deverá estar instalado na seguinte pasta abaixo:
+	- C:\Fisconet5\NFeCommerce\
+2- Após a extração dos arquivos na pasta acima, executar o arquivo create.bat na pasta C:\Fisconet5\NFeCommerce\documentacao
+3- Iniciar a execução do sistema nos serviços do windows, ele estará com o nome de FN5Envio_NFe4Web
+
+Mapeamento das pastas
+=====================
+O sistema possui um conjunto de pastas, que representam diferentes funcionalidades, segue o mapeamento:
+
+\bin - possui os arquivos de execução do sistema
+\bin\xml - possui o arquivo FN4Config.xml onde o cliente deverá alterar a linha tm_amb_nfe4web para 1/ homologacao ou 2/ producao
+\documentacao - possui os arquivos de documentação do sistema
+\out - será criado os arquivos de retorno do servidor, com as informações de processamento ou não
+\in\homolog - pasta de entrada dos arquivos TXT do sistema quando forem para ser processados em homologação, ou seja, o parâmetro tm_amb_nfe4web = 1 (homologacao)
+\in\prod - pasta de entrada dos arquivos TXT do sistema quando forem para ser processados em produção, ou seja, o parâmetro tm_amb_nfe4web = 2 (producao)
+\in\rejeitadas - pasta de notas rejeitadas do sistema
+\log - log de atividades do sistema
+
+Sobre as funcionalidades do sistema
+===================================
+O sistema possui 3 funcionalidades:
+	1- Enviar o TXT de processamento para o servidor
+		- Colocar o arquivo de TXT na pasta de entrada (C:\Fisconet5\NFeCommerce\in\homolog ou \prod)
+			- o formato do arquivo de entrada, deverá seguir o formato CNPJ_NUMERO_SERIE.txt
+
+	2- Retorno da consulta de Status da NF-e
+		- O sistema retornará a consulta do status dos arquivos colocados no servidor e colocará o retorno automaticamente na pasta de saída (C:\Fisconet5\NFeCommerce\out\)
+			- o formato do retorno da consulta, será ret_CNPJ_NUMERO_SERIE.txt
+			- As informações que constam interiormente no arquivo de retorno são:
+				01|Chave de acesso da NFe que poderá ser consultada online (se autorizada)
+				02|CNPJ do cliente
+				03|Número da NF-e
+				04|Série da NF-e
+				05|Status da NF-e
+				06|Status numérico de retorno da NF-e na Sefaz (Cstat)
+				07|Data da última atualização
+				08|URL da Danfe gerada
+				09|Motivo do erro ou Retorno da Fazenda
+
+	3- Consulta de NF-e
+		- Caso o processo da NF-e demore mais que 1 minuto, o sistema irá parar automaticamente de consultar no servidor NFe4web, e neste caso, o cliente ou deverá enviar novamente outro arquivo,
+                  ou consultar para saber se depois de algum tempo o sistema conseguiu processar o arquivo.
+                - Para enviar uma nova consulta de processamento, o sistema do cliente deverá colocar na pasta de entrada (C:\Fisconet5\NFeCommerce\in\homolog ou \prod) o seguinte arquivo:				
+		CNPJ-NFe-Serie-consult.TXT
+		- O sistema retornará novamente para a mesma pasta de saída a resposta do processamento
+
+Observações de funcionamento
+============================
+ - Ao alterar os parâmetros de produção e homologação no FN4config.xml, precisa sempre reiniciar o serviço para que o sistema recarregue as novas configurações
+ - É sempre importante verificar os arquivos de saída do log, para verificar o correto processamento dos arquivos

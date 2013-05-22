@@ -1,0 +1,16 @@
+﻿SELECT * FROM notas n, historico h
+LEFT OUTER JOIN tipodehistorico t ON h.idTpHistorico=t.idTpHistorico
+WHERE h.NFe_ide_nNF=n.NFe_ide_nNF
+ORDER by dataHora DESC;
+
+
+SELECT
+  n.NFe_ide_nNF,
+  n.NFe_dest_xNome,
+  h.dataHora,
+  concat_ws(' - ', t.tpHistorico, h.complemento) as atualizacao,
+  h.idHistorico
+FROM notas n, historico h
+  LEFT OUTER JOIN tipodehistorico t ON h.idTpHistorico=t.idTpHistorico
+WHERE h.NFe_ide_nNF=n.NFe_ide_nNF
+ORDER by dataHora DESC;

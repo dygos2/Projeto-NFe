@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Fisconet4.Settings>
+  <!-- AMBIENTE -->
+  <setting name="ambienteDeExecucao" >
+    <value>2</value>
+  </setting>
+  <setting name="serialNumberDoCertificado" >
+    <value>32 30 30 39 30 38 31 39 31 37 35 37 32 31 30 32</value>
+  </setting>
+
+  <!-- TEMPOS -->
+  <setting name="tempoLimiteParaContingencia" >
+    <value>300000</value>
+  </setting>
+  <setting name="intervaloDeVarreduraDeEntrada" >
+    <value>2000</value>
+  </setting>
+  <setting name="intervaloDeVarreduraDeSaida" >
+    <value>6000</value>
+  </setting>
+
+  <!-- ARQUIVOS -->
+  <setting name="arquivoSchemaNfe" >
+    <value>nfe_v1.10.xsd</value>
+  </setting>
+  <setting name="arquivoDeConfiguracaoLog4Net" >
+    <value>C:\Fisconet4_spl\bin\Log4netConfig.xml</value>
+  </setting>
+  <setting name="stylesheetNFe" >
+    <value>GeraNFe2.xslt</value>
+  </setting>
+
+  <!--PASTAS-->
+  <setting name="pastaEntrada" >
+    <value>C:\Fisconet4_spl\in\</value>
+  </setting>
+  <setting name="pastaDeSaida" >
+    <value>C:\Fisconet4_spl\out\</value>
+  </setting>
+  <setting name="pastaDeRejeitadas" >
+    <value>C:\Fisconet4_spl\in\rejected\</value>
+  </setting>
+  <setting name="pastaDeAprovadas" >
+    <value>C:\Fisconet4_spl\in\accepted\</value>
+  </setting>
+  <setting name="pastaDeProcessadas" >
+    <value>C:\Fisconet4_spl\process\</value>
+  </setting>
+  
+  <!-- Apenas para SPL -->
+  <setting name="pastaPreEntrada" >
+    <value>C:\Fisconet4_spl\prein\</value>
+  </setting>
+  
+  
+  <!--SERVICOS-->
+  <!---HOMOLOGACAO-->
+ 
+ <setting name="servicoRecepcao" >
+    <value> https://homologacao.nfe.fazenda.sp.gov.br/nfeweb/services/nferecepcao.asmx</value>
+    </setting>
+  <setting name="servicoRetornoRecepcao" >
+    <value> https://homologacao.nfe.fazenda.sp.gov.br/nfeweb/services/nferetrecepcao.asmx</value>
+  </setting>
+  <setting name="servicoCancelamento" >
+    <value>https://homologacao.nfe.fazenda.sp.gov.br/nfeweb/services/nfecancelamento.asmx</value>
+  </setting>
+  <setting name="servicoConsultaStatus" >
+    <value>https://homologacao.nfe.fazenda.sp.gov.br/nfeweb/services/nfestatusservico.asmx</value>
+  </setting>
+  <setting name="servicoInutilizacao" >
+    <value>https://homologacao.nfe.fazenda.sp.gov.br/nfeweb/services/nfeinutilizacao.asmx</value>
+  </setting>
+
+  <!--PRODUCAO-->
+ <!--
+
+  <setting name="servicoRecepcao" >
+    <value> https://nfe.fazenda.sp.gov.br/nfeweb/services/nferecepcao.asmx</value>
+  </setting>
+  <setting name="servicoRetornoRecepcao" >
+    <value> https://nfe.fazenda.sp.gov.br/nfeweb/services/nferetrecepcao.asmx</value>
+  </setting>
+  <setting name="servicoCancelamento" >
+    <value>https://nfe.fazenda.sp.gov.br/nfeweb/services/nfecancelamento.asmx</value>
+  </setting>
+  <setting name="servicoConsultaStatus" >
+    <value>https://nfe.fazenda.sp.gov.br/nfeweb/services/nfestatusservico.asmx</value>
+  </setting>
+   <setting name="servicoInutilizacao" >
+    <value>https://nfe.fazenda.sp.gov.br/nfeweb/services/nfeinutilizacao.asmx</value>
+  </setting> -->
+
+  <!--SCAN-->
+  <!--
+  <setting name="servicoRecepcao" >
+    <value>https://hom.nfe.fazenda.gov.br/SCAN/NfeRecepcao/NfeRecepcao.asmx</value>
+  </setting>
+  <setting name="servicoRetornoRecepcao" >
+    <value>https://hom.nfe.fazenda.gov.br/SCAN/NfeRetRecepcao/NfeRetRecepcao.asmx</value>
+  </setting>
+  <setting name="servicoCancelamento" >
+    <value>https://hom.nfe.fazenda.gov.br/SCAN/NfeCancelamento/NfeCancelamento.asmx</value>
+  </setting>
+  <setting name="servicoConsultaStatus" >
+    <value>https://hom.nfe.fazenda.gov.br/SCAN/NfeStatusServico/NfeStatusServico.asmx </value>
+  </setting>
+  
+-->
+
+  <!-- CAMPOS -->
+  <setting name="posicaoCampoICMS" >
+    <value>31</value>
+  </setting>
+
+  <setting name="posicaoCampoDuplicatas" >
+    <value>64</value>
+  </setting>
+
+<!-- apenas para  renomeador-->
+   <setting name="posicaoCampoCNPJEmitente" >
+    <value>11</value>
+  </setting>
+
+  <setting name="emailRemetente">
+    <value>default</value>
+  </setting>
+  <setting name="senha">
+    <value>default</value>
+  </setting>
+  <setting name="servidorSMTP">
+    <value>default</value>
+  </setting>
+  <setting name="enableSSL">
+    <value>0</value>
+  </setting>
+  <setting name="porta">
+    <value>default</value>
+  </setting>
+
+  <setting name="arquivoAuxiliar">
+    <!-- unidanfe-->
+    <value>C:\Fisconet4_spl\bin\xml\auxiliar.xml</value>
+  </setting>
+
+
+</Fisconet4.Settings>

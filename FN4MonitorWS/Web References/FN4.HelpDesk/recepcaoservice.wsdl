@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://fisconet4.net.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://fisconet4.net.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://fisconet4.net.org/">
+      <s:element name="ProcessarRequisicao">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlEnvio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CNPJEmpresa" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nomeResponsavel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailResponsavel" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProcessarRequisicaoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ProcessarRequisicaoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ProcessarRequisicaoSoapIn">
+    <wsdl:part name="parameters" element="tns:ProcessarRequisicao" />
+  </wsdl:message>
+  <wsdl:message name="ProcessarRequisicaoSoapOut">
+    <wsdl:part name="parameters" element="tns:ProcessarRequisicaoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="RecepcaoServiceSoap">
+    <wsdl:operation name="ProcessarRequisicao">
+      <wsdl:input message="tns:ProcessarRequisicaoSoapIn" />
+      <wsdl:output message="tns:ProcessarRequisicaoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RecepcaoServiceSoap" type="tns:RecepcaoServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessarRequisicao">
+      <soap:operation soapAction="http://fisconet4.net.org/ProcessarRequisicao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="RecepcaoServiceSoap12" type="tns:RecepcaoServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ProcessarRequisicao">
+      <soap12:operation soapAction="http://fisconet4.net.org/ProcessarRequisicao" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RecepcaoService">
+    <wsdl:port name="RecepcaoServiceSoap" binding="tns:RecepcaoServiceSoap">
+      <soap:address location="http://megaideas.net/helpdesk/recepcaoservice.asmx" />
+    </wsdl:port>
+    <wsdl:port name="RecepcaoServiceSoap12" binding="tns:RecepcaoServiceSoap12">
+      <soap12:address location="http://megaideas.net/helpdesk/recepcaoservice.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

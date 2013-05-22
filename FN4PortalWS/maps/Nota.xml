@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="WSHelpDesk" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="Nota" type ="FN4PortalWS.NotaVO, FN4PortalWS"/>
+ 
+  </alias>
+
+  <resultMaps>
+    <resultMap id="notaResult" class="Nota">
+      <result property="codigoNota" column ="codigoNotaEnviada"/>
+      <result property="codigoEmitente" column ="codigoCliente"/>
+      <result property="codigoDestinatario" column ="codigoDestinatario"/>
+      <result property="numeroDaNota" column ="numNota"/>
+      <result property="chaveDeAcessoDaNota" column ="chaveDeAcesso"/>
+      <result property="dataHoraDaEmissaoDaNota" column ="data"/>
+    </resultMap>
+   </resultMaps>
+
+  <statements>
+    <select id="ObterNotas" parameterClass="System.Collections.IDictionary" resultMap="notaResult" >
+      select * from notasEnviadas;
+    </select>
+
+   <!-- <select id="ObterNotasPorCliente" parameterClass="int" resultMap="ClienteResult" >
+      select * from clientes where codigo = #value#;
+    </select> -->
+
+    <select id="obterNotaPorNumero" parameterClass="int" resultMap="notaResult">
+      select * from notasEnviadas
+      WHERE numNota = #value#;
+    </select>
+
+    <insert id="inserirNota" parameterClass="FN4PortalWS.InformacoesParaNotificacaoVO">
+      INSERT INTO notasEnviadas(codigoCliente, codigoDestinatario, numNota, data, chaveDeAcesso)
+      VALUES(#emitente.codigo#,
+      #destinatario.codigoDestinatario#,
+      #nota.numeroDaNota#,
+      #nota.dataHoraDaEmissaoDaNota#,
+      #nota.chaveDeAcessoDaNota#);
+    </insert>
+  </statements>
+
+</sqlMap>

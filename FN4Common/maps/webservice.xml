@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="webservice" type ="FN4Common.webserviceVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="webserviceResult" class="webservice">
+      <result property="idWebservice" column = "idWebservice"/>
+      <result property="uf" column = "uf"/>
+      <result property="nome" column = "nome"/>
+      <result property="versao" column = "versao"/>
+      <result property="url" column = "url"/>
+      <result property="homologacao" column = "homologacao"/>
+      <result property="contingencia" column = "contingencia"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="obterWebservice" parameterClass="System.Collections.IDictionary" resultMap="webserviceResult" >
+      SELECT * FROM webservice
+      WHERE uf =#uf#
+      AND nome =#nome#
+      AND versao =#versao#
+      AND homologacao =#homologacao#;
+    </select>
+
+    <update id="alterarWebservice" parameterClass="webservice">
+      update webservice set
+      uf = #uf#
+      , nome = #nome#
+      , versao = #versao#
+      , url = #url#
+      , contingencia = #contingencia#
+      where idWebservice = #idWebservice#;
+    </update>
+  </statements>
+</sqlMap>

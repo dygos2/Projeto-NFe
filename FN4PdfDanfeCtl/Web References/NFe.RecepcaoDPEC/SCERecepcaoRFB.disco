@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://hom.nfe.fazenda.gov.br/SCERecepcaoRFB/SCERecepcaoRFB.asmx?wsdl" docRef="https://hom.nfe.fazenda.gov.br/SCERecepcaoRFB/SCERecepcaoRFB.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://hom.nfe.fazenda.gov.br/SCERecepcaoRFB/SCERecepcaoRFB.asmx" xmlns:q1="http://www.portalfiscal.inf.br/nfe/wsdl/SCERecepcaoRFB" binding="q1:SCERecepcaoRFBSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://hom.nfe.fazenda.gov.br/SCERecepcaoRFB/SCERecepcaoRFB.asmx" xmlns:q2="http://www.portalfiscal.inf.br/nfe/wsdl/SCERecepcaoRFB" binding="q2:SCERecepcaoRFBSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

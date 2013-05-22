@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="bkp" type ="FN4Common.bkpVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="bkpResult" class="bkp">
+      <result property="id_bkp" column = "id_bkp"/>
+      <result property="cnpj_emit" column="cnpj_emit" />
+      <result property="cod_token" column = "cod_token"/>
+      <result property="data" column = "data"/>
+     </resultMap>
+ </resultMaps>
+
+  <statements>
+    
+    <insert id="inserirBkp" parameterClass="bkp" >
+      INSERT INTO bkp (
+      cnpj_emit,
+      cod_token,
+      data)
+      VALUES
+      (#cnpj_emit#
+      ,#cod_token#
+      ,#data#);
+    </insert>
+
+  </statements>
+
+</sqlMap>

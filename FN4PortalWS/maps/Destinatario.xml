@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="WSHelpDesk" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="Destinatario" type ="FN4PortalWS.DestinatarioVO, FN4PortalWS"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="destResult" class="Destinatario">
+      <result property="codigoDestinatario" column ="codigoDestinatario"/>
+      <result property="CPFCNPJ" column ="CPF_CNPJ"/>
+      <result property="nomeDestinatario" column ="nomeDestinatario"/>
+      <result property="email" column ="email"/>
+    </resultMap>
+   </resultMaps>
+
+  <statements>
+    <select id="obterDestinatarios" parameterClass="System.Collections.IDictionary" resultMap="destResult" >
+      select * from destinatarios;
+    </select>
+
+    <select id="obterDestinatarioPorCPFCNPJ" parameterClass="Destinatario" resultMap="destResult" >
+      select * from destinatarios where CPF_CNPJ = #CPFCNPJ#;
+    </select>
+
+    <insert id ="inserirDestinatario" parameterClass="Destinatario">
+      INSERT into destinatarios(nomeDestinatario, CPF_CNPJ, email)
+      VALUES(#nomeDestinatario#,
+      #CPFCNPJ#,
+      #email#);
+      <selectKey property="codigoDestinatario" type="post" resultClass="int">
+        SELECT LAST_INSERT_ID();
+      </selectKey>
+    </insert>
+
+    <update id ="alterarDestinatario" parameterClass="Destinatario">
+      UPDATE destinatarios SET
+      nomeDestinatario = #nomeDestinatario#,
+      CPF_CNPJ = #CPFCNPJ#,
+      email = #email#,
+      senha = #senha#
+      WHERE codigoDestinatario = #codigoDestinatario#;
+    </update>
+  </statements>
+
+</sqlMap>

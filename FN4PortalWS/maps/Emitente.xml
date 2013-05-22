@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="WSHelpDesk" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="Emitente" type ="FN4PortalWS.EmitenteVO, FN4PortalWS"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="emitResult" class="Emitente">
+      <result property="codigo" column ="codigoCliente"/>
+      <result property="CNPJ" column ="CNPJ"/>
+      <result property="nome" column ="nomeCliente"/>
+      <result property="ativo" column ="ativo"/>
+    </resultMap>
+   </resultMaps>
+
+  <statements>
+    <select id="ObterEmitentes" parameterClass="System.Collections.IDictionary" resultMap="emitResult" >
+      select * from clientes;
+    </select>
+
+    <select id="obterEmitentePorCNPJ" parameterClass="Emitente" resultMap="emitResult" >
+      select * from clientes where CNPJ = #CNPJ#;
+    </select>
+
+ </statements>
+
+</sqlMap>

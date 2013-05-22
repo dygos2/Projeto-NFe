@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<consSitNFe versao="1.07" xmlns="http://www.portalfiscal.inf.br/nfe" >
+  <tpAmb>2</tpAmb>
+  <xServ>CONSULTAR</xServ>
+  <chNFe>00000000000000000000000000000000000000000000</chNFe>
+</consSitNFe>

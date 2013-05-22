@@ -1,0 +1,214 @@
+<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+  <infNFe versao="1.10" Id="NFe35090954800768000179550000000005600000005602">
+    <ide>
+      <cUF>35</cUF>
+      <cNF>000000560</cNF>
+      <natOp>*6.102. *VENDA**</natOp>
+      <indPag>0</indPag>
+      <mod>55</mod>
+      <serie>0</serie>
+      <nNF>560</nNF>
+      <dEmi>2009-09-10</dEmi>
+      <tpNF>1</tpNF>
+      <cMunFG>3550308</cMunFG>
+      <tpImp>1</tpImp>
+      <tpEmis>1</tpEmis>
+      <cDV>2</cDV>
+      <tpAmb>1</tpAmb>
+      <finNFe>1</finNFe>
+      <procEmi>0</procEmi>
+      <verProc>1.10</verProc>
+    </ide>
+    <emit>
+      <CNPJ>54800768000179</CNPJ>
+      <xNome>SHOCK METAIS NAO FERROSOS LTDA</xNome>
+      <xFant>SHOCKMETAIS</xFant>
+      <enderEmit>
+        <xLgr>RUA FAUSTO</xLgr>
+        <nro>48</nro>
+        <xBairro>MOINHO VELHO</xBairro>
+        <cMun>3550308</cMun>
+        <xMun>SAO PAULO</xMun>
+        <UF>SP</UF>
+        <CEP>04285080</CEP>
+        <cPais>1058</cPais>
+        <xPais>BRASIL</xPais>
+        <fone>1120651611</fone>
+      </enderEmit>
+      <IE>111306418117</IE>
+    </emit>
+    <dest>
+      <CNPJ>01243305003455</CNPJ>
+      <xNome>DIPLOMATA S/A INDUSTRIAL E COMERCIAL</xNome>
+      <enderDest>
+        <xLgr>R ANDRE LUNARDI</xLgr>
+        <nro>948</nro>
+        <xBairro>CENTRO</xBairro>
+        <cMun>4219705</cMun>
+        <xMun>Xaxim</xMun>
+        <UF>SC</UF>
+        <CEP>89825000</CEP>
+        <cPais>1058</cPais>
+        <xPais>BRASIL</xPais>
+        <fone>493538011</fone>
+      </enderDest>
+      <IE>254673813</IE>
+    </dest>
+    <det nItem="1">
+      <prod>
+        <cProd>15606</cProd>
+        <cEAN />
+        <xProd>COMPLEMENTO DE ICMS</xProd>
+        <NCM>00000000</NCM>
+        <genero>0</genero>
+        <CFOP>6102</CFOP>
+        <uCom>Un.</uCom>
+        <qCom>1.0000</qCom>
+        <vUnCom>0.0000</vUnCom>
+        <vProd>0.00</vProd>
+        <cEANTrib />
+        <uTrib>-</uTrib>
+        <qTrib>1.0000</qTrib>
+        <vUnTrib>0.0000</vUnTrib>
+      </prod>
+      <imposto>
+        <ICMS>
+          <ICMS00>
+            <orig>0</orig>
+            <CST>00</CST>
+            <modBC>0</modBC>
+            <vBC>0.00</vBC>
+            <pICMS>0.00</pICMS>
+            <vICMS>0.00</vICMS>
+          </ICMS00>
+        </ICMS>
+        <IPI>
+          <cEnq>999</cEnq>
+          <IPITrib>
+            <CST>50</CST>
+            <vBC>0.00</vBC>
+            <pIPI>0.00</pIPI>
+            <vIPI>0.00</vIPI>
+          </IPITrib>
+        </IPI>
+        <PIS>
+          <PISNT>
+            <CST>08</CST>
+          </PISNT>
+        </PIS>
+        <COFINS>
+          <COFINSNT>
+            <CST>08</CST>
+          </COFINSNT>
+        </COFINS>
+      </imposto>
+    </det>
+    <det nItem="2">
+      <prod>
+        <cProd>15607</cProd>
+        <cEAN />
+        <xProd>COMPLEMENTO BASE CALCULO DO ICMS</xProd>
+        <NCM>00000000</NCM>
+        <genero>0</genero>
+        <CFOP>6102</CFOP>
+        <uCom>Un.</uCom>
+        <qCom>1.0000</qCom>
+        <vUnCom>0.0000</vUnCom>
+        <vProd>0.00</vProd>
+        <cEANTrib />
+        <uTrib>-</uTrib>
+        <qTrib>1.0000</qTrib>
+        <vUnTrib>0.0000</vUnTrib>
+      </prod>
+      <imposto>
+        <ICMS>
+          <ICMS00>
+            <orig>0</orig>
+            <CST>00</CST>
+            <modBC>0</modBC>
+            <vBC>0.00</vBC>
+            <pICMS>0.00</pICMS>
+            <vICMS>0.00</vICMS>
+          </ICMS00>
+        </ICMS>
+        <IPI>
+          <cEnq>999</cEnq>
+          <IPITrib>
+            <CST>50</CST>
+            <vBC>0.00</vBC>
+            <pIPI>0.00</pIPI>
+            <vIPI>0.00</vIPI>
+          </IPITrib>
+        </IPI>
+        <PIS>
+          <PISNT>
+            <CST>08</CST>
+          </PISNT>
+        </PIS>
+        <COFINS>
+          <COFINSNT>
+            <CST>08</CST>
+          </COFINSNT>
+        </COFINS>
+      </imposto>
+    </det>
+    <total>
+      <ICMSTot>
+        <vBC>71.30</vBC>
+        <vICMS>8.56</vICMS>
+        <vBCST>0.00</vBCST>
+        <vST>0.00</vST>
+        <vProd>0.00</vProd>
+        <vFrete>0.00</vFrete>
+        <vSeg>0.00</vSeg>
+        <vDesc>0.00</vDesc>
+        <vII>0.00</vII>
+        <vIPI>0.00</vIPI>
+        <vPIS>0.00</vPIS>
+        <vCOFINS>0.00</vCOFINS>
+        <vOutro>0.00</vOutro>
+        <vNF>0.00</vNF>
+      </ICMSTot>
+    </total>
+    <transp>
+      <modFrete>1</modFrete>
+      <transporta>
+        <xNome>NOSSO CARRO</xNome>
+        <UF>SP</UF>
+      </transporta>
+      <vol>
+        <pesoL>0.000</pesoL>
+        <pesoB>0.000</pesoB>
+      </vol>
+    </transp>
+    <cobr>
+      <fat>
+        <nFat>560</nFat>
+        <vLiq>0.00</vLiq>
+      </fat>
+    </cobr>
+    <infAdic>
+      <infCpl>NUMERO DO PEDIDO: 271.093 - PEDIDO DO CLIENTE: 107962 - NOTA FISCAL COMPLEMENTAR REFERENTE A DIFERENCA DE "ICMS" E "BASE DE CALCULO DO ICMS" DESTACADO A MENOR EM NOSSA NF. 528 DO DIA: 09/09/2009 - SENDO O VALOR CORRETO: R$ 1.497.30</infCpl>
+    </infAdic>
+  </infNFe>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <Reference URI="#NFe35090954800768000179550000000005600000005602">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+          <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>dgHljMnXXyhTwomDyFgtvYgYS2o=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>T9cSK+9zBKv4bWKRuq6TDUZkiuyEAPlUlA4G+INeWUfVewTW+p4ORu6oFiTsszrq473ehXC20Jd9zsSCvypMIIlnBkhNTa0vsulwSbLNeNFlrOwvvJr0KqG9E+lYbYGOgNk0bHJnHJXo2Kr4Q+nLxEqAJ7oocV64uVNPnImo9vs=</SignatureValue>
+    <KeyInfo>
+      <X509Data>
+        <X509Certificate>MIIGKzCCBROgAwIBAgIIEUns7e8DvTcwDQYJKoZIhvcNAQEFBQAwTDELMAkGA1UEBhMCQlIxEzARBgNVBAoTCklDUC1CcmFzaWwxKDAmBgNVBAMTH1NFUkFTQSBDZXJ0aWZpY2Fkb3JhIERpZ2l0YWwgdjEwHhcNMDkwMzA1MTkwMDAwWhcNMTAwMzA1MTkwMDAwWjCB6TELMAkGA1UEBhMCQlIxEzARBgNVBAoTCklDUC1CcmFzaWwxFDASBgNVBAsTCyhFTSBCUkFOQ08pMRgwFgYDVQQLEw8wMDAwMDEwMDA1MzUwODQxFDASBgNVBAsTCyhFTSBCUkFOQ08pMRQwEgYDVQQLEwsoRU0gQlJBTkNPKTEUMBIGA1UECxMLKEVNIEJSQU5DTykxFDASBgNVBAsTCyhFTSBCUkFOQ08pMRQwEgYDVQQLEwsoRU0gQlJBTkNPKTEnMCUGA1UEAxMeU0hPQ0sgTUVUQUlTIE5BTyBGRVJST1NPUyBMVERBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCTZrwstyJTummWJTQuHL3jVpmycECHGHQKi5aKKXtPciF1QeTVcD+Sr1RrTXtz6ZqQS2B13/iQdJQfVR3L3veAnK0lRwK2zbvUIw/HjqJhdNt/1wuvIcLraq0/XbL1lNgxU0u8devf7QUCD4rm73AIP1L8Mt6AZAYUs3B+HDtYpwIDAQABo4IC9TCCAvEwDgYDVR0PAQH/BAQDAgXgMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDBDAfBgNVHSMEGDAWgBS3YKhb+bKmrgDtdOvVSsmWaGb1XDCBuAYDVR0RBIGwMIGtgRtTQUxWQURPUkBTSE9DS01FVEFJUy5DT00uQlKgOAYFYEwBAwSgLxMtMjkwNjE5NDkxODUwMzYwODgwNDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwoCAGBWBMAQMCoBcTFVNBTFZBRE9SIEJPUkVMTEkgTkVUT6AZBgVgTAEDA6AQEw41NDgwMDc2ODAwMDE3OaAXBgVgTAEDB6AOEwwwMDAwMDAwMDAwMDAwVwYDVR0gBFAwTjBMBgZgTAECAQYwQjBABggrBgEFBQcCARY0aHR0cDovL3d3dy5jZXJ0aWZpY2Fkb2RpZ2l0YWwuY29tLmJyL3JlcG9zaXRvcmlvL2RwYzCB8AYDVR0fBIHoMIHlMEmgR6BFhkNodHRwOi8vd3d3LmNlcnRpZmljYWRvZGlnaXRhbC5jb20uYnIvcmVwb3NpdG9yaW8vbGNyL3NlcmFzYWNkdjEuY3JsMEOgQaA/hj1odHRwOi8vbGNyLmNlcnRpZmljYWRvcy5jb20uYnIvcmVwb3NpdG9yaW8vbGNyL3NlcmFzYWNkdjEuY3JsMFOgUaBPhk1odHRwOi8vcmVwb3NpdG9yaW8uaWNwYnJhc2lsLmdvdi5ici9sY3IvU2VyYXNhL3JlcG9zaXRvcmlvL2xjci9zZXJhc2FjZHYxLmNybDCBlwYIKwYBBQUHAQEEgYowgYcwPAYIKwYBBQUHMAGGMGh0dHA6Ly9vY3NwLmNlcnRpZmljYWRvZGlnaXRhbC5jb20uYnIvc2VyYXNhY2R2MTBHBggrBgEFBQcwAoY7aHR0cDovL3d3dy5jZXJ0aWZpY2Fkb2RpZ2l0YWwuY29tLmJyL2NhZGVpYXMvc2VyYXNhY2R2MS5wN2IwDQYJKoZIhvcNAQEFBQADggEBAAypyCFpcXW/vfU96BQBZE4xDDyUeMLUh5B7ZTQgKdLSEfCAldusZ1ET+QfxraBSko65jjikrHi3vZB/muOrZPPCuSmbogPuxCr3k58nVfpijzw0S2YWTmjGxt06PL5Tjk6qjn8/WJ6MFrssClGV2yfqRA7120qxO3Da1IiH+FmglxzwGHmr0MWLdlwz4TXDRQmR7tH3Buz6E1npsNOHPcdCevniGugeWp783WuVL+9diUCYsiwKVV/+c9k+vFyV0//wrW1svt9M4uHhHG7uXsCl/7K4Ot+LMirPuOXdN2nVJGlQCK0psmGtcxUMy2hGQm0g7IZqitDcX50M0sr1iB0=</X509Certificate>
+      </X509Data>
+    </KeyInfo>
+  </Signature>
+</NFe>

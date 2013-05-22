@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="pastaDeEntrada" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Fisconet4\in\</Value>
+    </Setting>
+    <Setting Name="pastaDeRejeitadas" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Fisconet4\in\rejected\</Value>
+    </Setting>
+    <Setting Name="pastaDeAprovadas" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Fisconet4\in\accepted\</Value>
+    </Setting>
+    <Setting Name="FN4EntradaTxtCtl_NotasWs_FN4NotasService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:2281/FN4NotasService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

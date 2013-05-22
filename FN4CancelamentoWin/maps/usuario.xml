@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="usuario" type ="FN4Common.usuarioVO, FN4Common"/>
+    <typeAlias alias="empresa_usuario" type ="FN4Common.empresaVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="empresaResult" class="empresa_usuario">
+      <result property="idEmpresa" column = "idEmpresa"/>
+      <result property="cnpj" column = "cnpj"/>
+      <result property="cpf" column = "cpf"/>
+      <result property="nome" column = "nome"/>
+      <result property="nomeFantasia" column = "nomeFantasia"/>
+      <result property="logradouro" column = "logradouro"/>
+      <result property="numero" column = "numero"/>
+      <result property="complemento" column = "complemento"/>
+      <result property="bairro" column = "bairro"/>
+      <result property="codigoMunicipio" column = "codigoMunicipio"/>
+      <result property="nomeMunicipio" column = "nomeMunicipio"/>
+      <result property="uf" column = "uf"/>
+      <result property="cep" column = "cep"/>
+      <result property="codigoPais" column = "codigoPais"/>
+      <result property="nomePais" column = "nomePais"/>
+      <result property="fone" column = "fone"/>
+      <result property="ie" column = "ie"/>
+      <result property="iest" column = "iest"/>
+      <result property="im" column = "im"/>
+      <result property="cnae" column = "cnae"/>
+      <result property="crt" column = "crt"/>
+      <result property="homologacao" column = "homologacao"/>
+      <result property="receberEmailNota" column ="receberEmailNota" />
+      <result property="delimitador" column ="delimitador"/>
+      <result property="email" column ="email" />
+      <result property="token" column ="token" />
+      <result property="gadget1" column ="gadget1" />
+      <result property="gadget2" column ="gadget2" />
+      <result property="gadget3" column ="gadget3" />
+    </resultMap>
+
+    <resultMap id="usuarioResult" class="usuario">
+      <result property="idUsuario" column = "idUsuario"/>
+      <result property="email" column = "email"/>
+      <result property="senha" column = "senha"/>
+      <result property="tipo" column = "tipo"/>
+      <result property="nome" column = "nome"/>
+    </resultMap>
+
+    <resultMap id="quantidadeUsuariosResult" class="int">
+      <result property="value" column="valor" />
+    </resultMap>
+
+    <resultMap id="idDoUsuarioResult" class="int">
+      <result property="value" column="idUsuario" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="obterUsuario" parameterClass="System.Collections.IDictionary" resultMap="usuarioResult" >
+      SELECT * FROM usuarios
+      WHERE email =#email#
+      AND senha = #senha#;
+    </select>
+
+    <select id="obterIdDeUsuario" parameterClass="usuario" resultMap="idDoUsuarioResult">
+      select idUsuario from usuarios
+      where nome = #nome#
+      and email = #email#
+      and senha = #senha#
+      and tipo = #tipo#;
+    </select>
+
+    <select id="obterListaDeUsuarios"  parameterClass="System.Collections.IDictionary" resultMap="usuarioResult" >
+      select
+      *
+      from
+      usuarios
+      where
+      idUsuario in
+      (
+      Select
+      id_fk_usuarios
+      from
+      empresa_usuarios
+      where
+      id_fk_empresa in
+      (
+      Select
+      id_fk_empresa
+      from
+      empresa_usuarios
+      where id_fk_usuarios = #idUsuario#
+      )
+      group by
+      id_fk_usuarios
+      )
+      LIMIT #registroInicial#, #registrosPorPagina#;
+    </select>
+
+    <select id="obterQuantidadeDeUsuarios" resultMap="quantidadeUsuariosResult" >
+      SELECT COUNT(*) AS valor FROM notas;
+    </select>
+
+    <select id="obterEmpresasPermitidas" parameterClass="int" resultMap="empresaResult">
+      select e.* from empresa as e inner join empresa_usuarios as eu where eu.id_fk_usuarios = #value# and e.idEmpresa = eu.id_fk_empresa
+    </select>
+
+    <insert id="inserirUsuario" parameterClass="usuario" >
+      INSERT INTO usuarios(email, senha, tipo, nome)
+      VALUES(#email#, #senha#, #tipo#, #nome#);
+
+    </insert>
+
+    <insert id="inserirEmpresa_Usuarios" parameterClass="System.Collections.IDictionary" >
+      INSERT INTO empresa_usuarios(id_fk_empresa, id_fk_usuarios)
+      VALUES(#idEmpresa#, #idUsuario#);
+
+    </insert>
+    <update id="alterarUsuario" parameterClass="usuario" >
+      UPDATE usuarios SET
+      email = #email# ,
+      senha = #senha# ,
+      tipo = #tipo#,
+      nome = #nome#
+      WHERE
+      idUsuario = #idUsuario#;
+    </update>
+
+    <delete id="excluirUsuario" parameterClass="int">
+      DELETE from usuarios WHERE idUsuario = #value#
+    </delete>
+
+    <delete id="excluirEmpresa_Usuarios" parameterClass="System.Collections.IDictionary">
+      DELETE from empresa_usuarios
+      WHERE id_fk_usuarios = #idUsuario#
+      AND id_fk_empresa = #idEmpresa#
+    </delete>
+  </statements>
+
+</sqlMap>

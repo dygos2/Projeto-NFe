@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="evento" type ="FN4Common.eventoVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="eventoResult" class="evento">
+      <result property="infEvento_nSeqEvento" column = "infEvento_nSeqEvento"/>
+      <result property="NFe_infNFe_id" column = "NFe_infNFe_id"/>
+      <result property="infEvento_tpEvento" column = "infEvento_tpEvento"/>
+      <result property="infEvento_dhEvento" column = "infEvento_dhEvento"/>
+      <result property="statusEvento" column = "statusEvento"/>
+      <result property="NFe_emit_CNPJ" column = "NFe_emit_CNPJ"/>
+      <result property="infEvento_detEvento_xCorrecao" column = "infEvento_detEvento_xCorrecao"/>
+      <result property="retEvento_cStat" column="retEvento_cStat" />
+      <result property="retEvento_xMotivo" column="retEvento_xMotivo" />controleLote
+      <result property="controleLote" column="controleLote" />
+    </resultMap>
+
+    <resultMap id="idEventoResult" class="int">
+      <result property="value" column="ultimoDisponivel"  nullValue="-1"/>
+    </resultMap>
+    
+    <resultMap id="quantidadeEventosResult" class="int">
+      <result property="value" column="valor" />
+    </resultMap>
+
+  </resultMaps>
+ 
+
+  <statements>
+    <select id="obterEventosDaNota" parameterClass="evento" resultMap="eventoResult" >
+      SELECT * FROM eventos
+      WHERE infEvento_tpEvento = #infEvento_tpEvento#
+      AND NFe_infNFe_id= #NFe_infNFe_id#;
+    </select>
+
+    <select id="obterListaDeEventos" parameterClass="System.Collections.IDictionary" resultMap="eventoResult" >
+      SELECT * FROM eventos
+      WHERE NFe_emit_CNPJ = #NFe_emit_CNPJ# and NFe_infNFe_id = #NFe_infNFe_id#;
+    </select>
+
+    <select id="obterQuantidadeDeEventos" parameterClass="System.Collections.IDictionary" resultMap="quantidadeEventosResult" >
+      SELECT COUNT(*) AS valor FROM eventos
+      WHERE NFe_emit_CNPJ = #NFe_emit_CNPJ#;
+    </select>
+    
+    <select id="obterEvento" parameterClass="evento" resultMap="eventoResult" >
+      SELECT * FROM eventos
+      WHERE
+      infEvento_nSeqEvento = #infEvento_nSeqEvento#
+      AND NFe_infNFe_id = #NFe_infNFe_id#
+      AND infEvento_tpEvento = #infEvento_tpEvento#;
+    </select>
+
+    <select id="obterCartasCorrecaoParaEnvio" parameterClass="System.Collections.IDictionary" resultMap="eventoResult" >
+      SELECT * from eventos
+      WHERE statusEvento = 0 and infEvento_tpEvento = 110110;
+    </select>
+
+    <select id="obterCancelamentosParaEnvio" parameterClass="System.Collections.IDictionary" resultMap="eventoResult" >
+      SELECT * from eventos
+      WHERE statusEvento = 0 and infEvento_tpEvento = 110111;
+    </select>
+
+    <select id="obterIdProximoEvento" parameterClass="evento" resultMap="idEventoResult" >
+      select max(infEvento_nSeqEvento) + 1 as ultimoDisponivel
+      from eventos where NFe_infNFe_id = #NFe_infNFe_id#
+      and infEvento_tpEvento = #infEvento_tpEvento#;
+    </select>
+    <insert id="inserirEvento" parameterClass="evento" >
+      INSERT INTO eventos(
+      infEvento_nSeqEvento,
+      infEvento_tpEvento,
+      NFe_infNFe_id,
+      infEvento_dhEvento,
+      statusEvento,
+      NFe_emit_CNPJ,
+      infEvento_detEvento_xCorrecao)
+      VALUES(#infEvento_nSeqEvento#, #infEvento_tpEvento#, #NFe_infNFe_id#, now(), #statusEvento#, #NFe_emit_CNPJ# , #infEvento_detEvento_xCorrecao#);
+
+    </insert>
+
+    <update id="alterarEvento" parameterClass="evento" >
+      UPDATE eventos SET
+      statusEvento = #statusEvento#,
+      infEvento_detEvento_xCorrecao = #infEvento_detEvento_xCorrecao#,
+      retEvento_cStat = #retEvento_cStat#,
+      retEvento_xMotivo = #retEvento_xMotivo#
+      WHERE
+      infEvento_nSeqEvento = #infEvento_nSeqEvento#
+      AND NFe_infNFe_id = #NFe_infNFe_id#
+      AND infEvento_tpEvento = #infEvento_tpEvento#;
+    </update>
+    
+    <delete id="excluirEventos" parameterClass="evento">
+      DELETE FROM eventos where
+      infEvento_nSeqEvento = #infEvento_nSeqEvento#
+      AND NFe_infNFe_id = #NFe_infNFe_id#
+      AND infEvento_tpEvento = #infEvento_tpEvento#;
+    </delete>
+  </statements>
+
+</sqlMap>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<NFe xmlns="http://www.portalfiscal.inf.br/nfe">
+  <infNFe>
+    <ide>
+      <dhCont />
+      <xJust />
+    </ide>
+  </infNFe>
+</NFe>

@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="FN4MonitorWS_NFe_StatusServico_NfeStatusServico" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://nfe.fazenda.sp.gov.br/nfeweb/services/nfestatusservico.asmx</Value>
+    </Setting>
+    <Setting Name="FN4MonitorWS_NFe_Cancelamento_NfeCancelamento" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://homologacao.nfe.fazenda.sp.gov.br/nfeweb/services/nfecancelamento2.asmx</Value>
+    </Setting>
+    <Setting Name="FN4MonitorWS_FN4_HelpDesk_RecepcaoService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://megaideas.net/helpdesk/recepcaoservice.asmx</Value>
+    </Setting>
+    <Setting Name="FN4MonitorWS_localhost_HelpDesk_RecepcaoService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/setuphelpdesk/recepcaoservice.asmx</Value>
+    </Setting>
+    <Setting Name="FN4MonitorWS_NFe_Inutilizacao_NfeInutilizacao" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://homologacao.nfe.fazenda.sp.gov.br/nfeweb/services/nfeinutilizacao2.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

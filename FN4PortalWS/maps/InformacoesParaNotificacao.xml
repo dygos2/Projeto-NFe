@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="WSHelpDesk" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="Info" type ="FN4PortalWS.InformacoesParaNotificacaoVO, FN4PortalWS"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="InfoCompleta" class="Info">
+      <result property="emitente" column ="CNPJ" select="ObterEmitentePorCNPJ"/>
+      <result property="destinatario" column ="CPFCNPJ" select="obterDestinatarioPorCPFCNPJ"/>
+      <result property="nota" column ="numNota" select="obterNotaPorNumero"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+  </statements>
+
+</sqlMap>

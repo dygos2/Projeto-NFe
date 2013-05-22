@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="nota" type ="FN4Common.notaVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="notaResult" class="nota">
+      <result property="NFe_ide_nNF" column = "NFe_ide_nNF"/>
+      <result property="serie" column="serie" />
+      <result property="pastaDeTrabalho" column = "pastaDeTrabalho"/>
+      <result property="statusDaNota" column = "statusDaNota"/>
+      <result property="tentativasDeInclusao" column = "tentativasDeInclusao"/>
+      <result property="NFe_ide_dEmi" column = "NFe_ide_dEmi"/>
+      <result property="NFe_infNFe_id" column = "NFe_infNFe_id"/>
+      <result property="NFe_emit_CNPJ" column = "NFe_emit_CNPJ"/>
+      <result property="NFe_emit_CPF" column = "NFe_emit_CPF"/>
+      <result property="NFe_emit_xNome" column = "NFe_emit_xNome"/>
+      <result property="NFe_dest_CNPJ" column = "NFe_dest_CNPJ"/>
+      <result property="NFe_dest_CPF" column = "NFe_dest_CPF"/>
+      <result property="NFe_dest_xNome" column = "NFe_dest_xNome"/>
+      <result property="NFe_dest_UF" column = "NFe_dest_UF"/>
+      <result property="NFe_total_ICMSTot_vNF" column = "NFe_total_ICMSTot_vNF"/>
+      <result property="retEnviNFe_infRec_nRec" column = "retEnviNFe_infRec_nRec"/>
+      <result property="retEnviNFe_cStat" column = "retEnviNFe_cStat"/>
+      <result property="retEnviNFe_xMotivo" column = "retEnviNFe_xMotivo"/>
+      <result property="protNfe_nProt" column = "protNfe_nProt" />
+      <result property="emailDestinatario" column = "emailDest" />
+      <result property="dataUltimaAtualizacao" column = "dataUltimaAtualizacao" />
+      <result property="impressaoSolicitada" column = "impressaoSolicitada" />
+      <result property="impressora" column = "impressora" />
+      <result property="imprimeDanfe" column="imprimeDanfe" />
+      <result property="impressoEmContingencia" column="impressoEmContingencia" />
+    </resultMap>
+
+    <resultMap id="notaCompleta" class="nota">
+      <result property="NFe_ide_nNF" column = "NFe_ide_nNF"/>
+      <result property="serie" column="serie" />
+      <result property="pastaDeTrabalho" column = "pastaDeTrabalho"/>
+      <result property="statusDaNota" column = "statusDaNota"/>
+      <result property="tentativasDeInclusao" column = "tentativasDeInclusao"/>
+      <result property="NFe_ide_dEmi" column = "NFe_ide_dEmi"/>
+      <result property="NFe_infNFe_id" column = "NFe_infNFe_id"/>
+      <result property="NFe_emit_CNPJ" column = "NFe_emit_CNPJ"/>
+      <result property="NFe_emit_CPF" column = "NFe_emit_CPF"/>
+      <result property="NFe_emit_xNome" column = "NFe_emit_xNome"/>
+      <result property="NFe_dest_CNPJ" column = "NFe_dest_CNPJ"/>
+      <result property="NFe_dest_CPF" column = "NFe_dest_CPF"/>
+      <result property="NFe_dest_xNome" column = "NFe_dest_xNome"/>
+      <result property="NFe_dest_UF" column = "NFe_dest_UF"/>
+      <result property="NFe_total_ICMSTot_vNF" column = "NFe_total_ICMSTot_vNF"/>
+      <result property="retEnviNFe_infRec_nRec" column = "retEnviNFe_infRec_nRec"/>
+      <result property="retEnviNFe_cStat" column = "retEnviNFe_cStat"/>
+      <result property="retEnviNFe_xMotivo" column = "retEnviNFe_xMotivo"/>
+      <result property="protNfe_nProt" column = "protNfe_nProt" />
+      <result property="emailDestinatario" column = "emailDest" />
+      <result property="dataUltimaAtualizacao" column = "dataUltimaAtualizacao" />
+      <result property="impressaoSolicitada" column = "impressaoSolicitada" />
+      <result property="impressora" column = "impressora" />
+      <result property="atualizacoes" column="id=NFe_ide_nNF, cnpj=NFe_emit_CNPJ" select="obterAtualizacoes"></result>
+      <result property="imprimeDanfe" column="imprimeDanfe" />
+      <result property="impressoEmContingencia" column="impressoEmContingencia" />
+      <result property="ret_post_data" column="ret_post_data" />
+    </resultMap>
+
+    <resultMap id="buscaResult" class="nota">
+      <result property="NFe_ide_nNF" column = "NFe_ide_nNF"/>
+      <result property="NFe_emit_CNPJ" column = "NFe_emit_CNPJ"/>
+      <result property="serie" column="serie" />
+      <result property="statusDaNota" column = "statusDaNota"/>
+      <result property="NFe_ide_dEmi" column = "NFe_ide_dEmi"/>
+      <result property="NFe_dest_CNPJ" column = "NFe_dest_CNPJ"/>
+      <result property="NFe_dest_CPF" column = "NFe_dest_CPF"/>
+      <result property="NFe_dest_xNome" column = "NFe_dest_xNome"/>
+      <result property="NFe_total_ICMSTot_vNF" column = "NFe_total_ICMSTot_vNF"/>
+    </resultMap>
+
+    <resultMap id="gadgetResult" class="nota">
+      <result property="NFe_ide_nNF" column = "NFe_ide_nNF"/>
+      <result property="NFe_ide_dEmi" column = "NFe_ide_dEmi"/>
+      <result property="NFe_dest_xNome" column = "NFe_dest_xNome"/>
+      <result property="NFe_emit_CNPJ" column = "NFe_emit_CNPJ"/>
+      <result property="statusDaNota" column = "statusDaNota" />
+      <result property="tentativasDeInclusao" column ="tentativasDeInclusao" />
+      <result property="NFe_total_ICMSTot_vNF" column ="NFe_total_ICMSTot_vNF" />
+      <result property="impressaoSolicitada" column ="impressaoSolicitada" />
+      <result property="impressoEmContingencia" column ="impressoEmContingencia" />
+      <result property="serie" column ="serie" />
+      <result property="imprimeDanfe" column ="imprimeDanfe" />
+    </resultMap>
+
+
+    <resultMap id="quantidadeNotasResult" class="int">
+      <result property="value" column="valor" />
+    </resultMap>
+
+    <resultMap id="CNPJComNotaNaoEnviada" class="string">
+      <result property="value" column="NFe_emit_CNPJ" />
+    </resultMap>
+    <resultMap id="notaDanfe" class="nota">
+      <result property="NFe_ide_nNF" column = "NFe_ide_nNF"/>
+      <result property="NFe_emit_CNPJ" column = "NFe_emit_CNPJ"/>
+      <result property="statusDaNota" column = "statusDaNota"/>
+      <result property="pastaDeTrabalho" column = "pastaDeTrabalho"/>
+    </resultMap>
+
+  </resultMaps>
+
+
+  <statements>
+    <select id="obterNotasASeremCanceladas" resultMap="notaCompleta">
+      select * from notas
+      where statusDaNota = 41;
+    </select>
+    <update id="cancelarNota" parameterClass="System.Collections.IDictionary">
+      update notas set statusDaNota = 4
+      where NFe_ide_nNF = #nNf#
+      and serie = #serie#
+      and NFe_emit_CNPJ = #cnpj#;
+    </update>
+
+    <select id="obterNotasASeremInutilizadas" resultMap="notaCompleta">
+      select * from notas
+      where statusDaNota = 61;
+    </select>
+    <update id="inutilizarNota" parameterClass="System.Collections.IDictionary">
+      update notas set statusDaNota = 6
+      where NFe_ide_nNF = #nNF#
+      and serie = #serie#
+      and NFe_emit_CNPJ = #cnpj#;
+    </update>
+
+    <delete id="excluirNota" parameterClass="System.Collections.IDictionary">
+      delete from notas where
+      NFe_ide_nNF = #nNF#
+      and serie = #serie#
+      and NFe_emit_CNPJ = #cnpj#;
+    </delete>
+
+    <select id="obterNotasParaDanfe" resultMap="notaResult">
+      SELECT *
+      FROM notas
+      WHERE impressaoSolicitada > 0
+      AND (statusDaNota LIKE '2%' OR statusDaNota LIKE '5%');
+    </select>
+    <select id="obterNotaPorId" parameterClass="int" resultMap="notaCompleta">
+      SELECT * FROM notas
+      WHERE NFe_ide_nNF = #id#;
+    </select>
+    <select id="buscarNotas" parameterClass="System.Collections.IDictionary" resultMap="buscaResult" >
+      SELECT NFe_ide_nNF,
+      serie,
+      NFe_emit_CNPJ,
+      statusDaNota,
+      NFe_ide_dEmi,
+      NFe_dest_CNPJ,
+      NFe_dest_CPF,
+      NFe_dest_xNome,
+      NFe_total_ICMSTot_vNF
+      FROM notas
+      WHERE NFe_emit_CNPJ = #nota.NFe_emit_CNPJ#
+      AND (
+      <dynamic >
+        <isNotNull property="nota.NFe_ide_nNF">
+          NFe_ide_nNF= #nota.NFe_ide_nNF#
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.NFe_dest_CNPJ">
+          NFe_dest_CNPJ LIKE '%' #nota.NFe_dest_CNPJ# '%'
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.NFe_dest_CPF">
+          NFe_dest_CPF LIKE '%' #nota.NFe_dest_CPF# '%'
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.NFe_dest_UF">
+          NFe_dest_UF LIKE '%' #nota.NFe_dest_UF# '%'
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.NFe_dest_xNome">
+          NFe_dest_xNome LIKE '%' #nota.NFe_dest_xNome# '%'
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.emailDestinatario">
+          emailDest LIKE '%' #nota.emailDestinatario# '%'
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.statusDaNota">
+          statusDaNota = #nota.statusDaNota#
+        </isNotNull>
+      </dynamic> )
+      LIMIT #registroInicial#, #registrosPorPagina#;
+    </select>
+
+    <select id="obterNotasPorStatus" parameterClass="System.Collections.IDictionary" resultMap="gadgetResult" >
+      SELECT * FROM notas
+      WHERE
+      statusDaNota LIKE '' #status# '%'
+      AND NFe_emit_CNPJ = #cnpj#
+      ORDER BY NFe_ide_nNF DESC
+      LIMIT #registroInicial#, #registrosPorPagina#;
+    </select>
+
+    <select id="obterTodasAsNotas" resultMap="notaCompleta" >
+      SELECT * FROM notas
+    </select>
+
+    <select id="obterNotasProcessadas" parameterClass="int" resultMap="notaCompleta" >
+      SELECT *
+      FROM notas
+      WHERE
+      statusDaNota = #naoProcessada#
+      OR statusDaNota = #DPECEnviada#;
+    </select>
+
+    <select id="obternotasPendentesDeRetorno" parameterClass="int" resultMap="notaCompleta" >
+      SELECT *
+      FROM notas
+      WHERE
+      statusDaNota = #enviadasNormal#
+      OR statusDaNota = #enviadasDPEC#;
+    </select>
+
+    <select id="obterNotasProcessadasPorCNPJ" parameterClass="System.Collections.IDictionary" resultMap="notaCompleta" >
+      SELECT *
+      FROM notas
+      WHERE
+      statusDaNota = #value#
+      AND NFe_emit_CNPJ = #cnpj#;
+    </select>
+
+    <select id="obterCNPJComNotaNaoEnviada" parameterClass="int" resultMap="CNPJComNotaNaoEnviada" >
+      SELECT DISTINCT NFe_emit_CNPJ
+      FROM notas
+      WHERE
+      statusDaNota = #value#
+    </select>
+
+    <select id="obterNotasImpressao" parameterClass="int" resultMap="notaCompleta" >
+      SELECT *
+      FROM notas
+      WHERE
+      impressaoSolicitada > 0
+      AND impressoEmContingencia = false;
+    </select>
+
+    <select id="obterNotasContingencia" parameterClass="int" resultMap="notaCompleta" >
+      SELECT *
+      FROM notas
+      WHERE
+      impressaoSolicitada > 0
+      AND
+      impressoEmContingencia = true;
+    </select>
+
+
+    <select id="obterNotasEmail" parameterClass="int" resultMap="notaCompleta" >
+      SELECT *
+      FROM notas
+      WHERE statusDaNota = 21
+      AND impressaoSolicitada = 0;
+    </select>
+
+
+    <select id="obterNotasSafer" parameterClass="int" resultMap="notaCompleta" >
+      SELECT *
+      FROM notas
+      WHERE sincronizada = false
+      AND statusDaNota LIKE '2%'
+      LIMIT
+      0,50;
+    </select>
+
+    <select id="obterNotaPorNumeroCNPJ" parameterClass="System.Collections.IDictionary" resultMap="notaCompleta" >
+      SELECT * FROM notas
+      WHERE NFe_ide_nNF = #numeroDaNota#
+      AND NFe_emit_CNPJ = #CNPJEmitente#
+      AND serie = #serie#;
+    </select>
+
+    <select id="obterNotaCompletaPorNumeroCNPJ" parameterClass="System.Collections.IDictionary" resultMap="notaCompleta" >
+      SELECT * FROM notas
+      WHERE NFe_ide_nNF = #numeroDaNota#
+      AND NFe_emit_CNPJ = #CNPJEmitente#
+      AND serie = #serie#;
+    </select>
+
+    <select id="obterQuantidadeDeNotas" parameterClass="System.Collections.IDictionary" resultMap="quantidadeNotasResult" >
+      SELECT COUNT(*) AS valor FROM notas
+      WHERE NFe_emit_CNPJ = #nota.NFe_emit_CNPJ#
+      AND (
+      <dynamic >
+        <isNotNull property="nota.NFe_ide_nNF">
+          NFe_ide_nNF= #nota.NFe_ide_nNF#
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.NFe_dest_CNPJ">
+          NFe_dest_CNPJ LIKE '%' #nota.NFe_dest_CNPJ# '%'
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.NFe_dest_CPF">
+          NFe_dest_CPF LIKE '%' #nota.NFe_dest_CPF# '%'
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.NFe_dest_UF">
+          NFe_dest_UF LIKE '%' #nota.NFe_dest_UF# '%'
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.NFe_dest_xNome">
+          NFe_dest_xNome LIKE '%' #nota.NFe_dest_xNome# '%'
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.emailDestinatario">
+          emailDest LIKE '%' #nota.emailDestinatario# '%'
+        </isNotNull>
+        <isNotNull prepend ="OR" property="nota.statusDaNota">
+          statusDaNota = #nota.statusDaNota#
+        </isNotNull>
+      </dynamic> )
+      ;
+    </select>
+
+    <select id="obterQuantidadeDeNotas2" parameterClass="System.Collections.IDictionary" resultMap="quantidadeNotasResult" >
+      SELECT COUNT(*) AS valor FROM notas
+      WHERE statusDaNota LIKE '' #status# '%'
+      AND NFe_emit_CNPJ = #cnpj#;
+    </select>
+    
+    <insert id="inserirNota" parameterClass="nota" >
+      INSERT INTO notas (
+      NFe_ide_nNF ,
+      serie,
+      statusDaNota,
+      pastaDeTrabalho ,
+      tentativasDeInclusao ,
+      NFe_ide_dEmi ,
+      NFe_infNFe_id ,
+      NFe_emit_CNPJ ,
+      NFe_emit_CPF ,
+      NFe_emit_xNome ,
+      NFe_dest_CNPJ ,
+      NFe_dest_CPF ,
+      NFe_dest_xNome ,
+      NFe_dest_UF ,
+      NFe_total_ICMSTot_vNF ,
+      retEnviNFe_infRec_nRec ,
+      retEnviNFe_cStat ,
+      retEnviNFe_xMotivo ,
+      protNfe_nProt,
+      impressaoSolicitada,
+      impressoEmContingencia,
+      emailDest,
+      impressora)
+      VALUES
+      (#NFe_ide_nNF#
+      ,#serie#
+      ,#statusDaNota#
+      ,#pastaDeTrabalho#
+      ,#tentativasDeInclusao#,
+      #NFe_ide_dEmi#
+      ,#NFe_infNFe_id#
+      ,#NFe_emit_CNPJ#,#NFe_emit_CPF#,
+      #NFe_emit_xNome#,#NFe_dest_CNPJ#,#NFe_dest_CPF#,#NFe_dest_xNome#, #NFe_dest_UF#,
+      #NFe_total_ICMSTot_vNF#,#retEnviNFe_infRec_nRec#,#retEnviNFe_cStat#,
+      #retEnviNFe_xMotivo#,#protNfe_nProt#,#impressaoSolicitada#,#impressoEmContingencia#, #emailDestinatario#, #impressora#);
+    </insert>
+
+    <update id="alterarNota" parameterClass="nota" >
+      UPDATE notas set
+      pastaDeTrabalho = #pastaDeTrabalho#,
+      serie = #serie#,
+      statusDaNota = #statusDaNota#,
+      tentativasDeInclusao = #tentativasDeInclusao#,
+      NFe_ide_dEmi = #NFe_ide_dEmi#,
+      NFe_infNFe_id = #NFe_infNFe_id#,
+      NFe_emit_CPF = #NFe_emit_CPF#,
+      NFe_emit_xNome = #NFe_emit_xNome#,
+      NFe_dest_CNPJ = #NFe_dest_CNPJ#,
+      NFe_dest_CPF = #NFe_dest_CPF#,
+      NFe_dest_xNome = #NFe_dest_xNome#,
+      NFe_dest_UF = #NFe_dest_UF#,
+      NFe_total_ICMSTot_vNF = #NFe_total_ICMSTot_vNF#,
+      retEnviNFe_infRec_nRec = #retEnviNFe_infRec_nRec#,
+      retEnviNFe_cStat = #retEnviNFe_cStat#,
+      retEnviNFe_xMotivo = #retEnviNFe_xMotivo#,
+      protNfe_nProt= #protNfe_nProt#,
+      impressaoSolicitada= #impressaoSolicitada#,
+      impressoEmContingencia= #impressoEmContingencia#,
+      emailDest = #emailDestinatario#,
+      impressora = #impressora#,
+      imprimeDanfe = #imprimeDanfe#,
+      dataUltimaAtualizacao = #dataUltimaAtualizacao#,
+      ret_post_data = #ret_post_data#
+      WHERE
+      NFe_ide_nNF = #NFe_ide_nNF#
+      AND NFe_emit_CNPJ = #NFe_emit_CNPJ#
+      AND serie = #serie#;
+    </update>
+
+    <update id="marcarSincronizada" parameterClass="nota" >
+      UPDATE notas set
+      sincronizada= true
+      WHERE
+      NFe_ide_nNF = #NFe_ide_nNF# AND NFe_emit_CNPJ = #NFe_emit_CNPJ# ;
+    </update>
+
+    <update id="inutilizarNotas" parameterClass="System.Collections.IDictionary">
+      update notas ser
+      statusDaNota = 61
+      WHERE NFe_ide_nNF between #inicio# and #fim#
+      and serie = #serie#
+      and NFe_emit_CNPJ = #cnpj#
+    </update>
+
+    <select id="obterNotasPorIntervalo" parameterClass="System.Collections.IDictionary" resultMap="notaCompleta">
+      select * from notas
+      WHERE NFe_ide_nNF between #inicio# and #fim#
+      and serie = #serie#
+      and NFe_emit_CNPJ = #cnpj#
+    </select>
+
+    <select id="obterNotasSemProtocolo" parameterClass="int" resultMap="notaCompleta">
+      select * from notas
+      WHERE statusDaNota = #value#
+    </select>
+
+    <select id="obterNotasParaPostBack" parameterClass="System.Collections.IDictionary" resultMap="notaCompleta">
+      SELECT * FROM notas
+      WHERE NFe_emit_CNPJ = #cnpj#
+      AND (ret_post_data IS NULL OR NOT ret_post_data = dataUltimaAtualizacao)
+      AND
+      (statusDaNota = 22
+      OR statusDaNota = 3
+      OR statusDaNota = 5);
+    </select>
+  </statements>
+
+</sqlMap>

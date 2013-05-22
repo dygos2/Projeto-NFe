@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Fisconet4.Settings>
+  <!-- AMBIENTE -->
+  <setting name="ambienteDeExecucao" >
+    <value>2</value>
+  </setting>
+  <setting name="serialNumberDoCertificado" >
+    <value>3a c3 7a fd 7c 6a 82 0f 28 8f db ed fe fb 3c 40</value>
+  </setting>
+
+  <!-- TEMPOS -->
+  <setting name="tempoLimiteParaContingencia" >
+    <value>300000</value>
+  </setting>
+  <setting name="intervaloDeVarreduraDeEntrada" >
+    <value>6000</value>
+  </setting>
+  <setting name="intervaloDeVarreduraDeSaida" >
+    <value>6000</value>
+  </setting>
+
+  <!-- ARQUIVOS -->
+  <setting name="arquivoSchemaNfe" >
+    <value>nfe_v1.10.xsd</value>
+  </setting>
+  <setting name="arquivoDeConfiguracaoLog4Net" >
+    <value>C:\Fisconet4RJ\bin\Log4netConfig.xml</value>
+  </setting>
+  <setting name="stylesheetNFe" >
+    <value>GeraNFe2.xslt</value>
+  </setting>
+
+  <!--PASTAS-->
+  <setting name="pastaEntrada" >
+    <value>C:\Fisconet4RJ\in\</value>
+  </setting>
+  <setting name="pastaDeSaida" >
+    <value>C:\Fisconet4RJ\out\</value>
+  </setting>
+  <setting name="pastaDeRejeitadas" >
+    <value>C:\Fisconet4RJ\in\rejected\</value>
+  </setting>
+  <setting name="pastaDeAprovadas" >
+    <value>C:\Fisconet4RJ\in\accepted\</value>
+  </setting>
+  <setting name="pastaDeProcessadas" >
+    <value>C:\Fisconet4RJ\process\</value>
+  </setting>
+  
+  <!--SERVICOS-->
+  <!---HOMOLOGACAO-->
+ 
+  <setting name="servicoRecepcao" >
+    <value> https://homologacao.nfe.sefazvirtual.rs.gov.br/ws/nferecepcao/NfeRecepcao.asmx</value>
+    </setting>
+  <setting name="servicoRetornoRecepcao" >
+    <value>https://homologacao.nfe.sefazvirtual.rs.gov.br/ws/nferetrecepcao/NfeRetRecepcao.asmx</value>
+  </setting>
+  <setting name="servicoCancelamento" >
+    <value>https://homologacaonfe.sefazvirtual.rs.gov.br/ws/nfecancelamento/NfeCancelamento.asmx</value>
+  </setting>
+  <setting name="servicoConsultaStatus" >
+    <value>https://homologacao.nfe.sefazvirtual.rs.gov.br/ws/nfestatusservico/NfeStatusServico.asmx</value>
+  </setting>
+  <setting name="servicoInutilizacao" >
+    <value>https://homologacao.nfe.sefazvirtual.rs.gov.br/ws/nfeinutilizacao/NfeInutilizacao.asmx</value>
+  </setting>
+
+
+  <!--PRODUCAO-->
+  <!--
+  <setting name="servicoRecepcao" >
+    <value>https://nfe.sefazvirtual.rs.gov.br/ws/nferecepcao/NfeRecepcao.asmx</value>
+  </setting>
+  <setting name="servicoRetornoRecepcao" >
+    <value> https://nfe.sefazvirtual.rs.gov.br/ws/nferetrecepcao/NfeRetRecepcao.asmx</value>
+  </setting>
+  <setting name="servicoCancelamento" >
+    <value>https://nfe.sefazvirtual.rs.gov.br/ws/nfecancelamento/NfeCancelamento.asmx</value>
+  </setting>
+  <setting name="servicoConsultaStatus" >
+    <value>https://nfe.sefazvirtual.rs.gov.br/ws/nfestatusservico/NfeStatusServico.asmx</value>
+  </setting>
+   <setting name="servicoInutilizacao" >
+    <value>https://nfe.sefazvirtual.rs.gov.br/ws/nfeinutilizacao/NfeInutilizacao.asmx</value>
+  </setting>
+  -->
+  <!--SCAN-->
+  <!--
+  <setting name="servicoRecepcao" >
+    <value>https://hom.nfe.fazenda.gov.br/SCAN/NfeRecepcao/NfeRecepcao.asmx</value>
+  </setting>
+  <setting name="servicoRetornoRecepcao" >
+    <value>https://hom.nfe.fazenda.gov.br/SCAN/NfeRetRecepcao/NfeRetRecepcao.asmx</value>
+  </setting>
+  <setting name="servicoCancelamento" >
+    <value>https://hom.nfe.fazenda.gov.br/SCAN/NfeCancelamento/NfeCancelamento.asmx</value>
+  </setting>
+  <setting name="servicoConsultaStatus" >
+    <value>https://hom.nfe.fazenda.gov.br/SCAN/NfeStatusServico/NfeStatusServico.asmx </value>
+  </setting>
+  
+-->
+
+  <!-- CAMPOS -->
+  <setting name="posicaoCampoICMS" >
+    <value>31</value>
+  </setting>
+
+  <setting name="posicaoCampoDuplicatas" >
+    <value>64</value>
+  </setting>
+
+
+
+</Fisconet4.Settings>

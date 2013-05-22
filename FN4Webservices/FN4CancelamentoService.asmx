@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="VB" CodeBehind="FN4CancelamentoService.asmx.vb" Class="FN4Webservices.FN4CancelamentoService" %>

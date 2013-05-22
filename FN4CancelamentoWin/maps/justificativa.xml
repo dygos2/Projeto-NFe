@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="justificativa" type ="FN4Common.justificativaVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="justificativaResult" class="justificativa">
+      <result property="idJustificativa" column="idJustificativa" />
+      <result property="idNota" column="idNota" />
+      <result property="cnpj" column="cnpj" />
+      <result property="serie" column="serie" />
+      <result property="descricao" column="descricao" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="obterJustificativa" parameterClass="System.Collections.IDictionary" resultMap="justificativaResult">
+      select 
+        * 
+      from 
+        justificativas 
+      where
+        idNota = #idNota#
+        and serie = #serie#
+        and cnpj = #cnpj#;
+    </select>
+    <insert id="inserirJustificativa" parameterClass="justificativa">
+      insert into
+        justificativas (idNota, serie, cnpj, descricao)
+      values (#idNota#, #serie#, #cnpj#, #descricao#);
+    </insert>
+  </statements>
+</sqlMap>

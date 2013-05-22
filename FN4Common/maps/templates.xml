@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="templates" type ="FN4Common.templatesVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="templatesResult" class="templates">
+      <result property="assunto" column = "assunto"/>
+      <result property="template" column = "template"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="obtertemplates" parameterClass="System.Collections.IDictionary" resultMap="templatesResult" >
+      SELECT
+      assunto,
+      template
+      FROM
+      templates 
+      where id = #id#;
+    </select>
+  </statements>
+
+</sqlMap>
