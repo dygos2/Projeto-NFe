@@ -592,7 +592,7 @@ Public Class FN4NotasService
                 Dim evento As New eventoVO
 
                 evento.NFe_infNFe_id = nota.NFe_infNFe_id
-                evento.infEvento_detEvento_xCorrecao = textoJustificativa
+                evento.infEvento_detEvento_xCorrecao = textoJustificativa.Trim()
                 evento.NFe_emit_CNPJ = nota.NFe_emit_CNPJ
                 evento.infEvento_tpEvento = 110111
                 evento.statusEvento = 0

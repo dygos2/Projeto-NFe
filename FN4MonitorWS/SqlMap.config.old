@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<sqlMapConfig xmlns="http://ibatis.apache.org/dataMapper" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+  <settings>
+    <setting useStatementNamespaces="false" />
+  </settings>
+
+  <providers resource="bin/providers.config" />
+  
+  <!-- HOMOLOGACAO -->
+  <!--
+	<database>
+    <provider name="MySQL"/>
+    <dataSource name="fisconet4_homologacao" connectionString="server=localhost; database=fisconet4_homologacao; User ID=root; password=root"/>
+  </database>
+  	--> 
+  <!-- PRODUCAO -->
+
+  <database>
+    <provider name="MySql"/>
+    <dataSource name="fisconet4" connectionString="server=208.109.236.57; database=fisconet5_homologacao; User ID=dygos; password=199715" />
+  </database>
+
+  <sqlMaps>
+    <sqlMap resource="bin/maps/nota.xml" />
+    <sqlMap resource="bin/maps/usuario.xml" />
+    <sqlMap resource="bin/maps/historico.xml" />
+    <sqlMap resource="bin/maps/atualizacao.xml" />
+    <sqlMap resource="bin/maps/serie.xml" />
+    <sqlMap resource="bin/maps/webservice.xml" />
+    <sqlMap resource="bin/maps/empresa.xml" />
+    <sqlMap resource="bin/maps/configuracao.xml" />
+    <sqlMap resource="bin/maps/justificativa.xml" />
+    <!-- Carta de Correcao-->
+    <sqlMap resource="bin/maps/evento.xml" />
+    <!-- UTC-->
+    <sqlMap resource="bin/maps/utc.xml" />
+  </sqlMaps>
+
+</sqlMapConfig>

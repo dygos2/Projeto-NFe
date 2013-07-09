@@ -23,7 +23,7 @@ Public Class FN4CartaCorrecaoService
 
         If Seguranca.CompararMD5(empresa.validador, TOKEN) Then
             evento.NFe_infNFe_id = nfe_infNfe_id
-            evento.infEvento_detEvento_xCorrecao = xCorrecao
+            evento.infEvento_detEvento_xCorrecao = xCorrecao.Trim()
             evento.NFe_emit_CNPJ = nfe_infNfe_id.Substring(6, 14)
 
             evento.infEvento_tpEvento = 110110

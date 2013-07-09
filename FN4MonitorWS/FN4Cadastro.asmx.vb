@@ -13,7 +13,7 @@ Public Class FN4Cadastro
     Inherits System.Web.Services.WebService
 
     <WebMethod()> _
-    Public Function CadastrarEmpresa(ByVal cnpj As String, ByVal nome As String, ByVal nomeFantasia As String, ByVal logradouro As String, ByVal numero As Integer, ByVal bairro As String, ByVal cep As String, ByVal complemento As String, ByVal codigoMunicipio As Integer, ByVal nomeMunicipio As String, ByVal uf As String, ByVal ie As String, ByVal crt As Integer, ByVal homologacao As Integer, ByVal email As String, ByVal fone As String) As retornoCadastroVO
+    Public Function CadastrarEmpresa(ByVal cnpj As String, ByVal nome As String, ByVal nomeFantasia As String, ByVal logradouro As String, ByVal numero As String, ByVal bairro As String, ByVal cep As String, ByVal complemento As String, ByVal codigoMunicipio As Integer, ByVal nomeMunicipio As String, ByVal uf As String, ByVal ie As String, ByVal crt As Integer, ByVal homologacao As Integer, ByVal email As String, ByVal fone As String) As retornoCadastroVO
         Try
             Dim empresa As New empresaVO
 
