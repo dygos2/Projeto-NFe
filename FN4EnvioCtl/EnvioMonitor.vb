@@ -533,6 +533,8 @@ Public Class EnvioMonitor
                 'caso contrario
                 'criar historico do retorno 
                 inserirHistorico("14", xmlRetorno.SelectSingleNode("/retEnviNFe/xMotivo").InnerText, nota)
+                nota.retEnviNFe_xMotivo = xmlRetorno.SelectSingleNode("/retEnviNFe/xMotivo").InnerText
+                nota.retEnviNFe_cStat = xmlRetorno.SelectSingleNode("/retEnviNFe/cStat").InnerText
                 nota.statusDaNota = 3
                 notaDAO.alterarNota(nota)
             End If

@@ -107,6 +107,7 @@ Public Class RetornoMonitor
                 xmlprotocolo.Save(nota.pastaDeTrabalho & nota.NFe_ide_nNF & "_protocolo.xml")
 
                 Dim resultado As String = xmlprotocolo.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='cStat' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']").InnerXml
+                Dim xMotivo As String = xmlprotocolo.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='xMotivo' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']").InnerXml
 
                 If resultado = "104" Then 'lote processado, processar o retorno dele
 
@@ -211,6 +212,8 @@ Public Class RetornoMonitor
                     inserirHistorico(15, "Rejeição: Consumo Indevido, sistema tentando consultar novamente em 60 segundos.", nota)
                 Else 'lote rejeitado
                     nota.statusDaNota = 3
+                    nota.retEnviNFe_cStat = resultado
+                    nota.retEnviNFe_xMotivo = xMotivo
                     notaDAO.alterarNota(nota)
                     inserirHistorico(9, nota.retEnviNFe_xMotivo, nota)
                 End If
