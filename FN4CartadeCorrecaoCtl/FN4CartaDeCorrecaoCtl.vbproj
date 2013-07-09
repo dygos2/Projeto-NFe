@@ -173,6 +173,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="database scripts\create\create table evento.sql" />
+    <Content Include="xml\ProcEvento.xml" />
     <None Include="Web References\NFe.RecepcaoEvento\RecepcaoEvento.disco" />
     <Content Include="database scripts\insert\insert tipohistorico.sql" />
     <Content Include="xml\cabecMsg.xml">

@@ -6,6 +6,9 @@ Imports System.Security.Cryptography
 Imports System.Security.Cryptography.X509Certificates
 Imports System.Timers
 Imports System.Xml.Schema
+Imports System.Net
+Imports System.Text
+Imports System.IO
 
 
 Public Class CartaDeCorrecaoMonitor
@@ -39,6 +42,40 @@ Public Class CartaDeCorrecaoMonitor
         End Try
         Me.run()
     End Sub
+
+    Private Sub gera_protocolo(ByVal xml_lote_envio As XmlDocument, ByVal xml_retorno As XmlDocument, ByVal path_pasta As String, ByVal evento As eventoVO)
+
+        Try
+            Dim proc_Evento, enviar, recebimento As New XmlDocument
+            proc_Evento.PreserveWhitespace = True
+
+            Dim path_proc_Evento As String = System.AppDomain.CurrentDomain.BaseDirectory() & "XML\ProcEvento.xml"
+
+            ' Dim path_enviar As String = "c:/temp/lote_enviado.xml"
+            'enviar.Load(path_enviar)
+
+            'Dim path_recebimento As String = "c:/temp/Retorno.xml"
+            'recebimento.Load(path_recebimento)
+
+            Try
+                ' envCCe.PreserveWhitespace = True
+                proc_Evento.Load(path_proc_Evento)
+            Catch ex As Exception
+                Throw New Exception("Erro ao carregar XML: " & path_proc_Evento & " : " & ex.Message)
+            End Try
+            'inserindo os dados
+            proc_Evento.DocumentElement.AppendChild(proc_Evento.ImportNode(xml_lote_envio.ChildNodes(0).ChildNodes(1), True))
+            proc_Evento.DocumentElement.AppendChild(proc_Evento.ImportNode(xml_retorno.ChildNodes(0).ChildNodes(6), True))
+
+            Dim arquivo As String = path_pasta & "proc_evento_" & evento.infEvento_nSeqEvento & "_" & evento.infEvento_tpEvento & ".xml"
+            proc_Evento.Save(arquivo)
+
+        Catch ex As Exception
+            Log.registrarErro(ex.Message, Servico)
+        End Try
+
+    End Sub
+
     Private Sub enviarCCe()
         Dim evs As List(Of eventoVO)
         evs = eventos.obterCartasCorrecaoParaEnvio()
@@ -80,6 +117,7 @@ Public Class CartaDeCorrecaoMonitor
         inserirHistorico(19, "", nota)
 
         Dim empresa As empresaVO = empresaDAO.obterEmpresa(evento.NFe_emit_CNPJ, String.Empty)
+        Dim tp_sys = configuracaoDAO.obterConfiguracao("tp_sys", empresa.idEmpresa)
 
         Dim cce As New XmlDocument
         Dim cabecMsg As New XmlDocument
@@ -128,7 +166,7 @@ Public Class CartaDeCorrecaoMonitor
         root.SetAttribute("xmlns", "http://www.portalfiscal.inf.br/nfe")
 
         'salva o cancelamento no formato - [sequencial da cce]_ddMMyyyymmss_CCe.xml
-        Dim arquivo As String = nota.pastaDeTrabalho & evento.infEvento_nSeqEvento & "_" & time_tmp.ToString("ddMMyyymmss") & "_Canc1_transformado.xml"
+        Dim arquivo As String = nota.pastaDeTrabalho & "evento_" & evento.infEvento_nSeqEvento & "_" & evento.infEvento_tpEvento & "_transformado.xml"
         cce.Save(arquivo)
 
 
@@ -137,8 +175,7 @@ Public Class CartaDeCorrecaoMonitor
 
         ccetemp.PreserveWhitespace = True
         ccetemp = XmlHelper.assinarNFeXML(ccetemp, ccetemp.GetElementsByTagName("infEvento")(0).Attributes("Id").InnerText, empresa.idEmpresa)
-
-        arquivo = nota.pastaDeTrabalho & evento.infEvento_nSeqEvento & "_" & time_tmp.ToString("ddMMyyymmss") & "_Canc2_assinado.xml"
+        arquivo = nota.pastaDeTrabalho & "evento_" & evento.infEvento_nSeqEvento & "_" & evento.infEvento_tpEvento & "_assinado.xml"
         ccetemp.Save(arquivo)
 
         Dim ccenvio As New XmlDocument
@@ -164,23 +201,8 @@ Public Class CartaDeCorrecaoMonitor
         envCCe.DocumentElement.AppendChild(envCCe.ImportNode(ccenvio.ChildNodes(0), True))
 
         'Valida arquivo
-        arquivo = nota.pastaDeTrabalho & evento.infEvento_nSeqEvento & "_" & time_tmp.ToString("ddMMyyymmss") & "_Canc_lote_enviado.xml"
+        arquivo = nota.pastaDeTrabalho & "evento_" & evento.infEvento_nSeqEvento & "_" & evento.infEvento_tpEvento & "_lote_enviado.xml"
         envCCe.Save(arquivo)
-
-        'Dim retornoValidacao As String
-        'retornoValidacao = validarXmlDeEnvio(arquivo)
-
-        'If retornoValidacao <> "" Then
-        'inserirHistorico(29, retornoValidacao, nota)
-        'evento.statusEvento = 3
-        'evento.retEvento_cStat = 29
-        'evento.retEvento_xMotivo = retornoValidacao
-        'Log.registrarErro("Erro de envio da carta de correção " & evento.infEvento_nSeqEvento & " da nota " & nota.NFe_infNFe_id & ". " & retornoValidacao, Servico)
-
-        'eventos.alterarEvento(evento)
-        'Return
-        'End If
-
 
         Dim ws As New NFe.RecepcaoEvento.RecepcaoEvento
         Dim certificado = Geral.ObterCertificadoPorEmpresa(empresa.idEmpresa)
@@ -232,7 +254,7 @@ Public Class CartaDeCorrecaoMonitor
 
         xmlRetorno.PreserveWhitespace = True
         xmlRetorno.LoadXml(retorno.OuterXml)
-        arquivo = nota.pastaDeTrabalho & evento.infEvento_nSeqEvento & "_" & time_tmp.ToString("ddMMyyymmss") & "_Canc_Retorno.xml"
+        arquivo = nota.pastaDeTrabalho & "evento_" & evento.infEvento_nSeqEvento & "_" & evento.infEvento_tpEvento & "_Retorno.xml"
         xmlRetorno.Save(arquivo)
 
         Dim statusLote As String = xmlRetorno.SelectSingleNode("/*[local-name()='retEnvEvento' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='cStat' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
@@ -252,21 +274,45 @@ Public Class CartaDeCorrecaoMonitor
             End If
 
             If evento.retEvento_cStat = "135" Or evento.retEvento_cStat = "101" Or evento.retEvento_cStat = "151" Or evento.retEvento_cStat = "155" Then 'esta ainda indefinido se vai voltar status de nota a cancelada periodo irregular neste campo
-                'registrado e vinculado
-                evento.statusEvento = 21
+                'criando o arquivo do protocolo
+                gera_protocolo(envCCe, xmlRetorno, nota.pastaDeTrabalho, evento)
+
+                If empresa.envio_auto_canc Then 'enviar email automático?
+                    'registrado, vinculado e enviando email
+                    evento.statusEvento = 20
+                Else
+                    'registrado e vinculado
+                    evento.statusEvento = 21
+                End If
+
                 inserirHistorico(28, evento.retEvento_xMotivo, nota)
+
                 nota.statusDaNota = 4 'apresenta nota cancelada
                 nota.retEnviNFe_cStat = evento.retEvento_cStat
                 nota.retEnviNFe_xMotivo = evento.retEvento_xMotivo
                 notas.alterarNota(nota)
+
+                'Se tp_sys = 1/ local e gerar o pdf
+                If Not tp_sys Is Nothing Then
+                    gera_pdf_eventos(nota, evento)
+                End If
+
             ElseIf evento.retEvento_cStat = "136" Then
                 'registrado e nao vinculado
                 evento.statusEvento = 22
                 inserirHistorico(29, evento.retEvento_xMotivo, nota)
 
             ElseIf evento.retEvento_cStat = "573" Then
+                'criando o arquivo do protocolo
+                gera_protocolo(envCCe, xmlRetorno, nota.pastaDeTrabalho, evento)
                 'duplicidade no evento
-                evento.statusEvento = 21
+                If empresa.envio_auto_canc Then 'enviar email automático?
+                    'registrado, vinculado e enviando email
+                    evento.statusEvento = 20
+                Else
+                    'registrado e vinculado
+                    evento.statusEvento = 21
+                End If
                 inserirHistorico(28, evento.retEvento_xMotivo, nota)
                 nota.statusDaNota = 4 'apresenta nota cancelada
                 nota.retEnviNFe_cStat = 101
@@ -298,12 +344,13 @@ Public Class CartaDeCorrecaoMonitor
         Dim serie As Integer = evento.NFe_infNFe_id.Substring(22, 3)
         Dim nnf As Integer = evento.NFe_infNFe_id.Substring(25, 9)
 
-
         Dim nota As notaVO = notas.obterNota(nnf, evento.NFe_emit_CNPJ, serie)
+        Dim pasta_arr As Array = nota.pastaDeTrabalho.Split("\")
 
-        inserirHistorico(27, "", nota)
+        inserirHistorico(27, evento.infEvento_detEvento_xCorrecao, nota)
 
         Dim empresa As empresaVO = empresaDAO.obterEmpresa(evento.NFe_emit_CNPJ, String.Empty)
+        Dim tp_sys = configuracaoDAO.obterConfiguracao("tp_sys", empresa.idEmpresa)
 
         Dim cce As New XmlDocument
         Dim cabecMsg As New XmlDocument
@@ -350,11 +397,9 @@ Public Class CartaDeCorrecaoMonitor
         Dim root As XmlElement = cce.GetElementsByTagName("evento")(0)
         root.SetAttribute("xmlns", "http://www.portalfiscal.inf.br/nfe")
 
-        'salva a cce no formato - [sequencial da cce]_ddMMyyyymmss_CCe.xml
-        Dim arquivo As String = nota.pastaDeTrabalho & evento.infEvento_nSeqEvento & "_" & time_tmp.ToString("ddMMyyymmss") & "_CCe1_transformado.xml"
+        'salva a cce no formato - evento_[sequencial da cce]_[tipo do evento]_.xml
+        Dim arquivo As String = nota.pastaDeTrabalho & "evento_" & evento.infEvento_nSeqEvento & "_" & evento.infEvento_tpEvento & "_transformado.xml"
         cce.Save(arquivo)
-
-
 
         Dim ccetemp As New XmlDocument
         ccetemp.Load(arquivo)
@@ -362,13 +407,11 @@ Public Class CartaDeCorrecaoMonitor
         ccetemp.PreserveWhitespace = True
         ccetemp = XmlHelper.assinarNFeXML(ccetemp, ccetemp.GetElementsByTagName("infEvento")(0).Attributes("Id").InnerText, empresa.idEmpresa)
 
-        arquivo = nota.pastaDeTrabalho & evento.infEvento_nSeqEvento & "_" & time_tmp.ToString("ddMMyyymmss") & "_CCe2_assinado.xml"
+        arquivo = nota.pastaDeTrabalho & "evento_" & evento.infEvento_nSeqEvento & "_" & evento.infEvento_tpEvento & "_assinado.xml"
         ccetemp.Save(arquivo)
 
         Dim ccenvio As New XmlDocument
         ccenvio.Load(arquivo)
-
-
 
         Dim envCCe As New XmlDocument
         Dim pathEnvCCe As String = System.AppDomain.CurrentDomain.BaseDirectory() & "XML\envEvento.xml"
@@ -390,7 +433,7 @@ Public Class CartaDeCorrecaoMonitor
         envCCe.DocumentElement.AppendChild(envCCe.ImportNode(ccenvio.ChildNodes(0), True))
 
         'Valida arquivo
-        arquivo = nota.pastaDeTrabalho & evento.infEvento_nSeqEvento & "_" & time_tmp.ToString("ddMMyyymmss") & "_CCe3_lote_enviado.xml"
+        arquivo = nota.pastaDeTrabalho & "evento_" & evento.infEvento_nSeqEvento & "_" & evento.infEvento_tpEvento & "_lote_enviado.xml"
         envCCe.Save(arquivo)
 
         Dim retornoValidacao As String
@@ -406,7 +449,6 @@ Public Class CartaDeCorrecaoMonitor
             eventos.alterarEvento(evento)
             Return
         End If
-
 
         Dim ws As New NFe.RecepcaoEvento.RecepcaoEvento
         Dim certificado = Geral.ObterCertificadoPorEmpresa(empresa.idEmpresa)
@@ -458,11 +500,10 @@ Public Class CartaDeCorrecaoMonitor
 
         xmlRetorno.PreserveWhitespace = True
         xmlRetorno.LoadXml(retorno.OuterXml)
-        arquivo = nota.pastaDeTrabalho & evento.infEvento_nSeqEvento & "_" & time_tmp.ToString("ddMMyyymmss") & "_CCe_Retorno.xml"
+        arquivo = nota.pastaDeTrabalho & "evento_" & evento.infEvento_nSeqEvento & "_" & evento.infEvento_tpEvento & "_Retorno.xml"
         xmlRetorno.Save(arquivo)
 
         Dim statusLote As String = xmlRetorno.SelectSingleNode("/*[local-name()='retEnvEvento' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='cStat' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
-
         Dim motivo As String = xmlRetorno.SelectSingleNode("/*[local-name()='retEnvEvento' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='xMotivo' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
 
         'lote aprovado
@@ -481,23 +522,37 @@ Public Class CartaDeCorrecaoMonitor
             'salva a cce no formato - [sequencial da cce]_ddMMyyyymmss_CCe.xml
 
             If evento.retEvento_cStat = "135" Then
-                'registrado e vinculado
-                evento.statusEvento = 21
+                'criando o arquivo do protocolo
+                gera_protocolo(envCCe, xmlRetorno, nota.pastaDeTrabalho, evento)
+
+                If empresa.envio_auto_canc Then 'enviar email automático?
+                    'registrado, vinculado e enviando email
+                    evento.statusEvento = 20
+                Else
+                    'registrado e vinculado
+                    evento.statusEvento = 21
+                End If
                 inserirHistorico(28, evento.retEvento_xMotivo, nota)
-                'pegando o protocolo de retorno
-                nota.statusDaNota = 19 'pegando o protocolo de consulta para gerar o pdf
                 notas.alterarNota(nota)
+
+                'Se tp_sys = 1/ local e gerar o pdf
+                If Not tp_sys Is Nothing Then
+                    gera_pdf_eventos(nota, evento)
+                End If
+
+                eventos.alterarEvento(evento)
 
             ElseIf evento.retEvento_cStat = "136" Then
                 'registrado e nao vinculado
                 evento.statusEvento = 22
                 inserirHistorico(29, evento.retEvento_xMotivo, nota)
+                eventos.alterarEvento(evento)
             Else
                 'erros
                 evento.statusEvento = 3
                 inserirHistorico(29, evento.retEvento_xMotivo, nota)
+                eventos.alterarEvento(evento)
             End If
-            eventos.alterarEvento(evento)
 
         Else
             'lote rejeitado
@@ -511,6 +566,51 @@ Public Class CartaDeCorrecaoMonitor
         End If
 
     End Sub
+    Public Sub gera_pdf_eventos(ByVal nota As notaVO, ByVal evento As eventoVO)
+        Try
+            Log.registrarErro("iniciando geração do PDF dos eventos", Servico)
+            Dim uriString As String = Geral.Parametro("servidor_pdf_eventos") '"http://72.167.54.28/index_cce.php"
+            Dim drive As String = Geral.Parametro("pastaDeProcessadas")
+            Dim path_pdf As String
+
+            ' Create a new WebClient instance
+            Dim myWebClient As New WebClient()
+            'Console.WriteLine(ControlChars.Cr + "Please enter the data to be posted to the URI {0}:", uriString)
+
+            Dim file1, file2 As String
+
+            path_pdf = nota.pastaDeTrabalho & "evento_" & evento.infEvento_nSeqEvento & "_" & evento.infEvento_tpEvento & ".pdf"
+            file1 = nota.pastaDeTrabalho & nota.NFe_ide_nNF & "_procNFe.xml"
+
+            file2 = nota.pastaDeTrabalho & "proc_evento_" & evento.infEvento_nSeqEvento & "_" & evento.infEvento_tpEvento & ".xml"
+
+            Dim postData As String = file1
+            Log.registrarInfo("enviando arquivo 1 - " & file1 & " | para - " & uriString, Servico)
+
+            ' Apply ASCII Encoding to obtain the string as a byte array.
+            Dim byteArray As Byte() = Encoding.ASCII.GetBytes(postData)
+            Dim responseArray As Byte() = myWebClient.UploadFile(uriString, postData)
+            Dim txt_ret As String = Encoding.ASCII.GetString(responseArray)
+
+            postData = file2
+            Log.registrarInfo("enviando arquivo 2 - " & file2 & " | para - " & uriString, Servico)
+
+            ' Apply ASCII Encoding to obtain the string as a byte array.
+            byteArray = Encoding.ASCII.GetBytes(postData)
+            responseArray = myWebClient.UploadFile(uriString & "?file1=" & txt_ret, postData)
+
+            Dim FS As New FileStream(path_pdf, FileMode.CreateNew, FileAccess.ReadWrite)
+            FS.Write(responseArray, 0, responseArray.Length)
+            FS.Close()
+            Log.registrarInfo("PDF salvo em " & path_pdf, Servico)
+
+        Catch ex As Exception
+            Log.registrarErro("Erro de pdf tentando salvar: " & ex.Message, Servico)
+            Throw ex
+            'Error in accessing the resource, handle it 
+        End Try
+    End Sub
+
 
     Private Shared Sub inserirHistorico(ByVal tipo As String, ByVal texto As String, ByVal nota As notaVO)
         Dim historico As New historicoVO(tipo, texto, nota.NFe_ide_nNF, nota.NFe_emit_CPF & nota.NFe_emit_CNPJ, nota.serie)
