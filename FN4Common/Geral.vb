@@ -94,6 +94,8 @@ Public Class Geral
     Private Shared Function obterCertificado(ByVal idEmpresa As Integer) As X509Certificate2
         '1o. abrir o repositorio de certificados
         Dim store As New X509Store(StoreName.My, StoreLocation.LocalMachine)
+        Dim achou As Integer = 0
+
         store.Open(OpenFlags.ReadOnly)
 
         Dim todosOsCertificados = store.Certificates
@@ -112,15 +114,9 @@ Public Class Geral
 
         Dim serialSSL = configuracao.valor
 
+        'certCollection = todosOsCertificados.Find(X509FindType.FindBySerialNumber, serialSSL, False)
+
         certCollection = todosOsCertificados.Find(X509FindType.FindBySerialNumber, serialSSL, False)
-
-        For Each item As X509Certificate2 In todosOsCertificados
-            If item.SerialNumber = serialSSL.Replace(Space(1), String.Empty).ToUpper() Then
-                cert = item
-            End If
-        Next
-
-        certCollection = store.Certificates.Find(X509FindType.FindBySerialNumber, serialSSL, False)
 
         If certCollection.Count > 0 Then
             cert = certCollection(0)
@@ -135,11 +131,19 @@ Public Class Geral
                 If certCollection.Count > 0 Then
                     cert = certCollection(0)
                 Else
-                    Log.registrarErro("Certificado não encontrado", "EntradaTxtService")
+                    For Each item As X509Certificate2 In todosOsCertificados
+                        If item.SerialNumber = serialSSL.Replace(Space(1), String.Empty).ToUpper() Then
+                            cert = item
+                            achou = 1
+                            Exit For
+                        End If
+                    Next
+                    If achou = 0 Then
+                        Log.registrarErro("Certificado não encontrado", "EntradaTxtService")
+                    End If
                 End If
             End If
         End If
-
         Return cert
     End Function
 

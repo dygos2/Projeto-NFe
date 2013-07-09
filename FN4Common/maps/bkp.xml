@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <alias>
     <typeAlias alias="bkp" type ="FN4Common.bkpVO, FN4Common"/>
   </alias>

@@ -33,7 +33,15 @@ Public Class empresaVO
     Private _frest As Integer
     Private _prest As Integer
     Private _habilitado_stat As Integer
-
+    Private _envio_auto_canc As Integer
+    Public Property envio_auto_canc() As Integer
+        Get
+            Return _envio_auto_canc
+        End Get
+        Set(ByVal value As Integer)
+            _envio_auto_canc = value
+        End Set
+    End Property
     Public Property habilitado_stat() As Integer
         Get
             Return _habilitado_stat

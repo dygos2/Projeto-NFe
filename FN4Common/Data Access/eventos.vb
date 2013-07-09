@@ -47,6 +47,8 @@
             Dim seq As Integer = IBatisNETHelper.Instance.QueryForObject("obterIdProximoEvento", evento)
 
             Dim ultimoEvento As eventoVO
+            ultimoEvento = Nothing
+
             If seq = -1 Then
                 seq = 1
             Else

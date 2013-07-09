@@ -186,7 +186,9 @@
     <Content Include="Database Scripts\Creates\fisconet4_usuarios.sql" />
     <Content Include="Database Scripts\Creates\fisconet4_webservice.sql" />
     <Content Include="Database Scripts\Inserts\fisconet4_webservice.sql" />
-    <Content Include="maps\bkp.xml" />
+    <Content Include="maps\bkp.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="maps\clientes.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -211,7 +213,9 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="maps\utc.xml" />
+    <Content Include="maps\utc.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="maps\webservice.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

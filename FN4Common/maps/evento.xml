@@ -46,7 +46,11 @@
       SELECT COUNT(*) AS valor FROM eventos
       WHERE NFe_emit_CNPJ = #NFe_emit_CNPJ#;
     </select>
-    
+    <select id="obterEventosEmail" parameterClass="evento" resultMap="eventoResult" >
+      SELECT * FROM eventos
+      WHERE
+      statusEvento=20;
+    </select>
     <select id="obterEvento" parameterClass="evento" resultMap="eventoResult" >
       SELECT * FROM eventos
       WHERE
@@ -80,9 +84,7 @@
       NFe_emit_CNPJ,
       infEvento_detEvento_xCorrecao)
       VALUES(#infEvento_nSeqEvento#, #infEvento_tpEvento#, #NFe_infNFe_id#, now(), #statusEvento#, #NFe_emit_CNPJ# , #infEvento_detEvento_xCorrecao#);
-
     </insert>
-
     <update id="alterarEvento" parameterClass="evento" >
       UPDATE eventos SET
       statusEvento = #statusEvento#,

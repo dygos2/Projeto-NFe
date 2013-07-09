@@ -88,6 +88,7 @@
       <result property="emailDestinatario" column = "emailDest" />
       <result property="impressaoSolicitada" column = "impressaoSolicitada" />
       <result property="impressora" column = "impressora" />
+      <result property="atualizacoes" column="id=NFe_ide_nNF, cnpj=NFe_emit_CNPJ" select="obterAtualizacoes"></result>
       <result property="imprimeDanfe" column="imprimeDanfe" />
       <result property="impressoEmContingencia" column="impressoEmContingencia" />
       <result property="num_pedido" column="num_pedido" />
@@ -469,10 +470,11 @@
       AND
       (a.statusDaNota = 22
       OR a.statusDaNota = 3
-	  OR a.statusDaNota = 4 
-      OR a.statusDaNota = 5 
-	  OR a.statusDaNota = 6) 
-      and nfe_emit_xnome != "" 
+      OR a.statusDaNota = 4
+      OR a.statusDaNota = 5
+      OR a.statusDaNota = 6)
+      and nfe_emit_xnome != ""
+      and a.num_pedido > 0
       order by b.cnpj;
     </select>
 	

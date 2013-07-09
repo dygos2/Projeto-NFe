@@ -36,6 +36,7 @@
       <result property="frest" column ="frest" />
       <result property="prest" column ="prest" />
       <result property="habilitado_stat" column ="habilitado_stat" />
+      <result property="envio_auto_canc" column ="envio_auto_canc" />
     </resultMap>
 
     <resultMap id="empresaResultComUrlPostBack" class="empresa">
