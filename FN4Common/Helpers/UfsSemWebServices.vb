@@ -2,7 +2,7 @@
     Public Class UfsSemWebServices
         Public Shared ReadOnly Property SVRS As List(Of String)
             Get
-                Dim _ufs As List(Of String) = New List(Of String)(New String() {"AC", "AL", "AM", "AP", "DF", "PB", "RJ", "RO", "RR", "SC", "SE", "TO"})
+                Dim _ufs As List(Of String) = New List(Of String)(New String() {"AC", "AL", "AP", "DF", "PB", "RJ", "RO", "RR", "SC", "SE", "TO"})
                 Return _ufs
             End Get
         End Property

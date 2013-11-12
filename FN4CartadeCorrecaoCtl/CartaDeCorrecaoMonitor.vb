@@ -288,8 +288,8 @@ Public Class CartaDeCorrecaoMonitor
                 inserirHistorico(28, evento.retEvento_xMotivo, nota)
 
                 nota.statusDaNota = 4 'apresenta nota cancelada
-                nota.retEnviNFe_cStat = evento.retEvento_cStat
-                nota.retEnviNFe_xMotivo = evento.retEvento_xMotivo
+                nota.retEnviNFe_cStat = 101
+                nota.retEnviNFe_xMotivo = "Cancelamento de NF-e homologado"
                 notas.alterarNota(nota)
 
                 'Se tp_sys = 1/ local e gerar o pdf
@@ -521,7 +521,7 @@ Public Class CartaDeCorrecaoMonitor
 
             'salva a cce no formato - [sequencial da cce]_ddMMyyyymmss_CCe.xml
 
-            If evento.retEvento_cStat = "135" Then
+            If evento.retEvento_cStat = "135" Or evento.retEvento_cStat = "573" Then
                 'criando o arquivo do protocolo
                 gera_protocolo(envCCe, xmlRetorno, nota.pastaDeTrabalho, evento)
 
@@ -547,6 +547,7 @@ Public Class CartaDeCorrecaoMonitor
                 evento.statusEvento = 22
                 inserirHistorico(29, evento.retEvento_xMotivo, nota)
                 eventos.alterarEvento(evento)
+
             Else
                 'erros
                 evento.statusEvento = 3
