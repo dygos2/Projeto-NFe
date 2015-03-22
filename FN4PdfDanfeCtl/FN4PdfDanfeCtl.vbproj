@@ -68,9 +68,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FN4EntradaTxtCtl\ref\IBatisNet.DataMapper-bin-1.6.1\binaries-2.0\Castle.DynamicProxy.dll</HintPath>
     </Reference>
-    <Reference Include="Fisconet4.PdfDanfe">
-      <HintPath>..\..\..\..\..\..\..\Users\rserradas\Documents\DANFE 3.0 EM LINHA DE CHAMADA\Fisconet4.PdfDanfe\bin\Release\Fisconet4.PdfDanfe.dll</HintPath>
-    </Reference>
     <Reference Include="IBatisNet.Common, Version=1.6.1.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FN4EntradaTxtCtl\ref\IBatisNet.DataMapper-bin-1.6.1\binaries-2.0\IBatisNet.Common.dll</HintPath>

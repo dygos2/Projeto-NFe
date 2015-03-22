@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="EnviarNota">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="nota" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cnpj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="serie" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="nNF" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviarNotaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnviarNotaResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="cnpj" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="serie" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="numero" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VerificarStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="VerificarStatusResult" type="tns:statusDaNota" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="statusDaNota">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="numero" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="serie" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="cnpj" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="chave" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="cStat" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="motivo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="urlDanfe" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dataUltimaAtualizacao" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="statusDaNota" nillable="true" type="tns:statusDaNota" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="EnviarNotaSoapIn">
+    <wsdl:part name="parameters" element="tns:EnviarNota" />
+  </wsdl:message>
+  <wsdl:message name="EnviarNotaSoapOut">
+    <wsdl:part name="parameters" element="tns:EnviarNotaResponse" />
+  </wsdl:message>
+  <wsdl:message name="VerificarStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:VerificarStatus" />
+  </wsdl:message>
+  <wsdl:message name="VerificarStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:VerificarStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnviarNotaHttpGetIn">
+    <wsdl:part name="nota" type="s:string" />
+    <wsdl:part name="cnpj" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="serie" type="s:string" />
+    <wsdl:part name="nNF" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarNotaHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarStatusHttpGetIn">
+    <wsdl:part name="cnpj" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="serie" type="s:string" />
+    <wsdl:part name="numero" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:statusDaNota" />
+  </wsdl:message>
+  <wsdl:message name="EnviarNotaHttpPostIn">
+    <wsdl:part name="nota" type="s:string" />
+    <wsdl:part name="cnpj" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="serie" type="s:string" />
+    <wsdl:part name="nNF" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="EnviarNotaHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarStatusHttpPostIn">
+    <wsdl:part name="cnpj" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+    <wsdl:part name="serie" type="s:string" />
+    <wsdl:part name="numero" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="VerificarStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:statusDaNota" />
+  </wsdl:message>
+  <wsdl:portType name="NFeCommerceSoap">
+    <wsdl:operation name="EnviarNota">
+      <wsdl:input message="tns:EnviarNotaSoapIn" />
+      <wsdl:output message="tns:EnviarNotaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarStatus">
+      <wsdl:input message="tns:VerificarStatusSoapIn" />
+      <wsdl:output message="tns:VerificarStatusSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="NFeCommerceHttpGet">
+    <wsdl:operation name="EnviarNota">
+      <wsdl:input message="tns:EnviarNotaHttpGetIn" />
+      <wsdl:output message="tns:EnviarNotaHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarStatus">
+      <wsdl:input message="tns:VerificarStatusHttpGetIn" />
+      <wsdl:output message="tns:VerificarStatusHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="NFeCommerceHttpPost">
+    <wsdl:operation name="EnviarNota">
+      <wsdl:input message="tns:EnviarNotaHttpPostIn" />
+      <wsdl:output message="tns:EnviarNotaHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarStatus">
+      <wsdl:input message="tns:VerificarStatusHttpPostIn" />
+      <wsdl:output message="tns:VerificarStatusHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NFeCommerceSoap" type="tns:NFeCommerceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EnviarNota">
+      <soap:operation soapAction="http://tempuri.org/EnviarNota" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarStatus">
+      <soap:operation soapAction="http://tempuri.org/VerificarStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NFeCommerceSoap12" type="tns:NFeCommerceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="EnviarNota">
+      <soap12:operation soapAction="http://tempuri.org/EnviarNota" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarStatus">
+      <soap12:operation soapAction="http://tempuri.org/VerificarStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NFeCommerceHttpGet" type="tns:NFeCommerceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="EnviarNota">
+      <http:operation location="/EnviarNota" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarStatus">
+      <http:operation location="/VerificarStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NFeCommerceHttpPost" type="tns:NFeCommerceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="EnviarNota">
+      <http:operation location="/EnviarNota" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarStatus">
+      <http:operation location="/VerificarStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NFeCommerce">
+    <wsdl:port name="NFeCommerceSoap" binding="tns:NFeCommerceSoap">
+      <soap:address location="http://54.232.81.170:8099/fisconet5_ws_homolog/NFeCommerce.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NFeCommerceSoap12" binding="tns:NFeCommerceSoap12">
+      <soap12:address location="http://54.232.81.170:8099/fisconet5_ws_homolog/NFeCommerce.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NFeCommerceHttpGet" binding="tns:NFeCommerceHttpGet">
+      <http:address location="http://54.232.81.170:8099/fisconet5_ws_homolog/NFeCommerce.asmx" />
+    </wsdl:port>
+    <wsdl:port name="NFeCommerceHttpPost" binding="tns:NFeCommerceHttpPost">
+      <http:address location="http://54.232.81.170:8099/fisconet5_ws_homolog/NFeCommerce.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

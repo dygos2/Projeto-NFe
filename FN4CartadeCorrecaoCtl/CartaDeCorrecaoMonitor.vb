@@ -51,6 +51,12 @@ Public Class CartaDeCorrecaoMonitor
 
             Dim path_proc_Evento As String = System.AppDomain.CurrentDomain.BaseDirectory() & "XML\ProcEvento.xml"
 
+            ' Dim path_enviar As String = "c:/temp/lote_enviado.xml"
+            'enviar.Load(path_enviar)
+
+            'Dim path_recebimento As String = "c:/temp/Retorno.xml"
+            'recebimento.Load(path_recebimento)
+
             Try
                 ' envCCe.PreserveWhitespace = True
                 proc_Evento.Load(path_proc_Evento)
@@ -141,8 +147,16 @@ Public Class CartaDeCorrecaoMonitor
         cce.SelectSingleNode("/evento/infEvento[1]/chNFe[1]").InnerText = evento.NFe_infNFe_id
 
         Dim time_tmp As DateTime = DateTime.Parse(evento.infEvento_dhEvento)
-        
-        cce.SelectSingleNode("/evento/infEvento[1]/dhEvento[1]").InnerText = time_tmp.ToString(String.Concat("yyyy-MM-ddTHH:mm:ss", empresa.utc))
+        Dim utc_str As String
+
+        Try 'tenta buscaro utc
+            Dim utcback As utcVO = utc.obterUTC(empresa.uf)
+            utc_str = utcback.utc
+        Catch ex As Exception
+            Throw New Exception("Erro ao carregar o UTC do estado " & empresa.uf & " : " & ex.Message)
+        End Try
+
+        cce.SelectSingleNode("/evento/infEvento[1]/dhEvento[1]").InnerText = time_tmp.ToString(String.Concat("yyyy-MM-ddTHH:mm:ss", utc_str))
         cce.SelectSingleNode("/evento/infEvento[1]/tpEvento[1]").InnerText = evento.infEvento_tpEvento
         cce.SelectSingleNode("/evento/infEvento[1]/nSeqEvento[1]").InnerText = evento.infEvento_nSeqEvento
         cce.SelectSingleNode("/evento/infEvento[1]/detEvento[1]/xJust[1]").InnerText = evento.infEvento_detEvento_xCorrecao
@@ -373,8 +387,16 @@ Public Class CartaDeCorrecaoMonitor
         cce.SelectSingleNode("/evento/infEvento[1]/chNFe[1]").InnerText = evento.NFe_infNFe_id
 
         Dim time_tmp As DateTime = DateTime.Parse(evento.infEvento_dhEvento)
+        Dim utc_str As String
 
-        cce.SelectSingleNode("/evento/infEvento[1]/dhEvento[1]").InnerText = time_tmp.ToString(String.Concat("yyyy-MM-ddTHH:mm:ss", empresa.utc))
+        Try 'tenta buscaro utc
+            Dim utcback As utcVO = utc.obterUTC(empresa.uf)
+            utc_str = utcback.utc
+        Catch ex As Exception
+            Throw New Exception("Erro ao carregar o UTC do estado " & empresa.uf & " : " & ex.Message)
+        End Try
+
+        cce.SelectSingleNode("/evento/infEvento[1]/dhEvento[1]").InnerText = time_tmp.ToString(String.Concat("yyyy-MM-ddTHH:mm:ss", utc_str))
         cce.SelectSingleNode("/evento/infEvento[1]/tpEvento[1]").InnerText = evento.infEvento_tpEvento
         cce.SelectSingleNode("/evento/infEvento[1]/nSeqEvento[1]").InnerText = evento.infEvento_nSeqEvento
         cce.SelectSingleNode("/evento/infEvento[1]/detEvento[1]/xCorrecao[1]").InnerText = evento.infEvento_detEvento_xCorrecao
@@ -501,7 +523,7 @@ Public Class CartaDeCorrecaoMonitor
             End If
 
             If InStr(xmlRetorno.InnerXml, "xMotivo") > 0 Then
-                evento.retEvento_xMotivo = xmlRetorno.SelectSingleNode("/*[local-name()='retEnvEvento' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='retEvento' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='infEvento' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='xMotivo' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
+                evento.retEvento_xMotivo = String.Concat(evento.retEvento_xMotivo, " - ", xmlRetorno.SelectSingleNode("/*[local-name()='retEnvEvento' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='retEvento' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='infEvento' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='xMotivo' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText)
             End If
 
             'salva a cce no formato - [sequencial da cce]_ddMMyyyymmss_CCe.xml

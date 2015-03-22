@@ -37,6 +37,7 @@
       <result property="prest" column ="prest" />
       <result property="habilitado_stat" column ="habilitado_stat" />
       <result property="envio_auto_canc" column ="envio_auto_canc" />
+      <result property="md5_cnpj" column ="md5_cnpj" />
     </resultMap>
 
     <resultMap id="empresaResultComUrlPostBack" class="empresa">
@@ -84,7 +85,7 @@
       SELECT idEmpresa, cnpj, nome from empresa where habilitado_stat =1;
     </select>
     <select id="obterEmpresa" parameterClass="System.Collections.IDictionary" resultMap="empresaResult" >
-      SELECT * FROM empresa
+      SELECT *, md5(cnpj) as md5_cnpj FROM empresa
       WHERE cnpj =#cnpj#;
     </select>
 

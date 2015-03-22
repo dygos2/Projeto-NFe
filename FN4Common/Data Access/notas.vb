@@ -144,5 +144,25 @@
 
             Return IBatisNETHelper.Instance.QueryForList(Of notaVO)("obterNotasParaPostBack", Nothing)
         End Function
+        Public Shared Sub SincIniNotas(ByVal cnpj As String, ByVal sinc_upd As String, ByVal sinc_where As String)
+            Try
+                Dim ht As New Hashtable
+                ht.Add("cnpj", cnpj)
+                ht.Add("sinc_upd", sinc_upd)
+                ht.Add("sinc_where", sinc_where)
+
+                IBatisNETHelper.Instance.Update("SincIniNotas", ht)
+            Catch ex As Exception
+                'Throw ex
+            End Try
+        End Sub
+
+        Public Shared Function obterNotasSinc(ByVal cnpj As String) As List(Of notaVO)
+            Try
+                Return IBatisNETHelper.Instance.QueryForList(Of notaVO)("obterNotasSinc", cnpj)
+            Catch ex As Exception
+                Throw ex
+            End Try
+        End Function
     End Class
 End Namespace

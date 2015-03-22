@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="pedidos" type ="solution.PedidosVO, solution"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="pedidosBaixados"  class="pedidos">
+      <result property="num_pedido" column = "num_pedido"/>
+      <result property="NFe_emit_CNPJ" column = "NFe_emit_CNPJ"/>
+      <result property="fk_id_plataforma" column = "fk_id_plataforma"/>
+      <result property="tot_ped" column = "tot_ped"/>
+    </resultMap>
+
+    <resultMap id="tot_pedidos"  class="pedidos">
+      <result property="tot_ped" column = "tot_ped"/>      
+    </resultMap>
+    
+  </resultMaps>
+
+
+  <statements>
+   <!-- 
+    <delete id="excluirNota" parameterClass="System.Collections.IDictionary">
+      delete from notas where
+      NFe_ide_nNF = #nNF#
+      and serie = #serie#
+      and NFe_emit_CNPJ = #cnpj#;
+    </delete>
+    -->
+
+    <update id="alterarPedido" parameterClass="pedidos">
+      update pedidos set NFe_emit_CNPJ = #NFe_emit_CNPJ#
+      , num_pedido = #num_pedido#
+      , fk_id_plataforma = #fk_id_plataforma#
+      , fk_xOrderStatusID = #fk_xOrderstatusID#
+      , xName = #xName#
+      , xLgr = #xLgr#
+      , xMun = #xMun#
+      , UF = #UF#
+      , CEP = #CEP#
+      , fone = #fone#
+      , email = #email#
+      , CPF = #CPF#
+      , CNPJ = #CNPJ#
+      , nro = #nro#
+      , xCpl = #xCpl#
+      , xBairro = #xBairro#
+      , xProcDate = #xProcDate#
+      , cMun = #cMun#
+      , xQtyItems = #xQtyItems#
+      , tot_ped = #tot_ped#
+      where NFe_emit_CNPJ = #NFe_emit_CNPJ#
+      and num_pedido = #num_pedido#
+      and fk_id_plataforma = #fk_id_plataforma#;
+    </update>
+
+    <update id="atualizaItens" parameterClass="pedidos">
+      update pedidos set xQtyItems = #xQtyItems#
+      where num_pedido = #num_pedido#
+      and NFe_emit_CNPJ = #NFe_emit_CNPJ#
+      and fk_id_plataforma = #fk_id_plataforma#;
+    </update>    
+    
+    <insert id="inserirPedido" parameterClass="System.Collections.IDictionary" >
+      INSERT INTO pedidos (NFe_emit_CNPJ , num_pedido, fk_id_plataforma, fk_xOrderStatusID,
+      xName, xLgr, xMun, UF, CEP, fone,email,CPF,CNPJ, nro,xCpl, xBairro, xProcDate, cMun, xQtyitems,tot_ped)
+      VALUES(#NFe_emit_CNPJ#,#num_pedido#,#fk_id_plataforma#,#fk_xOrderstatusID#,#xName#,#xLgr#,#xMun#,
+      #UF#,#CEP#,#fone#,#email#,#CPF#,#CNPJ#,#nro#,#xCpl#,#xBairro#,#xProcDate#,#cMun#,#xQtyItems#,#tot_ped#);
+    </insert>
+
+    <select id="pegaPedidos" resultMap="pedidosBaixados">
+      select
+      num_pedido, NFe_emit_CNPJ, fk_id_plataforma ,tot_ped
+      from pedidos  where
+      sincronizada = 0
+      and NFe_emit_CNPJ = #NFe_emit_CNPJ#
+      and fk_id_plataforma = #fk_id_plataforma# limit 10;
+    </select>
+
+    <update id="baixarPedido" parameterClass="System.Collections.IDictionary">
+      update pedidos set 
+          sincronizada = 1
+      where sincronizada = 0 
+          and num_pedido = #num_pedido# 
+          and NFe_emit_CNPJ = #NFe_emit_CNPJ# 
+          and fk_id_plataforma = #fk_id_plataforma#;
+    </update>
+
+    <select id="pegaTot_ped" parameterClass="System.Collections.IDictionary" resultMap="tot_pedidos">
+      select
+      tot_ped
+      from pedidos  where
+      num_pedido = #num_pedido#;
+    </select>
+    
+  </statements>
+
+</sqlMap>

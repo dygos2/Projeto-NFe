@@ -89,6 +89,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Web References\nfecommerce2_homolog\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\nfecommerce2_prod\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\nfecommerce_homolog\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -120,6 +130,22 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="Web References\nfecommerce2_homolog\NFeCommerce.wsdl" />
+    <None Include="Web References\nfecommerce2_homolog\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\nfecommerce2_homolog\statusDaNota.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\nfecommerce2_prod\NFeCommerce.wsdl" />
+    <None Include="Web References\nfecommerce2_prod\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\nfecommerce2_prod\statusDaNota.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\nfecommerce_homolog\NFeCommerce.wsdl" />
     <None Include="Web References\nfecommerce_homolog\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -148,17 +174,17 @@
     <Content Include="bin\Debug\Fn4IntegradorNFeCommerceCtrl.pdb" />
     <Content Include="..\Fn4IntegradorNFeCommerceWin\xml\FN4Config.xml">
       <Link>bin\xml\FN4Config.xml</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="documentação\leia-me.txt" />
+    <None Include="Web References\nfecommerce2_prod\NFeCommerce.disco" />
+    <None Include="Web References\nfecommerce2_homolog\NFeCommerce.disco" />
     <None Include="Web References\nfecommerce_prod\NFeCommerce.disco" />
     <None Include="Web References\nfecommerce_homolog\NFeCommerce.disco" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\xml\" />
     <Folder Include="bin\Release\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
@@ -186,6 +212,31 @@
       <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>Fn4IntegradorNFeCommerceCtrl_nfecommerce_prod_NFeCommerce</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="http://54.232.81.170:8099/fisconet5_ws_homolog/NFeCommerce.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\nfecommerce2_homolog\</RelPath>
+      <UpdateFromURL>http://54.232.81.170:8099/fisconet5_ws_homolog/NFeCommerce.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Fn4IntegradorNFeCommerceCtrl_nfecommerce2_homolog_NFeCommerce</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://54.232.81.170:8099/fisconet5_ws_prod/NFeCommerce.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\nfecommerce2_prod\</RelPath>
+      <UpdateFromURL>http://54.232.81.170:8099/fisconet5_ws_prod/NFeCommerce.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Fn4IntegradorNFeCommerceCtrl_nfecommerce2_prod_NFeCommerce</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

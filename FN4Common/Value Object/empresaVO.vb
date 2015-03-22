@@ -34,6 +34,15 @@ Public Class empresaVO
     Private _prest As Integer
     Private _habilitado_stat As Integer
     Private _envio_auto_canc As Integer
+    Private _md5_cnpj As String
+    Public Property md5_cnpj As String
+        Get
+            Return _md5_cnpj
+        End Get
+        Set(ByVal value As String)
+            _md5_cnpj = value
+        End Set
+    End Property
     Public Property envio_auto_canc() As Integer
         Get
             Return _envio_auto_canc

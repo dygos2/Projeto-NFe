@@ -2,6 +2,7 @@
 Imports FN4Common
 Imports System.Xml
 Imports System.IO
+Imports System
 Public Class processar_txt
     Private numeroDaNota As Integer
     Private dtProcessamento As String
@@ -40,17 +41,18 @@ Public Class processar_txt
         Try
             Dim arr_tmp As Array
             Dim ret As Object
+            System.Net.ServicePointManager.Expect100Continue = False
 
             'verificando os retornos
             For i = 0 To arr_notas.Count - 1
                 arr_tmp = Split(arr_notas.Item(i), "|")
                 If FN4Common.Geral.Parametro("tm_amb_nfe4web") = "1" Then
-                    Dim ws As New nfecommerce_homolog.NFeCommerce
+                    Dim ws As New nfecommerce2_homolog.NFeCommerce
                     ret = ws.VerificarStatus(arr_tmp(0), arr_tmp(1), arr_tmp(2), arr_tmp(3))
                     ws.Dispose()
                     ws = Nothing
                 Else
-                    Dim ws As New nfecommerce_prod.NFeCommerce
+                    Dim ws As New nfecommerce2_prod.NFeCommerce
 
                     ret = ws.VerificarStatus(arr_tmp(0), arr_tmp(1), arr_tmp(2), arr_tmp(3))
                     ws.Dispose()
@@ -125,6 +127,7 @@ Public Class processar_txt
             Dim arr_tokens = Split(FN4Common.Geral.Parametro("tokens"), "/")
             Dim arr_cnpjs = Split(FN4Common.Geral.Parametro("cnpjs"), "/")
             Dim token_used As String
+            token_used = ""
 
             If UBound(arr_tokens) > 0 Then
                 For i = 0 To UBound(arr_tokens)
@@ -156,13 +159,16 @@ Public Class processar_txt
                 Dim txtDeEntrada As String = reader.ReadToEnd
                 reader.Close()
 
+            System.Net.ServicePointManager.Expect100Continue = False
+
             If FN4Common.Geral.Parametro("tm_amb_nfe4web") = "1" Then
-                Dim ws As New nfecommerce_homolog.NFeCommerce
+                Dim ws As New nfecommerce2_homolog.NFeCommerce
                 ws.EnviarNota(txtDeEntrada, CNPJ, token_used, serie, numeroDaNota)
                 ws.Dispose()
                 ws = Nothing
             Else
-                Dim ws As New nfecommerce_prod.NFeCommerce
+                Dim ws As New nfecommerce2_prod.NFeCommerce
+
                 ws.EnviarNota(txtDeEntrada, CNPJ, token_used, serie, numeroDaNota)
                 ws.Dispose()
                 ws = Nothing

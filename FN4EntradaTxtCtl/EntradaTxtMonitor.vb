@@ -59,6 +59,7 @@ Public Class EntradaTxtMonitor
                 Try
                     processarEntradaDeNota(arquivo, CNPJ, serie)
                 Catch ex As Exception
+                    rejeitarArquivo(arquivo, Nothing, "Erro: Entrada do arquivo inválida.")
                     Log.registrarErro("Erro inesperado " & vbCrLf & Geral.ObterExceptionMessagesEmCascata(ex) & vbCrLf & Geral.ObterStackTraceEmCascata(ex), "EntradaTxtService")
                     Continue For
                 End Try
@@ -103,15 +104,13 @@ Public Class EntradaTxtMonitor
                     NFe.Save(pathXMLAssinado)
 
                     inserirHistorico(6, "", nota, CNPJ)
-
-                    nota.statusDaNota = 0
-                    notaDAO.alterarNota(nota)
                 Catch ex As Exception
                     Log.registrarErro("Erro inesperado " & vbCrLf & Geral.ObterExceptionMessagesEmCascata(ex) & vbCrLf & Geral.ObterStackTraceEmCascata(ex), "EntradaTxtService")
                     inserirHistorico(7, "", nota, CNPJ)
 
                     nota.retEnviNFe_xMotivo = "Erro no certificado digital. Se já instalou o certificado e ainda apresenta este erro, acionar o helpdesk passando o CNPJ da sua empresa."
-                    notaDAO.alterarNota(nota)
+                    'comentado por Rodrigo - 03102013 - Não precisa gravar, pois estará gravando no rejeitar nota
+                    'notaDAO.alterarNota(nota)
 
                     rejeitarNota(arquivo, nota, ex, "Erro na assinatura do XML: ")
                     Continue For
@@ -123,7 +122,8 @@ Public Class EntradaTxtMonitor
                         inserirHistorico(9, retornoValidacao, nota, CNPJ)
 
                         nota.retEnviNFe_xMotivo = "Erro de validação: " & retornoValidacao
-                        notaDAO.alterarNota(nota)
+                        'comentado por Rodrigo - 03102013 - Não precisa gravar, pois estará gravando no rejeitar nota
+                        'notaDAO.alterarNota(nota)
 
                         rejeitarNota(arquivo, nota, New Exception("Nota não está de acordo com o XSD"), "Erro de validação: " & retornoValidacao)
                         Continue For
@@ -134,7 +134,10 @@ Public Class EntradaTxtMonitor
                 End Try
 
                 Try
-                    Dim dtProcessamento As String = Format(DateTime.Now, "yyyyMMddhhmmss")
+                    nota.statusDaNota = 0 'iniciando o processamento (ativando envio da NF para sefaz) - 03/10/2013
+                    notaDAO.alterarNota(nota)
+
+                    'Dim dtProcessamento As String = Format(DateTime.Now, "yyyyMMddhhmmss")
                     'salvar o arquivo original na pasta de aprovadas
                     'comentado em 20/02/2013, não precisa mais gravar em aceitas, pois o sistema já está gravando na pasta destino
                     'File.Copy(arquivo, FN4Common.Geral.Parametro("pastaDeAprovadas") & numeroDaNota & "_" & dtProcessamento & ".txt")
@@ -215,25 +218,27 @@ Public Class EntradaTxtMonitor
         Log.registrarInfo("Monitor de Recepção TXT parado", "EntradaTxtService")
     End Sub
     Private Sub processarEntradaDeNota(ByVal arquivo As String, ByVal cnpj As String, ByVal serie As Integer)
+        Dim new_md5_bd As String
+
         '---criação de nova nota---
         nota = New notaVO(numeroDaNota)
         nota.NFe_emit_CNPJ = cnpj
         nota.serie = serie
-        nota.retEnviNFe_cStat = 0 'inicia cstat com 0
+        nota.retEnviNFe_cStat = 0 'inicia cstat com 0, inicio de processamento
+        nota.statusDaNota = -1 'iniciando com status -1
 
         '--- obtencao da empresa ---
         empresa = empresaDAO.obterEmpresa(cnpj, String.Empty)
 
-        'TODO Descomentar
-        If Not Seguranca.CompararMD5(empresa.validador, empresa.token) Then
-            ' Nota inválida
-            nota.statusDaNota = 3
-            notaDAO.alterarNota(nota)
-            Throw New Exception("[Erro] empresa cadastrada, porém inválida.")
+        'verificar se md5 bate
+        If arquivo.Substring(arquivo.LastIndexOf("\") + 1).Replace(".TXT", "").Split("-").Length = 4 Then 'se tiver passando o MD5 já transformado no arquivo
+
+            'checar se o md5 é igual ao retornado tirando caracteres 
+            new_md5_bd = empresa.md5_cnpj.Replace(0, "").Replace(1, "").Replace(2, "").Replace(8, "").Replace(9, "")
+            If new_md5_bd <> arquivo.Substring(arquivo.LastIndexOf("\") + 1).Replace(".TXT", "").Split("-")(3) Then
+                Throw New Exception("[Erro] empresa cadastrada, porém validação inválida.")
+            End If
         End If
-
-        'verificar duplicidade de notasXpedidos
-
 
         Try
             'inserir o registro da nota no banco
@@ -258,25 +263,28 @@ Public Class EntradaTxtMonitor
             'Log.registrarInfo(nota.statusDaNota, "EntradaTxtService")
 
             '----se a nota já existir e não estiver com erro----
-            If nota.statusDaNota <> 3 And nota.statusDaNota <> 0 Then
+            If nota.statusDaNota <> 3 And nota.statusDaNota <> 0 And nota.statusDaNota <> -1 Then
                 'insere o historico de rejeição e finaliza o fluxo
                 ' Log.registrarInfo("entrou aqui", "EntradaTxtService")
 
                 If nota.statusDaNota = 21 Or nota.statusDaNota = 22 Then
                     Log.registrarErro("Nota já autorizada", "EntradaTxtService")
                     inserirHistorico(2, "", nota, cnpj)
-                    nota.tentativasDeInclusao += 1
+                    nota.tentativasDeInclusao += 1 'altera tabela de notas para soltar a trigger e atualizar tabela de retorno
                     notaDAO.alterarNota(nota)
-                    File.Delete(arquivo)
+
+                    'File.Delete(arquivo)
                 Else
                     inserirHistorico(2, "", nota, cnpj)
                     Log.registrarErro("Nota já existente e em processamento", "EntradaTxtService")
-                    File.Delete(arquivo)
+                    'File.Delete(arquivo)
                 End If
 
                 Throw New Exception("Nota já existente e em processamento")
             Else
                 Try
+
+                    nota.statusDaNota = -1
                     'incrementa as tentativas de inclusão
                     nota.tentativasDeInclusao += 1
 
@@ -296,7 +304,7 @@ Public Class EntradaTxtMonitor
                         Log.registrarInfo("Pasta de trabalho criada", "EntradaTxtService")
                     End If
                 Catch ex As Exception
-                    rejeitarNota(arquivo, nota, ex, "Erro na criação da pasta")
+                    'rejeitarNota(arquivo, nota, ex, "Erro na criação da pasta")
                     Throw ex
                 End Try
 
@@ -330,7 +338,7 @@ Public Class EntradaTxtMonitor
                     'se der erro, sinalizar no historico e encerrar o fluxo
                     inserirHistorico(4, "", nota, cnpj)
 
-                    rejeitarNota(arquivo, nota, ex, "Erro ao processar o arquivo" & arquivo & ": ")
+                    'rejeitarNota(arquivo, nota, ex, "Erro ao processar o arquivo" & arquivo & ": ")
 
                     Throw ex
                 End Try
@@ -353,7 +361,7 @@ Public Class EntradaTxtMonitor
                     nota.retEnviNFe_xMotivo = "Erro na entrada do arquivo, favor solicitar suporte ao helpdesk passando o CNPJ, número e série da nota com erro."
                     nota.statusDaNota = 3
                     notaDAO.alterarNota(nota)
-                    rejeitarNota(arquivo, nota, ex, "Erro ao processar o arquivo" & arquivo & ": ")
+                    'rejeitarNota(arquivo, nota, ex, "Erro ao processar o arquivo" & arquivo & ": ")
                     Throw ex
                 End Try
 
@@ -399,7 +407,7 @@ Public Class EntradaTxtMonitor
                     notaDAO.alterarNota(nota)
 
                     Log.registrarErro("Erro na alteracao dos dados da nota ou na criação dos arquivos" & arquivo & vbCrLf & ex.Message & vbCrLf & ex.StackTrace, "EntradaTxtService")
-                    rejeitarNota(arquivo, nota, ex, "Erro ao processar o arquivo" & arquivo & ": ")
+                    'rejeitarNota(arquivo, nota, ex, "Erro ao processar o arquivo" & arquivo & ": ")
                     Throw ex
                 End Try
 
@@ -410,7 +418,7 @@ Public Class EntradaTxtMonitor
                 Catch ex As Exception
                     inserirHistorico(5, "", nota, cnpj)
 
-                    rejeitarNota(arquivo, nota, ex, "Erro ao processar o arquivo" & arquivo & ": ")
+                    'rejeitarNota(arquivo, nota, ex, "Erro ao processar o arquivo" & arquivo & ": ")
                     Throw ex
                 End Try
             End If
@@ -426,7 +434,7 @@ Public Class EntradaTxtMonitor
         nota.NFe_dest_xNome() = XML.SelectSingleNode("NFe/infNFe/dest/xNome").InnerText
         nota.emailDestinatario = XML.SelectSingleNode("NFe/infNFe/dest/email").InnerText
         nota.NFe_emit_xNome() = XML.SelectSingleNode("/NFe/infNFe/emit/xNome").InnerText
-        nota.NFe_ide_dEmi() = CDate(XML.SelectSingleNode("/NFe/infNFe/ide/dEmi").InnerText)
+        nota.NFe_ide_dEmi() = CDate(XML.SelectSingleNode("/NFe/infNFe/ide/dhEmi").InnerText.Substring(0, 10))
         nota.NFe_infNFe_id() = XML.SelectSingleNode("/NFe/infNFe").Attributes("Id").Value.Replace("NFe", "")
         nota.NFe_total_ICMSTot_vNF() = CDbl(XML.SelectSingleNode("/NFe/infNFe/total/ICMSTot/vNF").InnerText)
         nota.cfop = XML.SelectSingleNode("NFe/infNFe/det[1]/prod/CFOP").InnerText
@@ -436,21 +444,24 @@ Public Class EntradaTxtMonitor
         Dim campos As String() = linha.Split(delimitador)
         nota.impressora = campos(1)
         nota.num_pedido = campos(2)
+        nota.token_loja = campos(3)
     End Sub
 
     Public Sub rejeitarNota(ByVal arquivo As String, ByVal nota As notaVO, ByVal ex As Exception, ByVal mensagem As String)
+        'marca a nota como status 3(rejeitada)
+        nota.statusDaNota = 3
+        notaDAO.alterarNota(nota)
+        File.Delete(arquivo)
+
         Me.dtProcessamento = Format(DateTime.Now, "yyyyMMddhhmmss")
         If Not ex Is Nothing Then
             Log.registrarErro(mensagem & ex.Message & vbCrLf & ex.StackTrace, "EntradaTxtService")
         Else
             Log.registrarErro(mensagem, "EntradaTxtService")
         End If
-        File.Copy(arquivo, FN4Common.Geral.Parametro("pastaDeRejeitadas") & numeroDaNota & "_" & dtProcessamento & ".txt", True)
-        'marca a nota como status 3(rejeitada)
-        nota.statusDaNota = 3
-        notaDAO.alterarNota(nota)
-
-        File.Delete(arquivo)
+        'alteração Rodrigo em 03102013 - nao mover mais para pasta de rejeitadas, deletar para simplificar o processo
+        'o arquivo já está na pasta destino de qualquer modo
+        'File.Copy(arquivo, FN4Common.Geral.Parametro("pastaDeRejeitadas") & numeroDaNota & "_" & dtProcessamento & ".txt", True)
     End Sub
 
     Public Sub rejeitarArquivo(ByVal arquivo As String, ByVal ex As Exception, ByVal mensagem As String)
@@ -460,8 +471,11 @@ Public Class EntradaTxtMonitor
         Else
             Log.registrarErro(mensagem, "EntradaTxtService")
         End If
-        File.Copy(arquivo, FN4Common.Geral.Parametro("pastaDeRejeitadas") & numeroDaNota & "_" & dtProcessamento & ".txt", True)
-        File.Delete(arquivo)
+        If File.Exists(arquivo) Then
+            File.Copy(arquivo, FN4Common.Geral.Parametro("pastaDeRejeitadas") & numeroDaNota & "_" & dtProcessamento & ".txt", True)
+            File.Delete(arquivo)
+        End If
+
     End Sub
 
 #Region "Acessorios"

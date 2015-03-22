@@ -26,6 +26,7 @@ Public Class envio_emails
     Private Sub executarEnvioDeEmail() Handles tm.Elapsed
         enviarEmails(1)
         enviarEmails(2)
+        enviarEmails(3) 'trial
     End Sub
 
     Private Sub enviarEmails(ByVal destino As Integer)
@@ -35,13 +36,18 @@ Public Class envio_emails
             Dim clientes As List(Of clientesVO)
             Dim cliente As clientesVO
 
-            If destino = 1 Then
-                Log.registrarInfo("Rodando envio de falta de pagamentos", "MessageriaService")
-                clientes = clientesDao.obterClientesFaltadePagto
-            Else
-                Log.registrarInfo("Rodando expirações de certificados", "MessageriaService")
-                clientes = clientesDao.obterExpiracaoCertificados
-            End If
+            Select Case destino
+                Case 1
+                    Log.registrarInfo("Rodando envio de falta de pagamentos", "MessageriaService")
+                    clientes = clientesDao.obterClientesFaltadePagto
+                Case 2
+                    Log.registrarInfo("Rodando expirações de certificados", "MessageriaService")
+                    clientes = clientesDao.obterExpiracaoCertificados
+                Case 3 'trial
+                    Log.registrarInfo("Rodando Trial", "MessageriaService")
+                    'clientes = clientesDao.obterExpiracaoCertificados
+                    clientes = clientesDao.obterEmpresasTrial
+            End Select
 
             For Each cliente In clientes
                 Try
@@ -50,49 +56,59 @@ Public Class envio_emails
                     Thread.Sleep(2000)
                     stopwatch.Stop()
 
-                    If destino = 1 Then 'pagto pendente
-                        If cliente.id_fk_produtos_status.Equals("2") Then 'o cliente já está ativo
-                            If cliente.dias_vencidos < 30 Then
-                                Log.registrarInfo("(Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
-                                enviarEmail(cliente, 36) 'o id do template do pagto pendente para menos de 30 dias
-                            Else
-                                Log.registrarInfo("((Cancelado) Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
-                                enviarEmail(cliente, 37) 'o id do template do pagto pendente para mais de 30 dias (cancelamento)
-                                clientesDao.alterarStatusCliente(3, cliente.idEmpresa, 2, 5)
-                                'TODO: Cancelar cliente no Godaddy
+                    Select Case destino
+                        Case 1 'pagtos vencidos / não enviar emails
+                            'If cliente.id_fk_produtos_status.Equals("2") Then 'o cliente já está ativo
+                            '    If cliente.dias_vencidos < 30 Then
+                            '        Log.registrarInfo("(Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
+                            '        enviarEmail(cliente, 36) 'o id do template do pagto pendente para menos de 30 dias
+                            '    Else
+                            '        Log.registrarInfo("((Cancelado) Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
+                            '        enviarEmail(cliente, 37) 'o id do template do pagto pendente para mais de 30 dias (cancelamento)
+                            '        clientesDao.alterarStatusCliente(3, cliente.idEmpresa, 2, 5)
+                            '        'TODO: Cancelar cliente no Godaddy
+                            '    End If
+                            'Else 'é cliente novo e está com o status de pagto em aberto
+                            '    Select Case cliente.dias_vencidos
+                            '        Case "4"
+                            '            Log.registrarInfo("((Cliente NOVO) Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
+                            '            enviarEmail(cliente, 41) 'o id do template do pagto do setup pendente em 4 dias
+                            '        Case "7"
+                            '            Log.registrarInfo("((Cliente NOVO) Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
+                            '            enviarEmail(cliente, 41) 'o id do template de pagto do setup pendente em 7 dias
+                            '        Case "10"
+                            '            Log.registrarInfo("((Cliente NOVO) Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
+                            '            enviarEmail(cliente, 41) 'o id do template do pagto do setup pendente em 10 dias
+                            '        Case "20"
+                            '            Log.registrarInfo("((Cliente NOVO)(Cancelamento) Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
+                            '            clientesDao.alterarStatusCliente(3, cliente.idEmpresa, 2, 5)
+                            '            enviarEmail(cliente, 42) 'o id do template do pagto do setup pendente em 20 dias
+                            '            'TODO: Cancelar cliente no Godaddy
+                            '    End Select
+                            'End If
+                        Case 2
+                            If cliente.dias_exp > 0 And cliente.dias_exp <= 10 Then
+                                Log.registrarInfo("(Expiração do certificado ('" & cliente.dias_exp & "' dias) enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
+                                enviarEmail(cliente, 38) 'o id do template de expiração de certificado
+                                'ElseIf cliente.dias_exp > -1 And cliente.dias_exp <= 7 Then
+                                '   Log.registrarInfo("([Urgente] Expiração do certificado ('" & cliente.dias_exp & "' dias) enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
+                                '  enviarEmail(cliente, 39) 'o id do template de expiração de certificado URGENTE
+                            ElseIf cliente.dias_exp > -5 And cliente.dias_exp < 0 Then
+                                Log.registrarInfo("([Urgente] Certificado expirado ('" & cliente.dias_exp & "' dias) enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
+                                cliente.dias_exp = cliente.dias_exp * -1
+                                enviarEmail(cliente, 40) 'o id do template de expiração de certificado URGENTE
                             End If
-                        Else 'é cliente novo e está com o status de pagto em aberto
-                            Select Case cliente.dias_vencidos
-                                Case "4"
-                                    Log.registrarInfo("((Cliente NOVO) Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
-                                    enviarEmail(cliente, 41) 'o id do template do pagto do setup pendente em 4 dias
-                                Case "7"
-                                    Log.registrarInfo("((Cliente NOVO) Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
-                                    enviarEmail(cliente, 41) 'o id do template de pagto do setup pendente em 7 dias
-                                Case "10"
-                                    Log.registrarInfo("((Cliente NOVO) Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
-                                    enviarEmail(cliente, 41) 'o id do template do pagto do setup pendente em 10 dias
-                                Case "20"
-                                    Log.registrarInfo("((Cliente NOVO)(Cancelamento) Pagto vencido em '" & cliente.data_vencimento & "' enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
-                                    clientesDao.alterarStatusCliente(3, cliente.idEmpresa, 2, 5)
-                                    enviarEmail(cliente, 42) 'o id do template do pagto do setup pendente em 20 dias
-                                    'TODO: Cancelar cliente no Godaddy
-                            End Select
-                        End If
+                        Case 3 'trial
+                            'Se empresa não tiver token / falta o primeiro passo de cadastro
+                            '-----Select token from tb_empresa
+                            'Se cliente ainda não instalou o certificado digital
+                            '-----Select cert_fim from tb_empresa
+                            'Se não tiver cadastros fiscais cadastrados, ou informacao das integracoes da plataforma nao estiverem cadastradas
+                            '----- select ipi_padrao from tb_empresa
+                            '----- select count(*) from emissor_fiscal
+                            '----- select count(*) from rel_integracoes
 
-                    Else 'certificado a expirar
-                        If cliente.dias_exp > 7 Then
-                            Log.registrarInfo("(Expiração do certificado ('" & cliente.dias_exp & "' dias) enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
-                            enviarEmail(cliente, 38) 'o id do template de expiração de certificado
-                        ElseIf cliente.dias_exp > -1 And cliente.dias_exp <= 7 Then
-                            Log.registrarInfo("([Urgente] Expiração do certificado ('" & cliente.dias_exp & "' dias) enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
-                            enviarEmail(cliente, 39) 'o id do template de expiração de certificado URGENTE
-                        ElseIf cliente.dias_exp > -5 And cliente.dias_exp < -1 Then
-                            Log.registrarInfo("([Urgente] Certificado expirado ('" & cliente.dias_exp & "' dias) enviando emails: '" & cliente.email & "' ('" & cliente.nome & "') - " & cliente.nomeEmpresa, "MessageriaService")
-                            cliente.dias_exp = cliente.dias_exp * -1
-                            enviarEmail(cliente, 40) 'o id do template de expiração de certificado URGENTE
-                        End If
-                    End If
+                    End Select
 
                 Catch e As Exception
                     ex = e

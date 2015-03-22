@@ -55,6 +55,8 @@ Public Class EnvioEmailMonitor
                 Else
                     nota.impressaoSolicitada = 0
                 End If
+
+                nota.postback = 1 'ativando o postback
                 notaDAO.alterarNota(nota)
             Next
         Catch exception As Exception
@@ -292,6 +294,7 @@ Public Class EnvioEmailMonitor
         Dim link_danfe, pathDanfe As String
         Dim pasta_trab_arr As Array
         link_danfe = ""
+        pathDanfe = ""
 
         'Se tiver tp_sys na tabela de configurações do cliente, enviar body 1 (Cliente envia PDF)
         If Not tp_sys Is Nothing Then
@@ -361,7 +364,8 @@ Public Class EnvioEmailMonitor
             Next
         End If
 
-        Dim pathXml As String = nota.pastaDeTrabalho & nota.NFe_ide_nNF & "_procNFe.xml"
+        Dim pathXml As String
+        pathXml = nota.pastaDeTrabalho & nota.NFe_ide_nNF & "_procNFe.xml"
 
         If File.Exists(pathXml) Then
             anexos.Add(pathXml)

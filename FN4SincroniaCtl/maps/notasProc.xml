@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="notasProc" type ="FN4SincroniaCtl.notasProcVO, FN4SincroniaCtl"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="notaProc" class="notasProc">
+      <result property="idEmpresa" column="idEmpresa" />
+      <result property="NFe_emit_CNPJ" column="NFe_emit_CNPJ" />
+      <result property="qtdNotas" column="qtdNotas" />
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="obterEmpresasProc"  resultMap="notaProc">
+      SELECT b.idempresa, c.NFe_emit_CNPJ, count(*) as qtdNotas FROM
+      empresa a, configuracao b, notas c
+      where
+      a.idEmpresa = b.idempresa and
+      b.chave like "ftp" and
+      a.cnpj = c.nfe_emit_cnpj and
+      c.sincronizada = 0 and
+      c.statusdanota = 22
+      group by c.NFe_emit_CNPJ, b.idempresa;
+    </select>
+  </statements>
+  
+</sqlMap>  
+

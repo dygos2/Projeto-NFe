@@ -13,6 +13,8 @@ Public Class TxtXmlHelper
         Public detalhes As New ArrayList
         Public totais As New ArrayList
         Public observacoes As New ArrayList
+        Public importacao As New ArrayList
+        Public exportacao As New ArrayList
         Public txt As String
         Public linhas As New ArrayList
         Public informacoesAdicionais As New ArrayList
@@ -20,7 +22,7 @@ Public Class TxtXmlHelper
         Public Sub New(ByVal strEntrada As String, ByVal delimitador As String)
             Dim linha As String
             Dim valor As String
-            Dim ct As Integer
+            Dim each_linha_arr As Array
 
             'txt
             Me.txt = strEntrada
@@ -35,44 +37,53 @@ Public Class TxtXmlHelper
 
             If linhas.Count < 4 Then Throw New Exception("Arquivo invalido. Total de linhas insuficiente")
 
-            'cabecalho
-            For Each valor In Me.linhas(0).Split(delimitador)
-                valor = valor.Trim.Replace(vbCr, "").Replace(vbLf, "")
-                cabecalho.Add(valor.Replace(vbCr, "").Replace(vbLf, ""))
-            Next
+            For Each each_linha In linhas
+                each_linha_arr = each_linha.ToString.Split(delimitador)
 
-            If cabecalho(0) <> "01" Then Throw New Exception("Arquivo invalido. Registro tipo 1 exigido")
+                Select Case each_linha_arr(0)
+                    Case "01" 'cabecalho
+                        For Each valor In each_linha.Split(delimitador)
+                            valor = valor.Trim.Replace(vbCr, "").Replace(vbLf, "")
+                            cabecalho.Add(valor.Replace(vbCr, "").Replace(vbLf, ""))
+                        Next
+                    Case "02" 'item
+                        Dim valores As New ArrayList
+                        For Each valor In each_linha.Split(delimitador)
+                            valor = valor.Trim.Replace(vbCr, "").Replace(vbLf, "")
+                            valores.Add(valor.Replace(vbCr, "").Replace(vbLf, ""))
+                        Next
+                        detalhes.Add(valores)
+                    Case "021" 'importacao
+                        Dim valores As New ArrayList
+                        For Each valor In each_linha.Split(delimitador)
+                            valor = valor.Trim.Replace(vbCr, "").Replace(vbLf, "")
+                            valores.Add(valor.Replace(vbCr, "").Replace(vbLf, ""))
+                        Next
+                        importacao.Add(valores)
+                    Case "022" 'exportacao
+                        Dim valores As New ArrayList
+                        For Each valor In each_linha.Split(delimitador)
+                            valor = valor.Trim.Replace(vbCr, "").Replace(vbLf, "")
+                            valores.Add(valor.Replace(vbCr, "").Replace(vbLf, ""))
+                        Next
+                        exportacao.Add(valores)
+                    Case "03" 'totais
+                        For Each valor In each_linha.Split(delimitador)
+                            valor = valor.Trim.Replace(vbCr, "").Replace(vbLf, "")
+                            totais.Add(valor.Replace(vbCr, "").Replace(vbLf, ""))
+                        Next
+                    Case "04" 'observacoes
+                        For Each valor In each_linha.Split(delimitador)
+                            valor = valor.Trim.Replace(vbCr, "").Replace(vbLf, "")
+                            observacoes.Add(valor.Replace(vbCr, "").Replace(vbLf, ""))
+                        Next
+                    Case "99" 'Informacoes adicionais
+                        For Each valor In each_linha.Split(delimitador)
+                            valor = valor.Trim.Replace(vbCr, String.Empty).Replace(vbLf, String.Empty)
+                            informacoesAdicionais.Add(valor.Replace(vbCr, String.Empty).Replace(vbLf, String.Empty))
+                        Next
+                End Select
 
-            'totais
-            For Each valor In linhas(linhas.Count - 3).Split(delimitador)
-                valor = valor.Trim.Replace(vbCr, "").Replace(vbLf, "")
-                totais.Add(valor.Replace(vbCr, "").Replace(vbLf, ""))
-            Next
-            If totais(0) <> "03" Then Throw New Exception("Arquivo invalido. Registro tipo 3 exigido")
-
-            'observacoes
-            For Each valor In linhas(linhas.Count - 2).Split(delimitador)
-                valor = valor.Trim.Replace(vbCr, "").Replace(vbLf, "")
-                observacoes.Add(valor.Replace(vbCr, "").Replace(vbLf, ""))
-            Next
-            If observacoes(0) <> "04" Then Throw New Exception("Arquivo invalido. Registro tipo 4 exigido")
-
-            'Informacoes adicionais
-            For Each valor In linhas(linhas.Count - 1).Split(delimitador)
-                valor = valor.Trim.Replace(vbCr, String.Empty).Replace(vbLf, String.Empty)
-                informacoesAdicionais.Add(valor.Replace(vbCr, String.Empty).Replace(vbLf, String.Empty))
-            Next
-            If Not informacoesAdicionais(0).Equals("99") Then Throw New Exception("Arquivo invalido. Registro do tipo 99 exigido")
-
-            'detalhes
-            For ct = 1 To linhas.Count - 4
-                Dim valores As New ArrayList
-                For Each valor In linhas(ct).Split(delimitador)
-                    valor = valor.Trim.Replace(vbCr, "").Replace(vbLf, "")
-                    valores.Add(valor.Replace(vbCr, "").Replace(vbLf, ""))
-                Next
-                If valores(0) <> "02" Then Throw New Exception("Arquivo invalido. Registro tipo 2 exigido")
-                detalhes.Add(valores)
             Next
 
         End Sub
@@ -106,6 +117,40 @@ Public Class TxtXmlHelper
             valoresEntrada = New arquivoVO(strEntrada, empresa.delimitador)
             'Dim map As mapVO
 
+            'verificando delimitadores
+            'campo 01 tem que ter 56 delimitadores exatamente
+            If valoresEntrada.cabecalho.Count <> 56 Then
+                Throw New Exception("Erro no cabeçalho (01) Delimitadores encontrados (" & valoresEntrada.cabecalho.Count & ") - Necessários exatamente  56")
+            End If
+
+            'loop  nos itens
+            Dim loop_ct
+            loop_ct = 0
+            For Each itemp_tmp In valoresEntrada.detalhes
+                loop_ct += 1
+                'campo 02 tem que ter 97 delimitadores exatamente
+                If itemp_tmp.count <> 97 Then
+                    Throw New Exception("Erro no Ítem nº " & loop_ct & ". Delimitadores encontrados (" & itemp_tmp.count & ") - Necessários  exatamente  97")
+                End If
+            Next
+
+            'TODO verificar DI e Exportacao
+
+            'campo 03 tem que ter 117 delimitadores exatamente
+            If valoresEntrada.totais.Count <> 117 Then
+                Throw New Exception("Erro nos Totais (03) Delimitadores encontrados (" & valoresEntrada.totais.Count & ") - Necessários  exatamente  116")
+            End If
+
+            'campo 04 tem que ter >= 3 delimitadores (atende Fisconet e NFecommerce)
+            If valoresEntrada.observacoes.Count < 3 Then
+                Throw New Exception("Erro nos Campos adicionais (04) Delimitadores encontrados (" & valoresEntrada.informacoesAdicionais.Count & ") - Necessários > 2")
+            End If
+
+            'campo 99 tem que ter 8 delimitadores exatamente
+            If valoresEntrada.informacoesAdicionais.Count <> 8 Then
+                Throw New Exception("Erro nos Campos de parâmetros (99). Delimitadores encontrados (" & valoresEntrada.informacoesAdicionais.Count & ") - Necessários exatamente  8")
+            End If
+
             'geral
             mappings = obterMappings("TXTmappingsGerais.txt")
             xmlCanonico = obterXMLCanonico()
@@ -116,7 +161,7 @@ Public Class TxtXmlHelper
 
             'detalhes
             detMappings = obterMappings("TXTmappingsProdutos.txt")
-            detXml = xmlCanonico.SelectSingleNode("/NFe/infNFe[1]/det[1]").Clone
+            detxml = xmlCanonico.SelectSingleNode("/NFe/infNFe[1]/det[1]").Clone
 
             'impostos
             impMappings = obterMappings("TXTmappingsImposto.txt")
@@ -167,14 +212,14 @@ Public Class TxtXmlHelper
         '----------------------------------------------------------------
         'processa mapeamento com n repeticoes das duplicatas
         'quantidade de duplicatas = total de valores - o inicio das duplicatas contados de 3 em 3 (tamanho da tag de duplicatas)
-        Dim qteDup As Integer = (valoresEntrada.totais.Count - CInt(Geral.Parametro("posicaoCampoDuplicatas"))) / 3 'TODO - checar esse valor
+        Dim qteDup As Integer = (valoresEntrada.totais.Count - 106) / 3 'TODO - checar esse valor
         'Dim qteDup As Integer = 1
 
         'para contador = 1 to quantidade de notas
         For ct = 1 To qteDup
 
             'o registro a ser processado é a contado a partir do ultimo valor trabalhado
-            Dim atual As Integer = CInt(Geral.Parametro("posicaoCampoDuplicatas")) + 3 * (ct - 1)
+            Dim atual As Integer = 106 + 3 * (ct - 1)
 
             'se for mais de uma duplicata tem q adicionar os nodes de duplicata
             If ct > 1 Then
@@ -514,7 +559,9 @@ Public Class TxtXmlHelper
         Dim myevent As ValidationEventHandler = New ValidationEventHandler(AddressOf ValidationEvent)
         'carrega o XSD
 
-        Dim pathXSD As String = System.AppDomain.CurrentDomain.BaseDirectory() & "XSD\NFe_v2.00.xsd"
+        'Dim pathXSD As String = System.AppDomain.CurrentDomain.BaseDirectory() & "XSD\NFe_v2.00.xsd"
+        Dim pathXSD As String = System.AppDomain.CurrentDomain.BaseDirectory() & Geral.Parametro("arquivoSchemaNfe")
+
 
         Dim xschema As XmlSchema = XmlSchema.Read(New XmlTextReader(pathXSD), myevent)
 
@@ -536,34 +583,6 @@ Public Class TxtXmlHelper
 
         Return resultadoValidacao.ToString
     End Function
-    Public Shared Function validarXmlGeral(ByVal PathXmlEnvio As String, ByVal xsd_path As String)
-        resultadoValidacao = New System.Text.StringBuilder
-        Dim myevent As ValidationEventHandler = New ValidationEventHandler(AddressOf ValidationEvent)
-        'carrega o XSD
-
-        Dim pathXSD As String = System.AppDomain.CurrentDomain.BaseDirectory() & "XSD\" & xsd_path & ".xsd"
-
-        Dim xschema As XmlSchema = XmlSchema.Read(New XmlTextReader(pathXSD), myevent)
-
-        'configura a validação
-        Dim xsettings As New XmlReaderSettings
-
-        xsettings.ValidationType = ValidationType.Schema
-
-        xsettings.Schemas.Add(xschema)
-
-        'atribui o evento de validação
-        AddHandler xsettings.ValidationEventHandler, myevent
-        'faz a validação
-        Using xreader As XmlReader = XmlReader.Create(PathXmlEnvio, xsettings)
-            While xreader.Read
-            End While
-        End Using
-        '"http://www.portalfiscal.inf.br/nfe", System.AppDomain.CurrentDomain.BaseDirectory() & "XSD\leiauteNFe_v1.10.xsd")
-
-        Return resultadoValidacao.ToString
-    End Function
-
     Public Shared Function validarXmlDPECDeEnvio(ByVal PathXmlEnvio As String)
         resultadoValidacao = New System.Text.StringBuilder
         Dim myevent As ValidationEventHandler = New ValidationEventHandler(AddressOf ValidationEvent)
@@ -625,7 +644,7 @@ Public Class TxtXmlHelper
         chaveDeAcesso = documento.SelectSingleNode("/NFe/infNFe/ide/cUF").InnerText
 
         'obter AAMM da emissão     <dEmi>2008-01-22</dEmi> (formatar este campo em AAMM)
-        chaveDeAcesso += documento.SelectSingleNode("/NFe/infNFe/ide/dEmi").InnerText.Substring(2, 5).Replace("-", "")
+        chaveDeAcesso += documento.SelectSingleNode("/NFe/infNFe/ide/dhEmi").InnerText.Substring(2, 5).Replace("-", "")
 
         'obter CNPJ do emitente      <CNPJ>62462015000129</CNPJ> (inteiro)
         chaveDeAcesso += documento.SelectSingleNode("/NFe/infNFe/emit/CNPJ").InnerText

@@ -8,10 +8,10 @@
       <mod>55</mod>
       <serie />
       <nNF />
-      <dEmi />
-      <dSaiEnt />
-      <hSaiEnt />
+      <dhEmi />
+      <dhSaiEnt />
       <tpNF />
+	  <idDest />
       <cMunFG />
       <NFref>
         <refNFe />
@@ -153,6 +153,8 @@
       <cDV />
       <tpAmb />
       <finNFe />
+	  <indFinal />
+	  <indPres />
       <procEmi />
       <verProc />
     </ide>
@@ -172,7 +174,7 @@
         <cPais />
         <xPais />
         <fone />
-        <UF></UF>
+        <UF />
       </enderEmit>
       <IE></IE>
       <IEST />
@@ -196,6 +198,7 @@
         <cPais />
         <xPais />
       </enderDest>
+	  <indIEDest>2</indIEDest>
       <fone />
       <IE />
       <ISUF />
@@ -357,7 +360,10 @@
             <cFabricante />
             <vDescDI />
           </adi>
-        </DI>
+        </DI>	
+<xPed />
+<nItemPed />
+<nFCI />
       </prod>
       <imposto>
         <ICMS />
@@ -435,6 +441,7 @@
       <ICMSTot>
         <vBC />
         <vICMS />
+		<vICMSDeson />
         <vBCST />
         <vST />
         <vProd />

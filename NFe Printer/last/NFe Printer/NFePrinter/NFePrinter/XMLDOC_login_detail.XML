@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Detail>
+  <Login>
+    <CNPJ>12345678911234</CNPJ>
+    <TOKEN>123456789123456789123456789123456789123456789</TOKEN>
+    <url>http://srv1.nfecommerce.com.br/nfe4web/retornos_banco/print_params.php</url>
+  </Login>
+</Detail>

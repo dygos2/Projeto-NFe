@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+<alias>
+  <typeAlias alias="rotina" type ="retornoItau.rotinaVO, retornoItau"/>
+</alias>
+
+
+<statements>
+ 
+  <call id="rotinaBkp"  parameterClass="System.Collections.IDictionary">
+    call megaideas5.rotina_bkp_base();
+  </call>
+
+</statements>
+
+</sqlMap>
+

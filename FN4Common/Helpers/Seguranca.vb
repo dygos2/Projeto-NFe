@@ -5,9 +5,11 @@ Namespace Helpers
     Public Class Seguranca
 
         Public Shared Function CompararMD5(ByVal textPlain As String, ByVal textMD5 As String) As Boolean
-            Dim textPlainInMd5 As String = GerarMD5(textPlain)
+            'comentado por Rodrigo em 15/05, pois utilizaremos agora o token criado pelo mysql
+            'Dim textPlainInMd5 As String = GerarMD5(textPlain)
+            'Return textMD5.Equals(textPlainInMd5.ToString())
+            Return True
 
-            Return textMD5.Equals(textPlainInMd5.ToString())
         End Function
 
         Public Shared Function GerarMD5(ByVal textPlain As String) As String

@@ -115,10 +115,12 @@
     <Compile Include="Data Access\empresaDAO.vb" />
     <Compile Include="Data Access\eventos.vb" />
     <Compile Include="Data Access\justificativas.vb" />
+    <Compile Include="Data Access\notaDAO.vb" />
     <Compile Include="Data Access\notas.vb" />
     <Compile Include="Data Access\series.vb" />
     <Compile Include="Data Access\usuarios.vb" />
     <Compile Include="Data Access\utc.vb" />
+    <Compile Include="Data Access\webserviceDAO.vb" />
     <Compile Include="Data Access\webservices.vb" />
     <Compile Include="Geral.vb" />
     <Compile Include="Data Access\IBatisNETHelper.vb" />
@@ -169,6 +171,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database Scripts\Creates\fisconet4_.atualizacoesvw.sql" />
+    <Content Include="XML\FN4Config.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -221,6 +226,7 @@
     </Content>
     <Content Include="SqlMap.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="providers.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -243,11 +249,6 @@
     <Content Include="maps\nota.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="..\Fn4IntegradorNFeCommerceCtrl\bin\xml\FN4Config.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-      <Link>XML\FN4Config.xml</Link>
     </Content>
     <Content Include="XML\Auxiliar.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -14,6 +14,7 @@
       <result property="url" column = "url"/>
       <result property="homologacao" column = "homologacao"/>
       <result property="contingencia" column = "contingencia"/>
+      <result property="sincrono" column = "sincrono"/>
     </resultMap>
   </resultMaps>
 

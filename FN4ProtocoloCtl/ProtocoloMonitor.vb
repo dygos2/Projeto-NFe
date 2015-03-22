@@ -33,10 +33,10 @@ Public Class ProtocoloMonitor
             'Log.registrarInfo("Enviando NFes", "EnvioService")
 
 
-            enviarTodasNFe()
+            'enviarTodasNFe()
             'Log.registrarInfo("Enviando NFes em contingencia", "EnvioService")
             'enviarNFesEmContingencia()
-            enviaNotasDPEC()
+            'enviaNotasDPEC()
 
             obterProtocolos()
         Catch ex As Exception

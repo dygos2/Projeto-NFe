@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="configuracao" type ="FN4SincroniaCtl.configuracaoVO, FN4SincroniaCtl"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="FtpConfig" class="configuracao">
+      <result property="idConfiguracao" column = "idConfiguracao"/>
+      <result property="chave" column = "chave"/>
+      <result property="valor" column = "valor"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="obterFTPConfig"  resultMap="FtpConfig" >
+      SELECT * FROM fisconet5_homologacao.configuracao where chave like "ftp%" and idEmpresa = #idEmpresa# order by chave
+    </select>
+  </statements>
+</sqlMap>

@@ -107,7 +107,17 @@
       <conversionPattern value="%date [%thread] %-5level %logger [%property{NDC}] - %message%newline" />
     </layout>
   </appender>
-
+  <appender name="RFASincroniasFTP" type="log4net.Appender.RollingFileAppender">
+    <file value="C:\Fisconet4\log\LogSincroniasFTP" />
+    <appendToFile value="true" />
+    <rollingStyle value="Date" />
+    <datePattern value="yyyyMMdd.LOG" />
+    <param name="StaticLogFileName" value="false" />
+    <layout type="log4net.Layout.PatternLayout">
+      <conversionPattern value="%date [%thread] %-5level %logger [%property{NDC}] - %message%newline" />
+    </layout>
+  </appender>
+  
   <appender name="RFAIntegradorSaferService" type="log4net.Appender.RollingFileAppender">
     <file value="C:\Fisconet4\log\LogIntegradorSaferService" />
     <appendToFile value="true" />
@@ -234,5 +244,9 @@
   <logger name="WebService">
     <level value="All" />
     <appender-ref ref="RFAWebService" />
+  </logger>
+  <logger name="SincroniasFTP">
+    <level value="All" />
+    <appender-ref ref="RFASincroniasFTP" />
   </logger>
 </log4net>

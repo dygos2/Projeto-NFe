@@ -8,5 +8,11 @@
     <Setting Name="Fn4IntegradorNFeCommerceCtrl_nfecommerce_prod_NFeCommerce" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">http://208.109.236.57:8427/NFeCommerce.asmx</Value>
     </Setting>
+    <Setting Name="Fn4IntegradorNFeCommerceCtrl_nfecommerce2_homolog_NFeCommerce" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://54.232.81.170:8099/fisconet5_ws_homolog/NFeCommerce.asmx</Value>
+    </Setting>
+    <Setting Name="Fn4IntegradorNFeCommerceCtrl_nfecommerce2_prod_NFeCommerce" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://54.232.81.170:8099/fisconet5_ws_prod/NFeCommerce.asmx</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

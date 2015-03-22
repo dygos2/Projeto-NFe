@@ -2,26 +2,34 @@
 <Fisconet4.Settings>
   <!-- AMBIENTE -->
   <setting name="emailPadrao">
-    <value>suporte@megaideas.net</value>
+    <value>envio@nfe4web.com.br</value>
+  </setting>
+  <setting name="displayemailPadrao">
+    <value>NFe4Web - Envio de NF-e</value>
+  </setting>
+  <setting name="loginEmailPadrao">
+    <value>dygos</value>
   </setting>
   <setting name="senhaEmailPadrao">
-    <value>123mudar</value>
+    <value>199715</value>
   </setting>
   <setting name="servidorSMTPPadrao">
-    <value>smtp.megaideas.net</value>
+    <!--<value>localhost</value>-->
+    <value>smtp.sendgrid.net</value>
   </setting>
   <setting name="enableSSLPadrao">
     <value>0</value>
   </setting>
   <setting name="portaSMTPPadrao">
-    <value>default</value>
+    <!--<value>default</value>-->
+    <value>587</value>
   </setting>
   <setting name="ServidorSMTPRequerAutenticacaoPadrao">
     <value>1</value>
   </setting>
 
   <setting name="VersaoProduto">
-    <value>2.00</value>
+    <value>3.10</value>
   </setting>
 
   <setting name="pathAdobeReader">
@@ -37,7 +45,7 @@
     1 - NFecommerce 
     2 – Fisconet
   -->
-  
+
   <setting name="tp_sys">
     <value>1</value>
   </setting>
@@ -74,13 +82,13 @@
 
   <!-- ARQUIVOS -->
   <setting name="arquivoSchemaNfe" >
-    <value>nfe_v2.00.xsd</value>
+    <value>xsd/PL_008d/nfe_v3.10.xsd</value>
   </setting>
   <setting name="arquivoDeConfiguracaoLog4Net" >
-    <value>C:\tfs\Freelances\Fisconet\Dev\Solution\FN4Common\Log4netConfig.xml</value>
+    <value>C:\TFS\source\Fisconet\Dev\Solution\FN4Common\Log4netConfig.xml</value>
   </setting>
   <setting name="stylesheetNFe" >
-    <value>GeraNFe2.xslt</value>
+    <value>GeraNFe301.xslt</value>
   </setting>
   <setting name="stylesheetDPEC" >
     <value>geraDPEC.xslt</value>
@@ -89,6 +97,9 @@
   <!--PASTAS-->
   <setting name="pastaEntrada" >
     <value>C:\Fisconet4\in\</value>
+  </setting>
+  <setting name="pastaPreEntrada" >
+    <value>C:\Fisconet4\prein\</value>
   </setting>
   <setting name="pastaDeSaida" >
     <value>C:\Fisconet4\out\</value>
@@ -114,11 +125,11 @@
   <!--apenas para safer -->
   <setting name="pastaSafer" >
     <value>C:\NFeS\Avalidar\</value>
-  </setting>  
+  </setting>
   <setting name="formatoPDF">
     <value></value>
   </setting>
-  
+
   <!-- CAMPOS -->
   <setting name="posicaoCampoDuplicatas" >
     <value>104</value>
@@ -151,15 +162,15 @@
     <!-- alteracao da shockmetais, solicitação de copia do protocolo -->
     <value>C:\Fisconet4\process\</value>
   </setting>
-  
-<!-- Sistema de envio dos dados para NFe4Web -->
+
+  <!-- Sistema de envio dos dados para NFe4Web -->
   <setting name="intervaloDeVarreduraDoTXT">
     <value>10000</value>
   </setting>
   <setting name="intervaloDeconsulta">
     <value>10000</value>
   </setting>
-  <setting name="tm_amb_nfe4web">
+  <setting name="tp_amb">
     <!-- 1-homologacao / 2-producao -->
     <value>1</value>
   </setting>
@@ -182,4 +193,34 @@
     <value>C:\Fisconet5\fisconet5_homologacao2\in\pastaDeRejeitadas\</value>
   </setting>
   <!-- FIM do sistema de envio dos dados para NFe4Web -->
+  <!-- sistema de envio de mensageria -->
+  <setting name="intervaloDeVarreduraDeEmails">
+    <value>86400000</value>
+    <!--esperar 1 dia para processamento-->
+  </setting>
+  <!-- sistema de bakup -->
+  <setting name="intervaloDeVarreduraDebkp">
+    <value>86400000</value>
+    <!--esperar 1 dia para processamento-->
+  </setting>
+  <setting name="processar_imediato">
+    <value>1</value>
+    <!--1 para processar imediatamente todas as nfes / 0 - somente nos primeiros dias do mês, ref as notas do mes anterior -->
+  </setting>
+  <!--Informacoes da carta de correcao-->
+  <setting name="intervaloCorrecao">
+    <value>3000</value>
+  </setting>
+  <!--Informacoes da versão consulta protocolo-->
+  <setting name="Versao_ConsultaProtocolo">
+    <value>2.01</value>
+  </setting>
+  <!--Informacoes do servidor de PDF para baixar o pdf dos eventos-->
+  <setting name="servidor_pdf_eventos">
+    <value>http://amazon-nfe4web.elasticbeanstalk.com/nfe4web/gera_pdfs/index_cce.php</value>
+  </setting>
+  <!--Sistema de envio por ftp / esperar 10 mins-->
+  <setting name="intervaloDeVarreduraFTP">
+    <value>86400000</value>
+  </setting>  
 </Fisconet4.Settings>

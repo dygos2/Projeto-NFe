@@ -57,7 +57,7 @@ Public Class ZipMonitor
             zipFileName = ""
             cnpjtmp = ""
             Dim Generator As System.Random = New System.Random()
-            Dim zip As Ionic.Zip.ZipFile
+            Dim zip As New Ionic.Zip.ZipFile
             Dim nota As notaVO
             Dim temp_num As Integer
             Dim pasta_inut As String

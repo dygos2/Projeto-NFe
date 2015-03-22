@@ -42,6 +42,9 @@ Public Class notaDAO
     End Function
 
     Public Shared Function obterNotasSemProtocolo()
-        Return IBatisNETHelper.Instance.QueryForList(Of FN4Common.notaVO)("obterNotasSemProtocolo", 19)
+        Dim ht As New Hashtable
+        ht.Add("semprotacancelar", 18)
+        ht.Add("semprot", 19)
+        Return IBatisNETHelper.Instance.QueryForList(Of FN4Common.notaVO)("obterNotasSemProtocolo", ht)
     End Function
 End Class

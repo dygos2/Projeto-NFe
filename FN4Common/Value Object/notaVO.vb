@@ -28,14 +28,30 @@
     Private _serie As Integer
     Private _imprimeDanfe As Integer
     Private _ret_post_data As Nullable(Of DateTime)
+    Private _postback As Integer
     Private _num_pedido As String
     Private _cfop As Long
-
+    Private _token_loja As String
 
     Public Sub New()
 
     End Sub
-
+    Public Property token_loja() As String
+        Get
+            Return _token_loja
+        End Get
+        Set(ByVal value As String)
+            _token_loja = value
+        End Set
+    End Property
+    Public Property postback() As Integer
+        Get
+            Return _postback
+        End Get
+        Set(ByVal value As Integer)
+            _postback = value
+        End Set
+    End Property
     Public Property num_pedido() As String
         Get
             Return _num_pedido

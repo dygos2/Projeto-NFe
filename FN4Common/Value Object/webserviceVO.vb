@@ -6,6 +6,7 @@
     Private _url As String
     Private _homologacao As String
     Private _contingencia As String
+    Private _sincrono As String
 
     Public Property idWebservice() As Integer
         Get
@@ -67,6 +68,14 @@
         End Get
         Set(ByVal value As String)
             _contingencia = value
+        End Set
+    End Property
+    Public Property sincrono() As String
+        Get
+            Return _sincrono
+        End Get
+        Set(ByVal value As String)
+            _sincrono = value
         End Set
     End Property
 End Class

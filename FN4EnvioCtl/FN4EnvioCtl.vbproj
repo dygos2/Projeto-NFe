@@ -42,6 +42,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -127,7 +128,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data Access\notaDAO.vb" />
-    <Compile Include="Data Access\webserviceDAO.vb" />
     <Compile Include="EnvioMonitor.vb" />
     <Compile Include="Mail.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -146,6 +146,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Web References\NFe.ConsultaDPEC\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\NFe.NFeAutorizacaoPR\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\NFe.NFeAutorizacao\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -196,6 +206,16 @@
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
     <None Include="Web References\NFe.ConsultaDPEC\SCEConsultaRFB.wsdl" />
+    <None Include="Web References\NFe.NFeAutorizacaoPR\NFeAutorizacao3.wsdl" />
+    <None Include="Web References\NFe.NFeAutorizacaoPR\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\NFe.NFeAutorizacao\nfeautorizacao.wsdl" />
+    <None Include="Web References\NFe.NFeAutorizacao\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
     <None Include="Web References\NFe.NfeConsultaProtocolo\nfeconsulta2.wsdl" />
     <None Include="Web References\NFe.NfeConsultaProtocolo\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -243,16 +263,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\NFe.NfeConsultaProtocolo\nfeconsulta2.disco" />
-    <Content Include="XML\ConsultaNFeCanonico.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XML\enviDPEC.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="XML\XMLDPECCanonico.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="Web References\NFe.NFeAutorizacao\nfeautorizacao.disco" />
     <Content Include="XSLT\geraDPEC.xslt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -272,10 +283,6 @@
     <None Include="Web References\NFe.RecepcaoDPEC\SCERecepcaoRFB.disco" />
     <None Include="Web References\NFe.ConsultaDPEC\SCEConsultaRFB.disco" />
     <Content Include="XML\cabecMsg.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XML\DPECXMLCanonico.xml">
-      <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="XML\enviNFe.xml">
@@ -307,6 +314,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FN4EnvioCtl_NFe_RecepcaoDPEC_SCERecepcaoRFB</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://homologacao.nfe.fazenda.pr.gov.br/nfe/NFeAutorizacao3%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NFe.NFeAutorizacaoPR\</RelPath>
+      <UpdateFromURL>https://homologacao.nfe.fazenda.pr.gov.br/nfe/NFeAutorizacao3%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FN4EnvioCtl_NFe_NFeAutorizacaoPR_NfeAutorizacao3</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="https://homologacao.nfe.fazenda.sp.gov.br/nfeweb/services/nfeconsulta2.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
@@ -340,6 +358,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FN4EnvioCtl_br_gov_sp_fazenda_nfe_homologacao_NfeRetRecepcao</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://nfe.fazenda.sp.gov.br/ws/nfeautorizacao.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NFe.NFeAutorizacao\</RelPath>
+      <UpdateFromURL>https://nfe.fazenda.sp.gov.br/ws/nfeautorizacao.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FN4EnvioCtl_NFe_NFeAutorizacao_NfeAutorizacao</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>

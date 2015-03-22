@@ -28,9 +28,9 @@ Public Class inutiliza
         'pegando primeiro todos os clientes
         Dim clientes As List(Of empresaVO) = empresaDAO.obterTodasEmpresas()
 
-        Dim nota As notaVO
-        Dim empresa As empresaVO
-        Dim webservice As webserviceVO
+        'Dim nota As notaVO
+        'Dim empresa As empresaVO
+        'Dim webservice As webserviceVO
 
 
         For Each empresa In clientes

@@ -21,11 +21,12 @@ Public Class MonitorRenomeio
             Dim arquivo As String
             Dim sr As StreamReader
             Dim sw As StreamWriter
-            Dim content As String
+            Dim content, cont_tmp As String
             Dim newcontent As String
             Dim cnpj As String
             Dim serie As String
             Dim numero As String
+            cont_tmp = ""
 
             For Each arquivo In Directory.GetFiles(Geral.Parametro("pastaPreEntrada"), "*.TXT")
                 Try
@@ -48,8 +49,8 @@ Public Class MonitorRenomeio
                     serie = content.Split("|")(CInt(Geral.Parametro("posicaoCampoSerieNota")) - 1)
                     numero = content.Split("|")(CInt(Geral.Parametro("posicaoCampoNumeroNota")) - 1)
 
-
                     newcontent = removerultimalinha(content, arquivo)
+
                     sr.Close()
 
                     Log.registrarInfo("Conteúdo alterado", "EntradaTxtService")
@@ -57,9 +58,30 @@ Public Class MonitorRenomeio
 
                     Log.registrarInfo("Salvando alterações", "EntradaTxtService")
                     sw = New StreamWriter(arquivo, False)
-                    sw.Write(newcontent)
+
+                    For Each linha As String In content.Split(vbCrLf)
+                        linha = linha.Replace(vbCrLf, "")
+                        linha = linha.Replace(vbCr, "")
+
+                        If linha.Trim.Split("|")(0) = "99" Then
+                            sw.Write(linha.Trim & "||||")
+                        Else
+                            sw.WriteLine(linha.Trim & "||||")
+                        End If
+
+                    Next
+
                     Log.registrarInfo("Alterações salvas", "EntradaTxtService")
                     sw.Close()
+
+                    'sr = New StreamReader(arquivo, System.Text.Encoding.GetEncoding("ISO-8859-1"))
+                    'content = sr.ReadToEnd
+                    'newcontent = removerultimalinha(content, arquivo)
+                    'sr.Write(newcontent)
+
+                    'sr.Close()
+
+
 
                     File.Move(arquivo, Path.Combine(Geral.Parametro("pastaEntrada"), cnpj & "-" & numero & "-" & serie & ".txt"))
                 Catch ex As Exception

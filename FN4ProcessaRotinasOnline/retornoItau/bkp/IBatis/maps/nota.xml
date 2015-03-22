@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="nota" type ="solution.notaVO, solution"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="notaResult" class="nota">
+      <result property="NFe_ide_nNF" column = "NFe_ide_nNF"/>       
+      <result property="NFe_total_ICMSTot_vNF" column = "NFe_total_ICMSTot_vNF"/>      
+      <result property="dataUltimaAtualizacao" column = "dataUltimaAtualizacao" />      
+      <result property="num_pedido" column="num_pedido" />
+
+
+      <!-- <result property="retEnviNFe_infRec_nRec" column = "retEnviNFe_infRec_nRec"/>
+      <result property="retEnviNFe_cStat" column = "retEnviNFe_cStat"/>
+      <result property="retEnviNFe_xMotivo" column = "retEnviNFe_xMotivo"/>
+      <result property="protNfe_nProt" column = "protNfe_nProt" />
+      <result property="emailDestinatario" column = "emailDest" />
+      <result property="impressora" column = "impressora" />
+      <result property="imprimeDanfe" column="imprimeDanfe" />
+      <result property="impressoEmContingencia" column="impressoEmContingencia" />
+      <result property="ret_post_data" column="ret_post_data" />
+      <result property="cfop" column="cfop" />
+      <result property="serie" column="serie" />
+      <result property="pastaDeTrabalho" column = "pastaDeTrabalho"/>
+      <result property="statusDaNota" column = "statusDaNota"/>
+      <result property="tentativasDeInclusao" column = "tentativasDeInclusao"/>
+      <result property="NFe_ide_dEmi" column = "NFe_ide_dEmi"/>
+      <result property="NFe_infNFe_id" column = "NFe_infNFe_id"/>
+      <result property="NFe_emit_CNPJ" column = "NFe_emit_CNPJ"/>
+      <result property="NFe_emit_CPF" column = "NFe_emit_CPF"/>
+      <result property="NFe_emit_xNome" column = "NFe_emit_xNome"/>
+      <result property="NFe_dest_CNPJ" column = "NFe_dest_CNPJ"/>
+      <result property="NFe_dest_CPF" column = "NFe_dest_CPF"/>
+       <result property="NFe_dest_xNome" column = "NFe_dest_xNome"/>
+      result property="NFe_dest_UF" column = "NFe_dest_UF"/>      -->
+      
+      
+      
+    </resultMap>
+
+  </resultMaps>
+
+  <statements>
+ 
+    <select id="obterNotasPorNumeroCNPJ" parameterClass="System.Collections.IDictionary" resultMap="notaResult" >
+
+      SELECT nfe_ide_nnf, nfe_total_icmstot_vnf,dataUltimaAtualizacao, a.num_pedido FROM carrega_pedidos.pedidos a, fisconet5_producao.notas b where a.nfe_emit_cnpj = #nfe_emit_cnpj#
+      and a.nfe_emit_cnpj = b.NFe_emit_CNPJ and a.num_pedido = b.num_pedido and a.sincronizada = 0 order by nfe_ide_nnf  limit 2
+
+    </select>
+    
+  </statements>
+
+</sqlMap>

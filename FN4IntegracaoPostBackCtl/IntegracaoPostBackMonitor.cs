@@ -65,11 +65,16 @@ namespace FN4IntegracaoPostBackCtl
                 var cstats = string.Empty;
                 var motivos = string.Empty;
                 var urlsDanfe = string.Empty;
-                var tp_amb = string.Empty;
+                var urls_xml = string.Empty;
                 var resultado = string.Empty;
                 var empresa_cnpj = string.Empty;
                 var empresa_postb = string.Empty;
                 var pedido_num = string.Empty;
+                var url_xml = string.Empty;
+                var tp_amb = string.Empty;
+                var srvid = string.Empty;
+                var token_loja = string.Empty;
+                var retorno = string.Empty;    
 
                 var notas = FN4Common.DataAccess.notas.obterNotasParaPostBack();
                               
@@ -79,9 +84,14 @@ namespace FN4IntegracaoPostBackCtl
                     {
                         var timeout = Geral.get_Parametro("timeoutIntegracaoPostBack");
                         tp_amb = Geral.get_Parametro("tp_amb");
-
+                        srvid = Geral.get_Parametro("srvid");
+                        
                         foreach (var nota in notas)
                         {
+                            //antes de dar qualquer problema, muda o status para enviado
+                            nota.ret_post_data = System.DateTime.Now;
+                            nota.postback = 2;
+                            FN4Common.DataAccess.notas.alterarNota(nota);
 
                             var empresa = empresaDAO.obterEmpresaComUrlDePostBack(nota.NFe_emit_CNPJ);
                             empresa_cnpj = string.Format("{0}{1}{2}", empresa.nome ," | ", empresa.cnpj);
@@ -103,10 +113,13 @@ namespace FN4IntegracaoPostBackCtl
                                 if (nota.statusDaNota == 51 || nota.statusDaNota == 5)
                                 {
                                     urlDanfe = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}{16}{17}{18}{19}", Geral.get_Parametro("servidorDanfe"), "cnpj=", empresa.cnpj, "&ano=", pasta_trab_arr[5], "&mes=", pasta_trab_arr[6], "&dia=", pasta_trab_arr[7], "&nnfe=", pasta_trab_arr[8], "&arq=", nota.NFe_ide_nNF, "_assinado&ch=", nota.NFe_infNFe_id, "&srvid=", Geral.get_Parametro("srvid"), "&tp_amb=", empresa.homologacao + 1, "&dest_saida=D");
+                                    url_xml = "";
                                 }
                                 else
                                 {
                                     urlDanfe = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}{16}{17}{18}{19}", Geral.get_Parametro("servidorDanfe"), "cnpj=", empresa.cnpj, "&ano=", pasta_trab_arr[5], "&mes=", pasta_trab_arr[6], "&dia=", pasta_trab_arr[7], "&nnfe=", pasta_trab_arr[8], "&arq=", nota.NFe_ide_nNF, "_procNFe&ch=", nota.NFe_infNFe_id, "&srvid=", Geral.get_Parametro("srvid"), "&tp_amb=", empresa.homologacao + 1, "&dest_saida=D");
+                                    url_xml = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}{16}", "http://srv", srvid, ".nfe4web.com.br:909", tp_amb, "/", empresa.cnpj, "/", pasta_trab_arr[5], "/", pasta_trab_arr[6], "/", pasta_trab_arr[7], "/", pasta_trab_arr[8], "/", nota.NFe_ide_nNF, "_procNFe.xml");
+                                    //htp://srv2.nfe4web.com.br:9091/17034627000166/2013/8/22/1-10/1_procNFe.xml
                                 };
                              };
 
@@ -120,16 +133,13 @@ namespace FN4IntegracaoPostBackCtl
                             urlsDanfe = string.IsNullOrWhiteSpace(urlsDanfe) ? urlDanfe : urlsDanfe + "§" + urlDanfe;
                             //voltando o número do pedido para a loja virtual
                             pedido_num = string.IsNullOrWhiteSpace(pedido_num) ? nota.num_pedido : pedido_num + "§" + nota.num_pedido;
-
-                            //antes de dar qualquer problema, muda o status para enviado
-                            nota.ret_post_data = System.DateTime.Now;
-                            FN4Common.DataAccess.notas.alterarNota(nota);
+                            //retornando o link do xml
+                            urls_xml = string.IsNullOrWhiteSpace(urls_xml) ? url_xml : urls_xml + "§" + url_xml;
+                            //token da loja do cliente
+                            token_loja = string.IsNullOrWhiteSpace(token_loja) ? nota.token_loja : token_loja + "§" + nota.token_loja;
 
                             //testando se próxima nota ainda é da mesma empresa, se não for, envia os dados por post, loga e zera os campos
                             notas_arr_ct = notas_arr_ct + 1;
-
-                            //inserindo historico de enviado postback
-                            InserirHistorico("25", "", nota);
 
                             if (notas.Count > notas_arr_ct)
                             {
@@ -148,11 +158,17 @@ namespace FN4IntegracaoPostBackCtl
                                         httpPost.PostItems.Add("url_danfe", urlsDanfe);
                                         httpPost.PostItems.Add("tp_amb", tp_amb);
                                         httpPost.PostItems.Add("pedido_num", pedido_num);
+                                        httpPost.PostItems.Add("url_xml", urls_xml);
+                                        httpPost.PostItems.Add("Token_loja", token_loja);
                                         httpPost.Type = PostSubmitter.PostTypeEnum.Post;
-                                        httpPost.Post();
+                                        retorno = httpPost.Post();
+
+                                        //inserindo historico de enviado postback
+                                        InserirHistorico("25", " [Sucesso] ", nota);
 
                                         Log.registrarInfo("Notas enviadas via postback com sucesso para a empresa " + empresa_cnpj, Servico);
-                                        Log.registrarInfo("  -> Dados:Números - " + numeros + "/ Series - " + series + "/ Pedidos - " + pedido_num + " / Link- " + empresa_postb_arr[ii], Servico);
+                                        Log.registrarInfo("  -> Dados:NFes - " + numeros + "/ Pedidos - " + pedido_num, Servico);
+                                        Log.registrarInfo("  -> Retorno - " + retorno, Servico);
                                     };
                                         numeros = string.Empty;
                                         series = string.Empty;
@@ -166,6 +182,10 @@ namespace FN4IntegracaoPostBackCtl
                                         empresa_cnpj = string.Empty;
                                         empresa_postb = string.Empty;
                                         pedido_num = string.Empty;
+                                        url_xml = string.Empty;
+                                        urls_xml = string.Empty;
+                                        token_loja = string.Empty;
+                                        retorno = string.Empty; 
                                 };
                             }
                             else
@@ -184,11 +204,17 @@ namespace FN4IntegracaoPostBackCtl
                                     httpPost.PostItems.Add("url_danfe", urlsDanfe);
                                     httpPost.PostItems.Add("tp_amb", tp_amb);
                                     httpPost.PostItems.Add("pedido_num", pedido_num);
+                                    httpPost.PostItems.Add("url_xml", urls_xml);
+                                    httpPost.PostItems.Add("Token_loja", token_loja);
                                     httpPost.Type = PostSubmitter.PostTypeEnum.Post;
-                                    httpPost.Post();
+                                    retorno = httpPost.Post();
+
+                                    //inserindo historico de enviado postback
+                                    InserirHistorico("25", " [Sucesso] ", nota);
 
                                     Log.registrarInfo("Notas enviadas via postback com sucesso para a empresa " + empresa_cnpj, Servico);
-                                    Log.registrarInfo("  -> Dados:Números - " + numeros + "/ Series - " + series + "/ Pedidos - " + pedido_num + " / Link- " + empresa_postb_arr[ii], Servico);
+                                    Log.registrarInfo("  -> Dados:NFes - " + numeros + "/ Pedidos - " + pedido_num, Servico);
+                                    Log.registrarInfo("  -> Retorno - " + retorno, Servico);
                                 };
 
                                 numeros = string.Empty;
@@ -203,6 +229,10 @@ namespace FN4IntegracaoPostBackCtl
                                 empresa_cnpj = string.Empty;
                                 empresa_postb = string.Empty;
                                 pedido_num = string.Empty;
+                                urls_xml = string.Empty;
+                                url_xml = string.Empty;
+                                token_loja = string.Empty;
+                                retorno = string.Empty; 
                             };
 
                         }
@@ -212,7 +242,8 @@ namespace FN4IntegracaoPostBackCtl
                         resultado = "Erro ao tentar fazer o postback para a empresa " + empresa_cnpj + ": " +  exception.Message;
 
                         Log.registrarErro(resultado, Servico);
-                        Log.registrarInfo("  -> Dados:Números " + numeros + "/" + series + "/ Pedidos - " + pedido_num + " - Status- " + status + " - Tentativas - " + tentativas + " - Chaves- " + chaves + " - cStats- " + cstats + " - Motivos- " + motivos + " - urlDanfe- " + urlsDanfe + " - tp_amb- " + tp_amb + " - Link- " + empresa_postb, Servico);
+                        Log.registrarInfo("  -> Dados:NFes - " + numeros + "/ Pedidos - " + pedido_num, Servico);
+                        Log.registrarInfo("  -> Retorno - " + retorno, Servico);
                     }
                     finally
                     {

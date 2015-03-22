@@ -11,6 +11,11 @@
       <result property="chave" column = "chave"/>
       <result property="valor" column = "valor"/>
     </resultMap>
+    <resultMap id="FtpConfig" class="configuracao">
+      <result property="idConfiguracao" column = "idConfiguracao"/>
+      <result property="chave" column = "chave"/>
+      <result property="valor" column = "valor"/>
+    </resultMap>
   </resultMaps>
 
   <statements>
@@ -18,6 +23,9 @@
       SELECT idConfiguracao, chave, valor FROM configuracao
       WHERE chave =#chave#
       AND idEmpresa =#idEmpresa#;
+    </select>
+    <select id="obterFTPConfig"  resultMap="FtpConfig" >
+      SELECT * FROM fisconet5_homologacao.configuracao where chave like "ftp%" and idEmpresa = #idEmpresa# order by chave
     </select>
   </statements>
 </sqlMap>
