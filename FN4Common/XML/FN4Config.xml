@@ -211,6 +211,9 @@
   <setting name="intervaloCorrecao">
     <value>3000</value>
   </setting>
+  <setting name="intervaloProtocolo">
+    <value>10000</value>
+  </setting>
   <!--Informacoes da versão consulta protocolo-->
   <setting name="Versao_ConsultaProtocolo">
     <value>2.01</value>
@@ -222,5 +225,9 @@
   <!--Sistema de envio por ftp / esperar 10 mins-->
   <setting name="intervaloDeVarreduraFTP">
     <value>86400000</value>
+  </setting>
+  <!-- desativar debug sempre que for producao-->
+  <setting name="isdebug">
+    <value>1</value>
   </setting>  
 </Fisconet4.Settings>

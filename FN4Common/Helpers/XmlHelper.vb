@@ -18,7 +18,6 @@ Namespace Helpers
 
             cert = Geral.Certificado
 
-
             ' Cria um objeto SignedXML
             'Dim xmltemp As New XmlDocument
             'xmltemp.LoadXml(xmlDoc.InnerXml.Replace("xmlns=""http://www.portalfiscal.inf.br/nfe""", ""))

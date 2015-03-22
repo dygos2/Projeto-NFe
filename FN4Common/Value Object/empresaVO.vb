@@ -24,9 +24,6 @@ Public Class empresaVO
     Private _email As String
     Private _token As String
     Private _logotipo As String
-    Private _gadget1 As Integer
-    Private _gadget2 As Integer
-    Private _gadget3 As Integer
     Private _delimitador As String
     Private _separador As String
     Private _urlPostBack As String
@@ -35,6 +32,25 @@ Public Class empresaVO
     Private _habilitado_stat As Integer
     Private _envio_auto_canc As Integer
     Private _md5_cnpj As String
+    Private _versao_nfe As String
+    Private _utc As String
+
+    Public Property utc As String
+        Get
+            Return _utc
+        End Get
+        Set(ByVal value As String)
+            _utc = value
+        End Set
+    End Property
+    Public Property versao_nfe As String
+        Get
+            Return _versao_nfe
+        End Get
+        Set(ByVal value As String)
+            _versao_nfe = value
+        End Set
+    End Property
     Public Property md5_cnpj As String
         Get
             Return _md5_cnpj
@@ -272,33 +288,6 @@ Public Class empresaVO
         End Get
         Set(ByVal value As String)
             _logotipo = value
-        End Set
-    End Property
-
-    Public Property gadget1 As Integer
-        Get
-            Return _gadget1
-        End Get
-        Set(ByVal value As Integer)
-            _gadget1 = value
-        End Set
-    End Property
-
-    Public Property gadget2 As Integer
-        Get
-            Return _gadget2
-        End Get
-        Set(ByVal value As Integer)
-            _gadget2 = value
-        End Set
-    End Property
-
-    Public Property gadget3 As Integer
-        Get
-            Return _gadget3
-        End Get
-        Set(ByVal value As Integer)
-            _gadget3 = value
         End Set
     End Property
 

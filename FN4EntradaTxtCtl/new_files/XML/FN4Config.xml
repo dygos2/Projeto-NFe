@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Fisconet4.Settings>
+  <!-- AMBIENTE -->
+  <setting name="emailPadrao">
+    <value>envio@nfe4web.com.br</value>
+  </setting>
+  <setting name="displayemailPadrao">
+    <value>NFe4Web - Envio de NF-e</value>
+  </setting>
+  <setting name="loginEmailPadrao">
+    <value>dygos</value>
+  </setting>
+  <setting name="senhaEmailPadrao">
+    <value>199715</value>
+  </setting>
+  <setting name="servidorSMTPPadrao">
+    <!--<value>localhost</value>-->
+    <value>smtp.sendgrid.net</value>
+  </setting>
+  <setting name="enableSSLPadrao">
+    <value>0</value>
+  </setting>
+  <setting name="portaSMTPPadrao">
+    <!--<value>default</value>-->
+    <value>587</value>
+  </setting>
+  <setting name="ServidorSMTPRequerAutenticacaoPadrao">
+    <value>1</value>
+  </setting>
+
+  <setting name="VersaoProduto">
+    <value>3.10</value>
+  </setting>
+
+  <setting name="pathAdobeReader">
+    <value>C:\Program Files (x86)\Adobe\Reader 9.0\Reader\AcroRd32.exe</value>
+  </setting>
+
+  <setting name="UrlWebServiceNotas">
+    <value>http://208.109.236.57:8087/FN4NotasService.asmx</value>
+  </setting>
+
+  <!-- 
+    Este valor, serve para indicar sistema NFeCommerce web ou Fisconet
+    1 - NFecommerce 
+    2 – Fisconet
+  -->
+
+  <setting name="tp_sys">
+    <value>1</value>
+  </setting>
+
+  <!-- TEMPOS -->
+  <setting name="intervaloDeVarreduraDeEntrada" >
+    <value>2000</value>
+  </setting>
+  <setting name="intervaloDeVarreduraDeSaida" >
+    <value>6000</value>
+  </setting>
+  <setting name="intervaloIntegracao" >
+    <value>3000</value>
+  </setting>
+  <setting name="intervaloVarreduraDanfe">
+    <value>6000</value>
+  </setting>
+  <setting name="tempoSleepGeracaoPDF">
+    <value>5</value>
+  </setting>
+  <setting name="intervaloCancelamento">
+    <value>3000</value>
+  </setting>
+  <setting name="intervaloInutilizacao">
+    <value>3000</value>
+  </setting>
+  <setting name="intervaloIntegracaoPostBack">
+    <value>3000</value>
+  </setting>
+  <setting name="timeoutIntegracaoPostBack">
+    <value>30000</value>
+  </setting>
+
+
+  <!-- ARQUIVOS -->
+  <setting name="arquivoSchemaNfe" >
+    <value>xsd/PL_008d/nfe_v3.10.xsd</value>
+  </setting>
+  <setting name="arquivoDeConfiguracaoLog4Net" >
+    <value>C:\TFS\source\Fisconet\Dev\Solution\FN4Common\Log4netConfig.xml</value>
+  </setting>
+  <setting name="stylesheetNFe" >
+    <value>GeraNFe301.xslt</value>
+  </setting>
+  <setting name="stylesheetDPEC" >
+    <value>geraDPEC.xslt</value>
+  </setting>
+
+  <!--PASTAS-->
+  <setting name="pastaEntrada" >
+    <value>C:\Fisconet4\in\</value>
+  </setting>
+  <setting name="pastaPreEntrada" >
+    <value>C:\Fisconet4\prein\</value>
+  </setting>
+  <setting name="pastaDeSaida" >
+    <value>C:\Fisconet4\out\</value>
+  </setting>
+  <setting name="pastaDeRejeitadas" >
+    <value>C:\Fisconet4\in\rejected\</value>
+  </setting>
+  <setting name="pastaDeAprovadas" >
+    <value>C:\Fisconet4\in\accepted\</value>
+  </setting>
+  <setting name="pastaDeProcessadas" >
+    <value>C:\Fisconet4\process\</value>
+  </setting>
+  <setting name="pastaDeDPEC">
+    <value>C:\Fisconet4\dpec\</value>
+  </setting>
+  <setting name="pastaLogos">
+    <value>C:\Fisconet4\logos\</value>
+  </setting>
+  <setting name="pathDanfe">
+    <value>C:\unimake\uninfe\unidanfe.exe</value>
+  </setting>
+  <!--apenas para safer -->
+  <setting name="pastaSafer" >
+    <value>C:\NFeS\Avalidar\</value>
+  </setting>
+  <setting name="formatoPDF">
+    <value></value>
+  </setting>
+
+  <!-- CAMPOS -->
+  <setting name="posicaoCampoDuplicatas" >
+    <value>104</value>
+  </setting>
+
+  <setting name="backupOnline">
+    <value>false</value>
+  </setting>
+
+  <setting name="arquivoAuxiliar">
+    <!-- unidanfe-->
+    <value>C:\Fisconet4\bin\xml\auxiliar.xml</value>
+  </setting>
+  <setting name="justificativaDPEC">
+    <value>Erro na conexão com o serviço</value>
+  </setting>
+  <setting name="tempoEsperaUnidanfe">
+    <value>10000</value>
+  </setting>
+  <setting name="urlDanfe">
+    <value>http://servidor/Application/pastaPDF/</value>
+  </setting>
+  <setting name="servidorDanfe">
+    <value>http://72.167.54.28/?</value>
+  </setting>
+  <setting name="srvid">
+    <value>1</value>
+  </setting>
+  <setting name="copy_prot">
+    <!-- alteracao da shockmetais, solicitação de copia do protocolo -->
+    <value>C:\Fisconet4\process\</value>
+  </setting>
+
+  <!-- Sistema de envio dos dados para NFe4Web -->
+  <setting name="intervaloDeVarreduraDoTXT">
+    <value>10000</value>
+  </setting>
+  <setting name="intervaloDeconsulta">
+    <value>10000</value>
+  </setting>
+  <setting name="tp_amb">
+    <!-- 1-homologacao / 2-producao -->
+    <value>1</value>
+  </setting>
+  <setting name="pastaRetorno">
+    <value>C:\Fisconet5\fisconet5_homologacao2\out\</value>
+  </setting>
+  <setting name="pastaEntrada_homolog">
+    <value>C:\Fisconet5\fisconet5_homologacao2\in\homolog\</value>
+  </setting>
+  <setting name="pastaEntrada_prod">
+    <value>C:\Fisconet5\fisconet5_homologacao2\in\prod\</value>
+  </setting>
+  <setting name="tokens">
+    <value>240121189321612992731451911292418799244139/2225521447745813919089176102101154197117</value>
+  </setting>
+  <setting name="cnpjs">
+    <value>12791282000171/07476521000169</value>
+  </setting>
+  <setting name="pastaDeRejeitadasNfeCommerce">
+    <value>C:\Fisconet5\fisconet5_homologacao2\in\pastaDeRejeitadas\</value>
+  </setting>
+  <!-- FIM do sistema de envio dos dados para NFe4Web -->
+  <!-- sistema de envio de mensageria -->
+  <setting name="intervaloDeVarreduraDeEmails">
+    <value>86400000</value>
+    <!--esperar 1 dia para processamento-->
+  </setting>
+  <!-- sistema de bakup -->
+  <setting name="intervaloDeVarreduraDebkp">
+    <value>86400000</value>
+    <!--esperar 1 dia para processamento-->
+  </setting>
+  <setting name="processar_imediato">
+    <value>1</value>
+    <!--1 para processar imediatamente todas as nfes / 0 - somente nos primeiros dias do mês, ref as notas do mes anterior -->
+  </setting>
+  <!--Informacoes da carta de correcao-->
+  <setting name="intervaloCorrecao">
+    <value>3000</value>
+  </setting>
+  <!--Informacoes da versão consulta protocolo-->
+  <setting name="Versao_ConsultaProtocolo">
+    <value>2.01</value>
+  </setting>
+  <!--Informacoes do servidor de PDF para baixar o pdf dos eventos-->
+  <setting name="servidor_pdf_eventos">
+    <value>http://amazon-nfe4web.elasticbeanstalk.com/nfe4web/gera_pdfs/index_cce.php</value>
+  </setting>
+  <!--Sistema de envio por ftp / esperar 10 mins-->
+  <setting name="intervaloDeVarreduraFTP">
+    <value>86400000</value>
+  </setting>  
+</Fisconet4.Settings>

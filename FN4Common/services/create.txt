@@ -1,0 +1,20 @@
+sc create FN4EntradaTxtSvc_Hom binPath= C:\Fisconet5\Fisconet5_Homologacao2\bin\FN4EntradaTxtSvc.exe
+sc create FN4EmailSvc_Hom binPath= C:\Fisconet5\Fisconet5_Homologacao2\bin\FN4EmailSvc.exe
+sc create FN4EnvioSvc_Hom binPath= C:\Fisconet5\Fisconet5_Homologacao2\bin\FN4EnvioSvc.exe
+sc create FN4ImpressaoSvc_Hom binPath= C:\Fisconet5\Fisconet5_Homologacao2\bin\FN4ImpressaoSvc.exe
+sc create FN4InutilizacaoSvc_Hom binPath= C:\Fisconet5\Fisconet5_Homologacao2\bin\FN4InutilizacaoSvc.exe
+sc create FN4RetornoSvc_Hom binPath= C:\Fisconet5\Fisconet5_Homologacao2\bin\FN4RetornoSvc.exe
+
+sc create FN4EntradaTxtSvc_Prod binPath= C:\Fisconet5\Fisconet5_Producao2\bin\FN4EntradaTxtSvc.exe
+sc create FN4EmailSvc_Prod binPath= C:\Fisconet5\Fisconet5_Producao2\bin\FN4EmailSvc.exe
+sc create FN4EnvioSvc_Prod binPath= C:\Fisconet5\Fisconet5_Producao2\bin\FN4EnvioSvc.exe
+sc create FN4ImpressaoSvc_Prod binPath= C:\Fisconet5\Fisconet5_Producao2\bin\FN4ImpressaoSvc.exe
+sc create FN4InutilizacaoSvc_Prod binPath= C:\Fisconet5\Fisconet5_Producao2\bin\FN4InutilizacaoSvc.exe
+sc create FN4RetornoSvc_Prod binPath= C:\Fisconet5\Fisconet5_Producao2\bin\FN4RetornoSvc.exe
+
+sc create FN4CCeSvc_Prod binPath= C:\Fisconet5\Fisconet5_Producao2\bin\FN4CartaDeCorrecaoService.exe
+sc create FN4BkpZip_Prod binPath= C:\Fisconet5\Fisconet5_Producao2\bin\FN4ZipXmlSvc.exe
+sc create FN4CCeSvc_Hom binPath= C:\Fisconet5\Fisconet5_Homologacao2\bin\FN4CartaDeCorrecaoService.exe
+sc create FN4BkpZip_Hom binPath= C:\Fisconet5\Fisconet5_Homologacao2\bin\FN4ZipXmlSvc.exe
+
+sc delete FN4EmailSvc_Hom2

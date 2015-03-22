@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="utc" type ="FN4Common.utcVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="utcResult" class="utc">
+      <result property="uf" column = "uf"/>
+      <result property="utc" column = "utc"/>
+      <result property="versao_canc" column = "versao_canc"/>
+    </resultMap>
+
+  </resultMaps>
+ 
+
+  <statements>
+    <select id="obterUtc" parameterClass="utc" resultMap="utcResult" >
+      SELECT * FROM utc 
+      WHERE uf = #uf#;
+    </select>
+
+  </statements>
+
+</sqlMap>

@@ -31,14 +31,17 @@ Public Class Geral
 
     Public Shared ReadOnly Property Parametro(ByVal nome As String) As String
         Get
-            If _parametro.BaseURI = "" Then
-                Dim uri As New Uri(System.Reflection.Assembly.GetExecutingAssembly.GetName.CodeBase)
-                Dim caminho As String = Path.GetDirectoryName(uri.LocalPath)
-                _parametro.Load(caminho & "\XML\FN4Config.xml")
-            End If
+            Try
+                If _parametro.BaseURI = "" Then
+                    Dim uri As New Uri(System.Reflection.Assembly.GetExecutingAssembly.GetName.CodeBase)
+                    Dim caminho As String = Path.GetDirectoryName(uri.LocalPath)
+                    _parametro.Load(caminho & "\XML\FN4Config.xml")
+                End If
 
-            Return _parametro.SelectSingleNode("/Fisconet4.Settings/setting[@name='" & nome & "']/value").InnerText
-
+                Return _parametro.SelectSingleNode("/Fisconet4.Settings/setting[@name='" & nome & "']/value").InnerText
+            Catch ex As Exception
+                Throw New Exception("Erro ao carregar a configuração Fn4Config. " & nome & "  : " & ex.Message)
+            End Try
         End Get
     End Property
 

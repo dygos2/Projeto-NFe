@@ -198,15 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\NFeRetRecepcao\nferetrecepcao2.disco" />
-    <Content Include="XML\procNFe.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XML\cabecMsg.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XML\consReciNFe.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

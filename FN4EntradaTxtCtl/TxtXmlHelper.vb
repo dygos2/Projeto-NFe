@@ -1,4 +1,5 @@
 ﻿Imports FN4Common
+Imports FN4Common.DataAccess
 Imports System.Xml
 Imports System.Xml.Schema
 Imports System.IO
@@ -104,6 +105,8 @@ Public Class TxtXmlHelper
     Public Shared Function gerarXML(ByVal strEntrada As String, ByVal empresa As empresaVO, ByVal nNF As Long) As XmlDocument
 
         Dim mappings As ArrayList
+        Dim mappings_exp As ArrayList
+        Dim mappings_imp As ArrayList
         Dim xmlCanonico As XmlDocument
         Dim dupMappings As ArrayList
         Dim dupXml As XmlNode
@@ -121,24 +124,74 @@ Public Class TxtXmlHelper
             'campo 01 tem que ter 56 delimitadores exatamente
             If valoresEntrada.cabecalho.Count <> 56 Then
                 Throw New Exception("Erro no cabeçalho (01) Delimitadores encontrados (" & valoresEntrada.cabecalho.Count & ") - Necessários exatamente  56")
+            Else
+                'concatena utc no campo data se for nfe 3.10
+                Try
+                    If empresa.versao_nfe <> "2.00" Then
+                        'se a versao for 3.10, adiciona o utc da cidade
+                        If valoresEntrada.cabecalho(6) <> "" Then
+                            valoresEntrada.cabecalho(6) = String.Concat(valoresEntrada.cabecalho(6), empresa.utc)
+                        End If
+                        If valoresEntrada.cabecalho(7) <> "" Then
+                            valoresEntrada.cabecalho(7) = String.Concat(valoresEntrada.cabecalho(7), empresa.utc)
+                        End If
+                    Else
+                        'se a versao for 2.00, passar somente data em um campo e a hora em outro
+                        If valoresEntrada.cabecalho(6) <> "" Then
+                            valoresEntrada.cabecalho(6) = Split(valoresEntrada.cabecalho(6), "T")(0)
+                        End If
+                        If valoresEntrada.cabecalho(7) <> "" Then
+                            valoresEntrada.cabecalho(7) = Split(valoresEntrada.cabecalho(7), "T")(1)
+                        End If
+                    End If
+
+                Catch ex As Exception
+                    Throw New Exception("Erro ao carregar o UTC do estado " & empresa.uf & " : " & ex.Message)
+                End Try
             End If
 
-            'loop  nos itens
+            'loop nos itens
             Dim loop_ct
             loop_ct = 0
             For Each itemp_tmp In valoresEntrada.detalhes
                 loop_ct += 1
-                'campo 02 tem que ter 97 delimitadores exatamente
-                If itemp_tmp.count <> 97 Then
-                    Throw New Exception("Erro no Ítem nº " & loop_ct & ". Delimitadores encontrados (" & itemp_tmp.count & ") - Necessários  exatamente  97")
+                'campo 02 tem que ter 100 delimitadores exatamente
+                If itemp_tmp.count <> 100 Then
+                    Throw New Exception("Erro no Ítem nº " & loop_ct & ". Delimitadores encontrados (" & itemp_tmp.count & ") - Necessários  exatamente  100")
                 End If
             Next
-
             'TODO verificar DI e Exportacao
+            'loop nas importacoes
+            loop_ct = 0
+            For Each itemp_tmp In valoresEntrada.importacao
+                loop_ct += 1
+                'campo 021 tem que ter ao menos 28 delimitadores
+                If itemp_tmp.count < 28 Then
+                    Throw New Exception("Erro na DI nº " & loop_ct & ". Delimitadores encontrados (" & itemp_tmp.count & ") - Necessários 28 ou mais")
+                End If
+            Next
+            'loop nas exportacoes
+            loop_ct = 0
+            For Each itemp_tmp In valoresEntrada.exportacao
+                loop_ct += 1
+                'campo 022 tem que ter ao menos 6 delimitadores
+                If itemp_tmp.count < 6 Then
+                    Throw New Exception("Erro na exportação (022) nº " & loop_ct & ". Delimitadores encontrados (" & itemp_tmp.count & ") - Necessários 6 ou mais")
+                End If
+            Next
+            'se tiver importacao, terá que existir a mesma qtd de campos de itens
+            If valoresEntrada.importacao.Count > 0 And valoresEntrada.importacao.Count <> valoresEntrada.detalhes.Count Then
+                Throw New Exception("Importações divergem dos itens. Enviados (" & valoresEntrada.importacao.Count & ") campos de DI e encontrados " & valoresEntrada.detalhes.Count & " produtos.")
+            End If
 
-            'campo 03 tem que ter 117 delimitadores exatamente
-            If valoresEntrada.totais.Count <> 117 Then
-                Throw New Exception("Erro nos Totais (03) Delimitadores encontrados (" & valoresEntrada.totais.Count & ") - Necessários  exatamente  116")
+            'se tiver exportacao, terá que existir a mesma qtd de campos de itens
+            If valoresEntrada.exportacao.Count > 0 And valoresEntrada.exportacao.Count <> valoresEntrada.detalhes.Count Then
+                Throw New Exception("Exportações divergem dos itens. Enviados (" & valoresEntrada.exportacao.Count & ") campos de Ex e encontrados " & valoresEntrada.detalhes.Count & " produtos.")
+            End If
+
+            'campo 03 tem que ter 118 delimitadores no mínimo
+            If valoresEntrada.totais.Count < 118 Then
+                Throw New Exception("Erro nos Totais (03) Delimitadores encontrados (" & valoresEntrada.totais.Count & ") - Necessários  no mínimo  118")
             End If
 
             'campo 04 tem que ter >= 3 delimitadores (atende Fisconet e NFecommerce)
@@ -146,14 +199,20 @@ Public Class TxtXmlHelper
                 Throw New Exception("Erro nos Campos adicionais (04) Delimitadores encontrados (" & valoresEntrada.informacoesAdicionais.Count & ") - Necessários > 2")
             End If
 
-            'campo 99 tem que ter 8 delimitadores exatamente
-            If valoresEntrada.informacoesAdicionais.Count <> 8 Then
-                Throw New Exception("Erro nos Campos de parâmetros (99). Delimitadores encontrados (" & valoresEntrada.informacoesAdicionais.Count & ") - Necessários exatamente  8")
+            'campo 99 tem que ter 9 delimitadores exatamente
+            If valoresEntrada.informacoesAdicionais.Count <> 9 Then
+                Throw New Exception("Erro nos Campos de parâmetros (99). Delimitadores encontrados (" & valoresEntrada.informacoesAdicionais.Count & ") - Necessários exatamente  9")
             End If
 
             'geral
             mappings = obterMappings("TXTmappingsGerais.txt")
             xmlCanonico = obterXMLCanonico()
+
+            'importacao
+            mappings_imp = obterMappings("TXTmappingsImportacao.txt")
+
+            'exportacao
+            mappings_exp = obterMappings("TXTmappingsExportacao.txt")
 
             'duplicatas
             dupMappings = obterMappings("TXTmappingsDuplicatas.txt")
@@ -297,10 +356,7 @@ Public Class TxtXmlHelper
                 'comentado em 20/02/2013, nao precisa buscar esse campo do banco pois todo cliente acaba sendo igual
                 'Dim configuracao As configuracaoVO = configuracaoDAO.obterConfiguracao("formatoICMS", 0)
                 'Dim padraoICMS As String = configuracao.valor
-                Dim padraoICMS As String = "<ICMS99><orig/><CST/><CSOSN/><modBC/><pRedBC/><vBC/><pICMS/><vICMS/><modBCST/><pMVAST/><pRedBCST/><vBCST/><pICMSST/><vICMSST/><vBCSTRet/><vICMSSTRet/><motDesICMS/><pCredSN/><vCredICMSSN/><vBCSTDest/><vICMSSTDest/></ICMS99>"
-
-                'BUG NA ATA É POSICAO 33 NA MIOLO É POSICAO 30
-                'Na shock é 29
+                Dim padraoICMS As String = "<ICMS99><orig/><CST/><CSOSN/><modBC/><pRedBC/><vBC/><pICMS/><vICMSOp/><pDif/><vICMSDif/><vICMS/><modBCST/><pMVAST/><pRedBCST/><vBCST/><pICMSST/><vICMSST/><vBCSTRet/><vICMSSTRet/><motDesICMS/><vICMSDeson/><pCredSN/><vCredICMSSN/><vBCSTDest/><vICMSSTDest/></ICMS99>"
 
                 'padraoICMS = padraoICMS.Replace("ICMS99", icmsTag)
                 Dim xmlICMS As New XmlDocument
@@ -351,6 +407,45 @@ Public Class TxtXmlHelper
                     Throw New Exception("Erro em detMappings: " + ex.Message)
                 End Try
             Next
+            'se tiver mais campos de importação (nDraw), duplicar o xml
+            'If valoresEntrada.exportacao(ct - 1) > 6 Then
+            'Dim exp As New XmlDocument()
+            'exp.LoadXml("<detExport><nDraw /><exportInd><nRE /><chNFe /><qExport /></exportInd></detExport>")
+            'Dim dup_exp As XmlNode = exp.DocumentElement
+
+            'Dim root As XmlNode = xmlCanonico.DocumentElement
+
+            'Add the node to the document.
+            'root.InsertAfter(dup_exp, xmlCanonico.SelectSingleNode("/NFe/infNFe[1]/det[CONTADOR]/prod[1]/detExport[1]/".Replace("CONTADOR", ct)))
+
+            'End If
+            'executando exportacao se tiver
+            If valoresEntrada.exportacao.Count > 0 Then
+                For Each map In mappings_exp
+                    Try
+                        If valoresEntrada.exportacao(ct - 1)(map.indice - 1) <> "" Then 'zero based
+                            xmlCanonico.SelectSingleNode(map.xPath.Replace("CONTADOR", ct)).InnerText = valoresEntrada.exportacao(ct - 1)(map.indice - 1)
+                        End If
+                    Catch ex As Exception
+                        Console.WriteLine(ex.Message)
+                        Throw New Exception("Erro em Mappings_exp: " + ex.Message)
+                    End Try
+                Next
+            End If
+
+            'executando importacao se tiver
+            If valoresEntrada.importacao.Count > 0 Then
+                For Each map In mappings_imp
+                    Try
+                        If valoresEntrada.importacao(ct - 1)(map.indice - 1) <> "" Then 'zero based
+                            xmlCanonico.SelectSingleNode(map.xPath.Replace("CONTADOR", ct)).InnerText = valoresEntrada.importacao(ct - 1)(map.indice - 1)
+                        End If
+                    Catch ex As Exception
+                        Console.WriteLine(ex.Message)
+                        Throw New Exception("Erro em Mappings_imp: " + ex.Message)
+                    End Try
+                Next
+            End If
         Next
 
         Dim mensagem As String = String.Empty
@@ -554,14 +649,17 @@ Public Class TxtXmlHelper
 
 #End Region
 
-    Public Shared Function validarXmlDeEnvio(ByVal PathXmlEnvio As String)
+    Public Shared Function validarXmlDeEnvio(ByVal PathXmlEnvio As String, ByVal empresa As empresaVO)
         resultadoValidacao = New System.Text.StringBuilder
         Dim myevent As ValidationEventHandler = New ValidationEventHandler(AddressOf ValidationEvent)
+
         'carrega o XSD
-
-        'Dim pathXSD As String = System.AppDomain.CurrentDomain.BaseDirectory() & "XSD\NFe_v2.00.xsd"
-        Dim pathXSD As String = System.AppDomain.CurrentDomain.BaseDirectory() & Geral.Parametro("arquivoSchemaNfe")
-
+        Dim pathXSD As String
+        If empresa.versao_nfe = "2.00" Then
+            pathXSD = System.AppDomain.CurrentDomain.BaseDirectory() & "xsd/nfe_v2.00.xsd"
+        Else
+            pathXSD = System.AppDomain.CurrentDomain.BaseDirectory() & Geral.Parametro("arquivoSchemaNfe")
+        End If
 
         Dim xschema As XmlSchema = XmlSchema.Read(New XmlTextReader(pathXSD), myevent)
 

@@ -10,6 +10,7 @@
       <result property="uf" column = "uf"/>
       <result property="utc" column = "utc"/>
       <result property="versao_canc" column = "versao_canc"/>
+      <result property="versao_nfe" column = "versao_nfe"/>
     </resultMap>
 
   </resultMaps>

@@ -226,30 +226,6 @@
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
     <None Include="Web References\NFe.RecepcaoDPEC\SCERecepcaoRFB.wsdl" />
-    <None Include="XSD\consDPEC_v1.01.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\envDPEC_v1.01.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\leiauteDPEC_v1.01.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\retConsDPEC_v1.01.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\retDPEC_v1.01.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\xmldsig-core-schema_v1.01.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FN4Common\FN4Common.vbproj">
@@ -264,10 +240,6 @@
   <ItemGroup>
     <None Include="Web References\NFe.NfeConsultaProtocolo\nfeconsulta2.disco" />
     <None Include="Web References\NFe.NFeAutorizacao\nfeautorizacao.disco" />
-    <Content Include="XSLT\geraDPEC.xslt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="Web References\NFe.NFeRecepcao\nferecepcao2.wsdl" />
     <None Include="Web References\NFe.NFeRetRecepcao\nferetrecepcao.wsdl" />
     <None Include="Web References\NFe.NFeRetRecepcao\Reference.map">
@@ -282,12 +254,6 @@
     <None Include="Web References\NFe.NFeRecepcao\nferecepcao2.disco" />
     <None Include="Web References\NFe.RecepcaoDPEC\SCERecepcaoRFB.disco" />
     <None Include="Web References\NFe.ConsultaDPEC\SCEConsultaRFB.disco" />
-    <Content Include="XML\cabecMsg.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XML\enviNFe.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />

@@ -564,43 +564,16 @@ Public Class FN4NotasService
     Private Function cancelarNFe(ByVal nota As notaVO, ByVal textoJustificativa As String, ByVal empresa_obj As empresaVO) As String
         Try
 
-            Dim envio_versao As Integer
+            Dim evento As New eventoVO
 
-            Try 'tenta buscaro utc
-                Dim utcback As utcVO = utc.obterUTC(empresa_obj.uf)
-                envio_versao = utcback.versao_canc
-            Catch ex As Exception
-                Throw New Exception("Erro ao carregar a configuração do UTC. Envio por Eventou 1 ou 2. " & empresa_obj.uf & " : " & ex.Message)
-            End Try
+            evento.NFe_infNFe_id = nota.NFe_infNFe_id
+            evento.infEvento_detEvento_xCorrecao = textoJustificativa.Trim()
+            evento.NFe_emit_CNPJ = nota.NFe_emit_CNPJ
+            evento.infEvento_tpEvento = 110111
+            evento.statusEvento = 0
 
-            If envio_versao = 0 Then 'enviar pelo modo antigo
-
-                nota.statusDaNota = 41
-
-                Dim justificativa As New justificativaVO
-                justificativa.cnpj = nota.NFe_emit_CNPJ
-                justificativa.idNota = nota.NFe_ide_nNF
-                justificativa.serie = nota.serie
-                justificativa.descricao = textoJustificativa
-                justificativas.inserirJustificativa(justificativa)
-                notas.alterarNota(nota)
-
-                inserirHistorico(19, "Nota enviada para fila de processamentos", nota)
-
-            Else
-
-                Dim evento As New eventoVO
-
-                evento.NFe_infNFe_id = nota.NFe_infNFe_id
-                evento.infEvento_detEvento_xCorrecao = textoJustificativa.Trim()
-                evento.NFe_emit_CNPJ = nota.NFe_emit_CNPJ
-                evento.infEvento_tpEvento = 110111
-                evento.statusEvento = 0
-
-                eventos.inserirEvento(evento)
-
-                inserirHistorico(19, "Nota enviada para fila de eventos", nota)
-            End If
+            eventos.inserirEvento(evento)
+            inserirHistorico(19, "Nota enviada para fila de eventos", nota)
 
             Return "Nota Enviada para fila de Processamento"
         Catch ex As Exception

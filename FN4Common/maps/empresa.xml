@@ -30,14 +30,13 @@
       <result property="delimitador" column ="delimitador"/>
       <result property="email" column ="email" />
       <result property="token" column ="token" />
-      <result property="gadget1" column ="gadget1" />
-      <result property="gadget2" column ="gadget2" />
-      <result property="gadget3" column ="gadget3" />
       <result property="frest" column ="frest" />
       <result property="prest" column ="prest" />
       <result property="habilitado_stat" column ="habilitado_stat" />
       <result property="envio_auto_canc" column ="envio_auto_canc" />
       <result property="md5_cnpj" column ="md5_cnpj" />
+      <result property="versao_nfe" column ="versao_nfe" />
+      <result property="utc" column ="utc" />
     </resultMap>
 
     <resultMap id="empresaResultComUrlPostBack" class="empresa">
@@ -64,9 +63,6 @@
       <result property="delimitador" column ="delimitador"/>
       <result property="email" column ="email" />
       <result property="token" column ="token" />
-      <result property="gadget1" column ="gadget1" />
-      <result property="gadget2" column ="gadget2" />
-      <result property="gadget3" column ="gadget3" />
       <result property="urlPostBack" column="urlPostBack" />
       <result property="frest" column ="frest" />
       <result property="prest" column ="prest" />
@@ -85,8 +81,8 @@
       SELECT idEmpresa, cnpj, nome from empresa where habilitado_stat =1;
     </select>
     <select id="obterEmpresa" parameterClass="System.Collections.IDictionary" resultMap="empresaResult" >
-      SELECT *, md5(cnpj) as md5_cnpj FROM empresa
-      WHERE cnpj =#cnpj#;
+      SELECT *, md5(cnpj) as md5_cnpj, b.versao_nfe, b.utc FROM empresa a, utc b
+      WHERE cnpj =#cnpj# and a.uf = b.uf;
     </select>
 
     <select id="obterEmpresasComUrlDePostBack" resultMap="empresaResultComUrlPostBack">
@@ -151,14 +147,6 @@
       #prest#
       );
     </insert>
-
-    <update id="alterarGadgets" parameterClass="empresa">
-      UPDATE empresa SET
-      gadget1 = #gadget1#,
-      gadget2 = #gadget2#,
-      gadget3 = #gadget3#
-      WHERE idEmpresa = #idEmpresa#
-    </update>
 
     <update id="alterarEmpresa" parameterClass="empresa">
       UPDATE empresa SET

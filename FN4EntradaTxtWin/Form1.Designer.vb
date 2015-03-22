@@ -50,6 +50,20 @@ Partial Class Form1
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Button13 = New System.Windows.Forms.Button()
         Me.Button14 = New System.Windows.Forms.Button()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Button15 = New System.Windows.Forms.Button()
+        Me.Button16 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Button17 = New System.Windows.Forms.Button()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Button18 = New System.Windows.Forms.Button()
+        Me.Button19 = New System.Windows.Forms.Button()
+        Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Button20 = New System.Windows.Forms.Button()
+        Me.Button21 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -57,6 +71,9 @@ Partial Class Form1
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
+        Me.GroupBox8.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
+        Me.GroupBox10.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -103,7 +120,7 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Button3)
         Me.GroupBox2.Controls.Add(Me.Button4)
-        Me.GroupBox2.Location = New System.Drawing.Point(368, 182)
+        Me.GroupBox2.Location = New System.Drawing.Point(190, 314)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox2.TabIndex = 4
@@ -142,7 +159,7 @@ Partial Class Form1
         Me.GroupBox3.Controls.Add(Me.Label3)
         Me.GroupBox3.Controls.Add(Me.Button5)
         Me.GroupBox3.Controls.Add(Me.Button6)
-        Me.GroupBox3.Location = New System.Drawing.Point(190, 182)
+        Me.GroupBox3.Location = New System.Drawing.Point(30, 314)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox3.TabIndex = 5
@@ -259,7 +276,7 @@ Partial Class Form1
         Me.GroupBox6.Controls.Add(Me.Label6)
         Me.GroupBox6.Controls.Add(Me.Button11)
         Me.GroupBox6.Controls.Add(Me.Button12)
-        Me.GroupBox6.Location = New System.Drawing.Point(878, 23)
+        Me.GroupBox6.Location = New System.Drawing.Point(695, 23)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox6.TabIndex = 8
@@ -298,7 +315,7 @@ Partial Class Form1
         Me.GroupBox7.Controls.Add(Me.Label7)
         Me.GroupBox7.Controls.Add(Me.Button13)
         Me.GroupBox7.Controls.Add(Me.Button14)
-        Me.GroupBox7.Location = New System.Drawing.Point(878, 182)
+        Me.GroupBox7.Location = New System.Drawing.Point(853, 23)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox7.TabIndex = 9
@@ -332,11 +349,151 @@ Partial Class Form1
         Me.Button14.Text = "Stop"
         Me.Button14.UseVisualStyleBackColor = True
         '
+        'GroupBox8
+        '
+        Me.GroupBox8.Controls.Add(Me.Label8)
+        Me.GroupBox8.Controls.Add(Me.Button15)
+        Me.GroupBox8.Controls.Add(Me.Button16)
+        Me.GroupBox8.Location = New System.Drawing.Point(540, 23)
+        Me.GroupBox8.Name = "GroupBox8"
+        Me.GroupBox8.Size = New System.Drawing.Size(125, 126)
+        Me.GroupBox8.TabIndex = 10
+        Me.GroupBox8.TabStop = False
+        Me.GroupBox8.Text = "Impressão"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(40, 94)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(41, 13)
+        Me.Label8.TabIndex = 4
+        Me.Label8.Text = "Parado"
+        '
+        'Button15
+        '
+        Me.Button15.Location = New System.Drawing.Point(23, 29)
+        Me.Button15.Name = "Button15"
+        Me.Button15.Size = New System.Drawing.Size(75, 23)
+        Me.Button15.TabIndex = 0
+        Me.Button15.Text = "Run"
+        Me.Button15.UseVisualStyleBackColor = True
+        '
+        'Button16
+        '
+        Me.Button16.Location = New System.Drawing.Point(23, 58)
+        Me.Button16.Name = "Button16"
+        Me.Button16.Size = New System.Drawing.Size(75, 23)
+        Me.Button16.TabIndex = 2
+        Me.Button16.Text = "Stop"
+        Me.Button16.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(368, 169)
+        Me.TextBox1.Multiline = True
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TextBox1.Size = New System.Drawing.Size(610, 329)
+        Me.TextBox1.TabIndex = 11
+        '
+        'Button17
+        '
+        Me.Button17.Location = New System.Drawing.Point(368, 507)
+        Me.Button17.Name = "Button17"
+        Me.Button17.Size = New System.Drawing.Size(75, 23)
+        Me.Button17.TabIndex = 12
+        Me.Button17.Text = "Refresh Log"
+        Me.Button17.UseVisualStyleBackColor = True
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.Label9)
+        Me.GroupBox9.Controls.Add(Me.Button18)
+        Me.GroupBox9.Controls.Add(Me.Button19)
+        Me.GroupBox9.Location = New System.Drawing.Point(21, 169)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(125, 126)
+        Me.GroupBox9.TabIndex = 6
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Retorno Protocolos"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(40, 94)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(41, 13)
+        Me.Label9.TabIndex = 4
+        Me.Label9.Text = "Parado"
+        '
+        'Button18
+        '
+        Me.Button18.Location = New System.Drawing.Point(23, 29)
+        Me.Button18.Name = "Button18"
+        Me.Button18.Size = New System.Drawing.Size(75, 23)
+        Me.Button18.TabIndex = 0
+        Me.Button18.Text = "Run"
+        Me.Button18.UseVisualStyleBackColor = True
+        '
+        'Button19
+        '
+        Me.Button19.Location = New System.Drawing.Point(23, 58)
+        Me.Button19.Name = "Button19"
+        Me.Button19.Size = New System.Drawing.Size(75, 23)
+        Me.Button19.TabIndex = 2
+        Me.Button19.Text = "Stop"
+        Me.Button19.UseVisualStyleBackColor = True
+        '
+        'GroupBox10
+        '
+        Me.GroupBox10.Controls.Add(Me.Label10)
+        Me.GroupBox10.Controls.Add(Me.Button20)
+        Me.GroupBox10.Controls.Add(Me.Button21)
+        Me.GroupBox10.Location = New System.Drawing.Point(190, 169)
+        Me.GroupBox10.Name = "GroupBox10"
+        Me.GroupBox10.Size = New System.Drawing.Size(125, 126)
+        Me.GroupBox10.TabIndex = 13
+        Me.GroupBox10.TabStop = False
+        Me.GroupBox10.Text = "Envio emails"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(40, 94)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(41, 13)
+        Me.Label10.TabIndex = 4
+        Me.Label10.Text = "Parado"
+        '
+        'Button20
+        '
+        Me.Button20.Location = New System.Drawing.Point(23, 29)
+        Me.Button20.Name = "Button20"
+        Me.Button20.Size = New System.Drawing.Size(75, 23)
+        Me.Button20.TabIndex = 0
+        Me.Button20.Text = "Run"
+        Me.Button20.UseVisualStyleBackColor = True
+        '
+        'Button21
+        '
+        Me.Button21.Location = New System.Drawing.Point(23, 58)
+        Me.Button21.Name = "Button21"
+        Me.Button21.Size = New System.Drawing.Size(75, 23)
+        Me.Button21.TabIndex = 2
+        Me.Button21.Text = "Stop"
+        Me.Button21.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1030, 329)
+        Me.ClientSize = New System.Drawing.Size(1074, 542)
+        Me.Controls.Add(Me.GroupBox10)
+        Me.Controls.Add(Me.GroupBox9)
+        Me.Controls.Add(Me.Button17)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.GroupBox8)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.GroupBox5)
@@ -360,7 +517,14 @@ Partial Class Form1
         Me.GroupBox6.PerformLayout()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
+        Me.GroupBox8.ResumeLayout(False)
+        Me.GroupBox8.PerformLayout()
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
+        Me.GroupBox10.ResumeLayout(False)
+        Me.GroupBox10.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
@@ -391,5 +555,19 @@ Partial Class Form1
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Button13 As System.Windows.Forms.Button
     Friend WithEvents Button14 As System.Windows.Forms.Button
+    Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Button15 As System.Windows.Forms.Button
+    Friend WithEvents Button16 As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Button17 As System.Windows.Forms.Button
+    Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Button18 As System.Windows.Forms.Button
+    Friend WithEvents Button19 As System.Windows.Forms.Button
+    Friend WithEvents GroupBox10 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Button20 As System.Windows.Forms.Button
+    Friend WithEvents Button21 As System.Windows.Forms.Button
 
 End Class

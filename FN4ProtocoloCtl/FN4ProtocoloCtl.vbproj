@@ -242,16 +242,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\NFe.NfeConsultaProtocolo\nfeconsulta2.disco" />
-    <Content Include="XML\ConsultaNFeCanonico.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XML\enviDPEC.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="XML\XMLDPECCanonico.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="XSLT\geraDPEC.xslt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -270,16 +260,6 @@
     <None Include="Web References\NFe.NFeRecepcao\nferecepcao2.disco" />
     <None Include="Web References\NFe.RecepcaoDPEC\SCERecepcaoRFB.disco" />
     <None Include="Web References\NFe.ConsultaDPEC\SCEConsultaRFB.disco" />
-    <Content Include="XML\cabecMsg.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XML\DPECXMLCanonico.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XML\enviNFe.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />

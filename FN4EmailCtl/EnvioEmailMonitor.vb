@@ -375,6 +375,10 @@ Public Class EnvioEmailMonitor
             If File.Exists(pathDanfe) Then
                 anexos.Add(pathDanfe)
             End If
+            pathDanfe = Replace(pathDanfe, ".pdf", "-danfe.pdf")
+            If File.Exists(pathDanfe) Then
+                anexos.Add(pathDanfe)
+            End If
         End If
 
         'colocando o nome do remetente

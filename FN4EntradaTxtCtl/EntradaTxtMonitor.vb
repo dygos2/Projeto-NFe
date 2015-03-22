@@ -117,14 +117,11 @@ Public Class EntradaTxtMonitor
                 End Try
 
                 Try
-                    retornoValidacao = TxtXmlHelper.validarXmlDeEnvio(pathXMLAssinado)
+                    retornoValidacao = TxtXmlHelper.validarXmlDeEnvio(pathXMLAssinado, empresa)
                     If retornoValidacao <> "" Then
                         inserirHistorico(9, retornoValidacao, nota, CNPJ)
 
                         nota.retEnviNFe_xMotivo = "Erro de validação: " & retornoValidacao
-                        'comentado por Rodrigo - 03102013 - Não precisa gravar, pois estará gravando no rejeitar nota
-                        'notaDAO.alterarNota(nota)
-
                         rejeitarNota(arquivo, nota, New Exception("Nota não está de acordo com o XSD"), "Erro de validação: " & retornoValidacao)
                         Continue For
                     End If
@@ -136,11 +133,6 @@ Public Class EntradaTxtMonitor
                 Try
                     nota.statusDaNota = 0 'iniciando o processamento (ativando envio da NF para sefaz) - 03/10/2013
                     notaDAO.alterarNota(nota)
-
-                    'Dim dtProcessamento As String = Format(DateTime.Now, "yyyyMMddhhmmss")
-                    'salvar o arquivo original na pasta de aprovadas
-                    'comentado em 20/02/2013, não precisa mais gravar em aceitas, pois o sistema já está gravando na pasta destino
-                    'File.Copy(arquivo, FN4Common.Geral.Parametro("pastaDeAprovadas") & numeroDaNota & "_" & dtProcessamento & ".txt")
                     File.Delete(arquivo)
                 Catch ex As Exception
                     Log.registrarErro("Erro inesperado: " & Geral.ObterExceptionMessagesEmCascata(ex) & vbCrLf & Geral.ObterStackTraceEmCascata(ex), "EntradaTxtService")
@@ -379,7 +371,6 @@ Public Class EntradaTxtMonitor
 
                     'salvar o txt transformado na pasta de trabalho
                     Dim escrita As StreamWriter
-
                     Dim fileInfo As New FileInfo(arquivo)
 
                     escrita = File.CreateText(pastaDeTrabalho & fileInfo.Name)
@@ -414,7 +405,16 @@ Public Class EntradaTxtMonitor
                 '---geracao do XML de saída---
                 Try
                     pathXMLEnvio = pastaDeTrabalho & numeroDaNota & "_transformado.xml"
-                    TxtXmlHelper.gerarXmlDeSaida(pathXmlDeTrabalho, pastaDeTrabalho, numeroDaNota, System.AppDomain.CurrentDomain.BaseDirectory & "XSLT\" & FN4Common.Geral.Parametro("stylesheetNFe"))
+
+                    Dim xslt_path As String
+                    'fazer o xslt para versao 2.00 ou 3.01
+                    If empresa.versao_nfe = "2.00" Then
+                        xslt_path = System.AppDomain.CurrentDomain.BaseDirectory & "XSLT\GeraNFe16.xslt"
+                    Else
+                        xslt_path = System.AppDomain.CurrentDomain.BaseDirectory & "XSLT\" & FN4Common.Geral.Parametro("stylesheetNFe")
+                    End If
+
+                    TxtXmlHelper.gerarXmlDeSaida(pathXmlDeTrabalho, pastaDeTrabalho, numeroDaNota, xslt_path)
                 Catch ex As Exception
                     inserirHistorico(5, "", nota, cnpj)
 

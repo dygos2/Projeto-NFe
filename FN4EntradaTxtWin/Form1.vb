@@ -1,4 +1,5 @@
-﻿
+﻿Imports FN4Common
+
 Public Class Form1
 
     Dim mon As FN4EntradaTxtCtl.EntradaTxtMonitor
@@ -8,11 +9,17 @@ Public Class Form1
     Dim mon5 As FN4RetornoCtl.RetornoMonitor
     Dim mon6 As FN4CartaCorrecaoCtl.CartaDeCorrecaoMonitor
     Dim mon7 As FN4InutilizacaoCtl.InutilizacaoMonitor
+    Dim mon8 As FN4ImpressaoCtl.ImpressaoMonitor
+    Dim mon9 As FN4ProtocoloCtl.ProtocoloMonitor
+    Dim mon10 As FN4EmailCtl.EnvioEmailMonitor
+
+    Dim last_id As Integer
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         mon = New FN4EntradaTxtCtl.EntradaTxtMonitor
         Label1.Text = "Rodando"
         mon.run()
+        refresh_logs()
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
@@ -40,9 +47,11 @@ Public Class Form1
 
 
     Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
+
         mon3.pause()
         Label3.Text = "Parado"
     End Sub
+
 
     Private Sub GroupBox4_Enter(sender As System.Object, e As System.EventArgs) Handles GroupBox4.Enter
 
@@ -90,5 +99,67 @@ Public Class Form1
     Private Sub Button14_Click(sender As System.Object, e As System.EventArgs) Handles Button14.Click
         mon7.Pause()
         Label7.Text = "Parado"
+    End Sub
+
+    Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        last_id = 0
+    End Sub
+
+    Private Sub Button15_Click(sender As System.Object, e As System.EventArgs) Handles Button15.Click
+        mon8 = New FN4ImpressaoCtl.ImpressaoMonitor
+        mon8.run()
+        Label8.Text = "Rodando"
+    End Sub
+
+    Private Sub Button16_Click(sender As System.Object, e As System.EventArgs) Handles Button16.Click
+        mon8.pause()
+        Label8.Text = "Parado"
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As System.Object, e As System.EventArgs) Handles TextBox1.TextChanged
+
+    End Sub
+
+    Public Function refresh_logs()
+        Dim arr As New ArrayList
+        Log.retorna_log(arr)
+
+        If Not IsNothing(arr) Then
+            For i As Integer = last_id To arr.Count - 1
+                Dim val As String = arr(i).ToString()
+                TextBox1.AppendText(val & Environment.NewLine)
+            Next
+            last_id = arr.Count
+        End If
+
+        Return 0
+    End Function
+
+    Private Sub Button17_Click(sender As System.Object, e As System.EventArgs) Handles Button17.Click
+
+        refresh_logs()
+
+    End Sub
+
+    Private Sub Button18_Click(sender As System.Object, e As System.EventArgs) Handles Button18.Click
+        mon9 = New FN4ProtocoloCtl.ProtocoloMonitor
+        mon9.run()
+        Label9.Text = "Rodando"
+    End Sub
+
+    Private Sub Button19_Click(sender As System.Object, e As System.EventArgs) Handles Button19.Click
+        mon9.pause()
+        Label9.Text = "Parado"
+    End Sub
+
+    Private Sub Button20_Click(sender As System.Object, e As System.EventArgs) Handles Button20.Click
+        mon10 = New FN4EmailCtl.EnvioEmailMonitor
+        mon10.run()
+        Label10.Text = "Rodando"
+    End Sub
+
+    Private Sub Button21_Click(sender As System.Object, e As System.EventArgs) Handles Button21.Click
+        mon10.pause()
+        Label10.Text = "Parado"
     End Sub
 End Class

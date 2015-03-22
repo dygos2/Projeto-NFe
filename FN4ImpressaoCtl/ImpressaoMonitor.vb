@@ -23,6 +23,7 @@ Public Class ImpressaoMonitor
 
     Private Sub executarMonitorImpressao() Handles tm.Elapsed
         tm.Stop()
+
         Try
             imprimirNotasPendentes()
         Catch ex As Exception

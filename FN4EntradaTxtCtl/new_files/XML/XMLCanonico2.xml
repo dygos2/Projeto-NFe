@@ -1,0 +1,611 @@
+<NFe>
+  <infNFe Id="">
+    <ide>
+      <cUF />
+      <cNF />
+      <natOp />
+      <indPag />
+      <mod>55</mod>
+      <serie />
+      <nNF />
+      <dEmi />
+      <dSaiEnt />
+      <hSaiEnt />
+      <tpNF />
+      <cMunFG />
+      <NFref>
+        <refNFe />
+        <refNF>
+          <cUF />
+          <AAMM />
+          <CNPJ />
+          <mod />
+          <serie />
+          <nNF />
+        </refNF>
+        <refNFP>
+          <cUF />
+          <AAMM />
+          <CNPJ />
+          <CPF />
+          <IE />
+          <mod />
+          <serie />
+          <nNF />
+        </refNFP>
+        <refCTe />
+        <refECF>
+          <mod />
+          <nECF />
+          <nCOO />
+        </refECF>
+      </NFref>
+      <NFref>
+        <refNFe />
+        <refNF>
+          <cUF />
+          <AAMM />
+          <CNPJ />
+          <mod />
+          <serie />
+          <nNF />
+        </refNF>
+        <refNFP>
+          <cUF />
+          <AAMM />
+          <CNPJ />
+          <CPF />
+          <IE />
+          <mod />
+          <nNF />
+          <serie />
+        </refNFP>
+        <refCTe />
+        <refECF>
+          <mod />
+          <nECF />
+          <nCOO />
+        </refECF>
+      </NFref>
+      <NFref>
+        <refNFe />
+        <refNF>
+          <cUF />
+          <AAMM />
+          <CNPJ />
+          <mod />
+          <serie />
+          <nNF />
+        </refNF>
+        <refNFP>
+          <cUF />
+          <AAMM />
+          <CNPJ />
+          <CPF />
+          <IE />
+          <mod />
+          <serie />
+          <nNF />
+        </refNFP>
+        <refCTe />
+        <refECF>
+          <mod />
+          <nECF />
+          <nCOO />
+        </refECF>
+      </NFref>
+      <NFref>
+        <refNFe />
+        <refNF>
+          <cUF />
+          <AAMM />
+          <CNPJ />
+          <mod />
+          <serie />
+          <nNF />
+        </refNF>
+        <refNFP>
+          <cUF />
+          <AAMM />
+          <CNPJ />
+          <CPF />
+          <IE />
+          <mod />
+          <serie />
+          <nNF />
+        </refNFP>
+        <refCTe />
+        <refECF>
+          <mod />
+          <nECF />
+          <nCOO />
+        </refECF>
+      </NFref>
+      <NFref>
+        <refNFe />
+        <refNF>
+          <cUF />
+          <AAMM />
+          <CNPJ />
+          <mod />
+          <serie />
+          <nNF />
+        </refNF>
+        <refNFP>
+          <cUF />
+          <AAMM />
+          <CNPJ />
+          <CPF />
+          <IE />
+          <mod />
+          <serie />
+          <nNF />
+        </refNFP>
+        <refCTe />
+        <refECF>
+          <mod />
+          <nECF />
+          <nCOO />
+        </refECF>
+      </NFref>
+      <tpImp>1</tpImp>
+      <tpEmis>1</tpEmis>
+      <cDV />
+      <tpAmb />
+      <finNFe />
+      <procEmi />
+      <verProc />
+    </ide>
+    <emit>
+      <CNPJ></CNPJ>
+      <CPF></CPF>
+      <xNome></xNome>
+      <xFant />
+      <enderEmit>
+        <xLgr></xLgr>
+        <nro></nro>
+        <xBairro></xBairro>
+		<xCpl></xCpl>
+        <cMun></cMun>
+        <xMun></xMun>
+        <CEP />
+        <cPais />
+        <xPais />
+        <fone />
+        <UF></UF>
+      </enderEmit>
+      <IE></IE>
+      <IEST />
+      <IM />
+      <CNAE />
+      <CRT />
+    </emit>
+    <dest>
+      <CNPJ />
+      <CPF />
+      <xNome />
+      <enderDest>
+        <xLgr />
+        <nro />
+        <xCpl />
+        <xBairro />
+        <cMun />
+        <xMun />
+        <UF />
+        <CEP />
+        <cPais />
+        <xPais />
+      </enderDest>
+      <fone />
+      <IE />
+      <email />
+    </dest>
+    <retirada>
+      <CNPJ />
+      <CPF />
+      <xLgr />
+      <nro />
+      <xCpl />
+      <xBairro />
+      <cMun />
+      <xMun />
+      <UF />
+    </retirada>
+    <entrega>
+      <CNPJ />
+      <CPF />
+      <xLgr />
+      <nro />
+      <xCpl />
+      <xBairro />
+      <cMun />
+      <xMun />
+      <UF />
+    </entrega>
+    <det nItem="">
+      <prod>
+        <cProd />
+        <cEAN />
+        <xProd />
+        <EXTIPI/>
+        <NCM />
+        <CFOP />
+        <uCom />
+        <qCom />
+        <vUnCom />
+        <vProd />
+        <cEANTrib />
+        <uTrib />
+        <qTrib />
+        <vUnTrib />
+        <vFrete />
+        <vSeg />
+        <vDesc />
+        <vOutro />
+        <indTot />
+        <DI>
+          <nDI />
+          <dDI />
+          <xLocDesemb />
+          <UFDesemb />
+          <dDesemb />
+          <cExportador />
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+        </DI>
+        <DI>
+          <nDI />
+          <dDI />
+          <xLocDesemb />
+          <UFDesemb />
+          <dDesemb />
+          <cExportador />
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+        </DI>
+        <DI>
+          <nDI />
+          <dDI />
+          <xLocDesemb />
+          <UFDesemb />
+          <dDesemb />
+          <cExportador />
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+          <adi>
+            <nAdicao />
+            <nSeqAdic />
+            <cFabricante />
+            <vDescDI />
+          </adi>
+        </DI>
+      </prod>
+      <imposto>
+        <ICMS />
+        <IPI>
+          <clEnq />
+          <cEnq />
+          <CNPJProd />
+          <cSelo />
+          <qSelo />
+          <IPITrib>
+            <CST />
+            <vBC />
+            <qUnid />
+            <vUnid />
+            <pIPI />
+            <vIPI />
+          </IPITrib>
+        </IPI>
+        <II>
+          <vBC />
+          <vDespAdu />
+          <vII />
+          <vIOF />
+        </II>
+        <ISSQN>
+          <vBC />
+          <vAliq />
+          <vISSQN />
+          <cMunFG />
+          <cListServ />
+          <cSitTrib />
+        </ISSQN>
+        <PIS>
+          <PISNT>
+            <CST />
+          </PISNT>
+          <PISPadr>
+            <CST />
+            <vBC />
+            <pPIS />
+            <vPIS />
+            <qBCProd />
+            <vAliqProd />
+          </PISPadr>
+        </PIS>
+        <PISST>
+          <vBC />
+          <pPIS />
+          <qBCProd />
+          <vPIS />
+          <vAliqProd/>
+        </PISST>
+        <COFINS>
+          <COFINSPadr>
+            <CST />
+            <vBC />
+            <pCOFINS />
+            <vCOFINS />
+            <vAliqProd />
+            <qBCProd />
+          </COFINSPadr>
+        </COFINS>
+        <COFINSST>
+          <COFINSST />
+          <vBC />
+          <pCOFINS />
+          <vCOFINS />
+          <qBCProd />
+          <vAliqProd />
+        </COFINSST>
+      </imposto>
+      <infAdProd />
+    </det>
+    <total>
+      <ICMSTot>
+        <vBC />
+        <vICMS />
+        <vBCST />
+        <vST />
+        <vProd />
+        <vFrete />
+        <vSeg />
+        <vDesc />
+        <vII />
+        <vIPI />
+        <vPIS />
+        <vCOFINS />
+        <vOutro />
+        <vNF />
+      </ICMSTot>
+      <ISSQNtot>
+        <vServ />
+        <vBCISS />
+        <vISS />
+        <vPISISS />
+        <vCOFINSISS />
+      </ISSQNtot>
+      <retTrib>
+        <vRetPIS />
+        <vRetCOFINS />
+        <vRetCSLL />
+        <vBCIRRF />
+        <vIRRF />
+        <vBCRetPrev />
+        <vRetPrev />
+      </retTrib>
+    </total>
+    <transp>
+      <modFrete />
+      <transporta>
+        <CNPJ />
+        <CPF />
+        <xNome />
+        <IE />
+        <xEnder />
+        <xMun />
+        <UF />
+      </transporta>
+      <retTransp>
+        <vServ />
+        <vBCRet />
+        <pICMSRet />
+        <vICMSRet />
+        <CFOP />
+        <cMunFG />
+      </retTransp>
+      <veicTransp>
+        <placa />
+        <UF />
+        <RNTC />
+      </veicTransp>
+      <reboque>
+        <placa />
+        <UF />
+        <RNTC />
+      </reboque>
+      <vagao />
+      <balsa />
+      <vol>
+        <qVol />
+        <esp />
+        <marca />
+        <nVol />
+        <pesoL />
+        <pesoB />
+        <lacres>
+          <nLacre />
+        </lacres>
+        <lacres>
+          <nLacre />
+        </lacres>
+        <lacres>
+          <nLacre />
+        </lacres>
+      </vol>
+      <vol>
+        <qVol />
+        <esp />
+        <marca />
+        <nVol />
+        <pesoL />
+        <pesoB />
+        <lacres>
+          <nLacre />
+        </lacres>
+        <lacres>
+          <nLacre />
+        </lacres>
+        <lacres>
+          <nLacre />
+        </lacres>
+      </vol>
+      <vol>
+        <qVol />
+        <esp />
+        <marca />
+        <nVol />
+        <pesoL />
+        <pesoB />
+        <lacres>
+          <nLacre />
+        </lacres>
+        <lacres>
+          <nLacre />
+        </lacres>
+        <lacres>
+          <nLacre />
+        </lacres>
+      </vol>
+      <vol>
+        <qVol />
+        <esp />
+        <marca />
+        <nVol />
+        <pesoL />
+        <pesoB />
+        <lacres>
+          <nLacre />
+        </lacres>
+        <lacres>
+          <nLacre />
+        </lacres>
+        <lacres>
+          <nLacre />
+        </lacres>
+      </vol>
+      <vol>
+        <qVol />
+        <esp />
+        <marca />
+        <nVol />
+        <pesoL />
+        <pesoB />
+        <lacres>
+          <nLacre />
+        </lacres>
+        <lacres>
+          <nLacre />
+        </lacres>
+        <lacres>
+          <nLacre />
+        </lacres>
+      </vol>
+    </transp>
+    <cobr>
+      <fat>
+        <nFat />
+        <vOrig />
+        <vDesc />
+        <vLiq />
+      </fat>
+      <dup>
+        <nDup />
+        <dVenc />
+        <vDup />
+      </dup>
+    </cobr>
+    <infAdic>
+      <infAdFisco />
+      <infCpl />
+    </infAdic>
+    <compra>
+      <xCont />
+      <xNEmp />
+      <xPed />
+    </compra>
+    <exporta>
+      <UFEmbarq />
+      <xLocEmbarq />
+    </exporta>
+  </infNFe>
+</NFe>

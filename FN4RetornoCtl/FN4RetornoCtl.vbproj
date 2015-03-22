@@ -220,15 +220,6 @@
   <ItemGroup>
     <None Include="Web References\NFeRetRecepcao\nferetrecepcao2.disco" />
     <None Include="Web References\NFeRetAutorizacao\nferetautorizacao.disco" />
-    <Content Include="XML\procNFe.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XML\cabecMsg.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XML\consReciNFe.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

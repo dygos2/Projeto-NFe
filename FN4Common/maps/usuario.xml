@@ -31,9 +31,6 @@
       <result property="delimitador" column ="delimitador"/>
       <result property="email" column ="email" />
       <result property="token" column ="token" />
-      <result property="gadget1" column ="gadget1" />
-      <result property="gadget2" column ="gadget2" />
-      <result property="gadget3" column ="gadget3" />
       <result property="frest" column ="frest" />
       <result property="prest" column ="prest" />
     </resultMap>

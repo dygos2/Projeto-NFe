@@ -24,11 +24,11 @@ Public Class FN4ConfiguracaoService
         Dim document As New System.Xml.XmlDocument
         document.Load(Server.MapPath(".") & "/XML/MonitorConfig.xml")
         Dim config As New configuracoesVO
-        With config
-            .gadget1 = empresa.gadget1.ToString()
-            .gadget2 = empresa.gadget2.ToString()
-            .gadget3 = empresa.gadget3.ToString()
-        End With
+        ' With config
+        '.gadget1 = empresa.gadget1.ToString()
+        '.gadget2 = empresa.gadget2.ToString()
+        '.gadget3 = empresa.gadget3.ToString()
+        'End With
         Return config
 
     End Function
@@ -44,9 +44,9 @@ Public Class FN4ConfiguracaoService
 
         If Not Seguranca.CompararMD5(empresa.validador, token) Then Return
 
-        empresa.gadget1 = gadget1
-        empresa.gadget2 = gadget2
-        empresa.gadget3 = gadget3
+        'empresa.gadget1 = gadget1
+        'empresa.gadget2 = gadget2
+        'empresa.gadget3 = gadget3
 
         empresaDAO.alterarGadgets(empresa)
     End Sub

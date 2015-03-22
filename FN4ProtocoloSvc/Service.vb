@@ -1,8 +1,8 @@
-﻿Imports FN4EnvioCtl
+﻿Imports FN4ProtocoloCtl
 
 Public Class Service
 
-    Private mon As New EnvioMonitor
+    Private mon As New FN4ProtocoloCtl.ProtocoloMonitor
     Protected Overrides Sub OnStart(ByVal args() As String)
         mon.run()
     End Sub

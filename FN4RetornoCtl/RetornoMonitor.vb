@@ -45,7 +45,12 @@ Public Class RetornoMonitor
 
                 '   criar um consReciNFe
                 Dim consReciNFe As New XmlDocument
-                consReciNFe.Load(System.AppDomain.CurrentDomain.BaseDirectory() & "XML\consReciNFe.xml")
+                If empresa.versao_nfe = "2.00" Then
+                    consReciNFe.Load(System.AppDomain.CurrentDomain.BaseDirectory() & "XML\consReciNFe200.xml")
+                Else
+                    consReciNFe.Load(System.AppDomain.CurrentDomain.BaseDirectory() & "XML\consReciNFe.xml")
+                End If
+
                 consReciNFe.PreserveWhitespace = True
                 'acertar o ambiente
                 consReciNFe.SelectSingleNode("/*[local-name()='consReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='tpAmb' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText = (empresa.homologacao + 1).ToString()
@@ -57,10 +62,14 @@ Public Class RetornoMonitor
                 Dim cabecMsg As XmlDocument = XmlHelper.obterUmCabecalho(consReciNFe.SelectSingleNode("/*[local-name()='consReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/@versao").InnerText)
 
                 Dim retorno As XmlElement
-                '2.0
-                'Dim ws As New NFeRetRecepcao.NfeRetRecepcao2
-                '3.10
-                Dim ws As New NFeRetAutorizacao.NfeRetAutorizacao
+                Dim ws
+                If empresa.versao_nfe = "2.00" Then
+                    '2.0
+                    ws = New NFeRetRecepcao.NfeRetRecepcao2
+                Else
+                    '3.10
+                    ws = New NFeRetAutorizacao.NfeRetAutorizacao
+                End If
 
                 Dim ufWs As String
 
@@ -72,29 +81,40 @@ Public Class RetornoMonitor
                     ufWs = empresa.uf
                 End If
 
-                '2.0
-                'Dim webservice = webserviceDAO.obterURLWebservice(ufWs, "NfeRetRecepcao", Geral.Parametro("VersaoProduto"), empresa.homologacao)
-                '3.10
-                Dim webservice = webserviceDAO.obterURLWebservice(ufWs, "NFeRetAutorizacao", Geral.Parametro("VersaoProduto"), empresa.homologacao)
+                Dim webservice
+                If empresa.versao_nfe = "2.00" Then
+                    '2.0
+                    webservice = webserviceDAO.obterURLWebservice(ufWs, "NfeRetRecepcao", "2.00", empresa.homologacao)
+                Else
+                    '3.10
+                    webservice = webserviceDAO.obterURLWebservice(ufWs, "NFeRetAutorizacao", Geral.Parametro("VersaoProduto"), empresa.homologacao)
+                End If
 
                 Dim certificado = Geral.ObterCertificadoPorEmpresa(empresa.idEmpresa)
 
                 ws.Url = webservice.url
                 ws.ClientCertificates.Add(certificado)
-                '2.0
-                'ws.nfeCabecMsgValue = New NFeRetRecepcao.nfeCabecMsg
-                '3.10
-                ws.nfeCabecMsgValue = New NFeRetAutorizacao.nfeCabecMsg
+                If empresa.versao_nfe = "2.00" Then
+                    '2.0
+                    ws.nfeCabecMsgValue = New NFeRetRecepcao.nfeCabecMsg
+                Else
+                    '3.10
+                    ws.nfeCabecMsgValue = New NFeRetAutorizacao.nfeCabecMsg
+                End If
 
                 ws.nfeCabecMsgValue.cUF = UFs.ListaDeCodigos(empresa.uf)
                 ws.nfeCabecMsgValue.versaoDados = cabecMsg.InnerText
 
                 Try
                     Log.registrarInfo("Buscando nota" & nota.NFe_ide_nNF & " do serviço " & ws.Url, "RetornoService")
-                    '2.0
-                    'retorno = ws.nfeRetRecepcao2(consReciNFe)
-                    '3.10
-                    retorno = ws.nfeRetAutorizacaoLote(consReciNFe)
+                    If empresa.versao_nfe = "2.00" Then
+                        '2.0
+                        retorno = ws.nfeRetRecepcao2(consReciNFe)
+                    Else
+                        '3.10
+                        retorno = ws.nfeRetAutorizacaoLote(consReciNFe)
+                    End If
+
                     Log.registrarInfo("Recebido o retorno " & vbCrLf & retorno.InnerXml, "RetornoService")
                     ws.Dispose()
                     ws = Nothing
@@ -136,7 +156,7 @@ Public Class RetornoMonitor
                         nota.statusDaNota = 21
 
                         nota.protNfe_nProt = xmlprotocolo.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='infProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='nProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
-                        gerarAnexo(nota, xmlprotocolo)
+                        gerarAnexo(nota, xmlprotocolo, empresa)
 
                         notaDAO.alterarNota(nota)
 
@@ -173,7 +193,7 @@ Public Class RetornoMonitor
                         nota.statusDaNota = 7
 
                         nota.protNfe_nProt = xmlprotocolo.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='infProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='nProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
-                        gerarAnexo(nota, xmlprotocolo)
+                        gerarAnexo(nota, xmlprotocolo, empresa)
                         notaDAO.alterarNota(nota)
 
                         inserirHistorico(15, nota.retEnviNFe_xMotivo, nota)
@@ -240,7 +260,7 @@ Public Class RetornoMonitor
         End Try
     End Sub
 
-    Public Sub gerarAnexo(ByVal nota As notaVO, ByVal protnfe As XmlDocument)
+    Public Sub gerarAnexo(ByVal nota As notaVO, ByVal protnfe As XmlDocument, ByVal empresa As empresaVO)
         Try
             Dim nfe As New XmlDocument
 
@@ -252,7 +272,11 @@ Public Class RetornoMonitor
             protnfe.PreserveWhitespace = True
 
             Dim proc As New XmlDocument
-            proc.Load(System.AppDomain.CurrentDomain.BaseDirectory & "XML\procNFe.xml")
+            If empresa.versao_nfe = "2.00" Then
+                proc.Load(System.AppDomain.CurrentDomain.BaseDirectory & "XML\procNFe200.xml")
+            Else
+                proc.Load(System.AppDomain.CurrentDomain.BaseDirectory & "XML\procNFe.xml")
+            End If
             proc.PreserveWhitespace = True
 
             proc.ChildNodes(1).AppendChild(proc.ImportNode(nfe.ChildNodes(0), True))

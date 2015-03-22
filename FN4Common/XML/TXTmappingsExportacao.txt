@@ -1,0 +1,4 @@
+/NFe/infNFe[1]/det[CONTADOR]/prod[1]/detExport[1]/nDraw[1];2;2
+/NFe/infNFe[1]/det[CONTADOR]/prod[1]/detExport[1]/exportInd[1]/nRE[1];2;3
+/NFe/infNFe[1]/det[CONTADOR]/prod[1]/detExport[1]/exportInd[1]/chNFe[1];2;4
+/NFe/infNFe[1]/det[CONTADOR]/prod[1]/detExport[1]/exportInd[1]/qExport[1];2;5

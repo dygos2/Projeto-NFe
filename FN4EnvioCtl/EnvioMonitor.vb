@@ -123,10 +123,15 @@ Public Class EnvioMonitor
             Else
                 ufWs = empresa.uf
             End If
-            '2.00
-            'Dim webservice = webserviceDAO.obterURLWebservice(ufWs, "NfeRecepcao", Geral.Parametro("VersaoProduto"), empresa.homologacao)
-            '3.10
-            Dim webservice = webserviceDAO.obterURLWebservice(ufWs, "NFeAutorizacao", Geral.Parametro("VersaoProduto"), empresa.homologacao)
+
+            Dim webservice
+            If empresa.versao_nfe = "2.00" Then
+                '2.00
+                webservice = webserviceDAO.obterURLWebservice(ufWs, "NfeRecepcao", empresa.versao_nfe, empresa.homologacao)
+            Else
+                '3.10
+                webservice = webserviceDAO.obterURLWebservice(ufWs, "NFeAutorizacao", empresa.versao_nfe, empresa.homologacao)
+            End If
 
             If webservice Is Nothing Then
                 nota.statusDaNota = 3
@@ -136,8 +141,6 @@ Public Class EnvioMonitor
                 Throw New Exception("Webservice não encontrado para nota " & nota.NFe_ide_nNF & " com os parametros: ufWs='" & ufWs & "', VersaoProduto='" & Geral.Parametro("VersaoProduto") & "', homologacao='" & empresa.homologacao & "'")
             End If
 
-            'If webservice.contingencia = 1 And nota.statusDaNota <> 51 Then ' webservice não está funcionando
-            'retirado em 11/11/2013 - processar agora somente notas com status 0
             If webservice.contingencia = 1 Then 'webservice não está funcionando, mandar para contingencia
                 inserirHistorico("16", "", nota)
                 nota.statusDaNota = 5
@@ -150,7 +153,15 @@ Public Class EnvioMonitor
             inserirHistorico("10", "", nota)
 
             Dim enviNFe As New XmlDocument
-            Dim pathEnvNFe As String = System.AppDomain.CurrentDomain.BaseDirectory() & "XML\enviNFe.xml"
+            Dim pathEnvNFe As String
+
+            If empresa.versao_nfe = "2.00" Then
+                '2.00
+                pathEnvNFe = System.AppDomain.CurrentDomain.BaseDirectory() & "XML\enviNFe200.xml"
+            Else
+                '3.10
+                pathEnvNFe = System.AppDomain.CurrentDomain.BaseDirectory() & "XML\enviNFe.xml"
+            End If
 
             Try
                 enviNFe.Load(pathEnvNFe)
@@ -159,12 +170,13 @@ Public Class EnvioMonitor
                 Continue For
             End Try
 
-
             'numerar o lote
             enviNFe.SelectSingleNode("/*[local-name()='enviNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='idLote' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText = nota.NFe_ide_nNF
 
-            'sincrono/assincrono
-            enviNFe.SelectSingleNode("/*[local-name()='enviNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='indSinc' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText = webservice.sincrono
+            If empresa.versao_nfe <> "2.00" Then
+                'sincrono/assincrono
+                enviNFe.SelectSingleNode("/*[local-name()='enviNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='indSinc' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText = webservice.sincrono
+            End If
 
             'adicionar 1 nota ao lote
             enviNFe.DocumentElement.AppendChild(enviNFe.ImportNode(nfeXML.ChildNodes(0), True))
@@ -173,22 +185,23 @@ Public Class EnvioMonitor
             Dim cabecMsg As XmlDocument = XmlHelper.obterUmCabecalho(enviNFe.SelectSingleNode("/*[local-name()='enviNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/@versao").InnerXml)
 
             'cria o webservice
-            '2.0
-            'Dim ws As New NFe.NFeRecepcao.NfeRecepcao2
-            '2.0
-            'ws.nfeCabecMsgValue = New NFe.NFeRecepcao.nfeCabecMsg
-
-            '3.10
             Dim ws
-            'verificar o estado e chamar o webservice de acordo (Paraná do KCT! Mudaram o schema do WS)
-            Select Case empresa.uf
-                Case "PR"
-                    ws = New NFe.NFeAutorizacaoPR.NfeAutorizacao3
-                    ws.nfeCabecMsgValue = New NFe.NFeAutorizacaoPR.nfeCabecMsg
-                Case Else
-                    ws = New NFe.NFeAutorizacao.NfeAutorizacao
-                    ws.nfeCabecMsgValue = New NFe.NFeAutorizacao.nfeCabecMsg
-            End Select
+            If empresa.versao_nfe = "2.00" Then
+                '2.0
+                ws = New NFe.NFeRecepcao.NfeRecepcao2
+                ws.nfeCabecMsgValue = New NFe.NFeRecepcao.nfeCabecMsg
+            Else
+                '3.10
+                'verificar o estado e chamar o webservice de acordo (Paraná do KCT! Mudaram o schema do WS)
+                Select Case empresa.uf
+                    Case "PR"
+                        ws = New NFe.NFeAutorizacaoPR.NfeAutorizacao3
+                        ws.nfeCabecMsgValue = New NFe.NFeAutorizacaoPR.nfeCabecMsg
+                    Case Else
+                        ws = New NFe.NFeAutorizacao.NfeAutorizacao
+                        ws.nfeCabecMsgValue = New NFe.NFeAutorizacao.nfeCabecMsg
+                End Select
+            End If
 
             Dim certificado = Geral.ObterCertificadoPorEmpresa(empresa.idEmpresa)
             'acesa ws
@@ -208,10 +221,13 @@ Public Class EnvioMonitor
 
             'faz o envio
             Try
-                '2.0
-                'xmlElementRetorno = ws.nfeRecepcaoLote2(enviNFe)
-                '3.1
-                xmlElementRetorno = ws.nfeAutorizacaoLote(enviNFe)
+                If empresa.versao_nfe = "2.00" Then
+                    '2.0
+                    xmlElementRetorno = ws.nfeRecepcaoLote2(enviNFe)
+                Else
+                    '3.1
+                    xmlElementRetorno = ws.nfeAutorizacaoLote(enviNFe)
+                End If
 
                 ws.Dispose()
                 ws = Nothing
@@ -226,24 +242,20 @@ Public Class EnvioMonitor
                 'apenas em caso de erro no webservice
                 Log.registrarErro("Erro ao enviar nota: " & ex.Message & vbCrLf & ex.StackTrace, "EnvioService")
                 inserirHistorico("12", "", nota)
-
                 inserirHistorico("16", "", nota)
-                'a nota entra em contingencia
 
-                'se a nota ja estiver numa DPEC, nao altera status
-                'If Not nota.statusDaNota = 51 Then
-                'alterado em 11/11/2013 Serviço somente enviará nota em modo normal
-                nota.statusDaNota = 19
+                'consultar a nota e caso retorno negativo, mandar para contingencia
+                nota.statusDaNota = 199
                 notaDAO.alterarNota(nota)
                 'End If
                 Continue For
             End Try
 
-            If webservice.contingencia = 1 Then
-                Log.registrarErro("Sistema normalizado: Saindo da contingência para a UF - '" & empresa.uf & "'", "EnvioService")
-                webservice.contingencia = 0
-                webserviceDAO.alterarWebservice(webservice)
-            End If
+            'If webservice.contingencia = 1 Then
+            'Log.registrarErro("Sistema normalizado: Saindo da contingência para a UF - '" & empresa.uf & "'", "EnvioService")
+            'webservice.contingencia = 0
+            'webserviceDAO.alterarWebservice(webservice)
+            'End If
 
             Log.registrarInfo("Recebido o retorno do envio: " & xmlElementRetorno.InnerXml, "EnvioService")
 

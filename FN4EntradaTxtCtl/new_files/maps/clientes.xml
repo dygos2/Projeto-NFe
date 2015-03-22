@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="FN4" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="clientes" type ="FN4Common.clientesVO, FN4Common"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="pagtoResult" class="clientes">
+      <result property="nome" column = "nome"/>
+      <result property="email" column = "email"/>
+      <result property="idlogin" column = "idlogin"/>
+      <result property="idEmpresa" column = "idEmpresa"/>
+      <result property="nomeEmpresa" column = "nomeEmpresa"/>
+      <result property="data_vencimento" column = "data_vencimento"/>
+      <result property="dias_vencidos" column = "dias_vencidos"/>
+      <result property="id_fk_produtos_status" column = "id_fk_produtos_status"/>
+    </resultMap>
+    <resultMap id="certsResult" class="clientes">
+      <result property="nome" column = "nome"/>
+      <result property="email" column = "email"/>
+      <result property="idlogin" column = "idlogin"/>
+      <result property="dias_exp" column = "dias_exp"/>
+      <result property="nomeEmpresa" column = "nomeEmpresa"/>
+      <result property="cert_fim" column = "cert_fim"/>
+      <result property="cnpj" column ="cnpj"/>
+    </resultMap>
+    <resultMap id="pacotesResult" class="clientes">
+      <result property="idEmpresa" column = "idEmpresa"/>
+      <result property="nome" column = "nome_cli"/>
+      <result property="email" column = "email"/>
+      <result property="nomeEmpresa" column = "nome_emp"/>
+      <result property="cnpj" column = "cnpj"/>
+      <result property="frest" column = "frest"/>
+      <result property="prest" column = "prest"/>
+      <result property="token" column="token"/>
+      <result property="idempresa_Usuarios" column="idempresa_Usuarios"/>
+    </resultMap>
+  </resultMaps>
+
+  <statements>
+    <select id="obterpacotesaexpirar" parameterClass="System.Collections.IDictionary" resultMap="pacotesResult" >
+      <![CDATA[
+      SELECT
+      a.idEmpresa,
+      b.nome as "nome_cli",
+      b.email,
+      a.nome as "nome_emp",
+      cnpj,
+      frest,
+      prest,
+      token,
+      c.idempresa_Usuarios
+      from empresa a, usuarios b, empresa_usuarios c
+      where
+      a.frest + a.prest < 150 and
+      a.idEmpresa = c.id_fk_empresa and
+      b.idUsuario = c.id_fk_usuarios and
+      a.habilitado_stat = 1 and 
+      b.notifica = 1
+      ]]>
+    </select>
+    <update id="alterarstatusCliente" parameterClass="System.Collections.IDictionary">
+      update rel_empresa_produtos set id_fk_produtos_status = #id_fk_produtos_status_upd#
+      where id_fk_empresa = #id_fk_empresa#
+      and id_fk_produtos = #id_fk_produtos#
+      and id_fk_produtos_status = #id_fk_produtos_status#;
+    </update>
+    <select id="obterfaltadepagamento" parameterClass="System.Collections.IDictionary" resultMap="pagtoResult" >
+      SELECT
+      c.id_tb_login AS idlogin,
+      c.nome AS nome,
+      c.email AS email,
+      a.idEmpresa AS idEmpresa,
+      a.nome AS nomeEmpresa,
+      e.data_vencimento AS data_vencimento,
+      DATEDIFF(now(),e.data_vencimento) AS dias_vencidos,
+      d.id_fk_produtos_status AS id_fk_produtos_status
+      FROM
+      tb_empresa a,
+      rel_login_empresa b,
+      tb_login c,
+      rel_empresa_produtos d,
+      pagamentos e
+      where
+      a.idempresa = b.id_fk_empresa and
+      b.id_fk_login = c.id_tb_login and
+      a.idempresa = d.id_fk_empresa and
+      d.id_rel_empresas_produtos = e.id_fk_rel_empresas_produtos and
+      e.pago = 1 and
+      c.notifica = 1 and
+      b.id_fk_tp_user != 4 and b.id_fk_tp_user != 2 and
+      d.id_fk_produtos_status != 3 and
+      (
+      (DATEDIFF(now(),e.data_vencimento) in (15,19,23,25,26,27,28,29,30,31,32) and d.id_fk_produtos_status = 2)
+      or (DATEDIFF(now(),e.data_vencimento) in (4,7,10,20) and d.id_fk_produtos_status = 5)
+      )
+    </select>
+    <select id="obtercertsaexpirar" parameterClass="System.Collections.IDictionary" resultMap="certsResult" >
+      <![CDATA[
+      SELECT
+      c.id_tb_login AS idlogin,
+      a.cnpj as cnpj, 
+      DATEDIFF(a.cert_fim,now()) as dias_exp,
+      a.cert_fim as cert_fim,
+      c.nome AS nome,
+      c.email AS email,
+      a.nome AS nomeEmpresa
+      FROM
+      tb_empresa a,
+      rel_login_empresa b,
+      tb_login c,
+      rel_empresa_produtos d 
+      where
+      a.idempresa = b.id_fk_empresa and
+      b.id_fk_login = c.id_tb_login and
+      a.idempresa = d.id_fk_empresa and
+      d.id_fk_produtos_status = 2 and
+      c.notifica = 1 and
+      (DATEDIFF(a.cert_fim,now()) in(60, 50, 40, 32, 26, 22, 19,16,15,14,13,12,11,10,9,8,7,6,5,4,3,2,1,0) or
+      DATEDIFF(a.cert_fim,now()) < 0)
+      ]]>
+    </select>
+   </statements>
+</sqlMap>

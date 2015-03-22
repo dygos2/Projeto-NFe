@@ -1,0 +1,13 @@
+Com horário de verão
+
+update fisconet5_homologacao.utc set utc = '-02:00' where uf in ('ES','GO','MG','PR','RJ','RS','SP','SC','TO');
+update fisconet5_homologacao.utc set utc = '-03:00' where uf in ('MT','MS');
+update fisconet5_producao.utc set utc = '-02:00' where uf in ('ES','GO','MG','PR','RJ','RS','SP','SC','TO');
+update fisconet5_producao.utc set utc = '-03:00' where uf in ('MT','MS');
+
+Sem horário de verão
+
+update fisconet5_homologacao.utc set utc = '-03:00' where uf in ('ES','GO','MG','PR','RJ','RS','SP','SC','TO');
+update fisconet5_homologacao.utc set utc = '-04:00' where uf in ('MT','MS');
+update fisconet5_producao.utc set utc = '-03:00' where uf in ('ES','GO','MG','PR','RJ','RS','SP','SC','TO');
+update fisconet5_producao.utc set utc = '-04:00' where uf in ('MT','MS');
