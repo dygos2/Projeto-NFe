@@ -471,7 +471,8 @@
       <select id="obterNotasSemProtocolo" parameterClass="int" resultMap="notaCompleta">
         select * from notas
         WHERE statusDaNota = #semprotacancelar#
-        OR statusDaNota = #semprot#;
+        OR statusDaNota = #semprot#
+        OR statusDaNota = #semprot_conting#;
       </select>
 
       <select id="obterNotasParaPostBack" parameterClass="System.Collections.IDictionary" resultMap="notaCompleta">

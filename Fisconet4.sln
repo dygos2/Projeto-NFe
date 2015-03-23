@@ -49,8 +49,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FN4InutilizacaoSvc", "FN4In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FN4IntegracaoPostBackCtl", "FN4IntegracaoPostBackCtl\FN4IntegracaoPostBackCtl.csproj", "{6656F5E1-3110-4898-84CE-2CBBD8907809}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FN4IntegracaoPostBackWin", "FN4IntegracaoPostBackWin\FN4IntegracaoPostBackWin.csproj", "{64E4A3A2-8797-49FF-93A8-3BE72E767156}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E2ED0BC9-7E05-45B4-97B6-088130AD4474}"
 	ProjectSection(SolutionItems) = preProject
 		Fisconet4.vsmdi = Fisconet4.vsmdi
@@ -554,16 +552,6 @@ Global
 		{6656F5E1-3110-4898-84CE-2CBBD8907809}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{6656F5E1-3110-4898-84CE-2CBBD8907809}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{6656F5E1-3110-4898-84CE-2CBBD8907809}.Release|x86.ActiveCfg = Release|Any CPU
-		{64E4A3A2-8797-49FF-93A8-3BE72E767156}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{64E4A3A2-8797-49FF-93A8-3BE72E767156}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{64E4A3A2-8797-49FF-93A8-3BE72E767156}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{64E4A3A2-8797-49FF-93A8-3BE72E767156}.Debug|x86.ActiveCfg = Debug|x86
-		{64E4A3A2-8797-49FF-93A8-3BE72E767156}.Debug|x86.Build.0 = Debug|x86
-		{64E4A3A2-8797-49FF-93A8-3BE72E767156}.Release|Any CPU.ActiveCfg = Release|x86
-		{64E4A3A2-8797-49FF-93A8-3BE72E767156}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{64E4A3A2-8797-49FF-93A8-3BE72E767156}.Release|Mixed Platforms.Build.0 = Release|x86
-		{64E4A3A2-8797-49FF-93A8-3BE72E767156}.Release|x86.ActiveCfg = Release|x86
-		{64E4A3A2-8797-49FF-93A8-3BE72E767156}.Release|x86.Build.0 = Release|x86
 		{FCB53E6F-1543-47B6-AC39-22F7649BD14F}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{FCB53E6F-1543-47B6-AC39-22F7649BD14F}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{FCB53E6F-1543-47B6-AC39-22F7649BD14F}.Debug|Mixed Platforms.Build.0 = Debug|x86

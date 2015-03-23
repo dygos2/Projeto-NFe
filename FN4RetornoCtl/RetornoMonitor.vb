@@ -119,7 +119,15 @@ Public Class RetornoMonitor
                     ws.Dispose()
                     ws = Nothing
                 Catch ex As Exception
-                    Throw ex
+                    'apenas em caso de erro no webservice
+                    Log.registrarErro("Erro ao retornar a nota: " & ex.Message & vbCrLf & ex.StackTrace, "RetornoService")
+                    inserirHistorico("15", "Erro na consulta da nota, lentidão na Sefaz", nota)
+
+                    'consultar a nota e caso retorno negativo, mandar para contingencia
+                    nota.statusDaNota = 17
+                    notaDAO.alterarNota(nota)
+                    'End If
+                    Continue For
                 End Try
 
                 'tratar retorno utilizando função única no Common
@@ -156,7 +164,8 @@ Public Class RetornoMonitor
                         nota.statusDaNota = 21
 
                         nota.protNfe_nProt = xmlprotocolo.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='infProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='nProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
-                        gerarAnexo(nota, xmlprotocolo, empresa)
+                        'gerarAnexo(nota, xmlprotocolo, empresa)
+                        Geral.gerarAnexo(nota, xmlprotocolo, empresa)
 
                         notaDAO.alterarNota(nota)
 
@@ -193,7 +202,7 @@ Public Class RetornoMonitor
                         nota.statusDaNota = 7
 
                         nota.protNfe_nProt = xmlprotocolo.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='infProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='nProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
-                        gerarAnexo(nota, xmlprotocolo, empresa)
+                        Geral.gerarAnexo(nota, xmlprotocolo, empresa)
                         notaDAO.alterarNota(nota)
 
                         inserirHistorico(15, nota.retEnviNFe_xMotivo, nota)
@@ -257,39 +266,6 @@ Public Class RetornoMonitor
             Next
         Catch ex As Exception
             Throw ex
-        End Try
-    End Sub
-
-    Public Sub gerarAnexo(ByVal nota As notaVO, ByVal protnfe As XmlDocument, ByVal empresa As empresaVO)
-        Try
-            Dim nfe As New XmlDocument
-
-            'carrega os arquivos
-
-            nfe.Load(nota.pastaDeTrabalho & nota.NFe_ide_nNF & "_assinado.xml")
-            nfe.PreserveWhitespace = True
-
-            protnfe.PreserveWhitespace = True
-
-            Dim proc As New XmlDocument
-            If empresa.versao_nfe = "2.00" Then
-                proc.Load(System.AppDomain.CurrentDomain.BaseDirectory & "XML\procNFe200.xml")
-            Else
-                proc.Load(System.AppDomain.CurrentDomain.BaseDirectory & "XML\procNFe.xml")
-            End If
-            proc.PreserveWhitespace = True
-
-            proc.ChildNodes(1).AppendChild(proc.ImportNode(nfe.ChildNodes(0), True))
-            If protnfe.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]") Is Nothing Then
-                proc.ChildNodes(1).AppendChild(proc.ImportNode(protnfe.SelectSingleNode("/retConsReciNFe/protNFe[1]"), True))
-            Else
-                proc.ChildNodes(1).AppendChild(proc.ImportNode(protnfe.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]"), True))
-            End If
-
-
-            proc.Save(nota.pastaDeTrabalho & nota.NFe_ide_nNF & "_procNFe.xml")
-        Catch ex As Exception
-            Log.registrarErro("Ocorreu um erro na geração do procNFe" & ex.Message & vbCrLf & ex.StackTrace, "RetornoService")
         End Try
     End Sub
 

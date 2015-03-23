@@ -242,10 +242,9 @@ Public Class EnvioMonitor
                 'apenas em caso de erro no webservice
                 Log.registrarErro("Erro ao enviar nota: " & ex.Message & vbCrLf & ex.StackTrace, "EnvioService")
                 inserirHistorico("12", "", nota)
-                inserirHistorico("16", "", nota)
 
                 'consultar a nota e caso retorno negativo, mandar para contingencia
-                nota.statusDaNota = 199
+                nota.statusDaNota = 17
                 notaDAO.alterarNota(nota)
                 'End If
                 Continue For
@@ -277,12 +276,7 @@ Public Class EnvioMonitor
             If xmlRetorno.SelectSingleNode("/retEnviNFe/cStat").InnerText = 103 Then 'assincrono
                 'se for lote recebido com sucesso
                 inserirHistorico("13", "", nota)
-
-                'If nota.statusDaNota = 51 Then
-                'nota.statusDaNota = 52
-                'Else
                 nota.statusDaNota = 1
-                'End If
 
                 'pega o recibo
                 nota.retEnviNFe_infRec_nRec = xmlRetorno.SelectSingleNode("/retEnviNFe/infRec[1]/nRec[1]").InnerText
@@ -295,7 +289,7 @@ Public Class EnvioMonitor
                     'gravar recibo
                 End If
 
-                nota.statusDaNota = 22 'nota autorizada, mandando cancelar
+                nota.statusDaNota = 22 'nota autorizada
                 notaDAO.alterarNota(nota)
 
                 'se tiver o protocolo, mandar cancelar, se não, consultar o retorno do protocolo para depois cancelar (novo status 191 - concultar protocolo e cancelar)
@@ -311,7 +305,6 @@ Public Class EnvioMonitor
                 'tratar o retorno quando for sincrono
                 FN4Common.Geral.tratar_retorno_xml(nota, xmlElementRetorno, empresa, 1)
             Else
-                'caso contrario
                 'criar historico do retorno 
                 inserirHistorico("14", xmlRetorno.SelectSingleNode("/retEnviNFe/xMotivo").InnerText, nota)
                 nota.retEnviNFe_xMotivo = xmlRetorno.SelectSingleNode("/retEnviNFe/xMotivo").InnerText

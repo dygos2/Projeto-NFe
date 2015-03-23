@@ -45,6 +45,7 @@ Public Class notaDAO
         Dim ht As New Hashtable
         ht.Add("semprotacancelar", 18)
         ht.Add("semprot", 19)
+        ht.Add("semprot_conting", 17)
         Return IBatisNETHelper.Instance.QueryForList(Of FN4Common.notaVO)("obterNotasSemProtocolo", ht)
     End Function
 End Class

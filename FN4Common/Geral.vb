@@ -5,8 +5,6 @@ Imports System.Text.RegularExpressions
 Imports FN4Common.DataAccess
 Imports System.Xml.Schema
 
-
-
 Public Class Geral
     Private Shared resultadoValidacao As System.Text.StringBuilder
     Private Shared _certificado As X509Certificate2
@@ -138,7 +136,6 @@ Public Class Geral
             xMotivo = xmlprotocolo.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='xMotivo' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']").InnerXml
         End If
 
-
         If resultado = "104" Then 'lote processado, processar o retorno dele
 
             If sinc = 1 Then
@@ -166,11 +163,11 @@ Public Class Geral
                     nota.protNfe_nProt = xmlprotocolo.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='infProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='nProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
                 End If
 
-                gerarAnexo(nota, xmlprotocolo)
-
+                gerarAnexo(nota, xmlprotocolo, empresa)
                 notaDAO.alterarNota(nota)
-
                 inserirHistorico(15, nota.retEnviNFe_xMotivo, nota)
+
+
 
                 Dim tp_sys = FN4Common.Geral.Parametro("tp_sys")
                 Dim tipoSistema = Integer.Parse(tp_sys)
@@ -203,7 +200,7 @@ Public Class Geral
                 nota.statusDaNota = 7
 
                 nota.protNfe_nProt = xmlprotocolo.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='infProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='nProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
-                gerarAnexo(nota, xmlprotocolo)
+                gerarAnexo(nota, xmlprotocolo, empresa)
                 notaDAO.alterarNota(nota)
 
                 inserirHistorico(15, nota.retEnviNFe_xMotivo, nota)
@@ -266,7 +263,7 @@ Public Class Geral
         Return True
 
     End Function
-    Private Shared Function gerarAnexo(ByVal nota As notaVO, ByVal protnfe As XmlDocument)
+    Public Shared Function gerarAnexo(ByVal nota As notaVO, ByVal protnfe As XmlDocument, ByVal empresa As empresaVO)
         Try
             Dim nfe As New XmlDocument
 
@@ -278,16 +275,32 @@ Public Class Geral
             protnfe.PreserveWhitespace = True
 
             Dim proc As New XmlDocument
-            proc.Load(System.AppDomain.CurrentDomain.BaseDirectory & "XML\procNFe.xml")
+            If empresa.versao_nfe = "2.00" Then
+                proc.Load(System.AppDomain.CurrentDomain.BaseDirectory & "XML\procNFe200.xml")
+            Else
+                proc.Load(System.AppDomain.CurrentDomain.BaseDirectory & "XML\procNFe.xml")
+            End If
             proc.PreserveWhitespace = True
 
+            'incluindo a nota assinada
             proc.ChildNodes(1).AppendChild(proc.ImportNode(nfe.ChildNodes(0), True))
-            If protnfe.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]") Is Nothing Then
+
+            'tentandoresgatar o protocolo de todas as maneiras
+            If Not protnfe.SelectSingleNode("/retConsReciNFe/protNFe[1]") Is Nothing Then
                 proc.ChildNodes(1).AppendChild(proc.ImportNode(protnfe.SelectSingleNode("/retConsReciNFe/protNFe[1]"), True))
-            Else
+            End If
+
+            If Not protnfe.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]") Is Nothing Then
                 proc.ChildNodes(1).AppendChild(proc.ImportNode(protnfe.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]"), True))
             End If
 
+            If Not protnfe.SelectSingleNode("/retEnviNFe/protNFe[1]") Is Nothing Then
+                proc.ChildNodes(1).AppendChild(proc.ImportNode(protnfe.SelectSingleNode("/retEnviNFe/protNFe[1]"), True))
+            End If
+
+            If Not protnfe.SelectSingleNode("/*[local-name()='retEnviNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]") Is Nothing Then
+                proc.ChildNodes(1).AppendChild(proc.ImportNode(protnfe.SelectSingleNode("/*[local-name()='retEnviNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]"), True))
+            End If
 
             proc.Save(nota.pastaDeTrabalho & nota.NFe_ide_nNF & "_procNFe.xml")
             Return True

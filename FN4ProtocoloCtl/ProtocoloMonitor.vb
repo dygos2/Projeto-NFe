@@ -62,8 +62,6 @@ Public Class ProtocoloMonitor
     End Sub
 
     Private Sub obterProtocolos()
-        'TODO: 
-        'test_xml()
 
         Dim notasSemProtocolo As List(Of notaVO) = notaDAO.obterNotasSemProtocolo
         Dim nota As notaVO
@@ -104,7 +102,7 @@ Public Class ProtocoloMonitor
             ws.nfeCabecMsgValue.cUF = UFs.ListaDeCodigos(empresa.uf)
             'ws.nfeCabecMsgValue.versaoDados = Geral.Parametro("Versao_ConsultaProtocolo")
             ws.nfeCabecMsgValue.versaoDados = empresa.versao_nfe
-            Log.registrarErro("Iniciando consulta de situação no WS: " & ws.Url & " para UF " & ws.nfeCabecMsgValue.cUF, "EnvioService")
+            Log.registrarErro("Iniciando consulta de situação no WS: " & ws.Url & " para UF " & ws.nfeCabecMsgValue.cUF, "ProtocoloService")
 
             Dim envConsulta As New XmlDocument
             Dim pathXmlConsultaCanonico = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "XML\ConsultaNFeCanonico.xml")
@@ -116,7 +114,7 @@ Public Class ProtocoloMonitor
                 envConsulta.Load(pathXmlConsultaCanonico)
                 envConsulta.PreserveWhitespace = True
             Catch ex As Exception
-                Log.registrarErro("Erro ao carregar XML para consulta de situação: " & pathXmlConsultaCanonico, "EnvioService")
+                Log.registrarErro("Erro ao carregar XML para consulta de situação: " & pathXmlConsultaCanonico, "ProtocoloService")
                 rejeitarNota(nota)
                 Continue For
             End Try
@@ -130,22 +128,35 @@ Public Class ProtocoloMonitor
                 pathXmlConsulta = Path.Combine(pathXmlConsulta, nota.NFe_ide_nNF & "_consultaProt.xml")
                 envConsulta.Save(pathXmlConsulta)
             Catch ex As Exception
-                Log.registrarErro("Não foi possível salvar o XML de consulta: " & pathXmlConsulta, "EnvioService")
+                Log.registrarErro("Não foi possível salvar o XML de consulta: " & pathXmlConsulta, "ProtocoloService")
                 rejeitarNota(nota)
+                Continue For
             End Try
 
-            Log.registrarErro("Retorno do processamento", "EnvioService")
+            Log.registrarErro("Retorno do processamento", "ProtocoloService")
 
-            ' Faz a consulta no webservice
             Try
                 Dim certificado = Geral.ObterCertificadoPorEmpresa(empresa.idEmpresa)
                 ws.ClientCertificates.Add(certificado)
+            Catch ex As Exception
+                Log.registrarErro("Não foi possível localizar o certificado digital da empresa Erro - " & ex.Message, "ProtocoloService")
+                rejeitarNota(nota)
+                Continue For
+            End Try
 
+            ' Faz a consulta no webservice
+            Try
                 xmlRetorno = ws.nfeConsultaNF2(envConsulta)
             Catch ex As Exception
-                Log.registrarErro("Não foi possível consultar o status da nota " & nota.NFe_ide_nNF & " série " & nota.serie & " Erro - " & ex.Message, "EnvioService")
-                rejeitarNota(nota)
-
+                Log.registrarErro("Não foi possível consultar o status da nota " & nota.NFe_ide_nNF & " série " & nota.serie & " Erro - " & ex.Message, "ProtocoloService")
+                'se der erro e o sistema estava tentando enviar nota, enviar para contingencia
+                If nota.statusDaNota = 17 Then
+                    nota.statusDaNota = 5
+                    notas.alterarNota(nota)
+                Else
+                    nota.retEnviNFe_xMotivo = "Erro na consulta da Nota, enviar novamente a NFe."
+                    rejeitarNota(nota)
+                End If
                 Continue For
             End Try
 
@@ -164,157 +175,89 @@ Public Class ProtocoloMonitor
             ' Salva o retorno da consulta do webservice
             xmlDocumentoRetorno.Save(pathXmlRetorno)
 
-            Log.registrarErro("Retorno do Status - " & xmlRetorno.ChildNodes(3).InnerText & " (" & xmlRetorno.ChildNodes(2).InnerText & ")", "EnvioService")
+            Log.registrarErro("Retorno do Status - " & xmlRetorno.ChildNodes(3).InnerText & " (" & xmlRetorno.ChildNodes(2).InnerText & ")", "ProtocoloService")
 
             'Dim resultado As String = xmlRetorno.ChildNodes(2).InnerText
             Dim resultado As String = xmlDocumentoRetorno.GetElementsByTagName("cStat")(0).InnerXml
             Dim motivo As String = xmlDocumentoRetorno.GetElementsByTagName("xMotivo")(0).InnerXml
 
-            'se retornar protocolo
-            If Not (IsNothing(xmlDocumentoRetorno.GetElementsByTagName("protNFe")(0))) Then
-                'consultando protocolo
-                Dim prot = xmlDocumentoRetorno.GetElementsByTagName("protNFe")(0)
-                XmlDocumentoProtocolo.LoadXml(prot.OuterXml)
-                protocolo = XmlDocumentoProtocolo.GetElementsByTagName("nProt")(0).InnerXml
-            End If
+            'gravar motivo
+            nota.retEnviNFe_xMotivo = motivo
+            inserirHistorico(30, motivo, nota)
 
             Try
-                Select Case resultado
-                    Case 100 'Autorizado
-                    Case 101 '
-                    Case 151
-                    Case 110
-                        gerarProcNfe(nota, xmlDocumentoRetorno)
-                End Select
+                'se retornar protocolo autorizado ou denegado
+                If Not (IsNothing(xmlDocumentoRetorno.GetElementsByTagName("protNFe")(0))) Then
+                    'consultando protocolo
+                    Dim prot = xmlDocumentoRetorno.GetElementsByTagName("protNFe")(0)
+                    XmlDocumentoProtocolo.LoadXml(prot.OuterXml)
+                    protocolo = XmlDocumentoProtocolo.GetElementsByTagName("nProt")(0).InnerXml
 
+                    nota.protNfe_nProt = protocolo
 
-            Catch ex As Exception
-                Log.registrarErro("Não foi possível processar o retorno do protocolo. Motivo: " & ex.Message, "EnvioService")
-                rejeitarNota(nota)
-            End Try
-
-
-            Try
-                'gerando o proc_nfe nos casos que se aplicam
-                If resultado = "100" Or resultado = "150" Or resultado = "101" Or resultado = "151" Or resultado = "110" Then
+                    'emitir protocolos somente quando retornar o mesmo
                     gerarProcNfe(nota, xmlDocumentoRetorno)
+
+                    'Marcar nota autorizada ou cancelada
+                    If resultado = "101" Or resultado = "151" Then 'se a nota estiver cancelada
+                        'altera para nota cancelada
+                        nota.statusDaNota = 4
+                        nota.retEnviNFe_cStat = 101
+                    ElseIf resultado = "100" Or resultado = "150" Then 'se autorizado ou autorizado fora de prazo
+                        nota.statusDaNota = 21
+                        nota.impressaoSolicitada = 1
+                        nota.retEnviNFe_cStat = 100
+                    ElseIf resultado = "110" Then 'se nota denegada
+                        nota.statusDaNota = 7
+                        nota.retEnviNFe_cStat = 110
+                        notas.alterarNota(nota)
+                        Continue For
+                    End If
+                    notas.alterarNota(nota)
                 End If
+
             Catch ex As Exception
-                Log.registrarErro("Não foi possível gerar o procNFe. Motivo: " & ex.Message, "EnvioService")
+                Log.registrarErro("Erro: Protocolo retornou mas erro gerado. Motivo: " & ex.Message, "ProtocoloService")
                 rejeitarNota(nota)
             End Try
 
-            If resultado = "101" Or resultado = "151" Then
-                Try
-                    'altera para nota cancelada
-                    nota.statusDaNota = 4
-
-                    'grava as informações na Base
-                    nota.retEnviNFe_xMotivo = motivo
-                    nota.protNfe_nProt = protocolo
-                    nota.retEnviNFe_cStat = 101
-                    notas.alterarNota(nota)
-                    inserirHistorico(15, motivo, nota)
-
-                Catch ex As Exception
-
-                    Log.registrarErro("Não foi possível salvar na base o retorno da nota cancelada. Motivo: " & ex.Message, "EnvioService")
-                    rejeitarNota(nota)
-                    'grava histórico de consulta da NFe
-                    inserirHistorico(30, ex.Message, nota)
-                End Try
-
-
-            ElseIf resultado = "100" Or resultado = "150" Then
-
-                Try
-                    'altera as flags para continuarmos o fluxo
-                    nota.statusDaNota = 21
-                    nota.impressaoSolicitada = 1
-                    'manda imprimir
-
-                    'grava as informações na Base
-                    nota.retEnviNFe_xMotivo = motivo
-                    nota.protNfe_nProt = protocolo
-                    nota.retEnviNFe_cStat = 100
-                    notas.alterarNota(nota)
-
-                    'grava histórico de nota autorizada
-                    inserirHistorico(15, motivo, nota)
-
-                Catch ex As Exception
-                    Log.registrarErro("Não foi possível salvar na base o retorno da nota autorizada. Motivo: " & ex.Message, "EnvioService")
-                    rejeitarNota(nota)
-                    'grava histórico de consulta da NFe
-                    inserirHistorico(30, ex.Message, nota)
-                End Try
-
-            ElseIf resultado = "110" Then 'nota denegada
-                Try
-                    'altera para status de nota denegada
-                    nota.statusDaNota = 7
-
-                    'grava as informações na Base
-                    nota.retEnviNFe_xMotivo = motivo
-                    nota.protNfe_nProt = protocolo
-                    nota.retEnviNFe_cStat = 110
-                    notas.alterarNota(nota)
-                    inserirHistorico(15, motivo, nota)
-
-                Catch ex As Exception
-                    Log.registrarErro("Não foi possível salvar na base o retorno da nota denegada. Motivo: " & ex.Message, "EnvioService")
-                    rejeitarNota(nota)
-                    'grava histórico de consulta da NFe
-                    inserirHistorico(30, ex.Message, nota)
-                End Try
-            ElseIf resultado = "102" Then 'inutilizada
+            'TODO: se tiver eventos, gravar o protocolo e dar andamento no evento
+            If resultado = "102" Then 'inutilizada
                 Try
                     'altera para status de nota denegada
                     nota.statusDaNota = 6
-
-                    'grava as informações na Base
-                    nota.retEnviNFe_xMotivo = motivo
-                    'nota.protNfe_nProt = protocolo
                     nota.retEnviNFe_cStat = 102
+                    inserirHistorico(30, "A nota encontra-se denegada na Sefaz", nota)
                     notas.alterarNota(nota)
-                    inserirHistorico(15, motivo, nota)
-
+                    Continue For
                 Catch ex As Exception
-                    Log.registrarErro("Não foi possível salvar na base o retorno da nota inutilizada. Motivo: " & ex.Message, "EnvioService")
+                    Log.registrarErro("Não foi possível salvar na base o retorno da nota inutilizada. Motivo: " & ex.Message, "ProtocoloService")
                     rejeitarNota(nota)
-                    'grava histórico de consulta da NFe
-                    inserirHistorico(30, ex.Message, nota)
                 End Try
 
             ElseIf resultado = "217" Then 'nao encontrada
                 Try
-                    'altera para status de nota rejeitada, pois nao foi encontrada
-                    nota.statusDaNota = 3
+                    'se tentativa de processamento e nota não encontrada, enviar para contingencia
+                    If nota.statusDaNota = 17 Then
+                        nota.statusDaNota = 5
+                        notas.alterarNota(nota)
+                    Else
+                        'altera para status de nota rejeitada, pois nao foi encontrada
+                        nota.statusDaNota = 3
 
-                    'grava as informações na Base
-                    nota.retEnviNFe_xMotivo = "Rejeição: NF-e não consta na base de dados da SEFAZ. Envie a NF-e novamente para o sistema."
-                    'nota.protNfe_nProt = protocolo
-                    nota.retEnviNFe_cStat = 217
-                    notas.alterarNota(nota)
-                    inserirHistorico(15, motivo, nota)
-
+                        'grava as informações na Base
+                        nota.retEnviNFe_xMotivo = "Rejeição: NF-e não consta na base de dados da SEFAZ. Envie a NF-e novamente para o sistema."
+                        nota.retEnviNFe_cStat = 217
+                        notas.alterarNota(nota)
+                    End If
                 Catch ex As Exception
-                    Log.registrarErro("Não foi possível salvar na base o retorno da nota nao localizada. Motivo: " & ex.Message, "EnvioService")
+                    Log.registrarErro("Não foi possível salvar na base o retorno da nota nao localizada. Motivo: " & ex.Message, "ProtocoloService")
                     rejeitarNota(nota)
-                    'grava histórico de consulta da NFe
-                    inserirHistorico(30, ex.Message, nota)
                 End Try
             Else
-                nota.statusDaNota = 5
-                notaDAO.alterarNota(nota)
-
-                'Dim motivo As String = xmlRetorno.ChildNodes(3).InnerText
-                inserirHistorico(15, motivo & " - Contingencia ativada", nota)
-                'passando a Nota Para Contingência pois a mesma não foi autorizada
-                inserirHistorico("16", "Passando para Contingência depois da tentativa de consulta de Status. - Cstat - " & resultado & " / Motivo - " & motivo, nota)
+                nota.statusDaNota = 3 'rejeitando a nota pois retorno desconhecido
+                notas.alterarNota(nota)
             End If
-
-
         Next
     End Sub
 
@@ -328,7 +271,7 @@ Public Class ProtocoloMonitor
 
         'carrega os arquivos
 
-        Log.registrarErro("Entrou no gerar proc", "EnvioService")
+        Log.registrarErro("Entrou no gerar proc", "ProtocoloService")
 
         nfe.Load(nota.pastaDeTrabalho & nota.NFe_ide_nNF & "_assinado.xml")
         nfe.PreserveWhitespace = True
@@ -342,13 +285,14 @@ Public Class ProtocoloMonitor
         Try
             proc.ChildNodes(1).AppendChild(proc.ImportNode(nfe.ChildNodes(0), True))
         Catch ex As Exception
-            Log.registrarErro("Erro ao montar o ProcNFe", "EnvioService")
+            Log.registrarErro("Erro ao montar o ProcNFe", "ProtocoloService")
         End Try
 
         Try
+            'todo: verificar se podemos passar direto o proc
             proc.ChildNodes(1).AppendChild(proc.ImportNode(protnfe.ChildNodes(0).ChildNodes(7), True))
         Catch ex As Exception
-            Log.registrarErro("Erro ao importar o ProtNFe - " & ex.Message, "EnvioService")
+            Log.registrarErro("Erro ao importar o ProtNFe - " & ex.Message, "ProtocoloService")
         End Try
 
         proc.Save(nota.pastaDeTrabalho & nota.NFe_ide_nNF & "_procNFe.xml")
@@ -373,7 +317,7 @@ Public Class ProtocoloMonitor
 
     Private Sub gerarXmlDeSaida(ByVal arquivoDeEntrada As String, ByVal pastadetrabalho As String, ByVal numerodanota As Integer, ByVal xslt As String)
         Try
-            Log.registrarInfo("Aplicação de stylesheet no arquivo" & arquivoDeEntrada, "EnvioService")
+            Log.registrarInfo("Aplicação de stylesheet no arquivo" & arquivoDeEntrada, "ProtocoloService")
 
             'carrega o Stylesheet
             Dim xsl As New XslCompiledTransform
@@ -387,7 +331,7 @@ Public Class ProtocoloMonitor
             '   Dim xmlEnvio As New XmlDocument
             'xmlEnvio.Load(pathXmlEnvio)
         Catch ex As Exception
-            Log.registrarErro(ex.Message & vbCrLf & ex.StackTrace, "EnvioService")
+            Log.registrarErro(ex.Message & vbCrLf & ex.StackTrace, "ProtocoloService")
             Throw ex
         End Try
     End Sub
