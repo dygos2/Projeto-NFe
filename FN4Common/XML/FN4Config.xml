@@ -82,7 +82,7 @@
 
   <!-- ARQUIVOS -->
   <setting name="arquivoSchemaNfe" >
-    <value>xsd/PL_008d/nfe_v3.10.xsd</value>
+    <value>xsd/PL_008f/nfe_v3.10.xsd</value>
   </setting>
   <setting name="arquivoDeConfiguracaoLog4Net" >
     <value>C:\TFS\source\Fisconet\Dev\Solution\FN4Common\Log4netConfig.xml</value>
