@@ -150,6 +150,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\NFe.ConsultaProtocoloBA\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\NFe.NfeConsultaProtocolo\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -195,6 +200,11 @@
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
     <None Include="Web References\NFe.ConsultaDPEC\SCEConsultaRFB.wsdl" />
+    <None Include="Web References\NFe.ConsultaProtocoloBA\NfeConsulta.wsdl" />
+    <None Include="Web References\NFe.ConsultaProtocoloBA\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
     <None Include="Web References\NFe.NfeConsultaProtocolo\nfeconsulta2.wsdl" />
     <None Include="Web References\NFe.NfeConsultaProtocolo\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -242,6 +252,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\NFe.NfeConsultaProtocolo\nfeconsulta2.disco" />
+    <None Include="Web References\NFe.ConsultaProtocoloBA\NfeConsulta.disco" />
     <Content Include="XSLT\geraDPEC.xslt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
@@ -319,6 +330,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FN4EnvioCtl_br_gov_sp_fazenda_nfe_homologacao_NfeRetRecepcao</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://nfe.sefaz.ba.gov.br/webservices/NfeConsulta/NfeConsulta.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NFe.ConsultaProtocoloBA\</RelPath>
+      <UpdateFromURL>https://nfe.sefaz.ba.gov.br/webservices/NfeConsulta/NfeConsulta.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FN4ProtocoloCtl_NFe_ConsultaProtocoloBA_NfeConsulta</CachedSettingsPropName>
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
