@@ -4,6 +4,7 @@ Imports System.Xml
 Imports System.Xml.Schema
 Imports System.IO
 Imports System.Xml.Xsl
+Imports System.Text.RegularExpressions
 
 Public Class TxtXmlHelper
 
@@ -578,17 +579,20 @@ Public Class TxtXmlHelper
     End Function
 
     Public Shared Function processarTxt(ByVal text As String)
-        text = text.Replace("Ç", "C").Replace("ç", "c")
-        text = text.Replace("Ã", "A").Replace("ã", "a")
-        text = text.Replace("Õ", "O").Replace("õ", "o")
-        text = text.Replace("Á", "A").Replace("á", "a")
-        text = text.Replace("É", "E").Replace("é", "é")
-        text = text.Replace("Í", "I").Replace("í", "i")
-        text = text.Replace("Ó", "O").Replace("ó", "o")
-        text = text.Replace("Ú", "U").Replace("ú", "u")
-        text = text.Replace("\", " ")
+        Dim valor As String
+        valor = text
 
-        Return text
+        valor = Regex.Replace(valor, "¹", "1")
+        valor = Regex.Replace(valor, "²", "2")
+        valor = Regex.Replace(valor, "³", "3")
+        valor = Regex.Replace(valor, "ª", "a")
+        valor = Regex.Replace(valor, "º", "o")
+        valor = valor.Replace(vbCr, "")
+        valor = valor.Replace(vbLf, "carriageNFEreturn")
+        valor = Regex.Replace(valor, "[^A-Za-z0-9\-/ÁÀÃÂÉÈÊÍÌÓÒÔÕÚÙÛÜÇáàâãéèêíìóòôõúùûüç#'!£$%^&*().,?|:@ ]", "")
+        valor = valor.Replace("carriageNFEreturn", vbLf)
+
+        Return valor
     End Function
 
     Private Shared Function obterMappings(ByVal arquivo As String) As ArrayList
@@ -734,7 +738,7 @@ Public Class TxtXmlHelper
 
 
 #Region "Acessorios"
-    Private Shared Function gerarChaveDeAcesso(ByVal documento As XmlDocument) As String
+    Public Shared Function gerarChaveDeAcesso(ByVal documento As XmlDocument) As String
 
         Dim chaveDeAcesso As String
 

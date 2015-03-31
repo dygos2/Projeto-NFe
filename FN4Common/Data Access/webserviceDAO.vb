@@ -14,7 +14,12 @@ Public Class webserviceDAO
             Throw ex
         End Try
     End Function
-
+    Public Shared Sub alterarWebserviceContingencia(ByVal uf As String, ByVal contingencia As String)
+        Dim ht As New Hashtable
+        ht.Add("uf", uf)
+        ht.Add("contingencia", contingencia)
+        IBatisNETHelper.Instance.Update("alterarWebserviceContingencia", ht)
+    End Sub
     Public Shared Sub alterarWebservice(ByVal webservice As webserviceVO)
         IBatisNETHelper.Instance.Update("alterarWebservice", webservice)
     End Sub

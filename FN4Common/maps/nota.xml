@@ -256,7 +256,7 @@
         FROM notas
         WHERE
         statusDaNota = #enviadasNormal#
-        OR statusDaNota = #enviadasDPEC#;
+        OR statusDaNota = #enviadasContingencia#;
       </select>
 
       <select id="obterNotasProcessadasPorCNPJ" parameterClass="System.Collections.IDictionary" resultMap="notaCompleta" >
@@ -293,7 +293,7 @@
 
 
       <select id="obterNotasEmail" parameterClass="int" resultMap="notaCompleta" >
-        SELECT * FROM notas WHERE (statusDaNota = 21 AND impressaoSolicitada = 0) or  (statusDaNota = 51 and impressaoSolicitada = 2);
+        SELECT * FROM notas WHERE statusDaNota = 21 AND impressaoSolicitada = 0;
       </select>
 
       <select id="obterNotasZip" parameterClass="int" resultMap="notaCompleta" >
@@ -411,7 +411,9 @@
         #NFe_total_ICMSTot_vNF#,#retEnviNFe_infRec_nRec#,#retEnviNFe_cStat#,
         #retEnviNFe_xMotivo#,#protNfe_nProt#,#impressaoSolicitada#,#impressoEmContingencia#, #emailDestinatario#, #impressora#);
       </insert>
-
+      <update id="alterarNotasContingencia" parameterClass="System.Collections.IDictionary">
+        update notas set statusdanota = #statusnovo# where statusdanota = #statusantigo# and NFe_emit_cnpj in (SELECT cnpj FROM empresa where uf like #uf#);
+      </update>
       <update id="alterarNota" parameterClass="nota" >
         UPDATE notas set
         pastaDeTrabalho = #pastaDeTrabalho#,

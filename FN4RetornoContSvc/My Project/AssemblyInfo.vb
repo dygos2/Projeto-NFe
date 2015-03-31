@@ -7,17 +7,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("FN4RetornoCtl")> 
+<Assembly: AssemblyTitle("FN4EmailSvc")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("FN4RetornoCtl")> 
+<Assembly: AssemblyProduct("FN4EmailSvc")> 
 <Assembly: AssemblyCopyright("Copyright ©  2009")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("879b5ab2-4522-4414-81b0-84efd08e121c")> 
+<Assembly: Guid("62f68312-c2d0-44c8-94e6-b23c30fd190b")> 
 
 ' Version information for an assembly consists of the following four values:
 '

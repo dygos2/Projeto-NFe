@@ -18,6 +18,13 @@ Public Class empresaDAO
             Throw ex
         End Try
     End Function
+    Public Shared Function obterUfsContingencia() As List(Of FN4Common.empresaVO)
+        Try
+            Return IBatisNETHelper.Instance.QueryForList(Of FN4Common.empresaVO)("obterUfsContingencia", Nothing)
+        Catch ex As Exception
+            Throw ex
+        End Try
+    End Function
 
     Public Shared Function inserirEmpresa(ByVal empresa As empresaVO) As String
         Dim retorno As String = IBatisNETHelper.Instance.Insert("inserirEmpresa", empresa)

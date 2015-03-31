@@ -11,7 +11,7 @@
     <AssemblyName>FN4RetornoCtl</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <OptionExplicit>On</OptionExplicit>
     <OptionCompare>Binary</OptionCompare>
     <OptionStrict>Off</OptionStrict>
@@ -40,6 +40,7 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -176,6 +177,10 @@
     <ProjectReference Include="..\FN4EnvioCtl\FN4EnvioCtl.vbproj">
       <Project>{57CCEF3B-9B0C-449D-995B-6D2251D57903}</Project>
       <Name>FN4EnvioCtl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FN4RetornoContCtl\FN4Contingencia.vbproj">
+      <Project>{5CAC5FFA-F757-48E9-8BDE-4F7BDC3A4185}</Project>
+      <Name>FN4Contingencia</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

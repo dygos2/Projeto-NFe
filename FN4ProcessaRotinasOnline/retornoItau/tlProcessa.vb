@@ -84,7 +84,7 @@ Public Class tlProcessa
 
         'boletos
         Log.CriaLog("Início Proc. Boletos: ")
-        ProcRetorno_boletos()
+        'ProcRetorno_boletos()
 
         Dim hj = Microsoft.VisualBasic.Right("0" & (Date.Today.Day.ToString), 2)
 

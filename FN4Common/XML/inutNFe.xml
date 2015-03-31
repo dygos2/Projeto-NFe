@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<inutNFe versao="2.00" xmlns="http://www.portalfiscal.inf.br/nfe">
+<inutNFe versao="3.10" xmlns="http://www.portalfiscal.inf.br/nfe">
   <infInut Id="ID0">
     <tpAmb>1</tpAmb>
     <xServ>INUTILIZAR</xServ>

@@ -6,7 +6,7 @@ Public Class notaDAO
     Public Shared Function obterNotasNaoEnviadas() As List(Of FN4Common.notaVO)
         Dim ht As New Hashtable
         ht.Add("naoProcessada", 0)
-        ht.Add("DPECEnviada", 51)
+        'ht.Add("DPECEnviada", 51)
         Return IBatisNETHelper.Instance.QueryForList(Of FN4Common.notaVO)("obterNotasProcessadas", ht)
     End Function
 

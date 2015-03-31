@@ -188,7 +188,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="XML\consStatServ.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="XML\ConsultaNFeCanonico.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -213,6 +214,7 @@
     </Content>
     <Content Include="XML\inutNFe.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="XML\MonitorConfig.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -251,9 +253,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="XML\XMLDPECCanonico.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XSLT\geraDPEC.xslt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="XSLT\GeraNFe16.xslt">
@@ -320,136 +319,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="XSD\cancNFe_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\CCe_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\consCad_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\consDPEC_v1.01.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\consReciNFe_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\consReciNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\consSitNFe_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\consSitNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\consStatServ_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\consStatServ_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\e110110_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\e110111_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\envCCe_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\envDPEC_v1.01.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\envEventoCancNFe_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\envEvento_v1.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\enviNFe_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\enviNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\eventoCancNFe_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\inutNFe_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\inutNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\leiauteCancNFe_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\leiauteCCe_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\leiauteConsSitNFe_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\leiauteConsSitNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\leiauteConsStatServ_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\leiauteConsStatServ_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\leiauteConsultaCadastro_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\leiauteDPEC_v1.01.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\leiauteEventoCancNFe_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\leiauteInutNFe_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\leiauteInutNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\leiauteNFe_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\leiauteNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\leiauteSRE_v1.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\nfe_v2.00.xsd">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="XSD\nfe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="XSD\PL_008d\CCe_v1.00.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -578,92 +447,131 @@
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\procCancNFe_v2.00.xsd">
+    <None Include="XSD\PL_008f\CCe_v1.00.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\procCCeNFe_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\procEventoCancNFe_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\procInutNFe_v2.00.xsd">
+    <None Include="XSD\PL_008f\consReciNFe_v3.10.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\procInutNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\procNFe_v2.00.xsd">
+    <None Include="XSD\PL_008f\consSitNFe_v3.10.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\procNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\retCancNFe_v2.00.xsd">
+    <None Include="XSD\PL_008f\consStatServ_v3.10.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\retConsCad_v2.00.xsd">
+    <None Include="XSD\PL_008f\e110110_v1.00.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\retConsDPEC_v1.01.xsd">
+    <None Include="XSD\PL_008f\e110111_v1.00.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\retConsReciNFe_v2.00.xsd">
+    <None Include="XSD\PL_008f\envCCe_v1.00.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\retConsReciNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\retConsSitNFe_v2.00.xsd">
+    <None Include="XSD\PL_008f\envEventoCancNFe_v1.00.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\retConsSitNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\retConsStatServ_v2.00.xsd">
+    <None Include="XSD\PL_008f\enviNFe_v3.10.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\retConsStatServ_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\retDPEC_v1.01.xsd">
+    <None Include="XSD\PL_008f\eventoCancNFe_v1.00.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\retEnvCCe_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\retEnvEventoCancNFe_v1.00.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\retEnviNFe_v2.00.xsd">
+    <None Include="XSD\PL_008f\inutNFe_v3.10.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\retEnviNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\retInutNFe_v2.00.xsd">
+    <None Include="XSD\PL_008f\leiauteCCe_v1.00.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\retInutNFe_v3.10.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XSD\tiposBasico_v1.03.xsd">
+    <None Include="XSD\PL_008f\leiauteConsSitNFe_v3.10.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="XSD\xmldsig-core-schema_v1.01.xsd">
+    <None Include="XSD\PL_008f\leiauteConsStatServ_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\leiauteEventoCancNFe_v1.00.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\leiauteInutNFe_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\leiauteNFe_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\nfe_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\procCCeNFe_v1.00.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\procEventoCancNFe_v1.00.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\procInutNFe_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\procNFe_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\retConsReciNFe_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\retConsSitNFe_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\retConsStatServ_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\retEnvCCe_v1.00.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\retEnvEventoCancNFe_v1.00.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\retEnviNFe_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\retInutNFe_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\tiposBasico_v1.03.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\tiposBasico_v3.10.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="XSD\PL_008f\xmldsig-core-schema_v1.01.xsd">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

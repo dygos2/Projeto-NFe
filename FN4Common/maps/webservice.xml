@@ -27,6 +27,12 @@
       AND homologacao =#homologacao#;
     </select>
 
+    <update id="alterarWebserviceContingencia" parameterClass="webservice">
+      update webservice set
+        contingencia = #contingencia#
+      where uf = #uf#;
+    </update>
+    
     <update id="alterarWebservice" parameterClass="webservice">
       update webservice set
       uf = #uf#

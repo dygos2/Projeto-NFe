@@ -13,7 +13,7 @@
     <AssemblyName>FN4CartaCorrecaoCtl</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SccProjectName>
     </SccProjectName>
     <SccLocalPath>
@@ -22,6 +22,7 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -151,6 +152,10 @@
     <ProjectReference Include="..\FN4Common\FN4Common.vbproj">
       <Project>{AE6178E0-CDCC-421F-855D-467327F03292}</Project>
       <Name>FN4Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FN4RetornoContCtl\FN4Contingencia.vbproj">
+      <Project>{5CAC5FFA-F757-48E9-8BDE-4F7BDC3A4185}</Project>
+      <Name>FN4Contingencia</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

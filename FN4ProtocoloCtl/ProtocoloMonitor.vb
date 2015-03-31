@@ -7,6 +7,8 @@ Imports FN4EntradaTxtCtl
 Imports FN4Common.Helpers
 Imports System.IO
 Imports System.Xml.Xsl
+Imports FN4Contingencia
+
 
 Public Class ProtocoloMonitor
 
@@ -74,13 +76,23 @@ Public Class ProtocoloMonitor
             empresa = FN4Common.empresaDAO.obterEmpresa(nota.NFe_emit_CNPJ, String.Empty)
 
             Dim ufWs As String
+            ufWs = ""
 
-            If UfsSemWebServices.SVAN.Contains(empresa.uf) Then
-                ufWs = "SVAN"
-            ElseIf UfsSemWebServices.SVRS.Contains(empresa.uf) Then
-                ufWs = "SVRS"
-            Else
-                ufWs = empresa.uf
+            If nota.impressoEmContingencia = 1 Then
+                'se a nota foi emitida em contingencia, buscar o protocolo na contingencia
+                If UfsCont.SVCAN.Contains(empresa.uf) Then
+                    ufWs = "SVCAN"
+                ElseIf UfsCont.SVCRS.Contains(empresa.uf) Then
+                    ufWs = "SVCRS"
+                End If
+            Else 'é status de retorno normal (1)
+                If UfsSemWebServices.SVAN.Contains(empresa.uf) Then
+                    ufWs = "SVAN"
+                ElseIf UfsSemWebServices.SVRS.Contains(empresa.uf) Then
+                    ufWs = "SVRS"
+                Else
+                    ufWs = empresa.uf
+                End If
             End If
 
             webservice = webserviceDAO.obterURLWebservice(ufWs,
@@ -212,17 +224,27 @@ Public Class ProtocoloMonitor
                     nota.protNfe_nProt = protocolo
 
                     'emitir protocolos somente quando retornar o mesmo
-                    gerarProcNfe(nota, xmlDocumentoRetorno)
-
+                    'gerarProcNfe(nota, xmlDocumentoRetorno)
+                    Geral.gerarAnexo(nota, xmlDocumentoRetorno, empresa)
                     'Marcar nota autorizada ou cancelada
                     If resultado = "101" Or resultado = "151" Then 'se a nota estiver cancelada
                         'altera para nota cancelada
                         nota.statusDaNota = 4
                         nota.retEnviNFe_cStat = 101
                     ElseIf resultado = "100" Or resultado = "150" Then 'se autorizado ou autorizado fora de prazo
-                        nota.statusDaNota = 21
-                        nota.impressaoSolicitada = 1
                         nota.retEnviNFe_cStat = 100
+                        'nota autorizada
+                        Dim tp_sys_user = configuracaoDAO.obterConfiguracao("tp_sys", empresa.idEmpresa)
+                        'verifica se o usuário está cadastrado no banco como 1, ou seja, ele vai receber o Danfe em PDF
+                        If nota.statusDaNota = 1 And Not tp_sys_user Is Nothing Then
+                            nota.impressaoSolicitada = 1
+                        End If
+
+                        'se nota estiver em contingencia, marcar nota processada em cont.
+                        If nota.statusDaNota = 51 Then
+                            nota.impressoEmContingencia = 1
+                        End If
+                        nota.statusDaNota = 21
                     ElseIf resultado = "110" Then 'se nota denegada
                         nota.statusDaNota = 7
                         nota.retEnviNFe_cStat = 110
@@ -238,10 +260,10 @@ Public Class ProtocoloMonitor
 
             If resultado = "102" Then 'inutilizada
                 Try
-                    'altera para status de nota denegada
+                    'altera para status de nota Inutilizada
                     nota.statusDaNota = 6
                     nota.retEnviNFe_cStat = 102
-                    inserirHistorico(30, "A nota encontra-se denegada na Sefaz", nota)
+                    inserirHistorico(30, "A numeração encontra-se inutilizada na Sefaz", nota)
                     notas.alterarNota(nota)
                     Continue For
                 Catch ex As Exception

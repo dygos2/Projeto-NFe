@@ -7,18 +7,27 @@ Public Class notaDAO
         IBatisNETHelper.Instance.Insert("inserirNota", nota)
     End Sub
 
+    Public Shared Sub alterar_notas_contingencia(ByVal uf As String, ByVal statusnovo As String, ByVal statusantigo As String)
+        Dim ht As New Hashtable
+        ht.Add("uf", uf)
+        ht.Add("statusnovo", statusnovo)
+        ht.Add("statusantigo", statusantigo)
 
+        IBatisNETHelper.Instance.Update("alterarNotasContingencia", ht)
+    End Sub
 
     Public Shared Function obterNotasPendentesDeRetorno() As List(Of notaVO)
         Dim ht As New Hashtable
         ht.Add("enviadasNormal", 1)
-        ht.Add("enviadasDPEC", 52)
+        ht.Add("enviadasContingencia", 51)
 
         Return IBatisNETHelper.Instance.QueryForList(Of FN4Common.notaVO)("obternotasPendentesDeRetorno", ht)
     End Function
-    'Public Shared Function obterNotasNaoEnviadas() As List(Of notaVO)
-    '    Return IBatisNETHelper.Instance.QueryForList(Of FN4Common.notaVO)("obterNotasProcessadas", 1)
-    'End Function
+    Public Shared Function obterNotasEnviarContingencia() As List(Of FN4Common.notaVO)
+        Dim ht As New Hashtable
+        ht.Add("naoProcessada", 50)
+        Return IBatisNETHelper.Instance.QueryForList(Of FN4Common.notaVO)("obterNotasParaEnviar", ht)
+    End Function
     Public Shared Function obterNotasNaoEnviadas() As List(Of FN4Common.notaVO)
         Dim ht As New Hashtable
         ht.Add("naoProcessada", 0)

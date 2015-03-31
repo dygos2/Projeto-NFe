@@ -73,9 +73,19 @@
       <result property="cnpj" column = "cnpj"/>
       <result property="nome" column = "nome"/>
     </resultMap>
+    <resultMap id="UfsContResult" class="empresa">
+      <result property="idEmpresa" column = "idEmpresa"/>
+      <result property="uf" column = "uf"/>
+    </resultMap>
   </resultMaps>
 
   <statements>
+    <!--trazendo os estados das notas que estão em contingencia-->
+    <select id="obterUfsContingencia" resultMap="UfsContResult">
+      SELECT b.uf, b.idEmpresa FROM notas a, empresa b where a.NFe_emit_CNPJ = b.cnpj and a.statusDaNota = 5 group by b.uf, b.idEmpresa;
+    </select>
+    
+    
     <!--trazendo as empresas para fazer a inutilização-->
     <select id="obterTodasEmpresas" resultMap="EmpresaCnpjResult">
       SELECT idEmpresa, cnpj, nome from empresa where habilitado_stat =1;

@@ -249,6 +249,10 @@
       <Project>{10D69706-091A-47E6-A1D8-56A60CD3CDEE}</Project>
       <Name>FN4EntradaTxtCtl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FN4RetornoContCtl\FN4Contingencia.vbproj">
+      <Project>{5CAC5FFA-F757-48E9-8BDE-4F7BDC3A4185}</Project>
+      <Name>FN4Contingencia</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\NFe.NfeConsultaProtocolo\nfeconsulta2.disco" />
