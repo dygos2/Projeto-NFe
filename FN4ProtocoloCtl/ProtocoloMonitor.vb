@@ -96,11 +96,20 @@ Public Class ProtocoloMonitor
                 Continue For
             End If
 
-            Dim ws As New NFe.NfeConsultaProtocolo.NfeConsulta2
+            Dim ws
+            Select Case empresa.uf.ToUpper
+                Case "BA"
+                    ws = New NFe.ConsultaProtocoloBA.NfeConsulta
+                    ws.nfeCabecMsgValue = New NFe.ConsultaProtocoloBA.nfeCabecMsg
+
+                Case Else
+                    ws = New NFe.NfeConsultaProtocolo.NfeConsulta2
+                    ws.nfeCabecMsgValue = New NFe.NfeConsultaProtocolo.nfeCabecMsg
+            End Select
+
             ws.Url = webservice.url
-            ws.nfeCabecMsgValue = New NFe.NfeConsultaProtocolo.nfeCabecMsg
+
             ws.nfeCabecMsgValue.cUF = UFs.ListaDeCodigos(empresa.uf)
-            'ws.nfeCabecMsgValue.versaoDados = Geral.Parametro("Versao_ConsultaProtocolo")
             ws.nfeCabecMsgValue.versaoDados = empresa.versao_nfe
             Log.registrarErro("Iniciando consulta de situação no WS: " & ws.Url & " para UF " & ws.nfeCabecMsgValue.cUF, "ProtocoloService")
 
@@ -146,7 +155,13 @@ Public Class ProtocoloMonitor
 
             ' Faz a consulta no webservice
             Try
-                xmlRetorno = ws.nfeConsultaNF2(envConsulta)
+                Select Case empresa.uf.ToUpper
+                    Case "BA"
+                        xmlRetorno = ws.nfeConsultaNF(envConsulta)
+                    Case Else
+                        xmlRetorno = ws.nfeConsultaNF2(envConsulta)
+                End Select
+
             Catch ex As Exception
                 Log.registrarErro("Não foi possível consultar o status da nota " & nota.NFe_ide_nNF & " série " & nota.serie & " Erro - " & ex.Message, "ProtocoloService")
                 'se der erro e o sistema estava tentando enviar nota, enviar para contingencia
@@ -185,6 +200,7 @@ Public Class ProtocoloMonitor
             nota.retEnviNFe_xMotivo = motivo
             inserirHistorico(30, motivo, nota)
 
+            'TODO: se tiver eventos, gravar o protocolo e dar andamento no evento
             Try
                 'se retornar protocolo autorizado ou denegado
                 If Not (IsNothing(xmlDocumentoRetorno.GetElementsByTagName("protNFe")(0))) Then
@@ -210,10 +226,9 @@ Public Class ProtocoloMonitor
                     ElseIf resultado = "110" Then 'se nota denegada
                         nota.statusDaNota = 7
                         nota.retEnviNFe_cStat = 110
-                        notas.alterarNota(nota)
-                        Continue For
                     End If
                     notas.alterarNota(nota)
+                    Continue For
                 End If
 
             Catch ex As Exception
@@ -221,7 +236,6 @@ Public Class ProtocoloMonitor
                 rejeitarNota(nota)
             End Try
 
-            'TODO: se tiver eventos, gravar o protocolo e dar andamento no evento
             If resultado = "102" Then 'inutilizada
                 Try
                     'altera para status de nota denegada
