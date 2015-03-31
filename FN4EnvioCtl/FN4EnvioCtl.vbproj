@@ -150,6 +150,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\NFe.ConsultaServicos1\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\NFe.NFeAutorizacaoPR\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -206,6 +211,11 @@
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
     <None Include="Web References\NFe.ConsultaDPEC\SCEConsultaRFB.wsdl" />
+    <None Include="Web References\NFe.ConsultaServicos1\NfeStatusServico2.wsdl" />
+    <None Include="Web References\NFe.ConsultaServicos1\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
     <None Include="Web References\NFe.NFeAutorizacaoPR\NFeAutorizacao3.wsdl" />
     <None Include="Web References\NFe.NFeAutorizacaoPR\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
@@ -336,6 +346,17 @@
       <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FN4EnvioCtl_NFe_NFeAutorizacao_NfeAutorizacao</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="https://www.svc.fazenda.gov.br/NfeStatusServico2/NfeStatusServico2.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NFe.ConsultaServicos1\</RelPath>
+      <UpdateFromURL>https://www.svc.fazenda.gov.br/NfeStatusServico2/NfeStatusServico2.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FN4EnvioCtl_NFe_ConsultaServicos1_NfeStatusServico2</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -357,7 +378,9 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Web References\NFe.ConsultaServicos1\NfeStatusServico2.disco" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
