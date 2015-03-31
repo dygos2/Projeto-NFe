@@ -41,7 +41,7 @@ Namespace NFeRetRecepcao
         Public Sub New()
             MyBase.New
             Me.SoapVersion = System.Web.Services.Protocols.SoapProtocolVersion.Soap12
-            Me.Url = Global.FN4RetornoContCtl.My.MySettings.Default.FN4RetornoCtl_NFeRetRecepcao_NfeRetRecepcao
+            Me.Url = Global.FN4Contingencia.My.MySettings.Default.FN4RetornoCtl_NFeRetRecepcao_NfeRetRecepcao
             If (Me.IsLocalFileSystemWebService(Me.Url) = true) Then
                 Me.UseDefaultCredentials = true
                 Me.useDefaultCredentialsSetExplicitly = false

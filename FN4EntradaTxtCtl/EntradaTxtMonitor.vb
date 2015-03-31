@@ -68,11 +68,12 @@ Public Class EntradaTxtMonitor
                 'testando o cliente para saber se pode processar a nota
                 '===================================================
                 Dim tipoSistema As Integer = Integer.Parse(FN4Common.Geral.Parametro("tp_sys"))
+                Dim tpamb As Integer = Integer.Parse(FN4Common.Geral.Parametro("tp_amb"))
 
-                ' Se o tipo do sistema for NFECommerce (1), verifica se tem créditos, se não, não deixa processar
+                ' Se o tipo do sistema for NFECommerce (1), verifica se tem créditos e se está em producao se não, não deixa processar
                 If tipoSistema = 1 Then
                     ' Se a empresa não tiver mais créditos de franquia nem de pacote
-                    If empresa.frest = 0 And empresa.prest = 0 Then
+                    If empresa.frest = 0 And empresa.prest = 0 And tpamb = 0 Then
                         nota.retEnviNFe_xMotivo = "Sem creditos para processamento da nota. Verifique seus creditos e franquia mensal."
                         inserirHistorico(1, "Nota rejeitada, cliente sem créditos para processamentos. Acesse o site da NFe4web e compre mais créditos, ou aguarde a liberação após o ciclo mensal.", nota, CNPJ)
 
@@ -238,6 +239,7 @@ Public Class EntradaTxtMonitor
              cnpj & "\" & DateTime.Now.Year & "\" & DateTime.Now.Month & "\" & DateTime.Now.Day & "\" & _
                  numeroDaNota & "-" & nota.serie & "\"
             nota.pastaDeTrabalho = pastaDeTrabalho
+            'TODO:Fazer procedure para tentar inserir, caso contrário a mesma procedure traz o retorno da nota, assim evita novo select
             notaDAO.inserirNota(nota)
 
             Log.registrarInfo("Nota inserida na base", "EntradaTxtService")
@@ -252,8 +254,6 @@ Public Class EntradaTxtMonitor
         End Try
 
         Try
-            'Log.registrarInfo(nota.statusDaNota, "EntradaTxtService")
-
             '----se a nota já existir e não estiver com erro----
             If nota.statusDaNota <> 3 And nota.statusDaNota <> 0 And nota.statusDaNota <> -1 Then
                 'insere o historico de rejeição e finaliza o fluxo
@@ -303,24 +303,16 @@ Public Class EntradaTxtMonitor
                 '---leitura do arquivo---
                 Try
                     'abrir, ler
-                    Dim reader As New StreamReader(arquivo, System.Text.Encoding.GetEncoding("ISO-8859-1"))
-
+                    'Dim reader As New StreamReader(arquivo, System.Text.Encoding.GetEncoding("ISO-8859-1"))
+                    Dim reader As New StreamReader(arquivo)
                     Dim txtDeEntrada As String = reader.ReadToEnd
 
                     reader.Close()
 
                     'checar a ultima linha
                     If txtDeEntrada.Split(vbCrLf)(txtDeEntrada.Split(vbCrLf).Count - 1).Split(empresa.delimitador)(0).Trim().Equals("99") Then
-                        'se for campo de controle(campo 99)
-
                         'obter campos de controle
-
                         obterCamposDeControle(nota, txtDeEntrada.Split(vbCrLf)(txtDeEntrada.Split(vbCrLf).Count - 1), empresa.delimitador)
-
-                        'comentado pois fazia acesso indevido ao banco. poderia sergravado depois
-                        'notaDAO.alterarNota(nota)
-                        'retirar a ultima linha
-                        'txtDeEntrada = txtDeEntrada.Replace(txtDeEntrada.Split(vbCrLf)(txtDeEntrada.Split(vbCrLf).Count - 1), "")
                     End If
 
 
@@ -330,8 +322,7 @@ Public Class EntradaTxtMonitor
                     'se der erro, sinalizar no historico e encerrar o fluxo
                     inserirHistorico(4, "", nota, cnpj)
 
-                    'rejeitarNota(arquivo, nota, ex, "Erro ao processar o arquivo" & arquivo & ": ")
-
+                    rejeitarNota(arquivo, nota, ex, "Erro ao processar o arquivo" & arquivo & ": ")
                     Throw ex
                 End Try
 

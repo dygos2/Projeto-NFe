@@ -9,6 +9,7 @@ Imports System.Xml.Schema
 Imports System.Net
 Imports System.Text
 Imports System.IO
+Imports FN4Contingencia
 
 
 Public Class CartaDeCorrecaoMonitor
@@ -202,6 +203,15 @@ Public Class CartaDeCorrecaoMonitor
         ws.ClientCertificates.Add(certificado)
 
         Dim uf As String
+        uf = ""
+        'If nota.impressoEmContingencia = 1 Then
+        'se a nota foi emitida em contingencia, efetuar o evento no destino apropriado
+        'If UfsCont.SVCAN.Contains(empresa.uf) Then
+        'uf = "SVCAN"
+        'ElseIf UfsCont.SVCRS.Contains(empresa.uf) Then
+        'uf = "SVCRS"
+        'End If
+        'Else 'é status de retorno normal (1)
         If UfsSemWebServices.SVAN.Contains(empresa.uf) Then
             uf = "SVAN"
         ElseIf UfsSemWebServices.SVRS.Contains(empresa.uf) Then
@@ -209,6 +219,7 @@ Public Class CartaDeCorrecaoMonitor
         Else
             uf = empresa.uf
         End If
+        'End If
 
         Dim webservice As webserviceVO = webservices.obterURLWebservice(uf, "NfeRecepcaoEvento", Geral.Parametro("VersaoProduto"), empresa.homologacao)
 
@@ -445,8 +456,16 @@ Public Class CartaDeCorrecaoMonitor
         ws.ClientCertificates.Add(certificado)
 
         Dim uf As String
-
-
+        uf = ""
+        'TODO: Processar os eventos nos servidores de contingencia, acesso ainda nao liberado
+        'If nota.impressoEmContingencia = 1 Then
+        'se a nota foi emitida em contingencia, efetuar o evento no destino apropriado
+        'If UfsCont.SVCAN.Contains(empresa.uf) Then
+        'uf = "SVCAN"
+        'ElseIf UfsCont.SVCRS.Contains(empresa.uf) Then
+        'uf = "SVCRS"
+        'End If
+        'Else 'é status de retorno normal (1)
         If UfsSemWebServices.SVAN.Contains(empresa.uf) Then
             uf = "SVAN"
         ElseIf UfsSemWebServices.SVRS.Contains(empresa.uf) Then
@@ -454,6 +473,7 @@ Public Class CartaDeCorrecaoMonitor
         Else
             uf = empresa.uf
         End If
+        'End If
 
         Dim webservice As webserviceVO = webservices.obterURLWebservice(uf, "NfeRecepcaoEvento", Geral.Parametro("VersaoProduto"), empresa.homologacao)
 
@@ -640,7 +660,9 @@ Public Class CartaDeCorrecaoMonitor
         Dim myevent As ValidationEventHandler = New ValidationEventHandler(AddressOf ValidationEvent)
         'carrega o XSD
 
-        Dim pathXSD As String = System.AppDomain.CurrentDomain.BaseDirectory() & "XSD\envEvento_v1.00.xsd"
+        Dim xsd_path = Geral.Parametro("arquivoSchemaNfe").Split("/")
+
+        Dim pathXSD As String = String.Concat(System.AppDomain.CurrentDomain.BaseDirectory(), "XSD\", xsd_path(1), "\envCCe_v1.00.xsd")
 
         Dim xschema As XmlSchema = XmlSchema.Read(New XmlTextReader(pathXSD), myevent)
 

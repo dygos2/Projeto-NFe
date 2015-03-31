@@ -31,15 +31,8 @@ Public Class EnvioMonitor
         tm.Stop()
         Try
             'enviar todas as nfes
-            'Log.registrarInfo("Enviando NFes", "EnvioService")
-
-
             enviarTodasNFe()
-            'Log.registrarInfo("Enviando NFes em contingencia", "EnvioService")
-            'enviarNFesEmContingencia()
-            'enviaNotasDPEC()
 
-            'obterProtocolos()
         Catch ex As Exception
             Log.registrarErro("Erro ao processar- " & Geral.ObterExceptionMessagesEmCascata(ex) & vbCrLf & ex.StackTrace, "EnvioService")
         Finally
@@ -141,11 +134,10 @@ Public Class EnvioMonitor
                 Throw New Exception("Webservice não encontrado para nota " & nota.NFe_ide_nNF & " com os parametros: ufWs='" & ufWs & "', VersaoProduto='" & Geral.Parametro("VersaoProduto") & "', homologacao='" & empresa.homologacao & "'")
             End If
 
-            If webservice.contingencia = 1 Then 'webservice não está funcionando, mandar para contingencia
+            If webservice.contingencia = 1 Then 'A Contingencia do estado esta ativada, alterar para 5 e mandar consultar se novo sistema esta liberado
                 inserirHistorico("16", "", nota)
                 nota.statusDaNota = 5
                 notaDAO.alterarNota(nota)
-
                 Continue For
             End If
 
@@ -207,14 +199,13 @@ Public Class EnvioMonitor
             'acesa ws
             ws.Url = webservice.url
 
-            Log.registrarInfo("Enviando para " & ws.Url, "EnvioService")
+            Log.registrarInfo("Enviando nota - " & nota.NFe_ide_nNF & " para " & ws.Url, "EnvioService")
             'adiciona o certificado
             ws.ClientCertificates.Add(certificado)
 
             ws.nfeCabecMsgValue.cUF = UFs.ListaDeCodigos(empresa.uf)
             ws.nfeCabecMsgValue.versaoDados = cabecMsg.InnerText
 
-            Log.registrarInfo("Enviando nota - " & nota.NFe_ide_nNF, "EnvioService")
             inserirHistorico("11", "", nota)
 
             Dim xmlElementRetorno As XmlElement
@@ -233,11 +224,9 @@ Public Class EnvioMonitor
                 ws = Nothing
             Catch ex As Exception
                 'coloca o webservice em modo contingência
-                If webservice.contingencia = 0 Then
-                    Log.registrarErro("Erro ao enviar a Nota: Acionando o sistema de contingência para UF - '" & empresa.uf & "'", "EnvioService")
-                    webservice.contingencia = 1
-                    webserviceDAO.alterarWebservice(webservice)
-                End If
+                Log.registrarErro("Erro ao enviar a Nota: Acionando o sistema de contingência para UF - '" & empresa.uf & "'", "EnvioService")
+                webservice.contingencia = 1
+                webserviceDAO.alterarWebservice(webservice)
 
                 'apenas em caso de erro no webservice
                 Log.registrarErro("Erro ao enviar nota: " & ex.Message & vbCrLf & ex.StackTrace, "EnvioService")
@@ -246,15 +235,8 @@ Public Class EnvioMonitor
                 'consultar a nota e caso retorno negativo, mandar para contingencia
                 nota.statusDaNota = 17
                 notaDAO.alterarNota(nota)
-                'End If
                 Continue For
             End Try
-
-            'If webservice.contingencia = 1 Then
-            'Log.registrarErro("Sistema normalizado: Saindo da contingência para a UF - '" & empresa.uf & "'", "EnvioService")
-            'webservice.contingencia = 0
-            'webserviceDAO.alterarWebservice(webservice)
-            'End If
 
             Log.registrarInfo("Recebido o retorno do envio: " & xmlElementRetorno.InnerXml, "EnvioService")
 
@@ -283,23 +265,24 @@ Public Class EnvioMonitor
                 notaDAO.alterarNota(nota)
             ElseIf xmlRetorno.SelectSingleNode("/retEnviNFe/cStat").InnerText = 204 Then 'Duplicidade da NFe
 
+                'gravar recibo
                 If InStr(xmlRetorno.SelectSingleNode("/retEnviNFe/xMotivo").InnerText, "nRec") > 0 Then 'se retornar o recibo
                     Dim recibo_arr = Replace(Split(xmlRetorno.SelectSingleNode("/retEnviNFe/xMotivo").InnerText, "nRec:")(1), "]", "") 'pegar recibo
                     nota.retEnviNFe_infRec_nRec = recibo_arr
-                    'gravar recibo
+
                 End If
 
-                nota.statusDaNota = 22 'nota autorizada
+                nota.statusDaNota = 19 'nota autorizada, consultar protocolo
                 notaDAO.alterarNota(nota)
 
                 'se tiver o protocolo, mandar cancelar, se não, consultar o retorno do protocolo para depois cancelar (novo status 191 - concultar protocolo e cancelar)
-                If Not String.IsNullOrEmpty(nota.protNfe_nProt) Then
+                'If Not String.IsNullOrEmpty(nota.protNfe_nProt) Then
                     'manda cancelar, pois não sei se a nota processada é esta última enviada e possui o protocolo
-                    FN4Common.Geral.cancelarNFe(nota, "Cancelamento solicitado devido a erro de duplicidade na Sefaz.", empresa)
-                Else
-                    nota.statusDaNota = 18 'não possui o protocolo de retorno, buscar o protocolo da nota e mandar cancelar logo apos (18)
-                    notaDAO.alterarNota(nota)
-                End If
+                '    FN4Common.Geral.cancelarNFe(nota, "Cancelamento solicitado devido a erro de duplicidade na Sefaz.", empresa)
+                'Else
+                'nota.statusDaNota = 18 'não possui o protocolo de retorno, buscar o protocolo da nota e mandar cancelar logo apos (18)
+                'notaDAO.alterarNota(nota)
+                'End If
 
             ElseIf xmlRetorno.SelectSingleNode("/retEnviNFe/cStat").InnerText = 104 Then 'sincrono / Processado
                 'tratar o retorno quando for sincrono

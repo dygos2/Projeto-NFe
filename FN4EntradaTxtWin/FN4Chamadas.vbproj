@@ -202,9 +202,9 @@
       <Project>{FB7B6C0A-98F8-4B2A-9412-12DECC1D5EA0}</Project>
       <Name>FN4ProtocoloCtl</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FN4RetornoContCtl\FN4RetornoContCtl.vbproj">
+    <ProjectReference Include="..\FN4RetornoContCtl\FN4Contingencia.vbproj">
       <Project>{5CAC5FFA-F757-48E9-8BDE-4F7BDC3A4185}</Project>
-      <Name>FN4RetornoContCtl</Name>
+      <Name>FN4Contingencia</Name>
     </ProjectReference>
     <ProjectReference Include="..\FN4RetornoCtl\FN4RetornoCtl.vbproj">
       <Project>{591B3250-2C19-46C3-A90C-FB2651362129}</Project>

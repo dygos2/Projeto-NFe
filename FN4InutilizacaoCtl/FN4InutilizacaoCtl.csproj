@@ -109,9 +109,6 @@
     <Content Include="XML\cancNFe.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="XML\consStatServ.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="XML\inutNFe.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

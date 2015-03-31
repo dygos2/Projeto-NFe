@@ -3,8 +3,7 @@
 Public Class Form1
 
     Dim mon As FN4EntradaTxtCtl.EntradaTxtMonitor
-    Dim mon2 As FN4EnvioContCtl.EnvioMonitorCont
-    Dim mon3 As FN4RetornoContCtl.RetornoMonitor
+    Dim mon3 As FN4Contingencia.Contingencia
     Dim mon4 As FN4EnvioCtl.EnvioMonitor
     Dim mon5 As FN4RetornoCtl.RetornoMonitor
     Dim mon6 As FN4CartaCorrecaoCtl.CartaDeCorrecaoMonitor
@@ -12,6 +11,7 @@ Public Class Form1
     Dim mon8 As FN4ImpressaoCtl.ImpressaoMonitor
     Dim mon9 As FN4ProtocoloCtl.ProtocoloMonitor
     Dim mon10 As FN4EmailCtl.EnvioEmailMonitor
+    Dim mon11 As FN4Contingencia.Contingencia
 
     Dim last_id As Integer
 
@@ -27,28 +27,18 @@ Public Class Form1
         Label1.Text = "Parado"
     End Sub
 
-    Private Sub GroupBox2_Enter(sender As System.Object, e As System.EventArgs) Handles GroupBox2.Enter
-        mon2 = New FN4EnvioContCtl.EnvioMonitorCont
-        Label2.Text = "Rodando"
-        mon2.run()
-    End Sub
 
-
-    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
-        mon2.pause()
-        Label2.Text = "Parado"
-    End Sub
 
     Private Sub Button5_Click(sender As System.Object, e As System.EventArgs) Handles Button5.Click
-        mon3 = New FN4RetornoContCtl.RetornoMonitor
+        mon11 = New FN4Contingencia.Contingencia
         Label3.Text = "Rodando"
-        mon3.run()
+        mon11.run()
     End Sub
 
 
     Private Sub Button6_Click(sender As System.Object, e As System.EventArgs) Handles Button6.Click
 
-        mon3.pause()
+        mon11.pause()
         Label3.Text = "Parado"
     End Sub
 
@@ -161,5 +151,13 @@ Public Class Form1
     Private Sub Button21_Click(sender As System.Object, e As System.EventArgs) Handles Button21.Click
         mon10.pause()
         Label10.Text = "Parado"
+    End Sub
+
+    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs)
+
+    End Sub
+
+    Private Sub Label3_Click(sender As System.Object, e As System.EventArgs) Handles Label3.Click
+
     End Sub
 End Class
