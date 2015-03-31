@@ -139,6 +139,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\NFeRetAutorizacao_PR\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\NFeRetRecepcao\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,10 +214,26 @@
       <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FN4RetornoCtl_NFeRetAutorizacao_NfeRetAutorizacao</CachedSettingsPropName>
     </WebReferenceUrl>
+    <WebReferenceUrl Include="https://nfe.fazenda.pr.gov.br/nfe/NFeRetAutorizacao3%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NFeRetAutorizacao_PR\</RelPath>
+      <UpdateFromURL>https://nfe.fazenda.pr.gov.br/nfe/NFeRetAutorizacao3%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FN4RetornoCtl_NFeRetAutorizacao_PR_NfeRetAutorizacao3</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
     <None Include="Web References\NFeRetAutorizacao\nferetautorizacao.wsdl" />
     <None Include="Web References\NFeRetAutorizacao\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\NFeRetAutorizacao_PR\NFeRetAutorizacao3.wsdl" />
+    <None Include="Web References\NFeRetAutorizacao_PR\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
