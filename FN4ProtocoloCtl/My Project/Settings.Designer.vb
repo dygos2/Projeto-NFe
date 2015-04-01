@@ -113,6 +113,16 @@ Namespace My
                 Return CType(Me("FN4ProtocoloCtl_NFe_ConsultaProtocoloBA_NfeConsulta"),String)
             End Get
         End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.WebServiceUrl),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("https://nfe.fazenda.pr.gov.br/nfe/NFeConsulta3")>  _
+        Public ReadOnly Property FN4ProtocoloCtl_NFe_ConsultaProtocoloPR_NfeConsulta3() As String
+            Get
+                Return CType(Me("FN4ProtocoloCtl_NFe_ConsultaProtocoloPR_NfeConsulta3"),String)
+            End Get
+        End Property
     End Class
 End Namespace
 

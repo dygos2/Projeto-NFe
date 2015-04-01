@@ -155,6 +155,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="Web References\NFe.ConsultaProtocoloPR\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
     <Compile Include="Web References\NFe.NfeConsultaProtocolo\Reference.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -202,6 +207,11 @@
     <None Include="Web References\NFe.ConsultaDPEC\SCEConsultaRFB.wsdl" />
     <None Include="Web References\NFe.ConsultaProtocoloBA\NfeConsulta.wsdl" />
     <None Include="Web References\NFe.ConsultaProtocoloBA\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\NFe.ConsultaProtocoloPR\NFeConsulta3.wsdl" />
+    <None Include="Web References\NFe.ConsultaProtocoloPR\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.vb</LastGenOutput>
     </None>
@@ -334,6 +344,17 @@
       </CachedDynamicPropName>
       <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>FN4EnvioCtl_br_gov_sp_fazenda_nfe_homologacao_NfeRetRecepcao</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://nfe.fazenda.pr.gov.br/nfe/NFeConsulta3%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\NFe.ConsultaProtocoloPR\</RelPath>
+      <UpdateFromURL>https://nfe.fazenda.pr.gov.br/nfe/NFeConsulta3%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>FN4ProtocoloCtl_NFe_ConsultaProtocoloPR_NfeConsulta3</CachedSettingsPropName>
     </WebReferenceUrl>
     <WebReferenceUrl Include="https://nfe.sefaz.ba.gov.br/webservices/NfeConsulta/NfeConsulta.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
