@@ -284,46 +284,45 @@ Public Class Contingencia
         Dim ufs_verificar As List(Of empresaVO) = empresaDAO.obterUfsContingencia()
         Try
             For Each ufs In ufs_verificar
-
                 'criar um consStatServ
                 Dim consStatServ As New XmlDocument
+                Dim amb_geral As Integer
+                Dim ufWs As String
+                ufWs = ""
+                Dim retorno As XmlElement
+                Dim cabecMsg As XmlDocument
+                Dim ws
+                Dim webservice
+
                 consStatServ.Load(System.AppDomain.CurrentDomain.BaseDirectory() & "XML\consStatServ.xml")
                 consStatServ.PreserveWhitespace = True
                 'acertar o ambiente
-                Dim amb_geral As Integer = Geral.Parametro("tp_amb")
+                amb_geral = Geral.Parametro("tp_amb")
 
-                If amb_geral = 2 Then '2 é produção no Fn4 -> mudar para 1 (Procucao na Sefaz)
-                    amb_geral = 1
-                Else
-                    amb_geral = 2
-                End If
                 'tipo do ambiente
-                consStatServ.SelectSingleNode("/*[local-name()='consStatServ' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='tpAmb' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText = amb_geral
+                consStatServ.SelectSingleNode("/*[local-name()='consStatServ' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='tpAmb' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText = amb_geral + 1
 
                 'UF
                 consStatServ.SelectSingleNode("/*[local-name()='consStatServ' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='cUF' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText = FN4Common.Helpers.UFs.ListaDeCodigos(ufs.uf)
 
                 'carrega o cabecalho da mensagem
-                Dim cabecMsg As XmlDocument = XmlHelper.obterUmCabecalho(consStatServ.SelectSingleNode("/*[local-name()='consStatServ' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/@versao").InnerText)
+                cabecMsg = XmlHelper.obterUmCabecalho(consStatServ.SelectSingleNode("/*[local-name()='consStatServ' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/@versao").InnerText)
 
-                Dim retorno As XmlElement
-                Dim ws As New FN4EnvioCtl.NFe.ConsultaServicos1.NfeStatusServico2()
-
-                Dim ufWs As String
-                ufWs = ""
                 If UfsCont.SVCAN.Contains(ufs.uf) Then
                     ufWs = "SVCAN"
                 ElseIf UfsCont.SVCRS.Contains(ufs.uf) Then
                     ufWs = "SVCRS"
                 End If
 
-                If amb_geral = 1 Then '1 é produção, colocar 0 para achar o WS
-                    amb_geral = 0
+                If ufWs = "SVCAN" Then
+                    ws = New FN4EnvioCtl.NFe.ConsultaServicos1.NfeStatusServico2()
                 Else
-                    amb_geral = 1
+                    ws = New FN4EnvioCtl.NFe.ConsultaServicosRS.NfeStatusServico2()
                 End If
 
-                Dim webservice = webserviceDAO.obterURLWebservice(
+                Log.registrarErro("Enviando dados para contingencia no servidor " & ufWs & " - " & amb_geral, "Contingencia")
+
+                webservice = webserviceDAO.obterURLWebservice(
                    ufWs,
                    "NfeStatusServico",
                    Geral.Parametro("VersaoProduto"),
@@ -333,7 +332,12 @@ Public Class Contingencia
 
                 ws.Url = webservice.url
                 ws.ClientCertificates.Add(certificado)
-                ws.nfeCabecMsgValue = New FN4EnvioCtl.NFe.ConsultaServicos1.nfeCabecMsg
+                If ufWs = "SVCAN" Then
+                    ws.nfeCabecMsgValue = New FN4EnvioCtl.NFe.ConsultaServicos1.nfeCabecMsg
+                Else
+                    ws.nfeCabecMsgValue = New FN4EnvioCtl.NFe.ConsultaServicosRS.nfeCabecMsg
+                End If
+
                 ws.nfeCabecMsgValue.cUF = FN4Common.Helpers.UFs.ListaDeCodigos(ufs.uf)
                 ws.nfeCabecMsgValue.versaoDados = cabecMsg.InnerText
 
@@ -395,33 +399,7 @@ Public Class Contingencia
         End Try
     End Sub
 
-    Public Sub gerarAnexo_old(ByVal nota As notaVO, ByVal protnfe As XmlDocument)
-        Try
-            Dim nfe As New XmlDocument
 
-            'carrega os arquivos
-
-            nfe.Load(nota.pastaDeTrabalho & nota.NFe_ide_nNF & "_assinado.xml")
-            nfe.PreserveWhitespace = True
-
-            protnfe.PreserveWhitespace = True
-
-            Dim proc As New XmlDocument
-            proc.Load(System.AppDomain.CurrentDomain.BaseDirectory & "XML\procNFe.xml")
-            proc.PreserveWhitespace = True
-
-            proc.ChildNodes(1).AppendChild(proc.ImportNode(nfe.ChildNodes(0), True))
-            If protnfe.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]") Is Nothing Then
-                proc.ChildNodes(1).AppendChild(proc.ImportNode(protnfe.SelectSingleNode("/retConsReciNFe/protNFe[1]"), True))
-            Else
-                proc.ChildNodes(1).AppendChild(proc.ImportNode(protnfe.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]"), True))
-            End If
-
-            proc.Save(nota.pastaDeTrabalho & nota.NFe_ide_nNF & "_procNFe.xml")
-        Catch ex As Exception
-            Log.registrarErro("Ocorreu um erro na geração do procNFe" & ex.Message & vbCrLf & ex.StackTrace, "RetornoService")
-        End Try
-    End Sub
 
 #Region "Acessorios"
 

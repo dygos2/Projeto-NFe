@@ -41,28 +41,6 @@ Public Class ProtocoloMonitor
 
     End Sub
 
-    Private Sub test_xml()
-
-
-        Dim envConsulta As New XmlDocument
-        Dim doc As New Xml.XmlDocument
-
-        Dim pathXmlConsultaCanonico = "C:\tmp\12385_retornoConsultaProt.xml"
-        ' Carrega o XML canonico de envio para esse webservice de consulta de situação
-
-        envConsulta.Load(pathXmlConsultaCanonico)
-
-        If Not (IsNothing(envConsulta.GetElementsByTagName("protNFe")(0))) Then
-            'consultando protocolo
-            Dim prot = envConsulta.GetElementsByTagName("protNFe")(0)
-            doc.LoadXml(prot.OuterXml)
-
-            Dim cStat = doc.GetElementsByTagName("cStat")(0).InnerXml
-
-        End If
-
-    End Sub
-
     Private Sub obterProtocolos()
 
         Dim notasSemProtocolo As List(Of notaVO) = notaDAO.obterNotasSemProtocolo
@@ -113,7 +91,9 @@ Public Class ProtocoloMonitor
                 Case "BA"
                     ws = New NFe.ConsultaProtocoloBA.NfeConsulta
                     ws.nfeCabecMsgValue = New NFe.ConsultaProtocoloBA.nfeCabecMsg
-
+                Case "PR"
+                    ws = New NFe.ConsultaProtocoloPR.NfeConsulta3
+                    ws.nfeCabecMsgValue = New NFe.ConsultaProtocoloPR.nfeCabecMsg
                 Case Else
                     ws = New NFe.NfeConsultaProtocolo.NfeConsulta2
                     ws.nfeCabecMsgValue = New NFe.NfeConsultaProtocolo.nfeCabecMsg
@@ -169,6 +149,8 @@ Public Class ProtocoloMonitor
             Try
                 Select Case empresa.uf.ToUpper
                     Case "BA"
+                        xmlRetorno = ws.nfeConsultaNF(envConsulta)
+                    Case "PR"
                         xmlRetorno = ws.nfeConsultaNF(envConsulta)
                     Case Else
                         xmlRetorno = ws.nfeConsultaNF2(envConsulta)

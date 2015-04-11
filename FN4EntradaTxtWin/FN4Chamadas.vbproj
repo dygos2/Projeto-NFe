@@ -210,6 +210,10 @@
       <Project>{591B3250-2C19-46C3-A90C-FB2651362129}</Project>
       <Name>FN4RetornoCtl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\FN4ZipXmlCtl\FN4ZipXmlCtl.vbproj">
+      <Project>{42CDA095-3409-4FC3-92D2-93E75161218F}</Project>
+      <Name>FN4ZipXmlCtl</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

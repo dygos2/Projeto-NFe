@@ -12,6 +12,7 @@ Public Class Form1
     Dim mon9 As FN4ProtocoloCtl.ProtocoloMonitor
     Dim mon10 As FN4EmailCtl.EnvioEmailMonitor
     Dim mon11 As FN4Contingencia.Contingencia
+    Dim mon12 As FN4ZipXmlCtl.ZipMonitor
 
     Dim last_id As Integer
 
@@ -159,5 +160,20 @@ Public Class Form1
 
     Private Sub Label3_Click(sender As System.Object, e As System.EventArgs) Handles Label3.Click
 
+    End Sub
+
+    Private Sub Button3_Click_1(sender As System.Object, e As System.EventArgs) Handles Button3.Click
+        mon12 = New FN4ZipXmlCtl.ZipMonitor
+        mon12.run()
+        Label2.Text = "Rodando"
+    End Sub
+
+    Private Sub Label2_Click(sender As System.Object, e As System.EventArgs) Handles Label2.Click
+
+    End Sub
+
+    Private Sub Button4_Click(sender As System.Object, e As System.EventArgs) Handles Button4.Click
+        mon12.pause()
+        Label2.Text = "Parado"
     End Sub
 End Class

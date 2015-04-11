@@ -3,6 +3,7 @@ Imports System.Xml
 Imports FN4Common.Helpers
 Imports FN4EnvioCtl
 Imports System.IO
+Imports FN4Contingencia
 
 Public Class RetornoMonitor
     Private WithEvents tm As New System.Timers.Timer
@@ -24,8 +25,6 @@ Public Class RetornoMonitor
         'parar o timer
         tm.Stop()
         Try
-            'obterretornos
-            'Log.registrarInfo("Obtendo Retorno das NFes", "RetornoService")
             obterRetornoDasNotas()
         Catch ex As Exception
             Log.registrarErro("Erro de execução: " & ex.Message & vbCrLf & ex.StackTrace, "RetornoService")
@@ -63,22 +62,37 @@ Public Class RetornoMonitor
 
                 Dim retorno As XmlElement
                 Dim ws
+
                 If empresa.versao_nfe = "2.00" Then
                     '2.0
                     ws = New NFeRetRecepcao.NfeRetRecepcao2
                 Else
                     '3.10
-                    ws = New NFeRetAutorizacao.NfeRetAutorizacao
+                    If empresa.uf = "PR" Then
+                        ws = New NFeRetAutorizacao_PR.NfeRetAutorizacao3
+                    Else
+                        ws = New NFeRetAutorizacao.NfeRetAutorizacao
+                    End If
                 End If
 
                 Dim ufWs As String
+                ufWs = ""
 
-                If UfsSemWebServices.SVAN.Contains(empresa.uf) Then
-                    ufWs = "SVAN"
-                ElseIf UfsSemWebServices.SVRS.Contains(empresa.uf) Then
-                    ufWs = "SVRS"
-                Else
-                    ufWs = empresa.uf
+                If nota.statusDaNota = 51 Then
+                    'se a nota foi emitida em contingencia, buscar o retorno na contingencia
+                    If UfsCont.SVCAN.Contains(empresa.uf) Then
+                        ufWs = "SVCAN"
+                    ElseIf UfsCont.SVCRS.Contains(empresa.uf) Then
+                        ufWs = "SVCRS"
+                    End If
+                Else 'é status de retorno normal (1)
+                    If UfsSemWebServices.SVAN.Contains(empresa.uf) Then
+                        ufWs = "SVAN"
+                    ElseIf UfsSemWebServices.SVRS.Contains(empresa.uf) Then
+                        ufWs = "SVRS"
+                    Else
+                        ufWs = empresa.uf
+                    End If
                 End If
 
                 Dim webservice
@@ -99,7 +113,11 @@ Public Class RetornoMonitor
                     ws.nfeCabecMsgValue = New NFeRetRecepcao.nfeCabecMsg
                 Else
                     '3.10
-                    ws.nfeCabecMsgValue = New NFeRetAutorizacao.nfeCabecMsg
+                    If empresa.uf = "PR" Then
+                        ws.nfeCabecMsgValue = New NFeRetAutorizacao_PR.nfeCabecMsg
+                    Else
+                        ws.nfeCabecMsgValue = New NFeRetAutorizacao.nfeCabecMsg
+                    End If
                 End If
 
                 ws.nfeCabecMsgValue.cUF = UFs.ListaDeCodigos(empresa.uf)
@@ -112,7 +130,11 @@ Public Class RetornoMonitor
                         retorno = ws.nfeRetRecepcao2(consReciNFe)
                     Else
                         '3.10
-                        retorno = ws.nfeRetAutorizacaoLote(consReciNFe)
+                        If empresa.uf = "PR" Then
+                            retorno = ws.nfeRetAutorizacao(consReciNFe)
+                        Else
+                            retorno = ws.nfeRetAutorizacaoLote(consReciNFe)
+                        End If
                     End If
 
                     Log.registrarInfo("Recebido o retorno " & vbCrLf & retorno.InnerXml, "RetornoService")
@@ -129,8 +151,6 @@ Public Class RetornoMonitor
                     'End If
                     Continue For
                 End Try
-
-                'tratar retorno utilizando função única no Common
 
                 Dim xmlRetorno As New XmlDocument
                 Dim stringWriter As New StringWriter()
@@ -161,12 +181,16 @@ Public Class RetornoMonitor
                             nota.impressaoSolicitada = 1
                         End If
 
+                        'se nota estiver em contingencia, marcar nota processada em cont.
+                        If nota.statusDaNota = 51 Then
+                            nota.impressoEmContingencia = 1
+                        End If
                         nota.statusDaNota = 21
 
                         nota.protNfe_nProt = xmlprotocolo.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='infProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='nProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
-                        'gerarAnexo(nota, xmlprotocolo, empresa)
-                        Geral.gerarAnexo(nota, xmlprotocolo, empresa)
+                        nota.NFe_infNFe_id = xmlprotocolo.SelectSingleNode("/*[local-name()='retConsReciNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='protNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='infProt' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]/*[local-name()='chNFe' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText
 
+                        Geral.gerarAnexo(nota, xmlprotocolo, empresa)
                         notaDAO.alterarNota(nota)
 
                         inserirHistorico(15, nota.retEnviNFe_xMotivo, nota)
@@ -187,15 +211,15 @@ Public Class RetornoMonitor
                             empresaDAO.alterarPFrest(empresa)
                         End If
 
-                        'requisição da shockmetais - se tiver no fn4config caminho de pasta configurado, então, copiar para lá o _protocolo
-                        If Geral.Parametro("copy_prot") <> "" Then
-                            Log.registrarInfo("salvando protocolo em " & Geral.Parametro("copy_prot") & empresa.cnpj & "_" & nota.NFe_ide_nNF & "_" & nota.serie & "_protocolo.xml", "RetornoService")
-                            Try
-                                xmlprotocolo.Save(Geral.Parametro("copy_prot") & empresa.cnpj & "_" & nota.NFe_ide_nNF & "_" & nota.serie & "_protocolo.xml")
-                            Catch ex As Exception
-                                Log.registrarInfo("Erro ao salvar o protocolo - " & ex.Message, "RetornoService")
-                            End Try
-                        End If
+                        'se tiver no fn4config caminho de pasta configurado, então, copiar para lá o _protocolo
+                        'If Geral.Parametro("copy_prot") <> "" Then
+                        'Log.registrarInfo("salvando protocolo em " & Geral.Parametro("copy_prot") & empresa.cnpj & "_" & nota.NFe_ide_nNF & "_" & nota.serie & "_protocolo.xml", "RetornoService")
+                        'Try
+                        'xmlprotocolo.Save(Geral.Parametro("copy_prot") & empresa.cnpj & "_" & nota.NFe_ide_nNF & "_" & nota.serie & "_protocolo.xml")
+                        'Catch ex As Exception
+                        'Log.registrarInfo("Erro ao salvar o protocolo - " & ex.Message, "RetornoService")
+                        'End Try
+                        'End If
 
                     ElseIf nota.retEnviNFe_cStat = "110" Then 'DENEGADA
 
@@ -223,15 +247,15 @@ Public Class RetornoMonitor
                             empresaDAO.alterarPFrest(empresa)
                         End If
 
-                        'requisição da shockmetais - se tiver no fn4config caminho de pasta configurado, então, copiar para lá o _protocolo
-                        If Geral.Parametro("copy_prot") <> "" Then
-                            Log.registrarInfo("salvando protocolo em " & Geral.Parametro("copy_prot") & empresa.cnpj & "_" & nota.NFe_ide_nNF & "_" & nota.serie & "_protocolo.xml", "RetornoService")
-                            Try
-                                xmlprotocolo.Save(Geral.Parametro("copy_prot") & empresa.cnpj & "_" & nota.NFe_ide_nNF & "_" & nota.serie & "_protocolo.xml")
-                            Catch ex As Exception
-                                Log.registrarInfo("Erro ao salvar o protocolo - " & ex.Message, "RetornoService")
-                            End Try
-                        End If
+                        'se tiver no fn4config caminho de pasta configurado, então, copiar para lá o _protocolo
+                        'If Geral.Parametro("copy_prot") <> "" Then
+                        'Log.registrarInfo("salvando protocolo em " & Geral.Parametro("copy_prot") & empresa.cnpj & "_" & nota.NFe_ide_nNF & "_" & nota.serie & "_protocolo.xml", "RetornoService")
+                        'Try
+                        'xmlprotocolo.Save(Geral.Parametro("copy_prot") & empresa.cnpj & "_" & nota.NFe_ide_nNF & "_" & nota.serie & "_protocolo.xml")
+                        'Catch ex As Exception
+                        'Log.registrarInfo("Erro ao salvar o protocolo - " & ex.Message, "RetornoService")
+                        'End Try
+                        'End If
 
                     ElseIf nota.retEnviNFe_cStat = "204" Then 'duplicidade
                         Dim tp_sys_user = configuracaoDAO.obterConfiguracao("tp_sys", empresa.idEmpresa)
