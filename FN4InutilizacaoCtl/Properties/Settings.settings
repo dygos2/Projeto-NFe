@@ -5,5 +5,8 @@
     <Setting Name="FN4InutilizacaoCtl_NFe_Inutilizacao_NfeInutilizacao2" Type="(Web Service URL)" Scope="Application">
       <Value Profile="(Default)">https://homologacao.nfe.fazenda.sp.gov.br/nfeweb/services/nfeinutilizacao2.asmx</Value>
     </Setting>
+    <Setting Name="FN4InutilizacaoCtl_NFe_InutilizacaoPR_NfeInutilizacao3" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://nfe.fazenda.pr.gov.br/nfe/NFeInutilizacao3</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
