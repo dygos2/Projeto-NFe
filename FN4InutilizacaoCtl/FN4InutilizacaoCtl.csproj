@@ -127,12 +127,6 @@
     <Content Include="XML\cabecMsg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="XML\cancNFe.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="XML\inutNFe.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="XML\MonitorConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

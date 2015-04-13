@@ -13,6 +13,7 @@ Public Class Form1
     Dim mon10 As FN4EmailCtl.EnvioEmailMonitor
     Dim mon11 As FN4Contingencia.Contingencia
     Dim mon12 As FN4ZipXmlCtl.ZipMonitor
+    Dim mon13 As FN4InutilizacaoCtl.InutilizacaoMonitor
 
     Dim last_id As Integer
 
@@ -176,4 +177,16 @@ Public Class Form1
         mon12.pause()
         Label2.Text = "Parado"
     End Sub
+
+    Private Sub Button22_Click(sender As System.Object, e As System.EventArgs) Handles Button22.Click
+        mon13 = New FN4InutilizacaoCtl.InutilizacaoMonitor
+        mon13.Run()
+        Label11.Text = "Rodando"
+    End Sub
+
+    Private Sub Button23_Click(sender As System.Object, e As System.EventArgs) Handles Button23.Click
+        mon13.Pause()
+        Label11.Text = "Parado"
+    End Sub
+
 End Class

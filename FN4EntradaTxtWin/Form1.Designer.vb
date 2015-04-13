@@ -64,6 +64,10 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.GroupBox11 = New System.Windows.Forms.GroupBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Button22 = New System.Windows.Forms.Button()
+        Me.Button23 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -74,6 +78,7 @@ Partial Class Form1
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox11.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -99,7 +104,7 @@ Partial Class Form1
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.Button1)
         Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Location = New System.Drawing.Point(21, 23)
+        Me.GroupBox1.Location = New System.Drawing.Point(22, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox1.TabIndex = 3
@@ -120,7 +125,7 @@ Partial Class Form1
         Me.GroupBox3.Controls.Add(Me.Label3)
         Me.GroupBox3.Controls.Add(Me.Button5)
         Me.GroupBox3.Controls.Add(Me.Button6)
-        Me.GroupBox3.Location = New System.Drawing.Point(21, 314)
+        Me.GroupBox3.Location = New System.Drawing.Point(22, 276)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox3.TabIndex = 5
@@ -159,7 +164,7 @@ Partial Class Form1
         Me.GroupBox4.Controls.Add(Me.Label4)
         Me.GroupBox4.Controls.Add(Me.Button7)
         Me.GroupBox4.Controls.Add(Me.Button8)
-        Me.GroupBox4.Location = New System.Drawing.Point(190, 23)
+        Me.GroupBox4.Location = New System.Drawing.Point(191, 12)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox4.TabIndex = 6
@@ -198,7 +203,7 @@ Partial Class Form1
         Me.GroupBox5.Controls.Add(Me.Label5)
         Me.GroupBox5.Controls.Add(Me.Button9)
         Me.GroupBox5.Controls.Add(Me.Button10)
-        Me.GroupBox5.Location = New System.Drawing.Point(368, 23)
+        Me.GroupBox5.Location = New System.Drawing.Point(369, 12)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox5.TabIndex = 7
@@ -237,7 +242,7 @@ Partial Class Form1
         Me.GroupBox6.Controls.Add(Me.Label6)
         Me.GroupBox6.Controls.Add(Me.Button11)
         Me.GroupBox6.Controls.Add(Me.Button12)
-        Me.GroupBox6.Location = New System.Drawing.Point(695, 23)
+        Me.GroupBox6.Location = New System.Drawing.Point(696, 12)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox6.TabIndex = 8
@@ -276,7 +281,7 @@ Partial Class Form1
         Me.GroupBox7.Controls.Add(Me.Label7)
         Me.GroupBox7.Controls.Add(Me.Button13)
         Me.GroupBox7.Controls.Add(Me.Button14)
-        Me.GroupBox7.Location = New System.Drawing.Point(853, 23)
+        Me.GroupBox7.Location = New System.Drawing.Point(854, 12)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox7.TabIndex = 9
@@ -315,7 +320,7 @@ Partial Class Form1
         Me.GroupBox8.Controls.Add(Me.Label8)
         Me.GroupBox8.Controls.Add(Me.Button15)
         Me.GroupBox8.Controls.Add(Me.Button16)
-        Me.GroupBox8.Location = New System.Drawing.Point(540, 23)
+        Me.GroupBox8.Location = New System.Drawing.Point(541, 12)
         Me.GroupBox8.Name = "GroupBox8"
         Me.GroupBox8.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox8.TabIndex = 10
@@ -355,7 +360,7 @@ Partial Class Form1
         Me.TextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TextBox1.Font = New System.Drawing.Font("Perpetua Titling MT", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox1.ForeColor = System.Drawing.Color.White
-        Me.TextBox1.Location = New System.Drawing.Point(368, 169)
+        Me.TextBox1.Location = New System.Drawing.Point(369, 158)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
@@ -364,7 +369,7 @@ Partial Class Form1
         '
         'Button17
         '
-        Me.Button17.Location = New System.Drawing.Point(368, 507)
+        Me.Button17.Location = New System.Drawing.Point(369, 496)
         Me.Button17.Name = "Button17"
         Me.Button17.Size = New System.Drawing.Size(75, 23)
         Me.Button17.TabIndex = 12
@@ -376,7 +381,7 @@ Partial Class Form1
         Me.GroupBox9.Controls.Add(Me.Label9)
         Me.GroupBox9.Controls.Add(Me.Button18)
         Me.GroupBox9.Controls.Add(Me.Button19)
-        Me.GroupBox9.Location = New System.Drawing.Point(21, 169)
+        Me.GroupBox9.Location = New System.Drawing.Point(22, 144)
         Me.GroupBox9.Name = "GroupBox9"
         Me.GroupBox9.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox9.TabIndex = 6
@@ -415,7 +420,7 @@ Partial Class Form1
         Me.GroupBox10.Controls.Add(Me.Label10)
         Me.GroupBox10.Controls.Add(Me.Button20)
         Me.GroupBox10.Controls.Add(Me.Button21)
-        Me.GroupBox10.Location = New System.Drawing.Point(190, 169)
+        Me.GroupBox10.Location = New System.Drawing.Point(191, 144)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox10.TabIndex = 13
@@ -454,7 +459,7 @@ Partial Class Form1
         Me.GroupBox2.Controls.Add(Me.Label2)
         Me.GroupBox2.Controls.Add(Me.Button3)
         Me.GroupBox2.Controls.Add(Me.Button4)
-        Me.GroupBox2.Location = New System.Drawing.Point(190, 314)
+        Me.GroupBox2.Location = New System.Drawing.Point(191, 276)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(125, 126)
         Me.GroupBox2.TabIndex = 14
@@ -488,11 +493,51 @@ Partial Class Form1
         Me.Button4.Text = "Stop"
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'GroupBox11
+        '
+        Me.GroupBox11.Controls.Add(Me.Label11)
+        Me.GroupBox11.Controls.Add(Me.Button22)
+        Me.GroupBox11.Controls.Add(Me.Button23)
+        Me.GroupBox11.Location = New System.Drawing.Point(22, 408)
+        Me.GroupBox11.Name = "GroupBox11"
+        Me.GroupBox11.Size = New System.Drawing.Size(125, 126)
+        Me.GroupBox11.TabIndex = 15
+        Me.GroupBox11.TabStop = False
+        Me.GroupBox11.Text = "Inutilização"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Location = New System.Drawing.Point(40, 94)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(41, 13)
+        Me.Label11.TabIndex = 4
+        Me.Label11.Text = "Parado"
+        '
+        'Button22
+        '
+        Me.Button22.Location = New System.Drawing.Point(23, 29)
+        Me.Button22.Name = "Button22"
+        Me.Button22.Size = New System.Drawing.Size(75, 23)
+        Me.Button22.TabIndex = 0
+        Me.Button22.Text = "Run"
+        Me.Button22.UseVisualStyleBackColor = True
+        '
+        'Button23
+        '
+        Me.Button23.Location = New System.Drawing.Point(23, 58)
+        Me.Button23.Name = "Button23"
+        Me.Button23.Size = New System.Drawing.Size(75, 23)
+        Me.Button23.TabIndex = 2
+        Me.Button23.Text = "Stop"
+        Me.Button23.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1022, 542)
+        Me.ClientSize = New System.Drawing.Size(1022, 653)
+        Me.Controls.Add(Me.GroupBox11)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox10)
         Me.Controls.Add(Me.GroupBox9)
@@ -527,6 +572,8 @@ Partial Class Form1
         Me.GroupBox10.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox11.ResumeLayout(False)
+        Me.GroupBox11.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -573,5 +620,9 @@ Partial Class Form1
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents GroupBox11 As System.Windows.Forms.GroupBox
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents Button22 As System.Windows.Forms.Button
+    Friend WithEvents Button23 As System.Windows.Forms.Button
 
 End Class

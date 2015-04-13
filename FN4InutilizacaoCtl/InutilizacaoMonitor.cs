@@ -161,20 +161,30 @@ namespace FN4InutilizacaoCtl
 
             Log.registrarInfo("idEmpresa: " + empresa.idEmpresa + " // CNPJ: " + empresa.cnpj + " // url: " + webservice.url + " // certificado: " + certificado.SerialNumber, Servico);
 
+            var wspr = new NFe.InutilizacaoPR.NfeInutilizacao3 { Url = webservice.url };
             var ws = new NFe.Inutilizacao.NfeInutilizacao2 {Url = webservice.url};
-            ws.ClientCertificates.Add(certificado);
 
-            ws.nfeCabecMsgValue = new NFe.Inutilizacao.nfeCabecMsg
-                                      {
-                                          versaoDados = cabecMsg.InnerText,
-                                          cUF = UFs.ListaDeCodigos[empresa.uf].ToString()
-                                      };
+            if(uf=="PR"){
+
+                    wspr.ClientCertificates.Add(certificado);
+                    wspr.nfeCabecMsgValue = new NFe.InutilizacaoPR.nfeCabecMsg
+                                              {
+                                                  versaoDados = cabecMsg.InnerText,
+                                                  cUF = UFs.ListaDeCodigos[empresa.uf].ToString()
+                                              };
+            } else{ 
+               
+                    ws.ClientCertificates.Add(certificado);
+                    ws.nfeCabecMsgValue = new NFe.Inutilizacao.nfeCabecMsg
+                                {
+                                    versaoDados = cabecMsg.InnerText,
+                                    cUF = UFs.ListaDeCodigos[empresa.uf].ToString()
+                                };
+            };
 
             Log.registrarInfo("Webservice montado para utilização", Servico);
 
             var pathXmlInutilizacao = Geral.get_Parametro("pastaDeProcessadas");
-
-            Log.registrarInfo("Obtido pastaDeProcessadas: " + pathXmlInutilizacao, Servico);
 
             pathXmlInutilizacao = Path.Combine(pathXmlInutilizacao, notasAInutilizar[0].NFe_emit_CNPJ);
             pathXmlInutilizacao = Path.Combine(pathXmlInutilizacao, "Inutilizadas");
@@ -193,41 +203,43 @@ namespace FN4InutilizacaoCtl
             Log.registrarInfo("pathXmlInutilizacaoSalvar montado: " + pathXmlInutilizacaoSalvar, Servico);
             inutNFe.Save(pathXmlInutilizacaoSalvar);
 
-            //comentado pois estava dando pau
-            //var retornoValidacao = TxtXmlHelper.ValidarXmlDeInutilizacao(pathXmlInutilizacaoSalvar);
-
-            //Log.registrarInfo("retornoValidacao montado: " + retornoValidacao, Servico);
-
-            //if (!string.IsNullOrEmpty(retornoValidacao))
-            //{
-            //   Log.registrarErro("Erro de validação do XML de inutilização: " + retornoValidacao, Servico);
-            //  ExcluirNotasAInutilizar(notasAInutilizar);
-            // return;
-            //}
-            
             Log.registrarInfo("Enviando inutilização das notas de " + notasAInutilizar[0].NFe_ide_nNF + " a " + notasAInutilizar[notasAInutilizar.Count - 1].NFe_ide_nNF + " da série " + notasAInutilizar[0].serie, Servico);
 
-            var retorno = ws.nfeInutilizacaoNF2(inutNFe);
+            var resultado = string.Empty;
+            var motivo = string.Empty;
 
-            var resultado = retorno.SelectSingleNode("/*[local-name()='infInut' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='cStat' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText;
-            var motivo = retorno.SelectSingleNode("/*[local-name()='infInut' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='xMotivo' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText;
-
-            Log.registrarInfo("Resultado: " + resultado + " // motivo: " + motivo, Servico);
-
+     
             pathXmlInutilizacaoSalvar = Path.Combine(pathXmlInutilizacao,
                                                string.Format("Retorno{0}_{1}_{2}_{3}.xml", empresa.cnpj, notasAInutilizar[0].serie, notasAInutilizar[0].NFe_ide_nNF,
                                                              notasAInutilizar[notasAInutilizar.Count - 1].NFe_ide_nNF));
 
-            //Log.registrarInfo("pathXmlInutilizacaoSalvar montado: " + pathXmlInutilizacaoSalvar, Servico);
+            Log.registrarInfo("pathXmlInutilizacaoSalvar montado: " + pathXmlInutilizacaoSalvar, Servico);
 
             var xmlRetorno = new XmlDocument();
             var stringWriter = new StringWriter();
             var xmlTextWriter = new XmlTextWriter(stringWriter);
 
-            retorno.WriteTo(xmlTextWriter);
+            if (uf == "PR")
+            {
+                var ret = wspr.nfeInutilizacaoNF(inutNFe);
+                resultado = ret.SelectSingleNode("/*[local-name()='infInut' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='cStat' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText;
+                motivo = ret.SelectSingleNode("/*[local-name()='infInut' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='xMotivo' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText;
+                ret.WriteTo(xmlTextWriter);
+            }
+            else
+            {
+                var ret = ws.nfeInutilizacaoNF2(inutNFe);
+                resultado = ret.SelectSingleNode("/*[local-name()='infInut' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='cStat' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText;
+                motivo = ret.SelectSingleNode("/*[local-name()='infInut' and namespace-uri()='http://www.portalfiscal.inf.br/nfe']/*[local-name()='xMotivo' and namespace-uri()='http://www.portalfiscal.inf.br/nfe'][1]").InnerText;
+                ret.WriteTo(xmlTextWriter);
+            };
+
+            Log.registrarInfo("Resultado: " + resultado + " // motivo: " + motivo, Servico);
+
             xmlRetorno.LoadXml(stringWriter.ToString());
             xmlRetorno.Save(pathXmlInutilizacaoSalvar);
             ws.Dispose();
+            wspr.Dispose();
 
             if (resultado.Equals("102")) // sucesso na inutilização
             {

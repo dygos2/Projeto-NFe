@@ -671,7 +671,6 @@ Public Class TxtXmlHelper
         Dim xsettings As New XmlReaderSettings
 
         xsettings.ValidationType = ValidationType.Schema
-
         xsettings.Schemas.Add(xschema)
 
         'atribui o evento de validação
