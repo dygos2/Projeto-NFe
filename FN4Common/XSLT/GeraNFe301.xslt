@@ -535,12 +535,16 @@
                     <tpIntermedio>
                       <xsl:value-of select="tpIntermedio"/>
                     </tpIntermedio>
-                    <CNPJ>
-                      <xsl:value-of select="CNPJ"/>
-                    </CNPJ>
+					<xsl:if test="CNPJ != ''">
+	                    <CNPJ>
+	                      <xsl:value-of select="CNPJ"/>
+	                    </CNPJ>
+					</xsl:if>
+				<xsl:if test="UFTerceiro != ''">
                     <UFTerceiro>
                       <xsl:value-of select="UFTerceiro"/>
                     </UFTerceiro>
+				</xsl:if>
                     <cExportador>
                       <xsl:value-of select="cExportador"/>
                     </cExportador>
@@ -557,8 +561,7 @@
                           <cFabricante>
                             <xsl:value-of select="cFabricante"/>
                           </cFabricante>
-
-                          <xsl:if test="vDescDI != ''">
+                          <xsl:if test="vDescDI != '' and number(vDescDI) != 0">
                             <vDescDI>
                               <xsl:value-of select="vDescDI" />
                             </vDescDI>
