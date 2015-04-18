@@ -218,27 +218,23 @@
           </xsl:if>
         </emit>
         <dest>
-          <xsl:if test="NFe/infNFe/dest/CNPJ != '' and NFe/infNFe/dest/CNPJ != '99999999999999'">
-            <CNPJ>
-              <xsl:value-of select="NFe/infNFe/dest/CNPJ"/>
-            </CNPJ>
-          </xsl:if>
-          <xsl:if test="NFe/infNFe/dest/CPF != '' and  NFe/infNFe/dest/CPF != 0">
-            <CPF>
-              <xsl:value-of select="translate(NFe/infNFe/dest/CPF,'-','')"/>
-            </CPF>
-          </xsl:if>
-          <xsl:if test="NFe/infNFe/dest/CPF = '' and NFe/infNFe/dest/CNPJ = '' ">
-            <CNPJ></CNPJ>
-          </xsl:if>
-          <xsl:if test="NFe/infNFe/dest/CNPJ = '99999999999999' ">
-            <CNPJ></CNPJ>
-          </xsl:if>
-          <xsl:if test="NFe/infNFe/dest/idEstrangeiro != ''">
-            <idEstrangeiro>
-              <xsl:value-of select="NFe/infNFe/dest/idEstrangeiro"/>
-            </idEstrangeiro>
-          </xsl:if>
+            <xsl:choose>
+              <xsl:when test="NFe/infNFe/dest/CNPJ != ''">
+					<CNPJ>
+					  <xsl:value-of select="NFe/infNFe/dest/CNPJ"/>
+					</CNPJ>
+			  </xsl:when>
+              <xsl:when test="NFe/infNFe/dest/CPF != '' and  NFe/infNFe/dest/CPF != 0">
+					<CPF>
+					  <xsl:value-of select="translate(NFe/infNFe/dest/CPF,'-','')"/>
+					</CPF>
+			  </xsl:when>
+              <xsl:when test="NFe/infNFe/dest/idEstrangeiro != ''">
+					<idEstrangeiro>
+					  <xsl:value-of select="NFe/infNFe/dest/idEstrangeiro"/>
+					</idEstrangeiro>
+			  </xsl:when>
+            </xsl:choose>
           <xNome>
             <xsl:value-of select="NFe/infNFe/dest/xNome"></xsl:value-of>
           </xNome>
@@ -442,12 +438,12 @@
               </qCom>
               <xsl:if test="not(prod/vUnCom)">
                 <vUnCom>
-                  <xsl:value-of select="translate(format-number(prod/vProd div prod/qCom,'#0.000000'),',','.')"/>
+                  <xsl:value-of select="translate(format-number(prod/vProd div prod/qCom,'#0.0000000000'),',','.')"/>
                 </vUnCom>
               </xsl:if>
               <xsl:if test="prod/vUnCom">
                 <vUnCom>
-                  <xsl:value-of select="format-number(prod/vUnCom,'#0.000000')"/>
+                  <xsl:value-of select="format-number(prod/vUnCom,'#0.0000000000')"/>
                 </vUnCom>
               </xsl:if>
               <vProd>
@@ -479,7 +475,7 @@
               </xsl:if>
 
               <vUnTrib>
-                <xsl:value-of select="translate(format-number(prod/vUnTrib,'#0.000000'),',','.')"/>
+                <xsl:value-of select="translate(format-number(prod/vUnTrib,'#0.0000000000'),',','.')"/>
               </vUnTrib>
 
               <xsl:if test="prod/vFrete != 0 and prod/vFrete != '' ">
@@ -535,16 +531,16 @@
                     <tpIntermedio>
                       <xsl:value-of select="tpIntermedio"/>
                     </tpIntermedio>
-					<xsl:if test="CNPJ != ''">
+			<xsl:if test="CNPJ != ''">
 	                    <CNPJ>
 	                      <xsl:value-of select="CNPJ"/>
 	                    </CNPJ>
-					</xsl:if>
-				<xsl:if test="UFTerceiro != ''">
+			</xsl:if>
+<xsl:if test="UFTerceiro != ''">
                     <UFTerceiro>
                       <xsl:value-of select="UFTerceiro"/>
                     </UFTerceiro>
-				</xsl:if>
+</xsl:if>
                     <cExportador>
                       <xsl:value-of select="cExportador"/>
                     </cExportador>
