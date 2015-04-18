@@ -322,24 +322,38 @@ Public Class Contingencia
 
                 Log.registrarErro("Enviando dados para contingencia no servidor " & ufWs & " - " & amb_geral, "Contingencia")
 
-                webservice = webserviceDAO.obterURLWebservice(
-                   ufWs,
-                   "NfeStatusServico",
-                   Geral.Parametro("VersaoProduto"),
-                   amb_geral)
+                Try
+                    webservice = webserviceDAO.obterURLWebservice(
+                       ufWs,
+                       "NfeStatusServico",
+                       Geral.Parametro("VersaoProduto"),
+                       amb_geral)
+                Catch ex As Exception
+                    Log.registrarErro("Erro ao solicitar o WS de contingencia", "Contingencia")
+                End Try
 
-                Dim certificado = Geral.ObterCertificadoPorEmpresa(ufs.idEmpresa)
+                Dim certificado
+                Try
+                    certificado = Geral.ObterCertificadoPorEmpresa(ufs.idEmpresa)
+                Catch ex As Exception
+                    Log.registrarErro("Erro ao solicitar o certificado da empresa", "Contingencia")
+                End Try
 
-                ws.Url = webservice.url
-                ws.ClientCertificates.Add(certificado)
-                If ufWs = "SVCAN" Then
-                    ws.nfeCabecMsgValue = New FN4EnvioCtl.NFe.ConsultaServicos1.nfeCabecMsg
-                Else
-                    ws.nfeCabecMsgValue = New FN4EnvioCtl.NFe.ConsultaServicosRS.nfeCabecMsg
-                End If
+                Try
+                    ws.Url = webservice.url
+                    ws.ClientCertificates.Add(certificado)
+                    If ufWs = "SVCAN" Then
+                        ws.nfeCabecMsgValue = New FN4EnvioCtl.NFe.ConsultaServicos1.nfeCabecMsg
+                    Else
+                        ws.nfeCabecMsgValue = New FN4EnvioCtl.NFe.ConsultaServicosRS.nfeCabecMsg
+                    End If
 
-                ws.nfeCabecMsgValue.cUF = FN4Common.Helpers.UFs.ListaDeCodigos(ufs.uf)
-                ws.nfeCabecMsgValue.versaoDados = cabecMsg.InnerText
+                    ws.nfeCabecMsgValue.cUF = FN4Common.Helpers.UFs.ListaDeCodigos(ufs.uf)
+                    ws.nfeCabecMsgValue.versaoDados = cabecMsg.InnerText
+                Catch ex As Exception
+                    Log.registrarInfo("Erro ao montar o Webservice de envio", "Contingencia")
+                End Try
+                
 
                 Try
                     Log.registrarInfo("Buscando status da contingencia, estado  " & ufs.uf & " com problemas de conexao - URL " & ws.Url, "Contingencia")
