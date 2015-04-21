@@ -99,8 +99,6 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FN4SincroniaSvc", "FN4Sincr
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NFePrinter", "NFe Printer\last\NFe Printer\NFePrinter\NFePrinter\NFePrinter.vbproj", "{452AF3FE-C139-4EE1-AC86-8DE5C74013D4}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup_Nfeprinter", "Setup_NFeprinter\Setup_Nfeprinter\Setup_Nfeprinter.vdproj", "{29560061-928D-4A2E-AD1A-D9143942D577}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "retornoItau", "FN4ProcessaRotinasOnline\retornoItau\retornoItau.vbproj", "{E282FC3B-2AE1-490D-B7CD-5773448B1939}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "testes_nfe4web", "testes_nfe4web\testes_nfe4web.vbproj", "{64AE5BA1-9786-428C-8FBA-BE3A7E440F96}"
@@ -749,12 +747,6 @@ Global
 		{452AF3FE-C139-4EE1-AC86-8DE5C74013D4}.Release|Mixed Platforms.Build.0 = Release|x86
 		{452AF3FE-C139-4EE1-AC86-8DE5C74013D4}.Release|x86.ActiveCfg = Release|x86
 		{452AF3FE-C139-4EE1-AC86-8DE5C74013D4}.Release|x86.Build.0 = Release|x86
-		{29560061-928D-4A2E-AD1A-D9143942D577}.Debug|Any CPU.ActiveCfg = Debug
-		{29560061-928D-4A2E-AD1A-D9143942D577}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{29560061-928D-4A2E-AD1A-D9143942D577}.Debug|x86.ActiveCfg = Debug
-		{29560061-928D-4A2E-AD1A-D9143942D577}.Release|Any CPU.ActiveCfg = Release
-		{29560061-928D-4A2E-AD1A-D9143942D577}.Release|Mixed Platforms.ActiveCfg = Release
-		{29560061-928D-4A2E-AD1A-D9143942D577}.Release|x86.ActiveCfg = Release
 		{E282FC3B-2AE1-490D-B7CD-5773448B1939}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E282FC3B-2AE1-490D-B7CD-5773448B1939}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E282FC3B-2AE1-490D-B7CD-5773448B1939}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
