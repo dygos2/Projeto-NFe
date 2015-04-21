@@ -38,6 +38,28 @@
         <result property="postback" column="postback" />
       </resultMap>
 
+      <resultMap id="notasparainutilizar" class="nota">
+        <result property="NFe_ide_nNF" column = "NFe_ide_nNF"/>
+        <result property="serie" column="serie" />
+        <result property="pastaDeTrabalho" column = "pastaDeTrabalho"/>
+        <result property="statusDaNota" column = "statusDaNota"/>
+        <result property="tentativasDeInclusao" column = "tentativasDeInclusao"/>
+        <result property="NFe_ide_dEmi" column = "NFe_ide_dEmi"/>
+        <result property="NFe_infNFe_id" column = "NFe_infNFe_id"/>
+        <result property="NFe_emit_CNPJ" column = "NFe_emit_CNPJ"/>
+        <result property="NFe_emit_CPF" column = "NFe_emit_CPF"/>
+        <result property="NFe_emit_xNome" column = "NFe_emit_xNome"/>
+        <result property="NFe_dest_CNPJ" column = "NFe_dest_CNPJ"/>
+        <result property="NFe_dest_CPF" column = "NFe_dest_CPF"/>
+        <result property="NFe_dest_xNome" column = "NFe_dest_xNome"/>
+        <result property="NFe_dest_UF" column = "NFe_dest_UF"/>
+        <result property="retEnviNFe_infRec_nRec" column = "retEnviNFe_infRec_nRec"/>
+        <result property="retEnviNFe_cStat" column = "retEnviNFe_cStat"/>
+        <result property="retEnviNFe_xMotivo" column = "retEnviNFe_xMotivo"/>
+        <result property="protNfe_nProt" column = "protNfe_nProt" />
+        <result property="emailDestinatario" column = "emailDest" />
+      </resultMap>
+
       <resultMap id="notaCompleta" class="nota">
         <result property="NFe_ide_nNF" column = "NFe_ide_nNF"/>
         <result property="serie" column="serie" />
@@ -156,7 +178,7 @@
         and NFe_emit_CNPJ = #cnpj#;
       </update>
 
-      <select id="obterNotasASeremInutilizadas" resultMap="notaCompleta">
+      <select id="obterNotasASeremInutilizadas" resultMap="notasparainutilizar">
         select * from notas
         where statusDaNota = 61;
       </select>
