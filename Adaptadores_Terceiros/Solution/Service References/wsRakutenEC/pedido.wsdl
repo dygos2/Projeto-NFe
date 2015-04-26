@@ -1,0 +1,1106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.ikeda.com.br" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.ikeda.com.br" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.ikeda.com.br">
+      <s:element name="ListarNovos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LojaCodigo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StatusPedido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="StatusInternoPedido" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarNovosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarNovosResult" type="tns:clsRetornoOfclsPedido" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="clsRetornoOfclsPedido">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Acao" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Data" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Codigo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Descricao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Lista" type="tns:ArrayOfClsPedido" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfClsPedido">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="clsPedido" nillable="true" type="tns:clsPedido" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="clsPedido">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Banco" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cheque" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Agencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Conta" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContaDigito" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="EntregaAgendada" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="DataEntrega" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PeriodoEntrega" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorAgendamento" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="LojaCodigo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PedidoCodigo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PedidoCodigoCliente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PedidoCodigoInterno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParceiroCodigo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AfiliadoCodigo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CestaMensagem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sedex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SedexData" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Observacao" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MotivoCancel" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Desconto" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pessoa" type="tns:ContaTipo" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sobrenome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RazaoSocial" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CPF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CNPJ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RG" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IE" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DataNascimento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NomeDestinatario" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoLogradouro" type="tns:EndTipoLogradouro" />
+          <s:element minOccurs="0" maxOccurs="1" name="Logradouro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Complemento" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CEP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Bairro" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cidade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Estado" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDD1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefone1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ramal1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDD2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefone2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ramal2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDD3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefone3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ramal3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDDCelular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Celular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DDDFax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Referencia" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NumeroNF" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerieNF" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pagamento" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Operadora" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FormaPgto" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OperadoraInterno" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FormaPgtoInterno" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorSubTotal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorTotal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorParcela" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorJuros" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorDescontoAVista" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorPresente" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorGarantiaEstendida" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtdeParcelas" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Score" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PedidoStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PedidoStatusInterno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StatusClearSale" type="tns:PedidoStatusClearSale" />
+          <s:element minOccurs="1" maxOccurs="1" name="AnaliseRisco" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Data" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorVale" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorRestante" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ListaCodigo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EnderecoLista" type="tns:SimNao" />
+          <s:element minOccurs="1" maxOccurs="1" name="FreteGratis" type="tns:SimNao" />
+          <s:element minOccurs="1" maxOccurs="1" name="FreteGratisRecusado" type="tns:FreteGratisRecusado" />
+          <s:element minOccurs="1" maxOccurs="1" name="TipoFrete" type="tns:FreteTipo" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorFrete" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValorFreteCobrado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PesoTotal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PesoTotalCubado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PesoTotalCobrado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PesoTotalCubadoCobrado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ServicoEntregaCodigo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrazoEntrega" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CPFNP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Texto1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Texto2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Texto3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Texto4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Texto5" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Numero1" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Numero2" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Numero3" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Numero4" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Numero5" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="SemCadastro" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="PedidoCupomProximaCompra" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PedidoCupomValidade" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PedidoRecuperado" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Itens" type="tns:ArrayOfItem" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cartao" type="tns:clsCartao" />
+          <s:element minOccurs="1" maxOccurs="1" name="TrazerTrocoPara" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="CNPJNP" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Origem" type="tns:OrigemPedido" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ContaTipo">
+        <s:restriction base="s:string">
+          <s:enumeration value="Nenhum" />
+          <s:enumeration value="PessoaFísica" />
+          <s:enumeration value="PessoaJurídica" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="EndTipoLogradouro">
+        <s:restriction base="s:string">
+          <s:enumeration value="Nenhum" />
+          <s:enumeration value="Rua" />
+          <s:enumeration value="Avenida" />
+          <s:enumeration value="Praça" />
+          <s:enumeration value="Outros" />
+          <s:enumeration value="Aeroporto" />
+          <s:enumeration value="Alameda" />
+          <s:enumeration value="Área" />
+          <s:enumeration value="Beco" />
+          <s:enumeration value="Bloco" />
+          <s:enumeration value="Calçada" />
+          <s:enumeration value="Campo" />
+          <s:enumeration value="Chácara" />
+          <s:enumeration value="Colônia" />
+          <s:enumeration value="Condomínio" />
+          <s:enumeration value="Conjunto" />
+          <s:enumeration value="Distrito" />
+          <s:enumeration value="Escadaria" />
+          <s:enumeration value="Esplanada" />
+          <s:enumeration value="Estação" />
+          <s:enumeration value="Estância" />
+          <s:enumeration value="Estrada" />
+          <s:enumeration value="Favela" />
+          <s:enumeration value="Fazenda" />
+          <s:enumeration value="Feira" />
+          <s:enumeration value="Hospital" />
+          <s:enumeration value="Hotel" />
+          <s:enumeration value="Jardim" />
+          <s:enumeration value="Ladeira" />
+          <s:enumeration value="Lago" />
+          <s:enumeration value="Lagoa" />
+          <s:enumeration value="Largo" />
+          <s:enumeration value="Linha" />
+          <s:enumeration value="Loteamento" />
+          <s:enumeration value="Morro" />
+          <s:enumeration value="Nucleo" />
+          <s:enumeration value="Parque" />
+          <s:enumeration value="Passarela" />
+          <s:enumeration value="Pátio" />
+          <s:enumeration value="Porto" />
+          <s:enumeration value="Pousada" />
+          <s:enumeration value="Povoado" />
+          <s:enumeration value="Praia" />
+          <s:enumeration value="Quadra" />
+          <s:enumeration value="Recanto" />
+          <s:enumeration value="Residencial" />
+          <s:enumeration value="Rodovia" />
+          <s:enumeration value="Setor" />
+          <s:enumeration value="Sítio" />
+          <s:enumeration value="Travessa" />
+          <s:enumeration value="Techo" />
+          <s:enumeration value="Trevo" />
+          <s:enumeration value="Vale" />
+          <s:enumeration value="Vereda" />
+          <s:enumeration value="Via" />
+          <s:enumeration value="Viaduto" />
+          <s:enumeration value="Viela" />
+          <s:enumeration value="Vila" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="PedidoStatusClearSale">
+        <s:restriction base="s:string">
+          <s:enumeration value="Nenhum" />
+          <s:enumeration value="Aprovado" />
+          <s:enumeration value="Suspenso" />
+          <s:enumeration value="Fraude" />
+          <s:enumeration value="Aprovação_Automática" />
+          <s:enumeration value="Suspensão_Automática" />
+          <s:enumeration value="Fraude_Confirmada" />
+          <s:enumeration value="Cancelado" />
+          <s:enumeration value="Reprovado" />
+          <s:enumeration value="Cancelado_Politica" />
+          <s:enumeration value="APA" />
+          <s:enumeration value="APM" />
+          <s:enumeration value="RPM" />
+          <s:enumeration value="AMA" />
+          <s:enumeration value="ERR" />
+          <s:enumeration value="NVO" />
+          <s:enumeration value="SUS" />
+          <s:enumeration value="CAN" />
+          <s:enumeration value="FRD" />
+          <s:enumeration value="RPA" />
+          <s:enumeration value="PER" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="SimNao">
+        <s:restriction base="s:string">
+          <s:enumeration value="Nenhum" />
+          <s:enumeration value="Sim" />
+          <s:enumeration value="Não" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="FreteGratisRecusado">
+        <s:restriction base="s:string">
+          <s:enumeration value="Nao" />
+          <s:enumeration value="Sim" />
+          <s:enumeration value="Parcial" />
+          <s:enumeration value="SimPromoServicoCesta" />
+          <s:enumeration value="SimPromoServicoItem" />
+          <s:enumeration value="SimPromoOperadora" />
+          <s:enumeration value="NaoPromoServicoCesta" />
+          <s:enumeration value="NaoPromoServicoItem" />
+          <s:enumeration value="NaoPromoOperadora" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="FreteTipo">
+        <s:restriction base="s:string">
+          <s:enumeration value="Nenhum" />
+          <s:enumeration value="Cesta" />
+          <s:enumeration value="Item" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Item" nillable="true" type="tns:Item" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Item">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ItemCodigo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemCodigoComprado" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemStatus" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemStatusInterno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemQtde" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemValor" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemValorFinal" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemValorPresente" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemValorGarantiaEstendida" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemAnosGarantiaEstendida" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCertificadoGarantiaEstendida" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnqCodInterno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemTipo" type="tns:ItemTipo" />
+          <s:element minOccurs="1" maxOccurs="1" name="Presente" type="tns:SimNao" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cupom" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemNome" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemMensagem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemMsgPresente" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemPartNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CodigoInterno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FreteGratis" type="tns:SimNao" />
+          <s:element minOccurs="1" maxOccurs="1" name="FreteGratisRecusado" type="tns:FreteGratisRecusado" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemValorFrete" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemValorFreteCobrado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ServicoEntregaCodigo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemPrazoEntrega" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemDataEntrega" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sedex" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemPeso" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemPesoCubado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemPesoCobrado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemPesoCubadoCobrado" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ListaCodigo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListaCodigoInterno" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ListaTipoEntrega" type="tns:ListaTipoEntrega" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemTroca" type="tns:SimNao" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemTexto1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemTexto2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemTexto3" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemNumero1" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemNumero2" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemNumero3" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PersonalizacaoExtra" type="tns:SimNao" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonalizacaoTexto" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCodigoInterno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeloQuantidadeMinimaProduto1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeloQuantidadeMinimaProduto2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SeloQuantidadeMinimaProduto3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="ItemTipo">
+        <s:restriction base="s:string">
+          <s:enumeration value="Nenhum" />
+          <s:enumeration value="Produto" />
+          <s:enumeration value="Brinde" />
+          <s:enumeration value="ProdutoGratis" />
+          <s:enumeration value="ValePresente" />
+          <s:enumeration value="Personalizado" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="ListaTipoEntrega">
+        <s:restriction base="s:string">
+          <s:enumeration value="Nenhum" />
+          <s:enumeration value="CadaCompra" />
+          <s:enumeration value="Semanalmente" />
+          <s:enumeration value="Unica" />
+          <s:enumeration value="Creditos" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="clsCartao">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Numero" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Seguranca" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Titular" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValidadeMes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValidadeAno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarTID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarOperadoraRetornoCodigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarOperadoraRetornoMensagem" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarAutorizacaoCodigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarCPFCNPJ" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="OrigemPedido">
+        <s:restriction base="s:string">
+          <s:enumeration value="Todas" />
+          <s:enumeration value="Loja" />
+          <s:enumeration value="Televendas" />
+          <s:enumeration value="SuperMall" />
+          <s:enumeration value="Mobile" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="clsSoapHeader" type="tns:clsSoapHeader" />
+      <s:complexType name="clsSoapHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="A1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="A2" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="Listar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LojaCodigo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPedido" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="StatusPedido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="StatusInternoPedido" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ListarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ListarResult" type="tns:clsRetornoOfclsPedido" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Validar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LojaCodigo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPedido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoInternoPedido" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidarResult" type="tns:clsRetornoOfclsPedido" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarComStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LojaCodigo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPedido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoInternoPedido" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="StatusPedido" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidarComStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ValidarComStatusResult" type="tns:clsRetornoOfclsPedido" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarStatusMobile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LojaCodigo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPedido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoInternoPedido" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PedidoStatus" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="StatusInternoPedido" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjetoSedex" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NotaFiscal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Serie" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmailRetiraLoja" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarStatusMobileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AlterarStatusMobileResult" type="tns:clsRetornoOfclsPedido" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LojaCodigo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPedido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoInternoPedido" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="PedidoStatus" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="StatusInternoPedido" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ObjetoSedex" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="NotaFiscal" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Serie" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AlterarStatusResult" type="tns:clsRetornoOfclsPedido" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarStatusItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LojaCodigo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="CodigoPedido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="CodigoInternoPedido" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ItemPedidoCodigo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ItemPedidoCodigoInterno" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ItemPedidoStatus" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ItemPedidoStatusInterno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AlterarStatusItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AlterarStatusItemResult" type="tns:clsRetornoOfclsPedido" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="clsRetornoOfclsPedido" nillable="true" type="tns:clsRetornoOfclsPedido" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ListarNovosSoapIn">
+    <wsdl:part name="parameters" element="tns:ListarNovos" />
+  </wsdl:message>
+  <wsdl:message name="ListarNovosSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarNovosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarNovosclsSoapHeader">
+    <wsdl:part name="clsSoapHeader" element="tns:clsSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListarSoapIn">
+    <wsdl:part name="parameters" element="tns:Listar" />
+  </wsdl:message>
+  <wsdl:message name="ListarSoapOut">
+    <wsdl:part name="parameters" element="tns:ListarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ListarclsSoapHeader">
+    <wsdl:part name="clsSoapHeader" element="tns:clsSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="ValidarSoapIn">
+    <wsdl:part name="parameters" element="tns:Validar" />
+  </wsdl:message>
+  <wsdl:message name="ValidarSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidarclsSoapHeader">
+    <wsdl:part name="clsSoapHeader" element="tns:clsSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="ValidarComStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidarComStatus" />
+  </wsdl:message>
+  <wsdl:message name="ValidarComStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidarComStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidarComStatusclsSoapHeader">
+    <wsdl:part name="clsSoapHeader" element="tns:clsSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusMobileSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarStatusMobile" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusMobileSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarStatusMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusMobileclsSoapHeader">
+    <wsdl:part name="clsSoapHeader" element="tns:clsSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarStatus" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusclsSoapHeader">
+    <wsdl:part name="clsSoapHeader" element="tns:clsSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusItemSoapIn">
+    <wsdl:part name="parameters" element="tns:AlterarStatusItem" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusItemSoapOut">
+    <wsdl:part name="parameters" element="tns:AlterarStatusItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusItemclsSoapHeader">
+    <wsdl:part name="clsSoapHeader" element="tns:clsSoapHeader" />
+  </wsdl:message>
+  <wsdl:message name="ListarNovosHttpGetIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="StatusPedido" type="s:string" />
+    <wsdl:part name="StatusInternoPedido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarNovosHttpGetOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="ListarHttpGetIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="StatusPedido" type="s:string" />
+    <wsdl:part name="StatusInternoPedido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarHttpGetOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="ValidarHttpGetIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="CodigoInternoPedido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidarHttpGetOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="ValidarComStatusHttpGetIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="CodigoInternoPedido" type="s:string" />
+    <wsdl:part name="StatusPedido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidarComStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusMobileHttpGetIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="CodigoInternoPedido" type="s:string" />
+    <wsdl:part name="PedidoStatus" type="s:string" />
+    <wsdl:part name="StatusInternoPedido" type="s:string" />
+    <wsdl:part name="ObjetoSedex" type="s:string" />
+    <wsdl:part name="NotaFiscal" type="s:string" />
+    <wsdl:part name="Serie" type="s:string" />
+    <wsdl:part name="EmailRetiraLoja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusMobileHttpGetOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusHttpGetIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="CodigoInternoPedido" type="s:string" />
+    <wsdl:part name="PedidoStatus" type="s:string" />
+    <wsdl:part name="StatusInternoPedido" type="s:string" />
+    <wsdl:part name="ObjetoSedex" type="s:string" />
+    <wsdl:part name="NotaFiscal" type="s:string" />
+    <wsdl:part name="Serie" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusHttpGetOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusItemHttpGetIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="CodigoInternoPedido" type="s:string" />
+    <wsdl:part name="ItemPedidoCodigo" type="s:string" />
+    <wsdl:part name="ItemPedidoCodigoInterno" type="s:string" />
+    <wsdl:part name="ItemPedidoStatus" type="s:string" />
+    <wsdl:part name="ItemPedidoStatusInterno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusItemHttpGetOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="ListarNovosHttpPostIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="StatusPedido" type="s:string" />
+    <wsdl:part name="StatusInternoPedido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarNovosHttpPostOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="ListarHttpPostIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="StatusPedido" type="s:string" />
+    <wsdl:part name="StatusInternoPedido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ListarHttpPostOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="ValidarHttpPostIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="CodigoInternoPedido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidarHttpPostOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="ValidarComStatusHttpPostIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="CodigoInternoPedido" type="s:string" />
+    <wsdl:part name="StatusPedido" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidarComStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusMobileHttpPostIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="CodigoInternoPedido" type="s:string" />
+    <wsdl:part name="PedidoStatus" type="s:string" />
+    <wsdl:part name="StatusInternoPedido" type="s:string" />
+    <wsdl:part name="ObjetoSedex" type="s:string" />
+    <wsdl:part name="NotaFiscal" type="s:string" />
+    <wsdl:part name="Serie" type="s:string" />
+    <wsdl:part name="EmailRetiraLoja" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusMobileHttpPostOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusHttpPostIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="CodigoInternoPedido" type="s:string" />
+    <wsdl:part name="PedidoStatus" type="s:string" />
+    <wsdl:part name="StatusInternoPedido" type="s:string" />
+    <wsdl:part name="ObjetoSedex" type="s:string" />
+    <wsdl:part name="NotaFiscal" type="s:string" />
+    <wsdl:part name="Serie" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusHttpPostOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusItemHttpPostIn">
+    <wsdl:part name="LojaCodigo" type="s:string" />
+    <wsdl:part name="CodigoPedido" type="s:string" />
+    <wsdl:part name="CodigoInternoPedido" type="s:string" />
+    <wsdl:part name="ItemPedidoCodigo" type="s:string" />
+    <wsdl:part name="ItemPedidoCodigoInterno" type="s:string" />
+    <wsdl:part name="ItemPedidoStatus" type="s:string" />
+    <wsdl:part name="ItemPedidoStatusInterno" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AlterarStatusItemHttpPostOut">
+    <wsdl:part name="Body" element="tns:clsRetornoOfclsPedido" />
+  </wsdl:message>
+  <wsdl:portType name="PedidoSoap">
+    <wsdl:operation name="ListarNovos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável pela listagem de todos os pedidos que ainda não foram enviados pera o ERP do cliente</wsdl:documentation>
+      <wsdl:input message="tns:ListarNovosSoapIn" />
+      <wsdl:output message="tns:ListarNovosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Listar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável pela pesquisa de pedidos no banco de dados do e-commerce</wsdl:documentation>
+      <wsdl:input message="tns:ListarSoapIn" />
+      <wsdl:output message="tns:ListarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por validar um pedido que já foi integrado pelo ERP, para assim não ser necessário aparecer novamente no Listar Novos</wsdl:documentation>
+      <wsdl:input message="tns:ValidarSoapIn" />
+      <wsdl:output message="tns:ValidarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarComStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por validar um pedido que já foi integrado pelo ERP, para assim não ser necessário aparecer novamente no Listar Novos</wsdl:documentation>
+      <wsdl:input message="tns:ValidarComStatusSoapIn" />
+      <wsdl:output message="tns:ValidarComStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusMobile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por alterar o status de um pedido</wsdl:documentation>
+      <wsdl:input message="tns:AlterarStatusMobileSoapIn" />
+      <wsdl:output message="tns:AlterarStatusMobileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por alterar o status de um pedido</wsdl:documentation>
+      <wsdl:input message="tns:AlterarStatusSoapIn" />
+      <wsdl:output message="tns:AlterarStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por alterar o status dos itens de um pedido</wsdl:documentation>
+      <wsdl:input message="tns:AlterarStatusItemSoapIn" />
+      <wsdl:output message="tns:AlterarStatusItemSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PedidoHttpGet">
+    <wsdl:operation name="ListarNovos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável pela listagem de todos os pedidos que ainda não foram enviados pera o ERP do cliente</wsdl:documentation>
+      <wsdl:input message="tns:ListarNovosHttpGetIn" />
+      <wsdl:output message="tns:ListarNovosHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Listar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável pela pesquisa de pedidos no banco de dados do e-commerce</wsdl:documentation>
+      <wsdl:input message="tns:ListarHttpGetIn" />
+      <wsdl:output message="tns:ListarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por validar um pedido que já foi integrado pelo ERP, para assim não ser necessário aparecer novamente no Listar Novos</wsdl:documentation>
+      <wsdl:input message="tns:ValidarHttpGetIn" />
+      <wsdl:output message="tns:ValidarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarComStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por validar um pedido que já foi integrado pelo ERP, para assim não ser necessário aparecer novamente no Listar Novos</wsdl:documentation>
+      <wsdl:input message="tns:ValidarComStatusHttpGetIn" />
+      <wsdl:output message="tns:ValidarComStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusMobile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por alterar o status de um pedido</wsdl:documentation>
+      <wsdl:input message="tns:AlterarStatusMobileHttpGetIn" />
+      <wsdl:output message="tns:AlterarStatusMobileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por alterar o status de um pedido</wsdl:documentation>
+      <wsdl:input message="tns:AlterarStatusHttpGetIn" />
+      <wsdl:output message="tns:AlterarStatusHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por alterar o status dos itens de um pedido</wsdl:documentation>
+      <wsdl:input message="tns:AlterarStatusItemHttpGetIn" />
+      <wsdl:output message="tns:AlterarStatusItemHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="PedidoHttpPost">
+    <wsdl:operation name="ListarNovos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável pela listagem de todos os pedidos que ainda não foram enviados pera o ERP do cliente</wsdl:documentation>
+      <wsdl:input message="tns:ListarNovosHttpPostIn" />
+      <wsdl:output message="tns:ListarNovosHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Listar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável pela pesquisa de pedidos no banco de dados do e-commerce</wsdl:documentation>
+      <wsdl:input message="tns:ListarHttpPostIn" />
+      <wsdl:output message="tns:ListarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Validar">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por validar um pedido que já foi integrado pelo ERP, para assim não ser necessário aparecer novamente no Listar Novos</wsdl:documentation>
+      <wsdl:input message="tns:ValidarHttpPostIn" />
+      <wsdl:output message="tns:ValidarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarComStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por validar um pedido que já foi integrado pelo ERP, para assim não ser necessário aparecer novamente no Listar Novos</wsdl:documentation>
+      <wsdl:input message="tns:ValidarComStatusHttpPostIn" />
+      <wsdl:output message="tns:ValidarComStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusMobile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por alterar o status de um pedido</wsdl:documentation>
+      <wsdl:input message="tns:AlterarStatusMobileHttpPostIn" />
+      <wsdl:output message="tns:AlterarStatusMobileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatus">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por alterar o status de um pedido</wsdl:documentation>
+      <wsdl:input message="tns:AlterarStatusHttpPostIn" />
+      <wsdl:output message="tns:AlterarStatusHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusItem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método responsável por alterar o status dos itens de um pedido</wsdl:documentation>
+      <wsdl:input message="tns:AlterarStatusItemHttpPostIn" />
+      <wsdl:output message="tns:AlterarStatusItemHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PedidoSoap" type="tns:PedidoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarNovos">
+      <soap:operation soapAction="http://www.ikeda.com.br/ListarNovos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListarNovosclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listar">
+      <soap:operation soapAction="http://www.ikeda.com.br/Listar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ListarclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validar">
+      <soap:operation soapAction="http://www.ikeda.com.br/Validar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidarclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarComStatus">
+      <soap:operation soapAction="http://www.ikeda.com.br/ValidarComStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ValidarComStatusclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusMobile">
+      <soap:operation soapAction="http://www.ikeda.com.br/AlterarStatusMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AlterarStatusMobileclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatus">
+      <soap:operation soapAction="http://www.ikeda.com.br/AlterarStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AlterarStatusclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusItem">
+      <soap:operation soapAction="http://www.ikeda.com.br/AlterarStatusItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AlterarStatusItemclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PedidoSoap12" type="tns:PedidoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListarNovos">
+      <soap12:operation soapAction="http://www.ikeda.com.br/ListarNovos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListarNovosclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listar">
+      <soap12:operation soapAction="http://www.ikeda.com.br/Listar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ListarclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validar">
+      <soap12:operation soapAction="http://www.ikeda.com.br/Validar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidarclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarComStatus">
+      <soap12:operation soapAction="http://www.ikeda.com.br/ValidarComStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ValidarComStatusclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusMobile">
+      <soap12:operation soapAction="http://www.ikeda.com.br/AlterarStatusMobile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AlterarStatusMobileclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatus">
+      <soap12:operation soapAction="http://www.ikeda.com.br/AlterarStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AlterarStatusclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusItem">
+      <soap12:operation soapAction="http://www.ikeda.com.br/AlterarStatusItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AlterarStatusItemclsSoapHeader" part="clsSoapHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PedidoHttpGet" type="tns:PedidoHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="ListarNovos">
+      <http:operation location="/ListarNovos" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listar">
+      <http:operation location="/Listar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validar">
+      <http:operation location="/Validar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarComStatus">
+      <http:operation location="/ValidarComStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusMobile">
+      <http:operation location="/AlterarStatusMobile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatus">
+      <http:operation location="/AlterarStatus" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusItem">
+      <http:operation location="/AlterarStatusItem" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="PedidoHttpPost" type="tns:PedidoHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="ListarNovos">
+      <http:operation location="/ListarNovos" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listar">
+      <http:operation location="/Listar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Validar">
+      <http:operation location="/Validar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarComStatus">
+      <http:operation location="/ValidarComStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusMobile">
+      <http:operation location="/AlterarStatusMobile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatus">
+      <http:operation location="/AlterarStatus" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarStatusItem">
+      <http:operation location="/AlterarStatusItem" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Pedido">
+    <wsdl:port name="PedidoSoap" binding="tns:PedidoSoap">
+      <soap:address location="http://loja.bluebeach.com.br/ikcwebservice/pedido.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PedidoSoap12" binding="tns:PedidoSoap12">
+      <soap12:address location="http://loja.bluebeach.com.br/ikcwebservice/pedido.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PedidoHttpGet" binding="tns:PedidoHttpGet">
+      <http:address location="http://loja.bluebeach.com.br/ikcwebservice/pedido.asmx" />
+    </wsdl:port>
+    <wsdl:port name="PedidoHttpPost" binding="tns:PedidoHttpPost">
+      <http:address location="http://loja.bluebeach.com.br/ikcwebservice/pedido.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,2461 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd1" namespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" />
+  <xs:import schemaLocation="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.Checkout2" />
+  <xs:import schemaLocation="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.OrderManagement" />
+  <xs:element name="ProductEspecificationInsertByListFieldIds">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="listStockKeepingUnitEspecificationFieldId" nillable="true" type="q1:ArrayOfProductFieldIdDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductEspecificationInsertByListFieldIdsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductEspecificationTextInsertByFieldId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProduct" type="xs:int" />
+        <xs:element minOccurs="0" name="fieldId" type="xs:int" />
+        <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductEspecificationTextInsertByFieldIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitEspecificationInsertByList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="listStockKeepingUnitName" nillable="true" type="q2:ArrayOfStockKeepingUnitFieldNameDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitEspecificationInsertByListResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitEspecificationInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idSku" type="xs:int" />
+        <xs:element minOccurs="0" name="fieldName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q3:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitEspecificationInsertResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductSupplierGetCNPJ">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductSupplierGetCNPJResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ProductSupplierGetCNPJResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductSetSimilarCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productId" type="xs:int" />
+        <xs:element minOccurs="0" name="categoryId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductSetSimilarCategoryResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitEspecificationInsertByListFieldId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="listStockKeepingUnitdId" nillable="true" type="q4:ArrayOfStockKeepingUnitFieldIdDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitEspecificationInsertByListFieldIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StoreList">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StoreListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StoreListResult" nillable="true" type="q5:ArrayOfStoreDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StoreGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="storeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StoreGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StoreGetResult" nillable="true" type="q6:StoreDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitEspecificationInsertByFieldId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idSku" type="xs:int" />
+        <xs:element minOccurs="0" name="fieldId" type="xs:int" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q7:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitEspecificationInsertByFieldIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftCardInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="giftcard" nillable="true" type="q8:GiftCardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftCardInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftCardInsertUpdateResult" nillable="true" type="q9:GiftCardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftCardTransactionItemSetStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrderId" type="xs:int" />
+        <xs:element minOccurs="0" name="StockKeepingUnitId" type="xs:int" />
+        <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+        <xs:element minOccurs="0" name="IsActive" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftCardTransactionItemSetStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GiftCardTransactionItemSetStatusResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftCardTransactionItemInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="giftCardTransactionItem" nillable="true" type="q10:GiftCardTransactionItemDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftCardTransactionItemInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GiftCardTransactionItemInsertResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idGiftList" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListGetResult" nillable="true" type="q11:GiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetByClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idClient" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetByClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListGetByClientResult" nillable="true" type="q12:ArrayOfGiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="giftListTypeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListGetTypeResult" nillable="true" type="q13:GiftListTypeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetByCreatedDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createdDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetByCreatedDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListGetByCreatedDateResult" nillable="true" type="q14:ArrayOfGiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetAllFromCreatedDateAndId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="createdDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="startingGiftListId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="topRows" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetAllFromCreatedDateAndIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListGetAllFromCreatedDateAndIdResult" nillable="true" type="q15:ArrayOfGiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetAllBetweenEventDateIntervalAndId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="eventDateBegin" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="eventDateEnd" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="startingGiftListId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="topRows" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetAllBetweenEventDateIntervalAndIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListGetAllBetweenEventDateIntervalAndIdResult" nillable="true" type="q16:ArrayOfGiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetByModifiedDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modifiedDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetByModifiedDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListGetByModifiedDateResult" nillable="true" type="q17:ArrayOfGiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetAllFromModifiedDateAndId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="modifiedDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="startingGiftListId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="topRows" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetAllFromModifiedDateAndIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListGetAllFromModifiedDateAndIdResult" nillable="true" type="q18:ArrayOfGiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetByGifted">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="gifted" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListGetByGiftedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListGetByGiftedResult" nillable="true" type="q19:ArrayOfGiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="giftList" nillable="true" type="q20:GiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListInsertUpdateResult" nillable="true" type="q21:GiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListV2Filters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="giftListTypeId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="giftListId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="clientId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="eventDateSince" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="eventDateUntil" nillable="true" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="isActive" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListV2FiltersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListV2FiltersResult" nillable="true" type="q22:ArrayOfGiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSearch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="eventLocation" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="eventCity" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="eventDate" nillable="true" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListSearchResult" nillable="true" type="q23:ArrayOfGiftListDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListMemberInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="giftListMember" nillable="true" type="q24:ArrayOfGiftListMemberDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListMemberInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListMemberInsertUpdateResult" nillable="true" type="q25:ArrayOfGiftListMemberDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListMemberDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GiftListMemberId" type="xs:int" />
+        <xs:element minOccurs="0" name="GiftListId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListMemberDeleteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSkuInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="giftListSku" nillable="true" type="q26:GiftListStockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSkuInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListSkuInsertResult" nillable="true" type="q27:GiftListStockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSkuGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idGiftList" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSkuGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftListSkuGetResult" nillable="true" type="q28:ArrayOfGiftListStockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSkuSetPurchased">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="giftListId" type="xs:int" />
+        <xs:element minOccurs="0" name="skuId" type="xs:int" />
+        <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+        <xs:element minOccurs="0" name="orderId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSkuSetPurchasedResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSkuDeleteByList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="giftListId" type="xs:int" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="skuQuantity" nillable="true" type="q29:ArrayOfStockKeepingUnitQuantityDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSkuDeleteByListResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSkuDelete">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="giftListId" type="xs:int" />
+        <xs:element minOccurs="0" name="skuId" type="xs:int" />
+        <xs:element minOccurs="0" name="Quantity" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftListSkuDeleteResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftCardGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftCardGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftCardGetResult" nillable="true" type="q30:GiftCardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftCardGetByRedeptionCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="redeptionCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GiftCardGetByRedeptionCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="GiftCardGetByRedeptionCodeResult" nillable="true" type="q31:GiftCardDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmailQueueNotSendedByType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmailQueueTypeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmailQueueNotSendedByTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="EmailQueueNotSendedByTypeResult" nillable="true" type="q32:ArrayOfEmailQueueDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmailQueueGetAllBetweenTimeIntervalAndEmailTypeId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="initialTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="finalTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="initialId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="topRows" type="xs:int" />
+        <xs:element minOccurs="0" name="emailTypeId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmailQueueGetAllBetweenTimeIntervalAndEmailTypeIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="EmailQueueGetAllBetweenTimeIntervalAndEmailTypeIdResult" nillable="true" type="q33:ArrayOfEmailQueueDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmailQueueConfirmSending">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmailQueueId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EmailQueueConfirmSendingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EmailQueueConfirmSendingResult" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationLogError">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="errorType" type="q34:ErrorType" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationLogErrorResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="errorType" type="q35:ErrorType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationLogResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationErrorGetAllByErrorTypeAndId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="errorType" type="q36:ErrorType" />
+        <xs:element minOccurs="0" name="integrationErrorId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="topRows" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationErrorGetAllByErrorTypeAndIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="IntegrationErrorGetAllByErrorTypeAndIdResult" nillable="true" type="q37:ArrayOfIntegrationErrorDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationLogEvent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="errorType" type="q38:ErrorType" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationLogEventResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationInterfaceGetAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationInterfaceGetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="IntegrationInterfaceGetAllResult" nillable="true" type="q39:ArrayOfIntegrationInterfaceDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationLogErrorInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="errorType" type="q40:ErrorType" />
+        <xs:element minOccurs="0" name="instance" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="error" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="errorDetail" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationLogErrorInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationErrorCheckInstanceExists">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="errorType" type="q41:ErrorType" />
+        <xs:element minOccurs="0" name="instance" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationErrorCheckInstanceExistsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IntegrationErrorCheckInstanceExistsResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CollectionGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CollectionGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="CollectionGetResult" nillable="true" type="q42:CollectionDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CollectionInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="collection" nillable="true" type="q43:CollectionDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CollectionInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="CollectionInsertUpdateResult" nillable="true" type="q44:CollectionDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShippingNotificationInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="shippingNotification" nillable="true" type="q45:ShippingNotificationDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShippingNotificationInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShippingNotificationInsertUpdateParameters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrderId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="packageTracking" nillable="true" type="q46:PackageTrackingDTO" />
+        <xs:element minOccurs="0" name="fiscalInvoiceXML" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ShippingNotificationInsertUpdateParametersResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WareHouseIStockableUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IdEstoque" type="xs:int" />
+        <xs:element minOccurs="0" name="IdSku" type="xs:int" />
+        <xs:element minOccurs="0" name="Quantidade" type="xs:int" />
+        <xs:element minOccurs="0" name="dateOfAvailability" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WareHouseIStockableUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WareHouseIStockableGetByStockKeepingUnit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="WareHouseId" type="xs:int" />
+        <xs:element minOccurs="0" name="SkuId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WareHouseIStockableGetByStockKeepingUnitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="WareHouseIStockableGetByStockKeepingUnitResult" nillable="true" type="q47:WareHouseIStockableDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WareHouseIStockableGetByStockKeepingUnitV3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SkuId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WareHouseIStockableGetByStockKeepingUnitV3Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="WareHouseIStockableGetByStockKeepingUnitV3Result" nillable="true" type="q48:ArrayOfWareHouseIStockableDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewsletterGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NewsId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewsletterGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="NewsletterGetResult" nillable="true" type="q49:NewsletterDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewsletterGetAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewsletterGetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="NewsletterGetAllResult" nillable="true" type="q50:ArrayOfNewsletterDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewsletterGetPaged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="page" type="xs:int" />
+        <xs:element minOccurs="0" name="quantity" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewsletterGetPagedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="NewsletterGetPagedResult" nillable="true" type="q51:ArrayOfNewsletterDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewsletterGetAllByDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="BeginDate" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewsletterGetAllByDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="NewsletterGetAllByDateResult" nillable="true" type="q52:ArrayOfNewsletterDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="stockKeepingUnitVO" nillable="true" type="q53:StockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitInsertUpdateResult" nillable="true" type="q54:StockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitPriceUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stockKeepintUnitId" type="xs:int" />
+        <xs:element minOccurs="0" name="price" type="xs:decimal" />
+        <xs:element minOccurs="0" name="listPrice" type="xs:decimal" />
+        <xs:element minOccurs="0" name="costPrice" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitPriceUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitPriceUpdateByRefId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stockKeepintUnitRefId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="price" type="xs:decimal" />
+        <xs:element minOccurs="0" name="listPrice" type="xs:decimal" />
+        <xs:element minOccurs="0" name="costPrice" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitPriceUpdateByRefIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitGetResult" nillable="true" type="q55:StockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetByManufacturerCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="manufacturer" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetByManufacturerCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitGetByManufacturerCodeResult" nillable="true" type="q56:ArrayOfStockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetByRefId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="refId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetByRefIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitGetByRefIdResult" nillable="true" type="q57:StockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="productVO" nillable="true" type="q58:ProductDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ProductInsertUpdateResult" nillable="true" type="q59:ProductDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProduct" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ProductGetResult" nillable="true" type="q60:ProductDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductGetByRefId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="refId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductGetByRefIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ProductGetByRefIdResult" nillable="true" type="q61:ProductDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductGetSimilarCategory">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductGetSimilarCategoryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q62="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ProductGetSimilarCategoryResult" nillable="true" type="q62:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductGetAllFromUpdatedDateAndId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateUpdated" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="productid" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="topRows" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductGetAllFromUpdatedDateAndIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ProductGetAllFromUpdatedDateAndIdResult" nillable="true" type="q63:ArrayOfProductDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductActive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProduct" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductActiveResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitKitListByParent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idSkuParent" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitKitListByParentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitKitListByParentResult" nillable="true" type="q64:ArrayOfStockKeepingUnitKitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitKitListBySkuId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idSku" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitKitListBySkuIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitKitListBySkuIdResult" nillable="true" type="q65:ArrayOfStockKeepingUnitKitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IntegrationSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="IntegrationSettingsResult" nillable="true" type="q66:IntegrationDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientCandidateInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q67="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClienteCandidato" nillable="true" type="q67:ClientCandidateDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientCandidateInsertResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q68="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientCandidateInsertResult" nillable="true" type="q68:ClientCandidateDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientCandidateDeleteByCpfOrEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q69="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClienteCandidato" nillable="true" type="q69:ClientCandidateDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientCandidateDeleteByCpfOrEmailResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientCandidateGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idClusterGrupoClienteCandidato" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientCandidateGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q70="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientCandidateGetResult" nillable="true" type="q70:ClientCandidateDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientCandidateDeleteById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idClientCandidate" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientCandidateDeleteByIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitKitDeleteByParent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idSkuParent" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitKitDeleteByParentResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitKitInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q71="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="stockKeepingUnitKit" nillable="true" type="q71:StockKeepingUnitKitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitKitInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q72="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitKitInsertUpdateResult" nillable="true" type="q72:StockKeepingUnitKitDTO" />
+        <xs:element minOccurs="0" name="stockKeepingUnitKitId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitActive">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idStockKeepingUnit" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitActiveResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetAllByProduct">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProduct" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetAllByProductResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q73="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitGetAllByProductResult" nillable="true" type="q73:ArrayOfStockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetAllFromUpdatedDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateUpdated" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetAllFromUpdatedDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q74="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitGetAllFromUpdatedDateResult" nillable="true" type="q74:ArrayOfStockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetAllFromUpdatedDateAndId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateUpdated" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="startingStockKeepingUnitId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="topRows" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetAllFromUpdatedDateAndIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q75="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitGetAllFromUpdatedDateAndIdResult" nillable="true" type="q75:ArrayOfStockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetByEan">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EAN13" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitGetByEanResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q76="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitGetByEanResult" nillable="true" type="q76:StockKeepingUnitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q77="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetResult" nillable="true" type="q77:OrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetV3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetV3Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q78="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetV3Result" nillable="true" type="q78:OrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q79="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetByClientResult" nillable="true" type="q79:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByClientCpf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cpfCnpj" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByClientCpfResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q80="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetByClientCpfResult" nillable="true" type="q80:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByClientEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByClientEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q81="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetByClientEmailResult" nillable="true" type="q81:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByDeliveryId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderDeliveryId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByDeliveryIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q82="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetByDeliveryIdResult" nillable="true" type="q82:OrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByManagementId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="managementId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByManagementIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q83="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetByManagementIdResult" nillable="true" type="q83:OrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryUpdateManagementId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q84="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="order" nillable="true" type="q84:OrderDTO" />
+        <xs:element minOccurs="0" name="ManagementId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryUpdateManagementIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryChangeStatusByManagementId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="statusOrder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ManagementId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryChangeStatusByManagementIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="statusOrder" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q85="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetByStatusResult" nillable="true" type="q85:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByStatusAndPaymentId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="statusOrder" nillable="true" type="xs:string" />
+        <xs:element xmlns:q86="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="paymentIds" nillable="true" type="q86:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByStatusAndPaymentIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q87="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetByStatusAndPaymentIdResult" nillable="true" type="q87:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderPayPalGetStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrderId" type="xs:int" />
+        <xs:element minOccurs="0" name="TransactionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderPayPalGetStatusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="OrderPayPalGetStatusResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetNext50FromId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetNext50FromIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q88="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetNext50FromIdResult" nillable="true" type="q88:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetNext50FromIdAndDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+        <xs:element minOccurs="0" name="lastDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetNext50FromIdAndDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q89="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetNext50FromIdAndDateResult" nillable="true" type="q89:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetNext50FromIdAndDateStatusChanged">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+        <xs:element minOccurs="0" name="lastDate" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetNext50FromIdAndDateStatusChangedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q90="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetNext50FromIdAndDateStatusChangedResult" nillable="true" type="q90:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetNewV2">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetNewV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q91="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetNewV2Result" nillable="true" type="q91:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderChangeStatusV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+        <xs:element xmlns:q92="http://schemas.datacontract.org/2004/07/Vtex.Commerce.Checkout2" minOccurs="0" name="integrationStatus" type="q92:IntegrationStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderChangeStatusV2Response">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q93="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetV2Result" nillable="true" type="q93:OrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByStatusV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q94="http://schemas.datacontract.org/2004/07/Vtex.Commerce.Checkout2" minOccurs="0" name="integrationStatus" type="q94:IntegrationStatus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByStatusV2Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q95="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetByStatusV2Result" nillable="true" type="q95:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderAcknowledge">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderAcknowledgeResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderChangeTrackingNumberV2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+        <xs:element minOccurs="0" name="trackingNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderChangeTrackingNumberV2Response">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderSetSellerMapping">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+        <xs:element minOccurs="0" name="sellerId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="sellerOrderId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q96="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="itemsMapping" nillable="true" type="q96:ArrayOfKeyValueOfstringstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderSetSellerMappingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByStatusByQuantity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="statusOrder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="quantity" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderGetByStatusByQuantityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q97="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderGetByStatusByQuantityResult" nillable="true" type="q97:ArrayOfOrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderChangeStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idOrder" type="xs:int" />
+        <xs:element minOccurs="0" name="statusOrder" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderChangeStatusResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryChangeStatus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="orderId" type="xs:int" />
+        <xs:element minOccurs="0" name="statusOrder" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ManagementId" type="xs:int" />
+        <xs:element minOccurs="0" name="AdministratorId" type="xs:int" />
+        <xs:element xmlns:q98="http://schemas.datacontract.org/2004/07/Vtex.Commerce.OrderManagement" minOccurs="0" name="items" nillable="true" type="q98:ArrayOfOrderItem" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryChangeStatusResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderStatusGetAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderStatusGetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q99="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderStatusGetAllResult" nillable="true" type="q99:ArrayOfOrderStatusDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderPaymentGetAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderPaymentGetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q100="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderPaymentGetAllResult" nillable="true" type="q100:ArrayOfPaymentDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryBlankRemoveByDTO">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q101="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="orderDTO" nillable="true" type="q101:OrderDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryBlankRemoveByDTOResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderItemUpdateOrderDeliveryId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q102="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="orderItemDTO" nillable="true" type="q102:OrderItemDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderItemUpdateOrderDeliveryIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q103="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="orderDeliveryDTO" nillable="true" type="q103:OrderDeliveryDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q104="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderDeliveryInsertUpdateResult" nillable="true" type="q104:OrderDeliveryDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryInvoiceNumberInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="invoiceNumber" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="orderDeliveryId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryInvoiceNumberInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q105="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="OrderDeliveryInvoiceNumberInsertUpdateResult" nillable="true" type="q105:OrderDeliveryDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderChangeStatusById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idOrderDelivery" type="xs:int" />
+        <xs:element minOccurs="0" name="statusOrder" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderChangeStatusByIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderChangeTrackingNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idOrder" type="xs:int" />
+        <xs:element minOccurs="0" name="trackingNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderChangeTrackingNumberResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryChangeTrackingNumber">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idOrderDelivery" type="xs:int" />
+        <xs:element minOccurs="0" name="trackingNumber" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OrderDeliveryChangeTrackingNumberResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idClient" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q106="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientGetResult" nillable="true" type="q106:ClientDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetV3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idClientV3" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetV3Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q107="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientGetV3Result" nillable="true" type="q107:ClientDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetByCPF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CpfCnpj" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetByCPFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q108="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientGetByCPFResult" nillable="true" type="q108:ClientDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q109="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientGetByEmailResult" nillable="true" type="q109:ClientDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetByEmailV3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetByEmailV3Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q110="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientGetByEmailV3Result" nillable="true" type="q110:ClientDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetByGuid">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="guid" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetByGuidResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q111="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientGetByGuidResult" nillable="true" type="q111:ClientDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetExtendedInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetExtendedInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q112="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientGetExtendedInfoResult" nillable="true" type="q112:ClientExtendedDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetExtendedInfoByCPF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CpfCnpj" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetExtendedInfoByCPFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q113="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientGetExtendedInfoByCPFResult" nillable="true" type="q113:ClientExtendedDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetAllFromCreatedDateAndId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dateCreated" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="startingClientId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="topRows" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientGetAllFromCreatedDateAndIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q114="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientGetAllFromCreatedDateAndIdResult" nillable="true" type="q114:ArrayOfClientDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientRewardGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientRewardGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientRewardGetResult" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientRewardGetByCPF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cpfCnpj" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientRewardGetByCPFResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientRewardGetByCPFResult" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientRewardUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+        <xs:element minOccurs="0" name="totalReward" type="xs:decimal" />
+        <xs:element xmlns:q115="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="transactionAction" type="q115:TransactionAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientRewardUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientRewardUpdateByCPF">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cpfCnpj" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="totalReward" type="xs:decimal" />
+        <xs:element xmlns:q116="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="transactionAction" type="q116:TransactionAction" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientRewardUpdateByCPFResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q117="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="client" nillable="true" type="q117:ClientDTO" />
+        <xs:element xmlns:q118="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="address" nillable="true" type="q118:AddressDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ClientInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="addressId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DistributionCenterGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idDistributionCenter" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DistributionCenterGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q119="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="DistributionCenterGetResult" nillable="true" type="q119:DistributionCenterDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DistributionCenterGetByTaxId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="taxId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DistributionCenterGetByTaxIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q120="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="DistributionCenterGetByTaxIdResult" nillable="true" type="q120:DistributionCenterDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightCalculate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skuId" type="xs:int" />
+        <xs:element minOccurs="0" name="zipCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="distributionCenterId" type="xs:int" />
+        <xs:element minOccurs="0" name="freightTypeId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightCalculateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q121="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="FreightCalculateResult" nillable="true" type="q121:FreightValueDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ZipCodeGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="zipCode" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ZipCodeGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q122="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ZipCodeGetResult" nillable="true" type="q122:ZipCodeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idFreight" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q123="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="FreightGetResult" nillable="true" type="q123:FreightDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightGetAll">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightGetAllResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q124="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="FreightGetAllResult" nillable="true" type="q124:ArrayOfFreightDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q125="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="freight" nillable="true" type="q125:FreightDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q126="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="FreightInsertUpdateResult" nillable="true" type="q126:FreightDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightValueInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q127="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="freightValue" nillable="true" type="q127:FreightValueDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightValueInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q128="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="FreightValueInsertUpdateResult" nillable="true" type="q128:FreightValueDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightValueInsertUpdateByList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q129="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="lstFreightValue" nillable="true" type="q129:ArrayOfFreightValueDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightValueInsertUpdateByListResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightValueDeleteByFreight">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idFreight" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FreightValueDeleteByFreightResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressByAddressClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="addressClientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressByAddressClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q130="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="AddressByAddressClientResult" nillable="true" type="q130:AddressDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressGetByClientId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressGetByClientIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q131="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="AddressGetByClientIdResult" nillable="true" type="q131:ArrayOfAddressDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressGetByClientIdV3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="clientIdV3" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressGetByClientIdV3Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q132="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="AddressGetByClientIdV3Result" nillable="true" type="q132:ArrayOfAddressDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressInsertByClientId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientId" type="xs:int" />
+        <xs:element xmlns:q133="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientAddress" nillable="true" type="q133:AddressDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressInsertByClientIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q134="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="AddressInsertByClientIdResult" nillable="true" type="q134:AddressDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressInsertByCpfCnpj">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CpfCnpj" nillable="true" type="xs:string" />
+        <xs:element xmlns:q135="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ClientAddress" nillable="true" type="q135:AddressDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressInsertByCpfCnpjResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q136="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="AddressInsertByCpfCnpjResult" nillable="true" type="q136:AddressDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyTogetherInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q137="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="objBuyTogether" nillable="true" type="q137:BuyTogetherDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyTogetherInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q138="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="BuyTogetherInsertUpdateResult" nillable="true" type="q138:BuyTogetherDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyTogetherBuyGainInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q139="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="objBuyTogetherBuyGainDTO" nillable="true" type="q139:BuyTogetherBuyGainDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyTogetherBuyGainInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q140="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="BuyTogetherBuyGainInsertUpdateResult" nillable="true" type="q140:BuyTogetherBuyGainDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyTogethertakeXPayYInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q141="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="objBuyTogetherTakeXPayYDTO" nillable="true" type="q141:BuyTogetherTakeXPayYDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyTogethertakeXPayYInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q142="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="BuyTogethertakeXPayYInsertUpdateResult" nillable="true" type="q142:BuyTogetherTakeXPayYDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyTogetherDeleteById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="buyTogetherId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyTogetherDeleteByIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyTogetherSkuListInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="buyTogetherId" type="xs:int" />
+        <xs:element xmlns:q143="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="firstListStockKeepingUnit" nillable="true" type="q143:ArrayOfint" />
+        <xs:element xmlns:q144="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="secondListStockKeepingUnit" nillable="true" type="q144:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BuyTogetherSkuListInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServiceGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idService" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServiceGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q145="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ServiceGetResult" nillable="true" type="q145:ServiceDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServicePriceGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idServicePrice" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServicePriceGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q146="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ServicePriceGetResult" nillable="true" type="q146:ServicePriceDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServicePriceList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idService" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServicePriceListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q147="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ServicePriceListResult" nillable="true" type="q147:ArrayOfServicePriceDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServiceInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q148="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="service" nillable="true" type="q148:ServiceDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServiceInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q149="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ServiceInsertUpdateResult" nillable="true" type="q149:ServiceDTO" />
+        <xs:element minOccurs="0" name="serviceId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServicePriceInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q150="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="servicePrice" nillable="true" type="q150:ServicePriceDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ServicePriceInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q151="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ServicePriceInsertUpdateResult" nillable="true" type="q151:ServicePriceDTO" />
+        <xs:element minOccurs="0" name="servicePriceId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitServiceGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idStockKeepingUnitService" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitServiceGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q152="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitServiceGetResult" nillable="true" type="q152:StockKeepingUnitServiceDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitServiceList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idSku" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitServiceListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q153="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitServiceListResult" nillable="true" type="q153:ArrayOfStockKeepingUnitServiceDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitServiceInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q154="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="stockKeepingUnitService" nillable="true" type="q154:StockKeepingUnitServiceDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitServiceInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q155="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitServiceInsertUpdateResult" nillable="true" type="q155:StockKeepingUnitServiceDTO" />
+        <xs:element minOccurs="0" name="stockKeepingUnitServiceId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BrandGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idBrand" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BrandGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q156="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="BrandGetResult" nillable="true" type="q156:BrandDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BrandGetByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nameBrand" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BrandGetByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q157="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="BrandGetByNameResult" nillable="true" type="q157:BrandDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BrandInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q158="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="brand" nillable="true" type="q158:BrandDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BrandInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q159="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="BrandInsertUpdateResult" nillable="true" type="q159:BrandDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoryGet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idCategory" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoryGetResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q160="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="CategoryGetResult" nillable="true" type="q160:CategoryDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoryGetByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nameCategory" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoryGetByNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q161="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="CategoryGetByNameResult" nillable="true" type="q161:CategoryDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoryInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q162="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="category" nillable="true" type="q162:CategoryDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CategoryInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q163="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="CategoryInsertUpdateResult" nillable="true" type="q163:CategoryDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImageServiceCopyAllImagesFromSkuToSku">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stockKeepingUnitIdFrom" type="xs:int" />
+        <xs:element minOccurs="0" name="stockKeepingUnitIdTo" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImageServiceCopyAllImagesFromSkuToSkuResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImageServiceInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="urlImage" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="imageName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="stockKeepingUnitId" type="xs:int" />
+        <xs:element minOccurs="0" name="fileId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImageServiceInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImageInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q164="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="image" nillable="true" type="q164:ImageDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImageInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImageListByStockKeepingUnitId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="StockKeepingUnitId" type="xs:int" />
+        <xs:element minOccurs="0" name="ArchiveTypeId" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ImageListByStockKeepingUnitIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q165="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ImageListByStockKeepingUnitIdResult" nillable="true" type="q165:ArrayOfImageDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductImageRemove">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductImageRemoveResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitImageRemove">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="stockKeepingUnitId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitImageRemoveResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitImageRemoveByName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="imageName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitImageRemoveByNameResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitEspecificationListBySkuId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="skuId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitEspecificationListBySkuIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q166="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="StockKeepingUnitEspecificationListBySkuIdResult" nillable="true" type="q166:ArrayOfFieldDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductEspecificationListByProductId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="productId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductEspecificationListByProductIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q167="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="ProductEspecificationListByProductIdResult" nillable="true" type="q167:ArrayOfFieldDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitComplementInsertUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q168="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="objStockKeepingUnitComplementDTO" nillable="true" type="q168:StockKeepingUnitComplementDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StockKeepingUnitComplementInsertUpdateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductEspecificationInsert">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProduct" type="xs:int" />
+        <xs:element minOccurs="0" name="fieldName" nillable="true" type="xs:string" />
+        <xs:element xmlns:q169="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q169:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductEspecificationInsertResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductEspecificationInsertByList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q170="http://schemas.datacontract.org/2004/07/Vtex.Commerce.WebApps.AdminWcfService.Contracts" minOccurs="0" name="listProductFieldName" nillable="true" type="q170:ArrayOfProductFieldNameDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductEspecificationInsertByListResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductEspecificationInsertByFieldId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="idProduct" type="xs:int" />
+        <xs:element minOccurs="0" name="fieldId" type="xs:int" />
+        <xs:element xmlns:q171="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="fieldValues" nillable="true" type="q171:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ProductEspecificationInsertByFieldIdResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

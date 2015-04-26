@@ -1,0 +1,2467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Solution.About" Collapsed="true">
+    <Position X="61.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>About.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.ChangePassword" Collapsed="true">
+    <Position X="75.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAIAAAA=</HashCode>
+      <FileName>Account\ChangePassword.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.ChangePasswordSuccess" Collapsed="true">
+    <Position X="77" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Account\ChangePasswordSuccess.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Login" Collapsed="true">
+    <Position X="61.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAIAAAE=</HashCode>
+      <FileName>Account\Login.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Register" Collapsed="true">
+    <Position X="77" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAIAAAAAAAAAAAAAAAAAABAAAAAAAAIAAAA=</HashCode>
+      <FileName>Account\Register.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.AssemblyInfo" Collapsed="true">
+    <Position X="73.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ciashop\AssemblyInfo.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Geral" Collapsed="true">
+    <Position X="63" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAACAAAAAAAAAgEAABAAQAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>ciashop\Geral.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.IBatis" Collapsed="true">
+    <Position X="78.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABBAAAAAAAAAAAAQAAAAAAAAAE=</HashCode>
+      <FileName>ciashop\IBatis.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Integracao" Collapsed="true">
+    <Position X="70" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>ciashop\Integracao.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Log" Collapsed="true">
+    <Position X="59.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAIAAAACAABABAAACAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>ciashop\Log.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.ObjReturn" Collapsed="true">
+    <Position X="73.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAABAAAACQBAAAAIAAAAAAAAIEAQAg=</HashCode>
+      <FileName>ciashop\ObjReturn.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.WebConfComprador" Collapsed="true">
+    <Position X="68.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>ciashop\WebConfComprador.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.WebForm1" Collapsed="true">
+    <Position X="70" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>ciashop\WebForm1.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.WebPedidos" Collapsed="true">
+    <Position X="71.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ciashop\WebPedidos.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.WebSincronia" Collapsed="true">
+    <Position X="73.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>ciashop\WebSincronia.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Funcs" Collapsed="true">
+    <Position X="61.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAABAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>common\Funcs.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution._Default" Collapsed="true">
+    <Position X="59.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Default.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.api1" Collapsed="true">
+    <Position X="68.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>ezcommerce\api1.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.api2" Collapsed="true">
+    <Position X="70" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>ezcommerce\api2.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.api3" Collapsed="true">
+    <Position X="71.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>ezcommerce\api3.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Global_asax" Collapsed="true">
+    <Position X="77" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAEAAAAAAAAAAECIBQAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.EmpresaDAO" Collapsed="true">
+    <Position X="66.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>IntegracoesDAO\EmpresaDAO.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.EmpresaVO" Collapsed="true">
+    <Position X="68.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IntegracoesDAO\EmpresaVO.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos_ItensDAO" Collapsed="true">
+    <Position X="59.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IntegracoesDAO\Pedidos_ItensDAO.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos_ItensVO" Collapsed="true">
+    <Position X="61.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAJATIFJYAAAkKAgjgAApCCABggpBBBAQGIQICIGkUA=</HashCode>
+      <FileName>IntegracoesDAO\Pedidos_ItensVO.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.PedidosDAO" Collapsed="true">
+    <Position X="63" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAQAAAAAAAAAABAACAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>IntegracoesDAO\PedidosDAO.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.PedidosVO" Collapsed="true">
+    <Position X="71.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgAAAAAAQgDIEQAgAAAFhCCAElgJjBQAREOBQQIEBQE=</HashCode>
+      <FileName>IntegracoesDAO\PedidosVO.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.IntegraChangeRakuten" Collapsed="true">
+    <Position X="73.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>rakuten\IntegraChangeRakuten.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.IntegraChange_Rakuten" Collapsed="true">
+    <Position X="71.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>rakuten\OldIntegraChange_Rakuten.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.RetrieveNewOrders_rakuten" Collapsed="true">
+    <Position X="59.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>rakuten\OldRetrieveNewOrders_rakuten.aspx.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.RetrieveNewOrdersRakuten" Collapsed="true">
+    <Position X="61.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>rakuten\RetrieveNewOrdersRakuten.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Site" Collapsed="true">
+    <Position X="75.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEABAAAAAACABAACAAQAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>Site.Master.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.AcessaWebService" Collapsed="true">
+    <Position X="63" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAAAA=</HashCode>
+      <FileName>VTex\AcessaWebService.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.ChangeOrder" Collapsed="true">
+    <Position X="73.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>VTex\ChangeOrder.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.OrderGet" Collapsed="true">
+    <Position X="82.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>VTex\OrderGet.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.My.MyApplication" Collapsed="true">
+    <Position X="68.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>My Project\MyExtensions\MyWebExtension.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.My.MySettings" Collapsed="true">
+    <Position X="70" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.PedidoFiltro" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="84" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAgCAAAAAAIAAAAEAACIgAAIBAAEAAAEAQIIAIA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.Pedidos.RespostaProcessamento" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="78.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAgIAAGAEAAAAACAgAAFABEgAAABAAEAwAAAAIIAQQ=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.Pedidos.RespostaProcessamentoErro" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="80.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAACAAAAAAAAAAAABAAAgAABAAAEAQAAAAIAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.Pedidos.EntidadeBase" Collapsed="true">
+    <Position X="30" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.Pedidos.Produto" Collapsed="true">
+    <Position X="21" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>4KEAMohiVk1BBaPOExOGu0NQnExS6DVKM02H7knnqYw=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.Associacao" Collapsed="true">
+    <Position X="25.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.CampoExtendido" Collapsed="true">
+    <Position X="30" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAgEAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.Menu" Collapsed="true">
+    <Position X="43.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAABAAAAAAAkAAAAAAAAABSAEAAACAAAQAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.Marca" Collapsed="true">
+    <Position X="48" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAABACSAAAAEAIAAAAAAAiAAQCAAAAAEAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.SiteCategoria" Collapsed="true">
+    <Position X="52.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAoAAAAARBACAIAAkCIACAFAAAgQAQDAAAAAEAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.Fornecedor" Collapsed="true">
+    <Position X="57" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgCAAEiAAEAAAEAAAAAAAAAAYCAAgBAkAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.Preco" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAEAABAAAAAAAEAAACgAAAIAEAAAGEAYACAQA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.Estoque" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAABIAAAAAAACgAAAAAECAAAAAMAAAQA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.Variacao" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AICQAEAAECBAACBIAIAAIAAAgAGQhQRCAggEQMEACQQ=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.Subvariacao" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AICUIEAAECBAACBIAgAAIAACgAAAgAUCAgAEQMEQAQA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.ListaProdutos" Collapsed="true">
+    <Position X="14.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAIAAAIAAAIIAAgAAAAAAAAAAAAAAEAAABA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.ListaProdutosLista" Collapsed="true">
+    <Position X="16.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.MenuRelation" Collapsed="true">
+    <Position X="18.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAABABAgAAAAAAAAAFAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.StatusPedido" Collapsed="true">
+    <Position X="23.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAIAAAIAQAAAAAEIIAAAIAAAAAAAAAAIAIA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.PacoteProduto" Collapsed="true">
+    <Position X="27.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAIAAAgAAAAARAQAIAAAAAAAAAABAAAAA4AAAAAAE=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.Pacote" Collapsed="true">
+    <Position X="32.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQACAAQUiAAAgAAAAQAglAAAISACAAAAABAIBAACBAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.PacoteAcompanhamentoStatus" Collapsed="true">
+    <Position X="34.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAEAAAAABAAAAAAAABAAAAgoAAAAAgA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.Pedido" Collapsed="true">
+    <Position X="36.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAlgAEABAQAFWOLTBvCAGAJokCAwAAAAANsmJEBPAJM=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.ConfirmacaoPagamento" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="82.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIgAAAGAAAEQAgAAAAAQABAgAgBABAUAAAAEAIAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.Pedidos.FormaDePagamento" Collapsed="true">
+    <Position X="39" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAGAACAAAAAAAAAAAAAAEIFAAABgkBAAAABYAAwg=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.PedidoItem" Collapsed="true">
+    <Position X="41.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAgAEGAACAEAEBAAAIBAABCgAAAAAEAAEQQAIAAgQw=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.PedidoAcompanhamento" Collapsed="true">
+    <Position X="45.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEIAAgCAAABIAAAAAAIAAAAAAAAIAIQ=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.AcompanhamentoStatus" Collapsed="true">
+    <Position X="50.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAEAABEgAAAACEAAQAMJEAACAIAgAAABAgIgAEACgA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.CupomDesconto" Collapsed="true">
+    <Position X="54.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CQGIAAwAEQBAEAMAQgMwAAAQAABAAACAADSCAAAEAJQ=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.Cliente" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GACAACKAgCRBUiMEghVaEEDAOgYoAAAIxAAkRAkBgEg=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.Pedidos.PedidoWSClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="73.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAACAkCAAAAAgAEEACgAAAAAgAACEAAAAAEQCQAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.OrderShopping" Collapsed="true">
+    <Position X="15.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACIBABBJIAACUEHEAwCQARLABBAEIgAwkCAEEgySAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.OrderSuperPoints" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="71.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAEKAAQAEAAAAARCAAQAgAAEAACAIEAAAACCGAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.LogStatusOrder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAACAAAAAAAOEBAgAAAAgAAAAAAEIABAAAEAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.InfoReceivePrevision" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="68.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAACAAACAAAAAAAAEAAAkAIAAAAAEAAAAEAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.MovementCommissionsPrediction" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgAAAQACAAAAAAAMAAABgAEAgAhgQAAAAAAAAAAABAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.AuthenticationSoapHeader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="82.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAEAQAAACAAoAAAAAACAEAIAAAAAgA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.OrderByStatus" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="75.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACQAAAAAAQAAAgAAAAgAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.FreeShippingBasketItemPromotion" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="82.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACACgAAAAAgAQAACAAAIgAAgQBAAAAACAAAAIBA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.CustomerPromotion" Collapsed="true">
+    <Position X="3.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACACAAAAAAAAAAAAAAAAgAAAABAEAAACAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.SPCustomerPromotion" Collapsed="true">
+    <Position X="3.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAABAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.CatalogPromotion" Collapsed="true">
+    <Position X="0.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACACAAAAAAAAQAACAAAAgAAIABAQAAACAAAAIAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.SPCatalogPromotion" Collapsed="true">
+    <Position X="0.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAABAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.BasketPromotion" Collapsed="true">
+    <Position X="14.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAACAAAAAAEAAAAAAAAAgAAgQBAAAAACAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.SPBasketPromotion" Collapsed="true">
+    <Position X="13.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEABAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAABAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.PriceBasketPromotion" Collapsed="true">
+    <Position X="15.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.PriceBasketItemPromotion" Collapsed="true">
+    <Position X="15.75" Y="15.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAiAAAAEAQAAAQACCIACAAAAAAAAAEAAAAAAAoAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.EffectivePromotion" Collapsed="true">
+    <Position X="11" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAACAAAAAAAAAAAAAAAQgEAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Promotion" Collapsed="true">
+    <Position X="1.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAACIAGAQDAAFCAABAgAIAIAAAoWAIkQABAAAEQIgA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Benefit" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAIAAAAAAAAAAAAAgAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.BenefitFreeShipping" Collapsed="true">
+    <Position X="0.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAgAgAAAIA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.BenefitMultiplier" Collapsed="true">
+    <Position X="3" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.BenefitProgressive" Collapsed="true">
+    <Position X="5.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.BenefitProgressiveItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="84" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAACAAAAAAAAAAAAAABCgAAAAAAABAAAAAAAgAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.BenefitFixed" Collapsed="true">
+    <Position X="7.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Trigger" Collapsed="true">
+    <Position X="6.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gEAAAAECAAQAAAgAAAAAAAAAgAIAIAAAAAABAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.TriggerCatalog" Collapsed="true">
+    <Position X="12.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.TriggerProduct" Collapsed="true">
+    <Position X="12.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.TriggerDateRange" Collapsed="true">
+    <Position X="1" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAEAAABAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.TriggerMonetaryValueRange" Collapsed="true">
+    <Position X="3.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAEAAAAAAAEA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.TriggerQuantityRange" Collapsed="true">
+    <Position X="5.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAACgAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.TriggerEmpty" Collapsed="true">
+    <Position X="7.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.TriggerCustomerRank" Collapsed="true">
+    <Position X="10" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.SearchRecord" Collapsed="true">
+    <Position X="3" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Product" Collapsed="true">
+    <Position X="5.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEEAQAFEIRjGAEBDEoAgQAUACCAiCJAGAQDIAREJuAg=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.CategoryMerchant" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="71.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAEAAGQQCAAEgGGIAggAQAgAA4AAAUQABAQAEAIAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Brand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RIAAAAAGAQCAAEAAAIAgAAQAgAAgAAAEAABAAAEIIAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Store" Collapsed="true">
+    <Position X="11.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YJCgAyhAACIDAMAGAoIsAASDBBBAAgC0AQIBIgCCCAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.LogoData" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAQAACAAAAAAAAUAAAABAAgAAgQAABAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.BaseModel" Collapsed="true">
+    <Position X="11.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAGAQCAAEAAAAAAAAAAgAAgAAAAAABAAAEAIAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.SKU" Collapsed="true">
+    <Position X="1.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACBCAGAAAAAAIBQgAgCQIggAAAAADEAAEAAABAJEA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Dimensions" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACBAAAAAADgAABAEAAgCAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.SpecificFields" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAQAAIAAAAAAAAAAEgAAAAAAAAAgCEAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Variation" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAABAAAAIAAAAQAggACIAAAAABwQAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.SKUDetails" Collapsed="true">
+    <Position X="2.75" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAEAAAAAAAIAAAAAAAAAAAAAIAICgAAAQ=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.SKUCheckout" Collapsed="true">
+    <Position X="0.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACKAACAAAAAAAAAAgAAQFAKAAAAGABBAgCACggEBAQA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.InfoItemOrderClosing" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAECABAAABAAAgABAAAAgAIAAAAIAAAAAAAAQAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.GiftCardPackageBasket" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBACACIAAIAAASwAACAEAAkAACAAQAAAAAYAgAIAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Personalization" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="75.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BEAAAACCAAACCAAAAAAgAAAAgAIAAAAEAQAAAAAIAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.OthersPersonalization" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="78.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIACAAAAAAAAAAAAAAAAgAAAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.PersonalizationItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACEKAAAAAAAAAACABAgAAAAAACBAAAAABAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.OthersField" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACIAAEADAEAAAAACAAgQCAAAACAAAAAAAAgAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.ProductExternalDetails" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAACAAAAABAAAAAAIAAAgAAAIAABAAAAgAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.ProductCheckout" Collapsed="true">
+    <Position X="5.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.SPPromotion" Collapsed="true">
+    <Position X="0.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAQAAAAAAAAAAAAAAAAAACAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.PricePromotion" Collapsed="true">
+    <Position X="3" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgACAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.FreeShippingEffectivePromotion" Collapsed="true">
+    <Position X="8.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.SPEffectivePromotion" Collapsed="true">
+    <Position X="11" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACCAAIAAAAQQAAAAACAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.PriceEffectivePromotion" Collapsed="true">
+    <Position X="13.25" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAACAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.ShippingFreeUsedPromotion" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="71.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIACACAAAAAAAAQAACAAAAwAAAABAAAAACAAAAIAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.PromotionApplied" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="73.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAgAAAAAAAgAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.BillingInfo" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAGAQCAAEAgAAAAABAAgCAgCAAAABBAAAUAKAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.OrderTaxe" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="73.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAAAAAFCAAAA0AAAAAAAAAAAgAIAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.CreditCard" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ggBAAAgCQAAAQQIAAiBAEBEAiAAAABQAGgAAICAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.OrderItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="84" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAABAMAAAgAAAAgAAAAAAEAAAAAAAAAAQ=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.OrderTraffic" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="75.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBAACGAEgBBgAFCpgwAAgAgAGhRxAFAwJElgROoAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.OrderOthersField" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Referer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="75.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAQAAAAAAAoABAgAAAAAAAAAgAAgA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.ScheduledShippingPeriod" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAACCAAAAAECAACAAAAAAkAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Shipping" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQRDAAAOAAhAAGAAAAAMABIAgQBCABAAFAASAQAAAAI=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.CustomerStore" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAEGAQCAAEAAAAAgAAAIgAAoAAAUAABAAAEIIAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.CustomerCategory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAEGAQCAAEAAAAAkAAAIgAAgAAAEAABCAAEIIAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.SuperPointsRank" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="75.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AhCCAAACAQCgAEAACAAgAAAAgAAgAAAEAEBAQAEAAEA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.CustomerOthersField" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAACAAAAEAAAAAAAAAAAgAIAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.CustomerOrders" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAiAAAAAAAAAAAAAAAAwAAABAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Customer" Collapsed="true">
+    <Position X="9.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>FEAAEMAHgSCCAEAAAEqgQAAEwAAgVCAGCxhcCAkMIAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.AddressCustomer" Collapsed="true">
+    <Position X="8.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAEAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Address" Collapsed="true">
+    <Position X="8.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BASAAQAGgQDCAEAINMQgAAQAhAIgAAAFIQJAJAMIIAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Phone" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="78.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAABAAAAMIEAABACAgACAAQEAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Company" Collapsed="true">
+    <Position X="8.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAAAEAAAAAAQAACAAAAIAQQFAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Person" Collapsed="true">
+    <Position X="10.75" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKAAAFIAgAAAAAAAgAAAAASAACAAAAAAAAAAAAAABAg=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.Order" Collapsed="true">
+    <Position X="15.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAFQQQSGAQGFARGMAhExgAAAigIkQtAsEgBEUgEIIMk=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.IsIntegratedNewOrderByStatusRequest" Collapsed="true">
+    <Position X="82.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAEAg=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.IsIntegratedNewOrderByStatusResponse" Collapsed="true">
+    <Position X="84" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.ChangeStatusOrderRequest" Collapsed="true">
+    <Position X="82.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAABAQAgAACAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.ChangeStatusOrderResponse" Collapsed="true">
+    <Position X="84" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.ChangeStatusOrderSuperMallRequest" Collapsed="true">
+    <Position X="59.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAQAAAACAAAAAAAAAAAIAAACAAAAAI=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.ChangeStatusOrderSuperMallResponse" Collapsed="true">
+    <Position X="61.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.ChangeStatusOrderItemSuperMallRequest" Collapsed="true">
+    <Position X="78.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAACAAAAAACAAAAsAAACAAAAAI=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.ChangeStatusOrderItemSuperMallResponse" Collapsed="true">
+    <Position X="80.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.RetrieveDatesCommissionsPredictionRequest" Collapsed="true">
+    <Position X="82.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAoIAACAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.RetrieveDatesCommissionsPredictionResponse" Collapsed="true">
+    <Position X="84" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.pedidos_rakuten_prod.OrderServiceSoapClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="68.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAQACAAAAAAAIAQAEAADAAAAAACABUQAAIACAAAAgA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsciashop.PedidosRequest" Collapsed="true">
+    <Position X="64.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.PedidosRequestBody" Collapsed="true">
+    <Position X="66.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.PedidosResponse" Collapsed="true">
+    <Position X="68.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.PedidosResponseBody" Collapsed="true">
+    <Position X="70" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaPedidosRequest" Collapsed="true">
+    <Position X="71.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaPedidosRequestBody" Collapsed="true">
+    <Position X="73.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaPedidosResponse" Collapsed="true">
+    <Position X="75.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaPedidosResponseBody" Collapsed="true">
+    <Position X="77" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.StatusPedidoRequest" Collapsed="true">
+    <Position X="78.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.StatusPedidoRequestBody" Collapsed="true">
+    <Position X="80.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.StatusPedidoResponse" Collapsed="true">
+    <Position X="82.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.StatusPedidoResponseBody" Collapsed="true">
+    <Position X="84" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConsultaStatusPedidosRequest" Collapsed="true">
+    <Position X="78.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConsultaStatusPedidosRequestBody" Collapsed="true">
+    <Position X="80.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConsultaStatusPedidosResponse" Collapsed="true">
+    <Position X="82.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConsultaStatusPedidosResponseBody" Collapsed="true">
+    <Position X="84" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.CompradoresRequest" Collapsed="true">
+    <Position X="75.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.CompradoresRequestBody" Collapsed="true">
+    <Position X="77" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.CompradoresResponse" Collapsed="true">
+    <Position X="78.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.CompradoresResponseBody" Collapsed="true">
+    <Position X="80.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaCompradoresRequest" Collapsed="true">
+    <Position X="84" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaCompradoresRequestBody" Collapsed="true">
+    <Position X="59.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaCompradoresResponse" Collapsed="true">
+    <Position X="61.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaCompradoresResponseBody" Collapsed="true">
+    <Position X="63" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ProdutosRequest" Collapsed="true">
+    <Position X="66.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ProdutosRequestBody" Collapsed="true">
+    <Position X="68.25" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ProdutosResponse" Collapsed="true">
+    <Position X="70" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ProdutosResponseBody" Collapsed="true">
+    <Position X="71.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.VariantesRequest" Collapsed="true">
+    <Position X="82.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.VariantesRequestBody" Collapsed="true">
+    <Position X="84" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.VariantesResponse" Collapsed="true">
+    <Position X="59.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.VariantesResponseBody" Collapsed="true">
+    <Position X="61.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.DepartamentosRequest" Collapsed="true">
+    <Position X="75.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.DepartamentosRequestBody" Collapsed="true">
+    <Position X="77" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.DepartamentosResponse" Collapsed="true">
+    <Position X="78.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.DepartamentosResponseBody" Collapsed="true">
+    <Position X="80.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.DepartamentosProdutosRequest" Collapsed="true">
+    <Position X="68.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.DepartamentosProdutosRequestBody" Collapsed="true">
+    <Position X="70" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.DepartamentosProdutosResponse" Collapsed="true">
+    <Position X="71.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.DepartamentosProdutosResponseBody" Collapsed="true">
+    <Position X="73.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.AtualizaEstoqueRequest" Collapsed="true">
+    <Position X="75.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.AtualizaEstoqueRequestBody" Collapsed="true">
+    <Position X="77" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.AtualizaEstoqueResponse" Collapsed="true">
+    <Position X="78.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.AtualizaEstoqueResponseBody" Collapsed="true">
+    <Position X="80.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.EnviaImagemRequest" Collapsed="true">
+    <Position X="71.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.EnviaImagemRequestBody" Collapsed="true">
+    <Position X="73.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAgAAAAAAAACAAAAAAAAAAAACEAAAhAAEgA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.EnviaImagemResponse" Collapsed="true">
+    <Position X="75.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.EnviaImagemResponseBody" Collapsed="true">
+    <Position X="77" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaDadosRequest" Collapsed="true">
+    <Position X="64.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaDadosRequestBody" Collapsed="true">
+    <Position X="66.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAQAAAAAAAAAAgAAEAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaDadosResponse" Collapsed="true">
+    <Position X="68.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.ConfirmaDadosResponseBody" Collapsed="true">
+    <Position X="70" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Solution.wsciashop.wsIntegracaoSoapClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="75.25" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAIgABCAAAIAAARAEgSAgABCAECUAgACQAEUAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ProductFieldIdDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAIAAACAAAAAAAABAAAEAAAgAAAAAgEAAAAAQIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.StockKeepingUnitFieldNameDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAISAAAAAAAABAAAAIAIgAAAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.StockKeepingUnitFieldIdDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAIAAICAAAAAAAABAAAAAAIgAAAAAAEAAAAAQIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.StoreDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="73.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAACAAAEgAAAEAAAAAQAgAAAAAAEAAAgAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.GiftCardDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAKAAAKAAAAEAAAAABAAAIBgCAiAAAEBUAggAIgAAU=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.GiftCardTransactionItemDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="68.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAABAACUAAAAAACECAAAAAAgAAAAgAEAgAkAIIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.GiftListDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MARJAACCACQugAAg0BAAIAQgpCAgCgAEAACEKFJABAE=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.GiftListMemberDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="71.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAICAAQEgEAAkAAABgQAjAAgABAFAAIAiQIQAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.GiftListTypeDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="75.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IYQSIACCFQhsgACO0EAABAYAoCAAAAAEUSCAABIIAAk=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.GiftListStockKeepingUnitDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="73.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIgggICCAEYBAAIADBAAIAAggAQAACQEDQAGCIICABA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.StockKeepingUnitQuantityDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAABAACAAAAAAACAAAAAAAAgAAAAAAEAAAAgAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.EmailQueueDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EEAABAACBCAAKQACiIUQQQBAgAAgBAAEAAIgWIIgAIA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.IntegrationErrorDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAASIABCAQBDAAAABAAAgiAAAAAFQAAAAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.IntegrationInterfaceDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="78.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAIAACAABQAAAAAAAAAAAAgAAAAAAMAAAEICIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.CollectionDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="73.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACCAAACAAAAgAAAAAAAIAQEgICAAEAFAAAglCIBAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ShippingNotificationDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="73.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAACAAAAAAAAAAgAAACAgAAAAAAEABAAAIIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.FiscalInvoiceDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="80.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCAQQAACAAAUAAAAEAAAgAAAgAAACAAMAEAQAAIAAgA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.PackageTrackingDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="80.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACKECAJCBAEiACABAAgAAATAgLgEAEAEAAAAAAJCAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.Dest" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="82.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAASQAQAEAAgAAIAAACBgAAAAAAEAAAAAAIgAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.Det" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="84" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAEAAIAAIAAAAAAAAgAAAAAAEAAAAABIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.Emit" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAASQAQAEAAAAAAAAAABgACIAAAEAEAEAAIgAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.Ide" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IEwAAQICBgIMQAIAgAFoJAREoAACAUaEAYAgLgIFIAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.InfAdic" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACCAAAAAAAAAAAAAAAgAAAAAAEAAAAAAIAQAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.Total" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAABgAAAAAAAAAAAAgAAAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.Transp" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="78.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAABACAQAAAAACAAgAAAAAKEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.Ender" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>mIAAASECAgBAAAAAAAABoIAAiVgAIgAEAAAEAAIAAAE=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.Imposto" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAIACAAAABAAhAAIBAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.Prod" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="84" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AApQAAAbAAEAAIFAEgASASCAgoAAAQAEBACAAQcBAEA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.COFINS" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAIAAgAAAAAAEAAAAAAIAABA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ICMS" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="80.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAACAAAAAAIAAAAAAAAAgAAAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.PIS" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="80.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACBAAAAAAAAAAAAAAAgAgAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.COFINSAliq" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="71.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACwAEAACAAAAAABAAAAAAAAAogAAAAAEAAAAAAIAEAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ICMS60" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="82.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGAAAAACAICBAAAABAAAAAAAgAAAAAAFAAAAAAIAEAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.PISAliq" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="82.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACYAAAACAAAAAAAAAAAAAAEAoAAAAAAEAIAAAAIAEEA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ICMSTot" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="84" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AA5CEAEGAAAAAAGCBAQCACEMokAAAABECACAAAIAgIA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.Transporta" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="80.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACESQAQAEAAAAAAAgCAAhAgIAAAEAAAEAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.Vol" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AICAAAACAAAAAEAAEAAAAAAAgBAAAAAEAAAEBAIAAAQ=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.OrderItem" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAABCEYACAAASgAIAABRjgAAEIAJEBAAgEAIAEgA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.WareHouseIStockableDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66.5" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAICAgggAAACAAAAAAAAhBAAAAUEAAAAgAJAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.NewsletterDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="71.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABACACAAggAAAAAAAAQUgAAAABAEAAAgAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.StockKeepingUnitDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0KxCMAIGJQAEgQkAEAqAIGxAwJIAQRAtUAAiAQKJAAI=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.StockKeepingUnitEanDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACEAAAAAAAAAAAAAAAgAAAAIAEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ProductDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AoCSACBCAQQsk0AAMAQACIRAiBAhQAAEgAEgACJzAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.StockKeepingUnitKitDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="68.25" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAGBAACAAAAAAACAAABAACAgQAAAAAMAAAgAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.IntegrationDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="75.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YJQqAEwHAQDCESAAACIALQSQgAABAFAG4MAgoILAMaI=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.IntegrationWarehouseDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="80.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAgCAAAAAAAAAAAACAAAgAIAAABEAAAsAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ClientCandidateDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAACAABAgABAEAAAAAQCgAAAAAAEAAAACAIggAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.OrderDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="80.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QSGaQAgKB0hmAAIBgKQMODQQghUlAoAGCEAgFAoAgAQ=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.AddressOrderDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACIAACAIEwAAAYBECIAAAIgEMAAAAHAAYgJQYCAAE=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ClientDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABQSQsCigSCECwbAFGYAgBAAwCARAAGGAAIhIQITCQk=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.OrderDiscountDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="78.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACAAACAAAAAAIAAAAAAAQAgAgAAAAECAAgAIIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.OrderDeliveryDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>UAGSIDoCAAFCoAAAFgAjiIECgAAYAQEEAABhAIIABCQ=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.DistributionCenterDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAACAABAgAAEAQAAAAQAgAABAQAEAgAABAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.OrderItemDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MCQCAABCEYACAAASgAMAABRjgAAEYAJEBSAiEAIBEgA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.OrderItemServiceDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACCAACBQAQAEAAACAAAEAAgFQgAAAFEAAgAAKDAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.StockKeepingUnitServiceDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="71.75" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIADBCACAAAkgAACEAAAAgQAgAgAAAAEAAAkAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ServicePriceDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="68.25" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIADACACBQAAgAAAAAAAAAQAgAAAQAIFAAAgAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ServiceDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66.5" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAGAABKAABEgAAIEAAAAARggACAAAAECAAgAAIAgEA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.OrderStatusDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAACAAAgAAAAAAAAAAAAgAAAAAAEAAAgAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.OrderPaymentDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MNhCIAACAME1CJAqhEyAgCAMgEMUA1AVDQ4gB5aAAAQ=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.PaymentDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="82.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAICAAAEgAAAEAAAAAQAgAAAAAAEAQAgAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ClientExtendedDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAACAAgAAAAAAEAAAAAAIAAAQ=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ClientFieldDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="68.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgCAAAACSAAEgAAAEAABAAQggAAAAAAFAgAoAAIQAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.AddressDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAACAIEwAAAIAECAAAAIgEMAAAAFAA4iBQYAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.FreightValueDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQEKSBACJIACAQAAAIAAKAAQoIBAyAAEAAIwEAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ZipCodeDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="77" Y="14.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAADAAAQAAAIAAAAAAAIgEAAAAAEggYgBQIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.FreightDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="84" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAEAKAAAAgAAAAYAACAQAgAAQAAAEAAAABAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.BuyTogetherDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="66.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACIAACAAAlgAAQEAAACIQggAAAIAAECAQgAEIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.BuyTogetherBuyGainDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACAAACBAAkgAAQEAgACAQhgAAAAAAEAgAgAEIAEAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.BuyTogetherTakeXPayYDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="68.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIACIAACAAAkgAAQEAAACAQggAAAAAAEAgAgAEIAEAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.BrandDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="63" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACACACAAQkgUAAEAAICAQAgAAAAAAEAAAgAAIQgAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.CategoryDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="70" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIACACACAAQkgUAAEIAICAQAgAAAAAAEAAAgAAIQgAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ImageDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="61.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIECBAACHgAggAECEIAAAMQAoAQEAQCcCAEhAAICAAI=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.FieldDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="78.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EoAAAACCCAAkwgAAEgAAAAQggAQBAAAFAAAgAAIQAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.StockKeepingUnitComplementDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="59.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAACAACAAAACAAAAAgAAgAAAAAAEAAAACAIQAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ProductFieldNameDTO" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAASAAAAAAAABAAAEIAAgAAAAAgEAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Solution.wsVtex.ServiceClient" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="64.75" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>miN1FUVekX0sGt8kZ/QKr36wzUJYQxDL+wc1XxMgFKQ=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Solution.Pedidos.IPedidoWS" Collapsed="true">
+    <Position X="14.5" Y="16.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAACAkCAAAAAgAEEACgAAAAAgAACEAAAAAEQCQAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.Pedidos.IPedidoWSChannel" Collapsed="true">
+    <Position X="14.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.pedidos_rakuten_prod.OrderServiceSoap" Collapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAQACAAAAAAAAAQAEAACAAAAAACAAUQAAIAAAAAAgA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.pedidos_rakuten_prod.OrderServiceSoapChannel" Collapsed="true">
+    <Position X="15.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.wsciashop.wsIntegracaoSoap" Collapsed="true">
+    <Position X="5.5" Y="13.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIgAACAAAIAAABAEgAAgAAAAAAEAgACAAEEAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.wsciashop.wsIntegracaoSoapChannel" Collapsed="true">
+    <Position X="5.5" Y="14.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsciashop\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.wsVtex.IService" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>miN1FUVekX0sGt8kZ/QKr36wzUJYQxDL+wc1XxMgFKQ=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Solution.wsVtex.IServiceChannel" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Solution.Pedidos.StatusProcessamento" Collapsed="true">
+    <Position X="73.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.Pedidos.ClassificacaoProdutoEnum" Collapsed="true">
+    <Position X="66.5" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACABAAgCAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.Pedidos.PrevalecerPrecoEnum" Collapsed="true">
+    <Position X="66.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.Pedidos.TipoProdutoEnum" Collapsed="true">
+    <Position X="82.25" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAQQAAAAAAAAABAAgAAAAAAAgAAAAAEAAAAAAAgAg=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.Pedidos.TipoDisponibilidadeEnum" Collapsed="true">
+    <Position X="80.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAQIAAAAAAACgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.Pedidos.TipoReposicaoEnum" Collapsed="true">
+    <Position X="84" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIgAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.Pedidos.LimiteUsoEnum" Collapsed="true">
+    <Position X="84" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.Pedidos.TipoDescontoEnum" Collapsed="true">
+    <Position X="78.75" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAEAAAEAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.Pedidos.ClienteSexoEnum" Collapsed="true">
+    <Position X="68.25" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.Pedidos.TipoClienteEnum" Collapsed="true">
+    <Position X="77" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAIAAAA=</HashCode>
+      <FileName>Service References\Pedidos\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.PromotionType" Collapsed="true">
+    <Position X="71.75" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.PromotionLocation" Collapsed="true">
+    <Position X="68.25" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAEAAAg=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.BenefitType" Collapsed="true">
+    <Position X="64.75" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAABAAAAAAEAAAAAAAABAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.TriggerType" Collapsed="true">
+    <Position X="61.25" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAIAAACAAQAAAAAAAAAAAIwAAAIACAAAhBmIk=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.EnumSKUAction" Collapsed="true">
+    <Position X="77" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAMAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.EnumProductType" Collapsed="true">
+    <Position X="75.25" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAIAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.EnumPersonalization" Collapsed="true">
+    <Position X="73.5" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAACAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.EnumTypeDataPersonalization" Collapsed="true">
+    <Position X="78.75" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAEAAAE=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.SuperPointsType" Collapsed="true">
+    <Position X="75.25" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAQAAAAEAAAAAAAgAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.PromotionOwner" Collapsed="true">
+    <Position X="70" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAgAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.AcquireType" Collapsed="true">
+    <Position X="59.5" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAEAEAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.CustomerType" Collapsed="true">
+    <Position X="70" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.LocalLogin" Collapsed="true">
+    <Position X="59.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.AddressType" Collapsed="true">
+    <Position X="63" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.PhoneType" Collapsed="true">
+    <Position X="64.75" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAgAAAAAAAAAAAAAAAAAAAAAgAAAAAAggAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.AddressPurposeType" Collapsed="true">
+    <Position X="61.25" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.PaymentType" Collapsed="true">
+    <Position X="63" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAQAAAAAAEAAAAAAAAAAAAAEQAAA=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.PaymentOperatorType" Collapsed="true">
+    <Position X="61.25" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAgAgABAAAAAAAAAAAAASAAAAAAAFAkAABg=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.pedidos_rakuten_prod.DomainType" Collapsed="true">
+    <Position X="71.75" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAEAAAAAAAIAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Service References\pedidos_rakuten_prod\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.wsVtex.TransactionAction" Collapsed="true">
+    <Position X="59.5" Y="18.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.wsVtex.ErrorType" Collapsed="true">
+    <Position X="80.5" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMJAAAAAAIQgAAQBAAAAEAAEQAAAAAACACIEAAAQAg=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Solution.wsVtex.IntegrationStatus" Collapsed="true">
+    <Position X="82.25" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAEAAgAgAAAQABAEAIAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>Service References\wsVtex\Reference.vb</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Module Name="Solution.My.MyWebExtension" Collapsed="true">
+    <Position X="61.25" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACABAAAAABBAAEgAEAAAAAAAAAgBgBAAAAgAAAAAAAA=</HashCode>
+      <FileName>My Project\MyExtensions\MyWebExtension.vb</FileName>
+    </TypeIdentifier>
+  </Module>
+  <Module Name="Solution.My.MySettingsProperty" Collapsed="true">
+    <Position X="59.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Module Name="Solution.My.Resources.Resources" Collapsed="true">
+    <Position X="63" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Module>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

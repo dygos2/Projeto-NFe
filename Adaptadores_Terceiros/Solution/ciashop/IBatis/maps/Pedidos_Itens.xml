@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="pedido_Item" type ="solution.Pedidos_ItensVO, solution"/>
+  </alias>
+
+  <resultMaps>
+    <resultMap id="Itens"  class="pedido_Item">
+      <result property="num_pedido" column = "num_pedido"/>
+      <result property="NFe_emit_CNPJ" column = "NFe_emit_CNPJ"/>
+      <result property="fk_id_plataforma" column = "fk_id_plataforma"/>   
+      <result property="cProd" column = "cProd"/>
+      <result property="xProd" column = "xProd"/>
+      <result property="Orig" column = "Orig"/>
+      <result property="qCom" column = "qCom"/>
+      <result property="subst" column = "subst"/>
+      <result property="vUnCom" column = "vUnCom"/>
+      <result property="vFrete" column = "vFrete"/>
+      <result property="vDesc" column = "vDesc"/>
+      <result property="NCM" column = "NCM"/>
+    </resultMap>
+
+    
+
+  </resultMaps>
+  
+  
+  
+  <statements>
+    <!-- 
+    <delete id="excluirNota" parameterClass="System.Collections.IDictionary">
+      delete from notas where
+      NFe_ide_nNF = #nNF#
+      and serie = #serie#
+      and NFe_emit_CNPJ = #cnpj#;
+    </delete>
+    -->    
+    <insert id="inserirPedido_Item" parameterClass="System.Collections.IDictionary" >
+      INSERT INTO pedidos_itens (num_pedido,NFe_emit_CNPJ,fk_id_plataforma, cProd,xProd, qCom,NCM,uCom, subst,vUnCom,vFrete,vDesc)
+      VALUES(#num_pedido#,#NFe_emit_CNPJ#,#fk_id_plataforma#,#cProd#,#xProd#,#qCom#,#NCM#,#uCom#,#subst#,#vUnCom#,#vFrete#,#vDesc#);
+    </insert>
+
+    <update id="alterarPedido_Item" parameterClass="System.Collections.IDictionary">
+      update pedidos_itens set  NFe_emit_CNPJ = #NFe_emit_CNPJ#
+                              , num_pedido = #num_pedido#
+                              , fk_id_plataforma = #fk_id_plataforma#
+                              , cProd = #cProd#
+                              , qCom = #qCom#
+                              , vUnCom = #vUnCom#
+                              , xProd = #xProd#
+                              , NCM = #NCM#
+                              , uCom = #uCom#
+                              , qCom = #qCom#
+                              , vUnCom = #vUnCom#
+                              , subst = #subst#
+                              , vFrete = #vFrete#
+                              , vDesc= #vDesc#                              
+      where NFe_emit_CNPJ = #NFe_emit_CNPJ#
+      and num_pedido = #num_pedido#
+      and fk_id_plataforma = #fk_id_plataforma#
+      and cProd like #cProd#;
+    </update>
+
+    <select id="pegaItens" parameterClass="System.Collections.IDictionary" resultMap="Itens">
+      select * from pedidos_itens  where
+       NFe_emit_CNPJ = #NFe_emit_CNPJ#
+       and num_pedido = #num_pedido#;
+    </select>
+
+  </statements>
+
+</sqlMap>

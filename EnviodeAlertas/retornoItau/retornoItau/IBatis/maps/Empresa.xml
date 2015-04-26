@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="" xmlns="http://ibatis.apache.org/mapping"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+<alias>
+  <typeAlias alias="rotina" type ="solution.rotinaVO, solution"/>
+</alias>
+
+  <resultMaps>
+    <resultMap id="countEmp" class="empresa">
+      <result property="contador" column = "contador"/>
+    </resultMap>
+  </resultMaps>  
+  
+
+<statements>
+  <!-- 
+    <delete id="excluirNota" parameterClass="System.Collections.IDictionary">
+      delete from notas where
+      NFe_ide_nNF = #nNF#
+      and serie = #serie#
+      and NFe_emit_CNPJ = #cnpj#;
+    </delete>
+    -->
+
+  <update id="rotinaBkp" parameterClass="System.Collections.IDictionary">
+    call megaideas5.rotina_bkp_base();
+  </select>
+
+</update>
+
+</sqlMap>
+

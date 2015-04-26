@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Vtex.Commerce.Checkout2" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Vtex.Commerce.Checkout2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd0" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="IntegrationStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Private" />
+      <xs:enumeration value="Available" />
+      <xs:enumeration value="Sent" />
+      <xs:enumeration value="PaymentDenied" />
+      <xs:enumeration value="Canceled" />
+      <xs:enumeration value="SentToCarrier" />
+      <xs:enumeration value="Delivered" />
+      <xs:enumeration value="UnsuccessfulDelivery" />
+      <xs:enumeration value="Undefined">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">99</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="IntegrationStatus" nillable="true" type="tns:IntegrationStatus" />
+</xs:schema>

@@ -1,0 +1,2558 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.virtualjoias.com/webservice/v2/ws_servidor.php" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://www.virtualjoias.com/webservice/v2/ws_servidor.php" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.virtualjoias.com/webservice/v2/ws_servidor.php">
+      <xsd:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <xsd:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <xsd:complexType name="Informacao">
+        <xsd:all>
+          <xsd:element name="TipoNome" type="xsd:string" />
+          <xsd:element name="Texto" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InformacaoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Informacao[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="InformacaoSimples">
+        <xsd:all>
+          <xsd:element name="TipoNome" type="xsd:string" />
+          <xsd:element name="Texto" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="InformacaoSimplesArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:InformacaoSimples[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Categoria">
+        <xsd:all>
+          <xsd:element name="id_categoria" type="xsd:integer" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="CategoriaArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Categoria[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Endereco">
+        <xsd:all>
+          <xsd:element name="tipo" type="xsd:string" />
+          <xsd:element name="descricao" type="xsd:string" />
+          <xsd:element name="destinatario" type="xsd:string" />
+          <xsd:element name="tipo_entrega" type="xsd:string" />
+          <xsd:element name="logradouro" type="xsd:string" />
+          <xsd:element name="numero" type="xsd:string" />
+          <xsd:element name="bairro" type="xsd:string" />
+          <xsd:element name="complemento" type="xsd:string" />
+          <xsd:element name="cidade" type="xsd:string" />
+          <xsd:element name="estado" type="xsd:string" />
+          <xsd:element name="cep" type="xsd:integer" />
+          <xsd:element name="pais" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="EnderecosArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Endereco[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Cliente">
+        <xsd:all>
+          <xsd:element name="id_pedido" type="xsd:integer" />
+          <xsd:element name="id_cliente" type="xsd:integer" />
+          <xsd:element name="pais" type="xsd:string" />
+          <xsd:element name="revenda" type="xsd:string" />
+          <xsd:element name="tipo_pessoa" type="xsd:string" />
+          <xsd:element name="bloqueado" type="xsd:string" />
+          <xsd:element name="cliente" type="xsd:string" />
+          <xsd:element name="cnpj_cpf" type="xsd:string" />
+          <xsd:element name="ie_rg" type="xsd:string" />
+          <xsd:element name="data_nasc" type="xsd:string" />
+          <xsd:element name="data_cadastro" type="xsd:string" />
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="observacao" type="xsd:string" />
+          <xsd:element name="logradouro" type="xsd:string" />
+          <xsd:element name="numero" type="xsd:string" />
+          <xsd:element name="bairro" type="xsd:string" />
+          <xsd:element name="complemento" type="xsd:string" />
+          <xsd:element name="cep" type="xsd:string" />
+          <xsd:element name="cidade" type="xsd:string" />
+          <xsd:element name="uf" type="xsd:string" />
+          <xsd:element name="telefone" type="xsd:string" />
+          <xsd:element name="fax" type="xsd:string" />
+          <xsd:element name="celular" type="xsd:string" />
+          <xsd:element name="sexo" type="xsd:string" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="apelido" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ListArray" />
+      <xsd:complexType name="EnderecosClienteArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:EnderecoCliente[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="EnderecosClienteComIdArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:EnderecoClienteComId[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="EnderecoCliente">
+        <xsd:all>
+          <xsd:element name="tipo" type="xsd:string" />
+          <xsd:element name="descricao" type="xsd:string" />
+          <xsd:element name="tipo_entrega" type="xsd:string" />
+          <xsd:element name="destinatario" type="xsd:string" />
+          <xsd:element name="logradouro" type="xsd:string" />
+          <xsd:element name="numero" type="xsd:string" />
+          <xsd:element name="complemento" type="xsd:string" />
+          <xsd:element name="bairro" type="xsd:string" />
+          <xsd:element name="cidade" type="xsd:string" />
+          <xsd:element name="uf" type="xsd:string" />
+          <xsd:element name="cep" type="xsd:string" />
+          <xsd:element name="pais" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="EnderecoClienteComId">
+        <xsd:all>
+          <xsd:element name="id_endereco" type="xsd:int" />
+          <xsd:element name="tipo" type="xsd:string" />
+          <xsd:element name="descricao" type="xsd:string" />
+          <xsd:element name="tipo_entrega" type="xsd:string" />
+          <xsd:element name="destinatario" type="xsd:string" />
+          <xsd:element name="logradouro" type="xsd:string" />
+          <xsd:element name="numero" type="xsd:string" />
+          <xsd:element name="complemento" type="xsd:string" />
+          <xsd:element name="bairro" type="xsd:string" />
+          <xsd:element name="cidade" type="xsd:string" />
+          <xsd:element name="uf" type="xsd:string" />
+          <xsd:element name="cep" type="xsd:string" />
+          <xsd:element name="pais" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="DadosExtrasArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:DadoExtra[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DadoExtra">
+        <xsd:all>
+          <xsd:element name="campo" type="xsd:string" />
+          <xsd:element name="valor" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ClienteAvancado">
+        <xsd:all>
+          <xsd:element name="id_pedido" type="xsd:integer" />
+          <xsd:element name="id_cliente" type="xsd:integer" />
+          <xsd:element name="pais" type="xsd:string" />
+          <xsd:element name="revenda" type="xsd:string" />
+          <xsd:element name="tipo_pessoa" type="xsd:string" />
+          <xsd:element name="bloqueado" type="xsd:string" />
+          <xsd:element name="cliente" type="xsd:string" />
+          <xsd:element name="cnpj_cpf" type="xsd:string" />
+          <xsd:element name="ie_rg" type="xsd:string" />
+          <xsd:element name="data_nasc" type="xsd:string" />
+          <xsd:element name="data_cadastro" type="xsd:string" />
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="observacao" type="xsd:string" />
+          <xsd:element name="logradouro" type="xsd:string" />
+          <xsd:element name="numero" type="xsd:string" />
+          <xsd:element name="bairro" type="xsd:string" />
+          <xsd:element name="complemento" type="xsd:string" />
+          <xsd:element name="cep" type="xsd:string" />
+          <xsd:element name="cidade" type="xsd:string" />
+          <xsd:element name="uf" type="xsd:string" />
+          <xsd:element name="telefone" type="xsd:string" />
+          <xsd:element name="fax" type="xsd:string" />
+          <xsd:element name="celular" type="xsd:string" />
+          <xsd:element name="sexo" type="xsd:string" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="apelido" type="xsd:string" />
+          <xsd:element name="desconto_revenda" type="xsd:string" />
+          <xsd:element name="enderecos" type="tns:EnderecosClienteArray" />
+          <xsd:element name="dados_extras" type="tns:DadosExtrasArray" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ClienteArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Cliente[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ClienteAvancadoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:ClienteAvancado[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ClienteSemDadosPedido">
+        <xsd:all>
+          <xsd:element name="id_cliente" type="xsd:integer" />
+          <xsd:element name="pais" type="xsd:string" />
+          <xsd:element name="revenda" type="xsd:string" />
+          <xsd:element name="tipo_pessoa" type="xsd:string" />
+          <xsd:element name="bloqueado" type="xsd:string" />
+          <xsd:element name="cliente" type="xsd:string" />
+          <xsd:element name="cnpj_cpf" type="xsd:string" />
+          <xsd:element name="ie_rg" type="xsd:string" />
+          <xsd:element name="data_nasc" type="xsd:string" />
+          <xsd:element name="data_cadastro" type="xsd:string" />
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="observacao" type="xsd:string" />
+          <xsd:element name="logradouro" type="xsd:string" />
+          <xsd:element name="numero" type="xsd:string" />
+          <xsd:element name="bairro" type="xsd:string" />
+          <xsd:element name="complemento" type="xsd:string" />
+          <xsd:element name="cep" type="xsd:string" />
+          <xsd:element name="cidade" type="xsd:string" />
+          <xsd:element name="uf" type="xsd:string" />
+          <xsd:element name="telefone" type="xsd:string" />
+          <xsd:element name="fax" type="xsd:string" />
+          <xsd:element name="celular" type="xsd:string" />
+          <xsd:element name="sexo" type="xsd:string" />
+          <xsd:element name="apelido" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ClienteSemDadosPedidoAvancado">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:all>
+              <xsd:element name="id_cliente" type="xsd:integer" />
+              <xsd:element name="pais" type="xsd:string" />
+              <xsd:element name="revenda" type="xsd:string" />
+              <xsd:element name="tipo_pessoa" type="xsd:string" />
+              <xsd:element name="bloqueado" type="xsd:string" />
+              <xsd:element name="cliente" type="xsd:string" />
+              <xsd:element name="cnpj_cpf" type="xsd:string" />
+              <xsd:element name="ie_rg" type="xsd:string" />
+              <xsd:element name="data_nasc" type="xsd:string" />
+              <xsd:element name="data_cadastro" type="xsd:string" />
+              <xsd:element name="email" type="xsd:string" />
+              <xsd:element name="observacao" type="xsd:string" />
+              <xsd:element name="logradouro" type="xsd:string" />
+              <xsd:element name="numero" type="xsd:string" />
+              <xsd:element name="bairro" type="xsd:string" />
+              <xsd:element name="complemento" type="xsd:string" />
+              <xsd:element name="cep" type="xsd:string" />
+              <xsd:element name="cidade" type="xsd:string" />
+              <xsd:element name="uf" type="xsd:string" />
+              <xsd:element name="telefone" type="xsd:string" />
+              <xsd:element name="fax" type="xsd:string" />
+              <xsd:element name="celular" type="xsd:string" />
+              <xsd:element name="sexo" type="xsd:string" />
+              <xsd:element name="apelido" type="xsd:string" />
+              <xsd:element name="desconto_revenda" type="xsd:string" />
+              <xsd:element name="enderecos" type="tns:EnderecosClienteArray" />
+              <xsd:element name="dados_extras" type="tns:DadosExtrasArray" />
+            </xsd:all>
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ClienteSemDadosPedidoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:ClienteSemDadosPedido[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ClienteSemDadosPedidoAvancadoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:ClienteSemDadosPedidoAvancado[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Pedido">
+        <xsd:all>
+          <xsd:element name="id_pedido" type="xsd:integer" />
+          <xsd:element name="pedido_nfin" type="xsd:integer" />
+          <xsd:element name="frete" type="xsd:string" />
+          <xsd:element name="id_cliente" type="xsd:integer" />
+          <xsd:element name="id_orcamento" type="xsd:integer" />
+          <xsd:element name="id_site_parceiro" type="xsd:integer" />
+          <xsd:element name="id_local_venda" type="xsd:integer" />
+          <xsd:element name="id_usuario" type="xsd:integer" />
+          <xsd:element name="data_pedido" type="xsd:string" />
+          <xsd:element name="hora_pedido" type="xsd:string" />
+          <xsd:element name="data_envio" type="xsd:string" />
+          <xsd:element name="hora_envio" type="xsd:string" />
+          <xsd:element name="ip_origem" type="xsd:string" />
+          <xsd:element name="total" type="xsd:string" />
+          <xsd:element name="desconto" type="xsd:string" />
+          <xsd:element name="valor_cupom" type="xsd:string" />
+          <xsd:element name="comissao" type="xsd:string" />
+          <xsd:element name="valor_frete" type="xsd:string" />
+          <xsd:element name="frete_pago" type="xsd:string" />
+          <xsd:element name="cod_rastreamento" type="xsd:string" />
+          <xsd:element name="obs_loja" type="xsd:string" />
+          <xsd:element name="obs_cliente" type="xsd:string" />
+          <xsd:element name="obs_pagamento" type="xsd:string" />
+          <xsd:element name="obs_frete" type="xsd:string" />
+          <xsd:element name="valor_imposto" type="xsd:string" />
+          <xsd:element name="valor_embalagem" type="xsd:string" />
+          <xsd:element name="local_venda" type="xsd:string" />
+          <xsd:element name="nro_cupom" type="xsd:string" />
+          <xsd:element name="parceiro" type="xsd:string" />
+          <xsd:element name="status" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PedidoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Pedido[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Item_pedido">
+        <xsd:all>
+          <xsd:element name="id_pedido" type="xsd:integer" />
+          <xsd:element name="id_produto" type="xsd:integer" />
+          <xsd:element name="id_grade" type="xsd:integer" />
+          <xsd:element name="id_kit" type="xsd:integer" />
+          <xsd:element name="nome_produto" type="xsd:string" />
+          <xsd:element name="referencia" type="xsd:string" />
+          <xsd:element name="id_embalagem" type="xsd:integer" />
+          <xsd:element name="preco" type="xsd:string" />
+          <xsd:element name="custo" type="xsd:string" />
+          <xsd:element name="comissao" type="xsd:string" />
+          <xsd:element name="quantidade" type="xsd:integer" />
+          <xsd:element name="brinde" type="xsd:integer" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="id_lista" type="xsd:integer" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ItemPedidoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Item_pedido[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Parcela_pedido">
+        <xsd:all>
+          <xsd:element name="id_parcela" type="xsd:integer" />
+          <xsd:element name="id_pedido" type="xsd:integer" />
+          <xsd:element name="forma_pagamento" type="xsd:string" />
+          <xsd:element name="data_vencimento" type="xsd:date" />
+          <xsd:element name="valor" type="xsd:string" />
+          <xsd:element name="data_pagamento" type="xsd:date" />
+          <xsd:element name="data_confirmacao" type="xsd:date" />
+          <xsd:element name="valor_pago" type="xsd:string" />
+          <xsd:element name="local_pagamento" type="xsd:string" />
+          <xsd:element name="observacao" type="xsd:string" />
+          <xsd:element name="id_forma_pagamento" type="xsd:integer" />
+          <xsd:element name="qt_parcelas" type="xsd:integer" />
+          <xsd:element name="status" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ParcelaPedidoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Parcela_pedido[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="StatusPedidos">
+        <xsd:all>
+          <xsd:element name="protocolo" type="xsd:string" />
+          <xsd:element name="pedido" type="xsd:integer" />
+          <xsd:element name="id_status" type="xsd:integer" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="data" type="xsd:string" />
+          <xsd:element name="hora" type="xsd:string" />
+          <xsd:element name="serienota" type="xsd:string" />
+          <xsd:element name="numeronota" type="xsd:string" />
+          <xsd:element name="datanota" type="xsd:string" />
+          <xsd:element name="horanota" type="xsd:string" />
+          <xsd:element name="objeto" type="xsd:string" />
+          <xsd:element name="volume" type="xsd:integer" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="StatusArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:StatusPedidos[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Chaves">
+        <xsd:all>
+          <xsd:element name="loja" type="xsd:integer" />
+          <xsd:element name="user" type="xsd:string" />
+          <xsd:element name="senha" type="xsd:string" />
+          <xsd:element name="chaveabacos" type="xsd:string" />
+          <xsd:element name="ipabacos" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ChavesArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Chaves[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ProdutosCompreJunto">
+        <xsd:all>
+          <xsd:element name="produto" type="xsd:integer" />
+          <xsd:element name="tipo_desconto" type="xsd:integer" />
+          <xsd:element name="desconto" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ProdutosArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:ProdutosKit[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ProdutosKit">
+        <xsd:all>
+          <xsd:element name="produto" type="xsd:integer" />
+          <xsd:element name="tipo_desconto" type="xsd:integer" />
+          <xsd:element name="desconto" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ProdutosRelacionados">
+        <xsd:all>
+          <xsd:element name="id_produto" type="xsd:integer" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ProdutosRelacionadosArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:ProdutosRelacionados[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DadosListaDesejos">
+        <xsd:all>
+          <xsd:element name="id" type="xsd:integer" />
+          <xsd:element name="id_cliente" type="xsd:integer" />
+          <xsd:element name="id_eventos" type="xsd:integer" />
+          <xsd:element name="cliente_enderecos" type="xsd:integer" />
+          <xsd:element name="data" type="xsd:string" />
+          <xsd:element name="data_cadastro" type="xsd:string" />
+          <xsd:element name="nome" type="xsd:string" />
+          <xsd:element name="data_finalizado" type="xsd:string" />
+          <xsd:element name="validade" type="xsd:string" />
+          <xsd:element name="url" type="xsd:string" />
+          <xsd:element name="recebimento" type="xsd:string" />
+          <xsd:element name="cartao" type="xsd:string" />
+          <xsd:element name="envia_email" type="xsd:integer" />
+          <xsd:element name="mensagem" type="xsd:string" />
+          <xsd:element name="status" type="xsd:integer" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="DadosListaDesejosArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:DadosListaDesejos[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DadosListaProdutos">
+        <xsd:all>
+          <xsd:element name="id" type="xsd:integer" />
+          <xsd:element name="id_lista" type="xsd:integer" />
+          <xsd:element name="id_produto" type="xsd:integer" />
+          <xsd:element name="quantidade" type="xsd:integer" />
+          <xsd:element name="quantidade_comprada" type="xsd:integer" />
+          <xsd:element name="id_grade" type="xsd:integer" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="DadosListaProdutosArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:DadosListaProdutos[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="Pagamentos">
+        <xsd:all>
+          <xsd:element name="cod_pedido" type="xsd:integer" />
+          <xsd:element name="id_pagamento" type="xsd:integer" />
+          <xsd:element name="forma_pagamento" type="xsd:string" />
+          <xsd:element name="valor_pago" type="xsd:string" />
+          <xsd:element name="data_pagamento" type="xsd:date" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="PagamentosArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:Pagamentos[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DadosBuscaListaVendas">
+        <xsd:all>
+          <xsd:element name="id_lista" type="xsd:integer" />
+          <xsd:element name="quantidade" type="xsd:integer" />
+          <xsd:element name="quantidade_comprada" type="xsd:integer" />
+          <xsd:element name="nome_produto" type="xsd:string" />
+          <xsd:element name="id_produto" type="xsd:integer" />
+          <xsd:element name="id_grade" type="xsd:integer" />
+          <xsd:element name="id_produto_lista" type="xsd:integer" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="BuscaListasVendasArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:DadosBuscaListaVendas[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="DadosBuscaLista">
+        <xsd:all>
+          <xsd:element name="id" type="xsd:integer" />
+          <xsd:element name="id_eventos" type="xsd:integer" />
+          <xsd:element name="id_cliente" type="xsd:integer" />
+          <xsd:element name="cliente_enderecos" type="xsd:integer" />
+          <xsd:element name="quantidade_comprada" type="xsd:integer" />
+          <xsd:element name="nome" type="xsd:string" />
+          <xsd:element name="data" type="xsd:string" />
+          <xsd:element name="data_cadastro" type="xsd:string" />
+          <xsd:element name="data_finalizado" type="xsd:string" />
+          <xsd:element name="validade" type="xsd:string" />
+          <xsd:element name="url" type="xsd:string" />
+          <xsd:element name="imagem" type="xsd:string" />
+          <xsd:element name="recebimento" type="xsd:integer" />
+          <xsd:element name="cartao" type="xsd:string" />
+          <xsd:element name="envia_email" type="xsd:integer" />
+          <xsd:element name="mensagem" type="xsd:string" />
+          <xsd:element name="status" type="xsd:string" />
+          <xsd:element name="pais" type="xsd:string" />
+          <xsd:element name="revenda" type="xsd:string" />
+          <xsd:element name="tipo_pessoa" type="xsd:string" />
+          <xsd:element name="bloqueado" type="xsd:string" />
+          <xsd:element name="cliente" type="xsd:string" />
+          <xsd:element name="cnpj_cpf" type="xsd:string" />
+          <xsd:element name="ie_rg" type="xsd:string" />
+          <xsd:element name="data_nasc" type="xsd:string" />
+          <xsd:element name="email" type="xsd:string" />
+          <xsd:element name="observacao" type="xsd:string" />
+          <xsd:element name="logradouro" type="xsd:string" />
+          <xsd:element name="numero" type="xsd:string" />
+          <xsd:element name="bairro" type="xsd:string" />
+          <xsd:element name="complemento" type="xsd:string" />
+          <xsd:element name="cep" type="xsd:string" />
+          <xsd:element name="cidade" type="xsd:string" />
+          <xsd:element name="uf" type="xsd:string" />
+          <xsd:element name="telefone" type="xsd:string" />
+          <xsd:element name="fax" type="xsd:string" />
+          <xsd:element name="celular" type="xsd:string" />
+          <xsd:element name="sexo" type="xsd:string" />
+          <xsd:element name="apelido" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="BuscaListasArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:DadosBuscaLista[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ProdutoPreco">
+        <xsd:all>
+          <xsd:element name="id" type="xsd:integer" />
+          <xsd:element name="variacao" type="xsd:integer" />
+          <xsd:element name="valor" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="ProdutosPrecoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:ProdutoPreco[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="GrupoImposto">
+        <xsd:all>
+          <xsd:element name="id_campo" type="xsd:integer" />
+          <xsd:element name="estado" type="xsd:string" />
+          <xsd:element name="valor_campo" type="xsd:string" />
+          <xsd:element name="capital" type="xsd:string" />
+          <xsd:element name="interior" type="xsd:string" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="GrupoImpostoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:GrupoImposto[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RelacionamentoImposto">
+        <xsd:all>
+          <xsd:element name="id" type="xsd:integer" />
+        </xsd:all>
+      </xsd:complexType>
+      <xsd:complexType name="RelacionamentoImpostoArray">
+        <xsd:complexContent mixed="false">
+          <xsd:restriction base="SOAP-ENC:Array">
+            <xsd:attribute wsdl:arrayType="tns:RelacionamentoImposto[]" ref="SOAP-ENC:arrayType" />
+          </xsd:restriction>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="fWSCadastraPerfilRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_perfil" type="xsd:integer" />
+    <wsdl:part name="descricao" type="xsd:string" />
+    <wsdl:part name="ativo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraPerfilResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_perfil" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraCategoriaRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_categoria" type="xsd:integer" />
+    <wsdl:part name="id_categoriapai" type="xsd:integer" />
+    <wsdl:part name="descricao" type="xsd:string" />
+    <wsdl:part name="ativo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraCategoriaResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_categoria" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraMarcaRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_marca" type="xsd:integer" />
+    <wsdl:part name="descricao" type="xsd:string" />
+    <wsdl:part name="ativo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraMarcaResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_marca" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraProdutoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="id_marca" type="xsd:integer" />
+    <wsdl:part name="id_fornecedor" type="xsd:integer" />
+    <wsdl:part name="cod_referencia" type="xsd:string" />
+    <wsdl:part name="descricao" type="xsd:string" />
+    <wsdl:part name="descricao_curta" type="xsd:string" />
+    <wsdl:part name="custo" type="xsd:string" />
+    <wsdl:part name="moeda_custo_aux" type="xsd:string" />
+    <wsdl:part name="custo_auxiliar" type="xsd:string" />
+    <wsdl:part name="preco" type="xsd:string" />
+    <wsdl:part name="peso_cubico" type="xsd:string" />
+    <wsdl:part name="peso" type="xsd:string" />
+    <wsdl:part name="disponivel" type="xsd:string" />
+    <wsdl:part name="informacao" type="tns:InformacaoArray" />
+    <wsdl:part name="garantia" type="xsd:string" />
+    <wsdl:part name="disponibilidade" type="xsd:string" />
+    <wsdl:part name="estoque" type="xsd:integer" />
+    <wsdl:part name="estoque_minimo" type="xsd:integer" />
+    <wsdl:part name="prazo_entrega" type="xsd:integer" />
+    <wsdl:part name="frete_desconto" type="xsd:string" />
+    <wsdl:part name="destaque" type="xsd:string" />
+    <wsdl:part name="data_cadastro" type="xsd:string" />
+    <wsdl:part name="info_preco" type="xsd:string" />
+    <wsdl:part name="ativo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraProdutoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaProdutoPorCodReferenciaRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="cod_referencia" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaProdutoPorCodReferenciaResponse">
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="id_marca" type="xsd:string" />
+    <wsdl:part name="cod_referencia" type="xsd:string" />
+    <wsdl:part name="descricao" type="xsd:string" />
+    <wsdl:part name="descricao_curta" type="xsd:string" />
+    <wsdl:part name="custo" type="xsd:string" />
+    <wsdl:part name="preco" type="xsd:string" />
+    <wsdl:part name="peso_cubico" type="xsd:string" />
+    <wsdl:part name="peso" type="xsd:string" />
+    <wsdl:part name="disponivel" type="xsd:string" />
+    <wsdl:part name="informacao" type="xsd:string" />
+    <wsdl:part name="garantia" type="xsd:string" />
+    <wsdl:part name="disponibilidade" type="xsd:string" />
+    <wsdl:part name="estoque" type="xsd:string" />
+    <wsdl:part name="estoque_minimo" type="xsd:string" />
+    <wsdl:part name="destaque" type="xsd:string" />
+    <wsdl:part name="data_cadastro" type="xsd:string" />
+    <wsdl:part name="info_preco" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraProdutoSimplesRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="cod_referencia" type="xsd:string" />
+    <wsdl:part name="descricao" type="xsd:string" />
+    <wsdl:part name="informacao" type="tns:InformacaoSimplesArray" />
+    <wsdl:part name="preco" type="xsd:string" />
+    <wsdl:part name="peso" type="xsd:string" />
+    <wsdl:part name="estoque" type="xsd:integer" />
+    <wsdl:part name="data_cadastro" type="xsd:string" />
+    <wsdl:part name="ativo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraProdutoSimplesResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraCaracteristicaRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_caracterisitica" type="xsd:integer" />
+    <wsdl:part name="descricao" type="xsd:string" />
+    <wsdl:part name="ativo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraCaracteristicaResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_caracteristica" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaCategPerfilRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_perfil" type="xsd:integer" />
+    <wsdl:part name="id_categoria" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaCategPerfilResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="chaves" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaCaractPerfilRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_perfil" type="xsd:integer" />
+    <wsdl:part name="id_caracteristica" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaCaractPerfilResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="chaves" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaCategProdutoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_categoria" type="xsd:integer" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="ids_categoria" type="tns:CategoriaArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaCategProdutoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="chaves" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraDadosProdutoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="id_caracteristica" type="xsd:integer" />
+    <wsdl:part name="valor" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraDadosProdutoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="chaves" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraGradeProdutoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_grade" type="xsd:integer" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="cod_referencia" type="xsd:string" />
+    <wsdl:part name="peso" type="xsd:string" />
+    <wsdl:part name="peso_cubico" type="xsd:string" />
+    <wsdl:part name="custo" type="xsd:string" />
+    <wsdl:part name="preco" type="xsd:string" />
+    <wsdl:part name="estoque" type="xsd:integer" />
+    <wsdl:part name="ativo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraGradeProdutoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_grade" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraVariaProdutosRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_grade" type="xsd:integer" />
+    <wsdl:part name="id_caracteristica" type="xsd:integer" />
+    <wsdl:part name="valor" type="xsd:string" />
+    <wsdl:part name="ativo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraVariaProdutosResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="chaves" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraPromocaoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_promocao" type="xsd:integer" />
+    <wsdl:part name="descricao" type="xsd:string" />
+    <wsdl:part name="data_inicial" type="xsd:date" />
+    <wsdl:part name="data_final" type="xsd:date" />
+    <wsdl:part name="ativo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraPromocaoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_promocao" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaPromoProdutoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="id_promocao" type="xsd:integer" />
+    <wsdl:part name="preco_promocao" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaPromoProdutoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="chaves" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraClienteRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+    <wsdl:part name="id_pais" type="xsd:integer" />
+    <wsdl:part name="id_revenda" type="xsd:integer" />
+    <wsdl:part name="tipo_pessoa" type="xsd:string" />
+    <wsdl:part name="bloqueado" type="xsd:string" />
+    <wsdl:part name="nome" type="xsd:string" />
+    <wsdl:part name="cnpf_cpf" type="xsd:string" />
+    <wsdl:part name="ie_rg" type="xsd:string" />
+    <wsdl:part name="data_nasc" type="xsd:date" />
+    <wsdl:part name="data_cadastro" type="xsd:date" />
+    <wsdl:part name="email" type="xsd:string" />
+    <wsdl:part name="senha" type="xsd:string" />
+    <wsdl:part name="observacao" type="xsd:string" />
+    <wsdl:part name="ativo" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraClienteResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSConsultaEnderecosClienteRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSConsultaEnderecosClienteResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+    <wsdl:part name="enderecos" type="tns:EnderecosClienteComIdArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSExcluiEnderecoClienteRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+    <wsdl:part name="id_endereco" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSExcluiEnderecoClienteResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+    <wsdl:part name="id_endereco" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraClienteAvancadoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+    <wsdl:part name="id_pais" type="xsd:integer" />
+    <wsdl:part name="id_revenda" type="xsd:integer" />
+    <wsdl:part name="tipo_pessoa" type="xsd:string" />
+    <wsdl:part name="bloqueado" type="xsd:string" />
+    <wsdl:part name="nome" type="xsd:string" />
+    <wsdl:part name="cnpf_cpf" type="xsd:string" />
+    <wsdl:part name="ie_rg" type="xsd:string" />
+    <wsdl:part name="data_nasc" type="xsd:date" />
+    <wsdl:part name="data_cadastro" type="xsd:date" />
+    <wsdl:part name="email" type="xsd:string" />
+    <wsdl:part name="senha" type="xsd:string" />
+    <wsdl:part name="observacao" type="xsd:string" />
+    <wsdl:part name="ativo" type="xsd:string" />
+    <wsdl:part name="desconto_revenda" type="xsd:string" />
+    <wsdl:part name="razao_social" type="xsd:string" />
+    <wsdl:part name="enderecos" type="tns:EnderecosArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraClienteAvancadoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraContatosClienteRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+    <wsdl:part name="telefone" type="xsd:string" />
+    <wsdl:part name="telefone_adicional" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraContatosClienteResponse">
+    <wsdl:part name="status" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraEnderecoClienteRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+    <wsdl:part name="logradouro" type="xsd:string" />
+    <wsdl:part name="numero" type="xsd:string" />
+    <wsdl:part name="bairro" type="xsd:string" />
+    <wsdl:part name="complemento" type="xsd:string" />
+    <wsdl:part name="cidade" type="xsd:string" />
+    <wsdl:part name="estado" type="xsd:string" />
+    <wsdl:part name="cep" type="xsd:integer" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="descricao" type="xsd:string" />
+    <wsdl:part name="destinatario" type="xsd:string" />
+    <wsdl:part name="tipo_entrega" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraEnderecoClienteResponse">
+    <wsdl:part name="status" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraListaEnderecoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+    <wsdl:part name="logradouro" type="xsd:string" />
+    <wsdl:part name="descricao" type="xsd:string" />
+    <wsdl:part name="destinatario" type="xsd:string" />
+    <wsdl:part name="tipo_entrega" type="xsd:string" />
+    <wsdl:part name="numero" type="xsd:string" />
+    <wsdl:part name="bairro" type="xsd:string" />
+    <wsdl:part name="complemento" type="xsd:string" />
+    <wsdl:part name="cidade" type="xsd:string" />
+    <wsdl:part name="estado" type="xsd:string" />
+    <wsdl:part name="cep" type="xsd:string" />
+    <wsdl:part name="pais" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraListaEnderecoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_endereco" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraEnderecoClienteAvancadoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+    <wsdl:part name="logradouro" type="xsd:string" />
+    <wsdl:part name="numero" type="xsd:string" />
+    <wsdl:part name="bairro" type="xsd:string" />
+    <wsdl:part name="complemento" type="xsd:string" />
+    <wsdl:part name="cidade" type="xsd:string" />
+    <wsdl:part name="estado" type="xsd:string" />
+    <wsdl:part name="cep" type="xsd:integer" />
+    <wsdl:part name="pais" type="xsd:string" />
+    <wsdl:part name="descricao" type="xsd:string" />
+    <wsdl:part name="destinatario" type="xsd:string" />
+    <wsdl:part name="tipo_entrega" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraEnderecoClienteAvancadoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+    <wsdl:part name="hora_inicial" type="xsd:string" />
+    <wsdl:part name="hora_final" type="xsd:string" />
+    <wsdl:part name="status_atual" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesResponse">
+    <wsdl:part name="return" type="tns:ClienteArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesAvancadoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+    <wsdl:part name="hora_inicial" type="xsd:string" />
+    <wsdl:part name="hora_final" type="xsd:string" />
+    <wsdl:part name="status_atual" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesAvancadoResponse">
+    <wsdl:part name="return" type="tns:ClienteAvancadoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesComPedidoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+    <wsdl:part name="hora_inicial" type="xsd:string" />
+    <wsdl:part name="hora_final" type="xsd:string" />
+    <wsdl:part name="status_atual" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesComPedidoResponse">
+    <wsdl:part name="return" type="tns:ClienteArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesComPedidoAvancadoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+    <wsdl:part name="hora_inicial" type="xsd:string" />
+    <wsdl:part name="hora_final" type="xsd:string" />
+    <wsdl:part name="status_atual" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesComPedidoAvancadoResponse">
+    <wsdl:part name="return" type="tns:ClienteAvancadoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesSemDadosPedidoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+    <wsdl:part name="hora_inicial" type="xsd:string" />
+    <wsdl:part name="hora_final" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesSemDadosPedidoResponse">
+    <wsdl:part name="return" type="tns:ClienteSemDadosPedidoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesSemDadosPedidoAvancadoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+    <wsdl:part name="hora_inicial" type="xsd:string" />
+    <wsdl:part name="hora_final" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientesSemDadosPedidoAvancadoResponse">
+    <wsdl:part name="return" type="tns:ClienteSemDadosPedidoAvancadoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorIdRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorIdResponse">
+    <wsdl:part name="return" type="tns:ClienteArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorIdAvancadoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorIdAvancadoResponse">
+    <wsdl:part name="return" type="tns:ClienteAvancadoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorEmailRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="email" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorEmailResponse">
+    <wsdl:part name="return" type="tns:ClienteArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorEmailAvancadoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="email" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorEmailAvancadoResponse">
+    <wsdl:part name="return" type="tns:ClienteAvancadoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorCPFRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="cpf" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorCPFResponse">
+    <wsdl:part name="return" type="tns:ClienteArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorCPFAvancadoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="cpf" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorCPFAvancadoResponse">
+    <wsdl:part name="return" type="tns:ClienteAvancadoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorCNPJRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="cnpj" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorCNPJResponse">
+    <wsdl:part name="return" type="tns:ClienteArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorCNPJAvancadoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="cnpj" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorCNPJAvancadoResponse">
+    <wsdl:part name="return" type="tns:ClienteAvancadoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorPedidoAvancadoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_pedido" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaClientePorPedidoAvancadoResponse">
+    <wsdl:part name="return" type="tns:ClienteAvancadoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaPedidosRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+    <wsdl:part name="hora_inicial" type="xsd:string" />
+    <wsdl:part name="hora_final" type="xsd:string" />
+    <wsdl:part name="status_atual" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaPedidosResponse">
+    <wsdl:part name="return" type="tns:PedidoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaPedidoPorIdRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_pedido" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaPedidoPorIdResponse">
+    <wsdl:part name="return" type="tns:Pedido" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaItensPedidosRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+    <wsdl:part name="hora_inicial" type="xsd:string" />
+    <wsdl:part name="hora_final" type="xsd:string" />
+    <wsdl:part name="status_atual" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaItensPedidosResponse">
+    <wsdl:part name="return" type="tns:ItemPedidoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaItensPedidoPorIdRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_pedido" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaItensPedidoPorIdResponse">
+    <wsdl:part name="return" type="tns:ItemPedidoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaParcelasPedidosRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+    <wsdl:part name="hora_inicial" type="xsd:string" />
+    <wsdl:part name="hora_final" type="xsd:string" />
+    <wsdl:part name="status_atual" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaParcelasPedidosResponse">
+    <wsdl:part name="return" type="tns:ParcelaPedidoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaParcelasPedidoPorIdRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_pedido" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaParcelasPedidoPorIdResponse">
+    <wsdl:part name="return" type="tns:ParcelaPedidoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSAtualizaPrecoProdutoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="is_grade" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="preco" type="xsd:string" />
+    <wsdl:part name="precopromo" type="xsd:string" />
+    <wsdl:part name="data_inicio" type="xsd:string" />
+    <wsdl:part name="data_termino" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSAtualizaPrecoProdutoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSAtualizaProdutoDisponivelRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="disponivel" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSAtualizaProdutoDisponivelResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSAtualizaEstoqueProdutoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="is_grade" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="estoque" type="xsd:integer" />
+    <wsdl:part name="estoque_minimo" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSAtualizaEstoqueProdutoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSAtualizaStatusPedidosRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="lista_status" type="tns:StatusArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSAtualizaStatusPedidosResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_pedido" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSChavesLojasRequest">
+    <wsdl:part name="token" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSChavesLojasResponse">
+    <wsdl:part name="return" type="tns:ChavesArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSAtualizaListaToDoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="entidade" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSAtualizaListaToDoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSConsultaStatusPedidoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_pedido" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSConsultaStatusPedidoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="status_pedido" type="xsd:string" />
+    <wsdl:part name="id_pedido" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSConcultaStatusPedidoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_pedido" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSConcultaStatusPedidoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="status_pedido" type="xsd:string" />
+    <wsdl:part name="id_pedido" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraCompreJuntoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+    <wsdl:part name="brinde" type="xsd:integer" />
+    <wsdl:part name="compre_junto" type="tns:ProdutosArray" />
+    <wsdl:part name="quantidade" type="xsd:integer" />
+    <wsdl:part name="ordem" type="xsd:integer" />
+    <wsdl:part name="tipo_desconto" type="xsd:integer" />
+    <wsdl:part name="desconto" type="xsd:string" />
+    <wsdl:part name="frete_gratis" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraCompreJuntoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_compre_junto" type="xsd:integer" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraCompreJuntoAvancadoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+    <wsdl:part name="nome" type="xsd:string" />
+    <wsdl:part name="brinde" type="xsd:integer" />
+    <wsdl:part name="compre_junto" type="tns:ProdutosArray" />
+    <wsdl:part name="quantidade" type="xsd:integer" />
+    <wsdl:part name="ordem" type="xsd:integer" />
+    <wsdl:part name="tipo_desconto" type="xsd:integer" />
+    <wsdl:part name="desconto" type="xsd:string" />
+    <wsdl:part name="frete_gratis" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraCompreJuntoAvancadoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_compre_junto" type="xsd:integer" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaProdutoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="produtos_relacionados" type="tns:ProdutosRelacionadosArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaProdutoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+    <wsdl:part name="id_produtos_relacionados" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraListaDesejosRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="dados_lista" type="tns:DadosListaDesejosArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraListaDesejosResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraListaProdutosRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="dados_lista" type="tns:DadosListaProdutosArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraListaProdutosResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSExcluiListaDesejosRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_lista" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSExcluiListaDesejosResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSExcluirProdutoListaRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="idProdLista" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSExcluirProdutoListaResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSExportaPagamentosPedidoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSExportaPagamentosPedidoResponse">
+    <wsdl:part name="pagamentos" type="tns:PagamentosArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSBuscavendaListasRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="idLista" type="xsd:integer" />
+    <wsdl:part name="idCliente" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSBuscavendaListasResponse">
+    <wsdl:part name="resultado" type="tns:BuscaListasVendasArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSBuscaListasRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="idLista" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSBuscaListasResponse">
+    <wsdl:part name="resultado" type="tns:BuscaListasArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaListasDesejoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="idLista" type="xsd:integer" />
+    <wsdl:part name="idCliente" type="xsd:integer" />
+    <wsdl:part name="data_inicial" type="xsd:string" />
+    <wsdl:part name="data_final" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaListasDesejoResponse">
+    <wsdl:part name="return" type="tns:BuscaListasArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSDadosRecursosExtrasRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_registro" type="xsd:integer" />
+    <wsdl:part name="entidade" type="xsd:string" />
+    <wsdl:part name="campo" type="xsd:string" />
+    <wsdl:part name="valor" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSDadosRecursosExtrasResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_registro" type="xsd:integer" />
+    <wsdl:part name="entidade" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaClientePerfilRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_cliente" type="xsd:integer" />
+    <wsdl:part name="id_perfil" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaClientePerfilResponse">
+    <wsdl:part name="status" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraListaPrecoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_lista" type="xsd:integer" />
+    <wsdl:part name="nome_lista" type="xsd:string" />
+    <wsdl:part name="id_produtos_precos" type="tns:ProdutosPrecoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraListaPrecoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_lista" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraCamposGrupoImpostoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_campo" type="xsd:integer" />
+    <wsdl:part name="nome_campo" type="xsd:string" />
+    <wsdl:part name="tipo_campo" type="xsd:integer" />
+    <wsdl:part name="valor_cliente_loja" type="xsd:integer" />
+    <wsdl:part name="tipo_valor_campo" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraCamposGrupoImpostoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_campo" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraGrupoImpostoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_grupo" type="xsd:integer" />
+    <wsdl:part name="nome_grupo" type="xsd:string" />
+    <wsdl:part name="icms_grupo" type="xsd:string" />
+    <wsdl:part name="status" type="xsd:integer" />
+    <wsdl:part name="dados_grupo" type="tns:GrupoImpostoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSCadastraGrupoImpostoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_grupo" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaImpostoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="grupo_id" type="xsd:integer" />
+    <wsdl:part name="tipo_id" type="xsd:integer" />
+    <wsdl:part name="ids_relacionamento" type="tns:RelacionamentoImpostoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSRelacionaImpostoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="grupo_id" type="tns:RelacionamentoImpostoArray" />
+  </wsdl:message>
+  <wsdl:message name="fWSConvertePedidoComissaoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_pedido" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSConvertePedidoComissaoResponse">
+    <wsdl:part name="status" type="xsd:string" />
+    <wsdl:part name="id_pedido" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaGradePorCodReferenciaRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="cod_referencia" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaGradePorCodReferenciaResponse">
+    <wsdl:part name="id_grade" type="xsd:integer" />
+    <wsdl:part name="id_produto" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaCategoriaPorDescricaoRequest">
+    <wsdl:part name="pid_loja" type="xsd:integer" />
+    <wsdl:part name="plogin" type="xsd:string" />
+    <wsdl:part name="psenha" type="xsd:string" />
+    <wsdl:part name="id_categoriapai" type="xsd:integer" />
+    <wsdl:part name="descricao" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="fWSImportaCategoriaPorDescricaoResponse">
+    <wsdl:part name="id_categoria" type="xsd:integer" />
+    <wsdl:part name="id_categoriapai" type="xsd:integer" />
+  </wsdl:message>
+  <wsdl:portType name="TrayWebServicewsdlPortType">
+    <wsdl:operation name="fWSCadastraPerfil">
+      <documentation>Cadastra Perfil de Produto</documentation>
+      <wsdl:input message="tns:fWSCadastraPerfilRequest" />
+      <wsdl:output message="tns:fWSCadastraPerfilResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCategoria">
+      <documentation>Cadastra Categoria de Produto</documentation>
+      <wsdl:input message="tns:fWSCadastraCategoriaRequest" />
+      <wsdl:output message="tns:fWSCadastraCategoriaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraMarca">
+      <documentation>Cadastra Marca</documentation>
+      <wsdl:input message="tns:fWSCadastraMarcaRequest" />
+      <wsdl:output message="tns:fWSCadastraMarcaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraProduto">
+      <documentation>Cadastra Produto</documentation>
+      <wsdl:input message="tns:fWSCadastraProdutoRequest" />
+      <wsdl:output message="tns:fWSCadastraProdutoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaProdutoPorCodReferencia">
+      <documentation>Importa produto pelo codigo de referencia</documentation>
+      <wsdl:input message="tns:fWSImportaProdutoPorCodReferenciaRequest" />
+      <wsdl:output message="tns:fWSImportaProdutoPorCodReferenciaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraProdutoSimples">
+      <documentation>Cadastro de Produto Simplificado</documentation>
+      <wsdl:input message="tns:fWSCadastraProdutoSimplesRequest" />
+      <wsdl:output message="tns:fWSCadastraProdutoSimplesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCaracteristica">
+      <documentation>Cadastra Caracteristica de Produto</documentation>
+      <wsdl:input message="tns:fWSCadastraCaracteristicaRequest" />
+      <wsdl:output message="tns:fWSCadastraCaracteristicaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaCategPerfil">
+      <documentation>Cadastra Categoria x Perfil</documentation>
+      <wsdl:input message="tns:fWSRelacionaCategPerfilRequest" />
+      <wsdl:output message="tns:fWSRelacionaCategPerfilResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaCaractPerfil">
+      <documentation>Cadastra Caracterisitica x Perfil</documentation>
+      <wsdl:input message="tns:fWSRelacionaCaractPerfilRequest" />
+      <wsdl:output message="tns:fWSRelacionaCaractPerfilResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaCategProduto">
+      <documentation>Cadastra Categoria x Produto</documentation>
+      <wsdl:input message="tns:fWSRelacionaCategProdutoRequest" />
+      <wsdl:output message="tns:fWSRelacionaCategProdutoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraDadosProduto">
+      <documentation>Cadastra dados do produto</documentation>
+      <wsdl:input message="tns:fWSCadastraDadosProdutoRequest" />
+      <wsdl:output message="tns:fWSCadastraDadosProdutoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraGradeProduto">
+      <documentation>Cadastra Grade de Produto</documentation>
+      <wsdl:input message="tns:fWSCadastraGradeProdutoRequest" />
+      <wsdl:output message="tns:fWSCadastraGradeProdutoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraVariaProdutos">
+      <documentation>Cadastra variações de produtos</documentation>
+      <wsdl:input message="tns:fWSCadastraVariaProdutosRequest" />
+      <wsdl:output message="tns:fWSCadastraVariaProdutosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraPromocao">
+      <documentation>Cadastra Promoção</documentation>
+      <wsdl:input message="tns:fWSCadastraPromocaoRequest" />
+      <wsdl:output message="tns:fWSCadastraPromocaoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaPromoProduto">
+      <documentation>Cadastra Promoção x Produto</documentation>
+      <wsdl:input message="tns:fWSRelacionaPromoProdutoRequest" />
+      <wsdl:output message="tns:fWSRelacionaPromoProdutoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCliente">
+      <documentation>Cadastra Cliente</documentation>
+      <wsdl:input message="tns:fWSCadastraClienteRequest" />
+      <wsdl:output message="tns:fWSCadastraClienteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSConsultaEnderecosCliente">
+      <documentation>Retorna enderecos do cliente</documentation>
+      <wsdl:input message="tns:fWSConsultaEnderecosClienteRequest" />
+      <wsdl:output message="tns:fWSConsultaEnderecosClienteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSExcluiEnderecoCliente">
+      <documentation>Exclui enderecos do cliente</documentation>
+      <wsdl:input message="tns:fWSExcluiEnderecoClienteRequest" />
+      <wsdl:output message="tns:fWSExcluiEnderecoClienteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraClienteAvancado">
+      <documentation>Cadastra Cliente Avancado</documentation>
+      <wsdl:input message="tns:fWSCadastraClienteAvancadoRequest" />
+      <wsdl:output message="tns:fWSCadastraClienteAvancadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraContatosCliente">
+      <documentation>Cadastra os contatos de um cliente já cadastrado</documentation>
+      <wsdl:input message="tns:fWSCadastraContatosClienteRequest" />
+      <wsdl:output message="tns:fWSCadastraContatosClienteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraEnderecoCliente">
+      <documentation>Cadastra o endereço de um cliente já cadastrado</documentation>
+      <wsdl:input message="tns:fWSCadastraEnderecoClienteRequest" />
+      <wsdl:output message="tns:fWSCadastraEnderecoClienteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraListaEndereco">
+      <documentation>Cadastra endereco para o cliente</documentation>
+      <wsdl:input message="tns:fWSCadastraListaEnderecoRequest" />
+      <wsdl:output message="tns:fWSCadastraListaEnderecoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraEnderecoClienteAvancado">
+      <documentation>Cadastra o endereço de um cliente já cadastrado e retorna o id.</documentation>
+      <wsdl:input message="tns:fWSCadastraEnderecoClienteAvancadoRequest" />
+      <wsdl:output message="tns:fWSCadastraEnderecoClienteAvancadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientes">
+      <documentation>Importa clientes</documentation>
+      <wsdl:input message="tns:fWSImportaClientesRequest" />
+      <wsdl:output message="tns:fWSImportaClientesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientesAvancado">
+      <documentation>Importa clientes Avancado</documentation>
+      <wsdl:input message="tns:fWSImportaClientesAvancadoRequest" />
+      <wsdl:output message="tns:fWSImportaClientesAvancadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientesComPedido">
+      <documentation>Importa clientes por pedido</documentation>
+      <wsdl:input message="tns:fWSImportaClientesComPedidoRequest" />
+      <wsdl:output message="tns:fWSImportaClientesComPedidoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientesComPedidoAvancado">
+      <documentation>Importa clientes por pedido avancado</documentation>
+      <wsdl:input message="tns:fWSImportaClientesComPedidoAvancadoRequest" />
+      <wsdl:output message="tns:fWSImportaClientesComPedidoAvancadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientesSemDadosPedido">
+      <documentation>Importa alteração ou cadastro de clientes sem dados de pedido</documentation>
+      <wsdl:input message="tns:fWSImportaClientesSemDadosPedidoRequest" />
+      <wsdl:output message="tns:fWSImportaClientesSemDadosPedidoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientesSemDadosPedidoAvancado">
+      <documentation>Importa alteração ou cadastro de clientes sem dados de pedido avancado</documentation>
+      <wsdl:input message="tns:fWSImportaClientesSemDadosPedidoAvancadoRequest" />
+      <wsdl:output message="tns:fWSImportaClientesSemDadosPedidoAvancadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorId">
+      <documentation>Importa clientes pelo ID</documentation>
+      <wsdl:input message="tns:fWSImportaClientePorIdRequest" />
+      <wsdl:output message="tns:fWSImportaClientePorIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorIdAvancado">
+      <documentation>Importa clientes pelo ID (Avançado)</documentation>
+      <wsdl:input message="tns:fWSImportaClientePorIdAvancadoRequest" />
+      <wsdl:output message="tns:fWSImportaClientePorIdAvancadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorEmail">
+      <documentation>Importa clientes pelo Email</documentation>
+      <wsdl:input message="tns:fWSImportaClientePorEmailRequest" />
+      <wsdl:output message="tns:fWSImportaClientePorEmailResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorEmailAvancado">
+      <documentation>Importa clientes pelo Email avancado</documentation>
+      <wsdl:input message="tns:fWSImportaClientePorEmailAvancadoRequest" />
+      <wsdl:output message="tns:fWSImportaClientePorEmailAvancadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorCPF">
+      <documentation>Importa clientes pelo CPF</documentation>
+      <wsdl:input message="tns:fWSImportaClientePorCPFRequest" />
+      <wsdl:output message="tns:fWSImportaClientePorCPFResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorCPFAvancado">
+      <documentation>Importa clientes pelo CPF (Avançado)</documentation>
+      <wsdl:input message="tns:fWSImportaClientePorCPFAvancadoRequest" />
+      <wsdl:output message="tns:fWSImportaClientePorCPFAvancadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorCNPJ">
+      <documentation>Importa clientes pelo CNPJ</documentation>
+      <wsdl:input message="tns:fWSImportaClientePorCNPJRequest" />
+      <wsdl:output message="tns:fWSImportaClientePorCNPJResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorCNPJAvancado">
+      <documentation>Importa clientes pelo CNPJ</documentation>
+      <wsdl:input message="tns:fWSImportaClientePorCNPJAvancadoRequest" />
+      <wsdl:output message="tns:fWSImportaClientePorCNPJAvancadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorPedidoAvancado">
+      <documentation>Importa clientes pelo Pedido</documentation>
+      <wsdl:input message="tns:fWSImportaClientePorPedidoAvancadoRequest" />
+      <wsdl:output message="tns:fWSImportaClientePorPedidoAvancadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaPedidos">
+      <documentation>Importa pedidos</documentation>
+      <wsdl:input message="tns:fWSImportaPedidosRequest" />
+      <wsdl:output message="tns:fWSImportaPedidosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaPedidoPorId">
+      <documentation>Importa pedido por ID</documentation>
+      <wsdl:input message="tns:fWSImportaPedidoPorIdRequest" />
+      <wsdl:output message="tns:fWSImportaPedidoPorIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaItensPedidos">
+      <documentation>Importa itens dos pedidos</documentation>
+      <wsdl:input message="tns:fWSImportaItensPedidosRequest" />
+      <wsdl:output message="tns:fWSImportaItensPedidosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaItensPedidoPorId">
+      <documentation>Importa itens dos pedidos por ID do Pedido</documentation>
+      <wsdl:input message="tns:fWSImportaItensPedidoPorIdRequest" />
+      <wsdl:output message="tns:fWSImportaItensPedidoPorIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaParcelasPedidos">
+      <documentation>Importa parcelas de pagamentos dos pedidos</documentation>
+      <wsdl:input message="tns:fWSImportaParcelasPedidosRequest" />
+      <wsdl:output message="tns:fWSImportaParcelasPedidosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaParcelasPedidoPorId">
+      <documentation>Importa parcelas de pagamentos por ID do pedido</documentation>
+      <wsdl:input message="tns:fWSImportaParcelasPedidoPorIdRequest" />
+      <wsdl:output message="tns:fWSImportaParcelasPedidoPorIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSAtualizaPrecoProduto">
+      <documentation>Atualiza preços e promoções de produtos ou grades</documentation>
+      <wsdl:input message="tns:fWSAtualizaPrecoProdutoRequest" />
+      <wsdl:output message="tns:fWSAtualizaPrecoProdutoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSAtualizaProdutoDisponivel">
+      <documentation>Atualiza disponibilidade do produto</documentation>
+      <wsdl:input message="tns:fWSAtualizaProdutoDisponivelRequest" />
+      <wsdl:output message="tns:fWSAtualizaProdutoDisponivelResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSAtualizaEstoqueProduto">
+      <documentation>Atualiza estoque de produtos ou grades</documentation>
+      <wsdl:input message="tns:fWSAtualizaEstoqueProdutoRequest" />
+      <wsdl:output message="tns:fWSAtualizaEstoqueProdutoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSAtualizaStatusPedidos">
+      <documentation>Atualiza status de pedidos (fonte: ERP da loja)</documentation>
+      <wsdl:input message="tns:fWSAtualizaStatusPedidosRequest" />
+      <wsdl:output message="tns:fWSAtualizaStatusPedidosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSChavesLojas">
+      <documentation>Lista as chaves das lojas que possuem o WS Abacos contratado</documentation>
+      <wsdl:input message="tns:fWSChavesLojasRequest" />
+      <wsdl:output message="tns:fWSChavesLojasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSAtualizaListaToDo">
+      <documentation>Remove registro da tabela ws_to_do</documentation>
+      <wsdl:input message="tns:fWSAtualizaListaToDoRequest" />
+      <wsdl:output message="tns:fWSAtualizaListaToDoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSConsultaStatusPedido">
+      <documentation>Retorna o status atual do pedido</documentation>
+      <wsdl:input message="tns:fWSConsultaStatusPedidoRequest" />
+      <wsdl:output message="tns:fWSConsultaStatusPedidoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSConcultaStatusPedido">
+      <documentation>Retorna o status atual do pedido</documentation>
+      <wsdl:input message="tns:fWSConcultaStatusPedidoRequest" />
+      <wsdl:output message="tns:fWSConcultaStatusPedidoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCompreJunto">
+      <documentation>Cadastra Produtos para relacionao ao Compre Junto de Produtos</documentation>
+      <wsdl:input message="tns:fWSCadastraCompreJuntoRequest" />
+      <wsdl:output message="tns:fWSCadastraCompreJuntoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCompreJuntoAvancado">
+      <documentation>Cadastra Produtos para relacionao ao Compre Junto de Produtos</documentation>
+      <wsdl:input message="tns:fWSCadastraCompreJuntoAvancadoRequest" />
+      <wsdl:output message="tns:fWSCadastraCompreJuntoAvancadoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaProduto">
+      <documentation>Cria a relacao entre produtos (Divulgação -&gt; Produtos Relacionados)</documentation>
+      <wsdl:input message="tns:fWSRelacionaProdutoRequest" />
+      <wsdl:output message="tns:fWSRelacionaProdutoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraListaDesejos">
+      <documentation>Metodo para insercao da lista de desejos</documentation>
+      <wsdl:input message="tns:fWSCadastraListaDesejosRequest" />
+      <wsdl:output message="tns:fWSCadastraListaDesejosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraListaProdutos">
+      <documentation>Metodo para insercao e alteração de produtos na lista de desejos</documentation>
+      <wsdl:input message="tns:fWSCadastraListaProdutosRequest" />
+      <wsdl:output message="tns:fWSCadastraListaProdutosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSExcluiListaDesejos">
+      <documentation>Metodo para exclusao de lista.</documentation>
+      <wsdl:input message="tns:fWSExcluiListaDesejosRequest" />
+      <wsdl:output message="tns:fWSExcluiListaDesejosResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSExcluirProdutoLista">
+      <documentation>Metodo para exclusao de lista.</documentation>
+      <wsdl:input message="tns:fWSExcluirProdutoListaRequest" />
+      <wsdl:output message="tns:fWSExcluirProdutoListaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSExportaPagamentosPedido">
+      <documentation>Exporta pagamentos do pedido que estão aguardando integracao.</documentation>
+      <wsdl:input message="tns:fWSExportaPagamentosPedidoRequest" />
+      <wsdl:output message="tns:fWSExportaPagamentosPedidoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSBuscavendaListas">
+      <documentation>Metodo para consulta de produtos vendidos da lista.</documentation>
+      <wsdl:input message="tns:fWSBuscavendaListasRequest" />
+      <wsdl:output message="tns:fWSBuscavendaListasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSBuscaListas">
+      <documentation>Metodo para consulta de lista.</documentation>
+      <wsdl:input message="tns:fWSBuscaListasRequest" />
+      <wsdl:output message="tns:fWSBuscaListasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaListasDesejo">
+      <documentation>Importa listas de desejo</documentation>
+      <wsdl:input message="tns:fWSImportaListasDesejoRequest" />
+      <wsdl:output message="tns:fWSImportaListasDesejoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSDadosRecursosExtras">
+      <documentation>Retorna dados de recursos extras do sistema</documentation>
+      <wsdl:input message="tns:fWSDadosRecursosExtrasRequest" />
+      <wsdl:output message="tns:fWSDadosRecursosExtrasResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaClientePerfil">
+      <documentation>Metodo para Atrelar Cliente a Perfil</documentation>
+      <wsdl:input message="tns:fWSRelacionaClientePerfilRequest" />
+      <wsdl:output message="tns:fWSRelacionaClientePerfilResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraListaPreco">
+      <documentation>Metodo para Cadastrar ou Alterar Lista de Preços</documentation>
+      <wsdl:input message="tns:fWSCadastraListaPrecoRequest" />
+      <wsdl:output message="tns:fWSCadastraListaPrecoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCamposGrupoImposto">
+      <documentation>Metodo para Cadastrar ou Alterar dos grupos de impostos</documentation>
+      <wsdl:input message="tns:fWSCadastraCamposGrupoImpostoRequest" />
+      <wsdl:output message="tns:fWSCadastraCamposGrupoImpostoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraGrupoImposto">
+      <documentation>Metodo para Cadastrar ou Alterar grupos de impostos</documentation>
+      <wsdl:input message="tns:fWSCadastraGrupoImpostoRequest" />
+      <wsdl:output message="tns:fWSCadastraGrupoImpostoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaImposto">
+      <documentation>Metodo para relacionar o grupo de imposto a categorias ou produtos</documentation>
+      <wsdl:input message="tns:fWSRelacionaImpostoRequest" />
+      <wsdl:output message="tns:fWSRelacionaImpostoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSConvertePedidoComissao">
+      <documentation>Converte o pedido em comissão para o recurso de Lista de Desejo</documentation>
+      <wsdl:input message="tns:fWSConvertePedidoComissaoRequest" />
+      <wsdl:output message="tns:fWSConvertePedidoComissaoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaGradePorCodReferencia">
+      <documentation>Importa grade pelo codigo de referencia</documentation>
+      <wsdl:input message="tns:fWSImportaGradePorCodReferenciaRequest" />
+      <wsdl:output message="tns:fWSImportaGradePorCodReferenciaResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaCategoriaPorDescricao">
+      <documentation>Importa grade pelo codigo de referencia</documentation>
+      <wsdl:input message="tns:fWSImportaCategoriaPorDescricaoRequest" />
+      <wsdl:output message="tns:fWSImportaCategoriaPorDescricaoResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TrayWebServicewsdlBinding" type="tns:TrayWebServicewsdlPortType">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="fWSCadastraPerfil">
+      <soap:operation soapAction="urn:fWSCadastraPerfilwsdl#fWSCadastraPerfil" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraPerfilwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraPerfilwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCategoria">
+      <soap:operation soapAction="urn:fWSCadastraCategoriawsdl#fWSCadastraCategoria" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraCategoriawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraCategoriawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraMarca">
+      <soap:operation soapAction="urn:fWSCadastraMarcawsdl#fWSCadastraMarca" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraMarcawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraMarcawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraProduto">
+      <soap:operation soapAction="urn:fWSCadastraProdutowsdl#fWSCadastraProduto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaProdutoPorCodReferencia">
+      <soap:operation soapAction="urn:fWSImportaProdutoPorCodReferenciawsdl#fWSImportaProdutoPorCodReferencia" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaProdutoPorCodReferenciawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaProdutoPorCodReferenciawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraProdutoSimples">
+      <soap:operation soapAction="urn:fWSCadastraProdutoSimpleswsdl#fWSCadastraProdutoSimples" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraProdutoSimpleswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraProdutoSimpleswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCaracteristica">
+      <soap:operation soapAction="urn:fWSCadastraCaracteristicawsdl#fWSCadastraCaracteristica" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraCaracteristicawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraCaracteristicawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaCategPerfil">
+      <soap:operation soapAction="urn:fWSRelacionaCategPerfilwsdl#fWSRelacionaCategPerfil" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaCategPerfilwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaCategPerfilwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaCaractPerfil">
+      <soap:operation soapAction="urn:fWSRelacionaCaractPerfilwsdl#fWSRelacionaCaractPerfil" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaCaractPerfilwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaCaractPerfilwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaCategProduto">
+      <soap:operation soapAction="urn:fWSRelacionaCategProdutowsdl#fWSRelacionaCategProduto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaCategProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaCategProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraDadosProduto">
+      <soap:operation soapAction="urn:fWSCadastraDadosProdutowsdl#fWSCadastraDadosProduto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraDadosProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraDadosProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraGradeProduto">
+      <soap:operation soapAction="urn:fWSCadastraGradeProdutowsdl#fWSCadastraGradeProduto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraGradeProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraGradeProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraVariaProdutos">
+      <soap:operation soapAction="urn:fWSCadastraVariaProdutoswsdl#fWSCadastraVariaProdutos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraVariaProdutoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraVariaProdutoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraPromocao">
+      <soap:operation soapAction="urn:fWSCadastraPromocaowsdl#fWSCadastraPromocao" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraPromocaowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraPromocaowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaPromoProduto">
+      <soap:operation soapAction="urn:fWSRelacionaPromoProdutowsdl#fWSRelacionaPromoProduto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaPromoProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaPromoProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCliente">
+      <soap:operation soapAction="urn:fWSCadastraClientewsdl#fWSCadastraCliente" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraClientewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraClientewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSConsultaEnderecosCliente">
+      <soap:operation soapAction="urn:fWSConsultaEnderecosClientewsdl#fWSConsultaEnderecosCliente" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSConsultaEnderecosClientewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSConsultaEnderecosClientewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSExcluiEnderecoCliente">
+      <soap:operation soapAction="urn:fWSExcluiEnderecoClientewsdl#fWSExcluiEnderecoCliente" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSExcluiEnderecoClientewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSExcluiEnderecoClientewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraClienteAvancado">
+      <soap:operation soapAction="urn:fWSCadastraClienteAvancadowsdl#fWSCadastraClienteAvancado" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraClienteAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraClienteAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraContatosCliente">
+      <soap:operation soapAction="urn:fWSCadastraContatosClientewsdl#fWSCadastraContatosCliente" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraContatosClientewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraContatosClientewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraEnderecoCliente">
+      <soap:operation soapAction="urn:fWSCadastraEnderecoClientewsdl#fWSCadastraEnderecoCliente" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraEnderecoClientewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraEnderecoClientewsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraListaEndereco">
+      <soap:operation soapAction="urn:fWSCadastraListaEnderecowsdl#fWSCadastraListaEndereco" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraListaEnderecowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraListaEnderecowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraEnderecoClienteAvancado">
+      <soap:operation soapAction="urn:fWSCadastraEnderecoClienteAvancadowsdl#fWSCadastraEnderecoClienteAvancado" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraEnderecoClienteAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraEnderecoClienteAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientes">
+      <soap:operation soapAction="urn:fWSImportaClienteswsdl#fWSImportaClientes" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClienteswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClienteswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientesAvancado">
+      <soap:operation soapAction="urn:fWSImportaClientesAvancadowsdl#fWSImportaClientesAvancado" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientesAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientesAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientesComPedido">
+      <soap:operation soapAction="urn:fWSImportaClientesComPedidowsdl#fWSImportaClientesComPedido" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientesComPedidowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientesComPedidowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientesComPedidoAvancado">
+      <soap:operation soapAction="urn:fWSImportaClientesComPedidoAvancadowsdl#fWSImportaClientesComPedidoAvancado" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientesComPedidoAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientesComPedidoAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientesSemDadosPedido">
+      <soap:operation soapAction="urn:fWSImportaClientesSemDadosPedidowsdl#fWSImportaClientesSemPedido" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientesSemDadosPedidowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientesSemDadosPedidowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientesSemDadosPedidoAvancado">
+      <soap:operation soapAction="urn:fWSImportaClientesSemDadosPedidoAvancadowsdl#fWSImportaClientesSemPedidoAvancado" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientesSemDadosPedidoAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientesSemDadosPedidoAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorId">
+      <soap:operation soapAction="urn:fWSImportaClientePorIdwsdl#fWSImportaClientePorId" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorIdwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorIdwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorIdAvancado">
+      <soap:operation soapAction="urn:fWSImportaClientePorIdAvancadowsdl#fWSImportaClientePorIdAvancado" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorIdAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorIdAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorEmail">
+      <soap:operation soapAction="urn:fWSImportaClientePorEmailwsdl#fWSImportaClientePorEmail" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorEmailwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorEmailwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorEmailAvancado">
+      <soap:operation soapAction="urn:fWSImportaClientePorEmailAvancadowsdl#fWSImportaClientePorEmailAvancado" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorEmailAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorEmailAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorCPF">
+      <soap:operation soapAction="urn:fWSImportaClientePorCPFwsdl#fWSImportaClientePorCPF" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorCPFwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorCPFwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorCPFAvancado">
+      <soap:operation soapAction="urn:fWSImportaClientePorCPFAvancadowsdl#fWSImportaClientePorCPFAvancado" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorCPFAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorCPFAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorCNPJ">
+      <soap:operation soapAction="urn:fWSImportaClientePorCNPJwsdl#fWSImportaClientePorCNPJ" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorCNPJwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorCNPJwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorCNPJAvancado">
+      <soap:operation soapAction="urn:fWSImportaClientePorCNPJAvancadowsdl#fWSImportaClientePorCNPJAvancado" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorCNPJAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorCNPJAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaClientePorPedidoAvancado">
+      <soap:operation soapAction="urn:fWSImportaClientePorPedidoAvancadowsdl#fWSImportaClientePorPedidoAvancado" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorPedidoAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaClientePorPedidoAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaPedidos">
+      <soap:operation soapAction="urn:fWSImportaPedidosswsdl#fWSImportaPedidos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaPedidoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaPedidoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaPedidoPorId">
+      <soap:operation soapAction="urn:fWSImportaPedidoPorIdwsdl#fWSImportaPedidoPorId" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaPedidoPorIdwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaPedidoPorIdwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaItensPedidos">
+      <soap:operation soapAction="urn:fWSImportaItensPedidoswsdl#fWSImportaItensPedidos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaItensPedidoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaItensPedidoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaItensPedidoPorId">
+      <soap:operation soapAction="urn:fWSImportaItensPedidoPorIdwsdl#fWSImportaItensPedidoPorId" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaItensPedidoPorIdwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaItensPedidoPorIdwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaParcelasPedidos">
+      <soap:operation soapAction="urn:fWSImportaParcelasPedidoswsdl#fWSImportaParcelasPedidos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaParcelasPedidoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaParcelasPedidoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaParcelasPedidoPorId">
+      <soap:operation soapAction="urn:fWSImportaParcelasPedidoPorIdwsdl#fWSImportaParcelasPedidoPorId" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaParcelasPedidoPorIdwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaParcelasPedidoPorIdwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSAtualizaPrecoProduto">
+      <soap:operation soapAction="urn:fWSAtualizaPrecoProdutowsdl#fWSAtualizaPrecoProduto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSAtualizaPrecoProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSAtualizaPrecoProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSAtualizaProdutoDisponivel">
+      <soap:operation soapAction="urn:fWSAtualizaProdutoDisponivelwsdl#fWSAtualizaProdutoDisponivel" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSAtualizaProdutoDisponivelwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSAtualizaProdutoDisponivelwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSAtualizaEstoqueProduto">
+      <soap:operation soapAction="urn:fWSAtualizaEstoqueProdutowsdl#fWSAtualizaEstoqueProduto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSAtualizaEstoqueProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSAtualizaEstoqueProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSAtualizaStatusPedidos">
+      <soap:operation soapAction="urn:fWSAtualizaStatusPedidoswsdl#fWSAtualizaStatusPedidos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSAtualizaStatusPedidoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSAtualizaStatusPedidoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSChavesLojas">
+      <soap:operation soapAction="urn:fWSChavesLojasswsdl#fWSChavesLojas" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSChavesLojasswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSChavesLojasswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSAtualizaListaToDo">
+      <soap:operation soapAction="urn:fWSAtualizaListaToDowsdl#fWSAtualizaListaToDo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSAtualizaListaToDowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSAtualizaListaToDowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSConsultaStatusPedido">
+      <soap:operation soapAction="urn:fWSConsultaStatusPedidowsdl#fWSConsultaStatusPedido" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSConsultaStatusPedidowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSConsultaStatusPedidowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSConcultaStatusPedido">
+      <soap:operation soapAction="urn:fWSConcultaStatusPedidowsdl#fWSConcultaStatusPedido" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSConcultaStatusPedidowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSConcultaStatusPedidowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCompreJunto">
+      <soap:operation soapAction="urn:fWSCadastraCompreJuntowsdl#fWSCadastraCompreJunto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="fWSCadastraCompreJuntowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="fWSCadastraCompreJuntowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCompreJuntoAvancado">
+      <soap:operation soapAction="urn:fWSCadastraCompreJuntoAvancadowsdl#fWSCadastraCompreJuntoAvancado" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="fWSCadastraCompreJuntoAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="fWSCadastraCompreJuntoAvancadowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaProduto">
+      <soap:operation soapAction="urn:fWSRelacionaProdutowsdl#fWSRelacionaProduto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="fWSRelacionaProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="fWSRelacionaProdutowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraListaDesejos">
+      <soap:operation soapAction="urn:fWSCadastraListaDesejoswsdl#fWSCadastraListaDesejos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraListaDesejoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraListaDesejoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraListaProdutos">
+      <soap:operation soapAction="urn:fWSCadastraListaProdutoswsdl#fWSCadastraListaProdutos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraListaProdutoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraListaProdutoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSExcluiListaDesejos">
+      <soap:operation soapAction="urn:fWSExcluiListaDesejoswsdl#fWSExcluiListaDesejos" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSExcluiListaDesejoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSExcluiListaDesejoswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSExcluirProdutoLista">
+      <soap:operation soapAction="urn:fWSExcluirProdutoListawsdl#fWSExcluirProdutoLista" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSExcluirProdutoListawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSExcluirProdutoListawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSExportaPagamentosPedido">
+      <soap:operation soapAction="urn:fWSExportaPagamentosPedidowsdl#fWSExportaPagamentosPedidowsdl" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="fWSExportaPagamentosPedidowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="fWSExportaPagamentosPedidowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSBuscavendaListas">
+      <soap:operation soapAction="urn:fWSBuscavendaListaswsdl#fWSBuscavendaListas" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSBuscavendaListaswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSBuscavendaListaswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSBuscaListas">
+      <soap:operation soapAction="urn:fWSBuscaListaswsdl#fWSBuscaListas" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSBuscaListaswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSBuscaListaswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaListasDesejo">
+      <soap:operation soapAction="urn:fWSImportaListasDesejowsdl#fWSImportaListasDesejo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaListasDesejowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaListasDesejowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSDadosRecursosExtras">
+      <soap:operation soapAction="urn:fWSDadosRecursosExtraswsdl#fWSDadosRecursosExtras" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSDadosRecursosExtraswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSDadosRecursosExtraswsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaClientePerfil">
+      <soap:operation soapAction="urn:fWSRelacionaClientePerfilwsdl#fWSRelacionaClientePerfil" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaClientePerfilwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaClientePerfilwsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraListaPreco">
+      <soap:operation soapAction="urn:fWSCadastraListaPrecowsdl#fWSCadastraListaPreco" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraListaPrecowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraListaPrecowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraCamposGrupoImposto">
+      <soap:operation soapAction="urn:fWSCadastraCamposGrupoImpostowsdl#fWSCadastraCamposGrupoImposto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraCamposGrupoImpostowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraCamposGrupoImpostowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSCadastraGrupoImposto">
+      <soap:operation soapAction="urn:fWSCadastraGrupoImpostowsdl#fWSCadastraGrupoImposto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSCadastraGrupoImpostowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSCadastraGrupoImpostowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSRelacionaImposto">
+      <soap:operation soapAction="urn:fWSRelacionaImpostowsdl#fWSRelacionaImposto" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaImpostowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSRelacionaImpostowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSConvertePedidoComissao">
+      <soap:operation soapAction="urn:fWSConvertePedidoComissaowsdl#fWSConvertePedidoComissao" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSConvertePedidoComissaowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSConvertePedidoComissaowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaGradePorCodReferencia">
+      <soap:operation soapAction="urn:fWSImportaGradePorCodReferenciawsdl#fWSImportaGradePorCodReferencia" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaGradePorCodReferenciawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaGradePorCodReferenciawsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="fWSImportaCategoriaPorDescricao">
+      <soap:operation soapAction="urn:fWSImportaCategoriaPorDescricaowsdl#fWSImportaCategoriaPorDescricao" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="urn:fWSImportaCategoriaPorDescricaowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="urn:fWSImportaCategoriaPorDescricaowsdl" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TrayWebServicewsdl">
+    <wsdl:port name="TrayWebServicewsdlPort" binding="tns:TrayWebServicewsdlBinding">
+      <soap:address location="http://www.virtualjoias.com/webservice/v2/ws_servidor.php" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

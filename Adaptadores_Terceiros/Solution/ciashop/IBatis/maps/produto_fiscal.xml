@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<sqlMap namespace="" xmlns="http://ibatis.apache.org/mapping"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance ">
+  <alias>
+    <typeAlias alias="produto_fiscal" type ="solution.produto_fiscalVO, solution"/>
+  </alias>
+
+  <resultMaps>
+
+  </resultMaps>
+
+  <statements>
+    <update id="alterarProduto" parameterClass="produto_fiscal">
+      update produto_fiscal set NFe_emit_CNPJ = #NFe_emit_CNPJ#
+      , cProd = #cProd#
+      , xProd = #xProd#
+      , NCM = #NCM#
+      , uCom = #uCom#
+      , subst = #subst#
+      , fk_id_plataforma = #fk_id_plataforma#
+      , orig = #orig#
+      , fk_cadastros_fiscais = #fk_cadastros_fiscais#
+      where NFe_emit_CNPJ = #NFe_emit_CNPJ#
+      and cProd = #cProd#
+      and fk_id_plataforma = #fk_id_plataforma#;
+    </update>
+
+    <update id="inseriMeta" parameterClass="produto_fiscal">
+      update produto_fiscal set cProd = #cProd#     
+      , NCM = #NCM#
+      , uCom = #uCom#
+      , subst = #subst#      
+      , orig = #orig#     
+      where NFe_emit_CNPJ = #NFe_emit_CNPJ#
+      and cProd = #cProd#
+      and fk_id_plataforma = #fk_id_plataforma#;
+    </update>
+
+    <insert id="inserirProduto" parameterClass="System.Collections.IDictionary" >
+      INSERT INTO produto_fiscal (NFe_emit_CNPJ, cProd,xProd,NCM,uCom,subst,fk_id_plataforma,orig,fk_cadastros_fiscais)
+      VALUES(#NFe_emit_CNPJ#,#cProd#,#xProd#,#NCM#,#uCom#,#subst#,
+      #fk_id_plataforma#,#orig#,#fk_cadastros_fiscais#);
+    </insert>
+  </statements>
+
+</sqlMap>

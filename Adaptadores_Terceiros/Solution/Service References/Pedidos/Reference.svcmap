@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2513fe09-3305-446c-ac5f-8e891472de96" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://services03.ezcommerce.com.br/pedidows.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="PedidoWS.wsdl" MetadataType="Wsdl" ID="37c79330-eecd-49eb-8927-b90718a44835" SourceId="1" SourceUrl="http://services03.ezcommerce.com.br/PedidoWS.svc?wsdl" />
+    <MetadataFile FileName="PedidoWS.disco" MetadataType="Disco" ID="6b598bb9-32b4-4290-a5a8-2618365d9456" SourceId="1" SourceUrl="http://services03.ezcommerce.com.br/PedidoWS.svc?disco" />
+    <MetadataFile FileName="PedidoWS.xsd" MetadataType="Schema" ID="8b118629-2009-475f-9142-ab77ef8d120d" SourceId="1" SourceUrl="http://services03.ezcommerce.com.br/PedidoWS.svc?xsd=xsd1" />
+    <MetadataFile FileName="PedidoWS1.xsd" MetadataType="Schema" ID="9b442682-0dbe-4b8c-9d03-2bf20eac21fd" SourceId="1" SourceUrl="http://services03.ezcommerce.com.br/PedidoWS.svc?xsd=xsd2" />
+    <MetadataFile FileName="PedidoWS2.xsd" MetadataType="Schema" ID="fd67a634-b3fe-44a1-91dc-e959c3f7e734" SourceId="1" SourceUrl="http://services03.ezcommerce.com.br/PedidoWS.svc?xsd=xsd3" />
+    <MetadataFile FileName="PedidoWS3.xsd" MetadataType="Schema" ID="9e999410-c507-47c3-a1ff-c6e439c75410" SourceId="1" SourceUrl="http://services03.ezcommerce.com.br/PedidoWS.svc?xsd=xsd4" />
+    <MetadataFile FileName="PedidoWS4.xsd" MetadataType="Schema" ID="2ff2276c-f1ca-4727-ad5e-932d0dc59712" SourceId="1" SourceUrl="http://services03.ezcommerce.com.br/PedidoWS.svc?xsd=xsd5" />
+    <MetadataFile FileName="PedidoWS5.xsd" MetadataType="Schema" ID="94e3d932-8365-4e1f-bcfd-01fd78b32bff" SourceId="1" SourceUrl="http://services03.ezcommerce.com.br/PedidoWS.svc?xsd=xsd6" />
+    <MetadataFile FileName="PedidoWS6.xsd" MetadataType="Schema" ID="df5b1668-71db-4c16-8ec5-7cebb5d406d6" SourceId="1" SourceUrl="http://services03.ezcommerce.com.br/PedidoWS.svc?xsd=xsd7" />
+    <MetadataFile FileName="PedidoWS7.xsd" MetadataType="Schema" ID="3176b0c1-ebbd-44a2-8808-953941719579" SourceId="1" SourceUrl="http://services03.ezcommerce.com.br/PedidoWS.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

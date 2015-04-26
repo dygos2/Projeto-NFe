@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="47eb0ba1-f3e4-4db5-8809-a0d2d1258b05" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc " Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="Service.xsd" MetadataType="Schema" ID="4848a79b-ee47-457e-9c2a-a1ea566ec805" SourceId="1" SourceUrl="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd5" />
+    <MetadataFile FileName="Service1.xsd" MetadataType="Schema" ID="15c6a2ee-97f3-4406-a244-dc201f4891d6" SourceId="1" SourceUrl="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd6" />
+    <MetadataFile FileName="Service2.xsd" MetadataType="Schema" ID="2878913d-e3f2-46fa-96fd-f4be4d3b1944" SourceId="1" SourceUrl="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd0" />
+    <MetadataFile FileName="Service3.xsd" MetadataType="Schema" ID="e7920ec7-be2c-4855-86e2-e69bfc03dcfc" SourceId="1" SourceUrl="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd1" />
+    <MetadataFile FileName="Service4.xsd" MetadataType="Schema" ID="6b8a78e0-a1db-4f15-b6b3-a9fbffadeffa" SourceId="1" SourceUrl="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd2" />
+    <MetadataFile FileName="Service5.xsd" MetadataType="Schema" ID="3851149b-dc7d-4875-958a-25b4b8796bd9" SourceId="1" SourceUrl="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service6.xsd" MetadataType="Schema" ID="3fd523da-5d7e-42d4-8013-2c775cfa4120" SourceId="1" SourceUrl="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?xsd=xsd4" />
+    <MetadataFile FileName="Service.disco" MetadataType="Disco" ID="4b6c0962-73ec-4e10-b073-ea8e34a96dc8" SourceId="1" SourceUrl="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?disco" />
+    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="cac1e420-f3fe-4896-b60f-78e06a176562" SourceId="1" SourceUrl="http://webservice-parceiro12.vtexcommerce.com.br/Service.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

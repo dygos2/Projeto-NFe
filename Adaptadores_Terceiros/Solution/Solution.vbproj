@@ -1,0 +1,709 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{41F02B13-1389-4F76-831C-3C264CA0C4FE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Solution</RootNamespace>
+    <AssemblyName>Solution</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Solution.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Solution.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.DynamicProxy, Version=1.1.5.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ciashop\IBatis\Castle.DynamicProxy.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.Common, Version=1.6.2.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ciashop\IBatis\IBatisNet.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataAccess, Version=1.9.2.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ciashop\IBatis\IBatisNet.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="IBatisNet.DataMapper, Version=1.6.2.0, Culture=neutral, PublicKeyToken=ed781d9fc396c6ca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ciashop\IBatis\IBatisNet.DataMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\Downloads\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.10\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="ciashop\IBatis\Castle.DynamicProxy.dll" />
+    <Content Include="ciashop\IBatis\IBatisNet.Common.dll" />
+    <Content Include="ciashop\IBatis\IBatisNet.DataAccess.dll" />
+    <Content Include="ciashop\IBatis\IBatisNet.DataMapper.dll" />
+    <Content Include="ciashop\IBatis\log4net.xml" />
+    <Content Include="ciashop\IBatis\maps\produto_fiscal.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ciashop\IBatis\maps\nota.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ciashop\IBatis\maps\Pedidos.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ciashop\IBatis\maps\Pedidos_Itens.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="ciashop\Integracao.aspx" />
+    <Content Include="ciashop\WebForm1.aspx" />
+    <Content Include="ciashop\WebConfComprador.aspx" />
+    <Content Include="ezcommerce\api1.aspx" />
+    <Content Include="ezcommerce\api2.aspx" />
+    <Content Include="ezcommerce\api3.aspx" />
+    <None Include="ciashop\IBatis\provider.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ciashop\IBatis\SqlMap.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ciashop\IBatis\SqlMapConfig.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="IntegracoesDAO\Empresa.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="providers.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="ClassDiagram1.cd" />
+    <Content Include="packages.config" />
+    <None Include="Service References\Pedidos\PedidoWS.disco" />
+    <None Include="Service References\Pedidos\configuration91.svcinfo" />
+    <None Include="Service References\Pedidos\configuration.svcinfo" />
+    <None Include="Service References\Pedidos\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\pedidos_rakuten_prod\orderservice.wsdl" />
+    <None Include="Service References\pedidos_rakuten_prod\Solution.pedidos_rakuten_prod.LogStatusOrder.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\pedidos_rakuten_prod\Solution.pedidos_rakuten_prod.MovementCommissionsPrediction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\pedidos_rakuten_prod\Solution.pedidos_rakuten_prod.OrderShopping.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsciashop\wsIntegracao.disco" />
+    <None Include="Service References\wsciashop\configuration91.svcinfo" />
+    <None Include="Service References\wsciashop\configuration.svcinfo" />
+    <None Include="Service References\wsciashop\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <Content Include="rakuten\OldIntegraChange_Rakuten.aspx" />
+    <Content Include="rakuten\OldRetrieveNewOrders_rakuten.aspx" />
+    <None Include="Service References\wsRakutenEC\pedido.wsdl" />
+    <None Include="Service References\wsRakutenEC\Solution.wsRakutenEC.clsRetornoOfclsPedido.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Service.disco" />
+    <None Include="Service References\wsVtex\configuration91.svcinfo" />
+    <None Include="Service References\wsVtex\configuration.svcinfo" />
+    <None Include="Service References\wsVtex\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\pedidos_rakuten_prod\orderservice.disco" />
+    <None Include="Service References\pedidos_rakuten_prod\configuration91.svcinfo" />
+    <None Include="Service References\pedidos_rakuten_prod\configuration.svcinfo" />
+    <None Include="Service References\pedidos_rakuten_prod\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Service References\wsRakutenEC\configuration91.svcinfo" />
+    <None Include="Service References\wsRakutenEC\configuration.svcinfo" />
+    <None Include="Service References\wsRakutenEC\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <None Include="Service References\Pedidos\PedidoWS.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Pedidos\PedidoWS1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Pedidos\PedidoWS2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Pedidos\PedidoWS3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Pedidos\PedidoWS4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Pedidos\PedidoWS5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Pedidos\PedidoWS6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Pedidos\PedidoWS7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Pedidos\Solution.Pedidos.RespostaProcessamento.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsciashop\wsIntegracao.wsdl" />
+    <Content Include="SqlMap.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Service References\wsVtex\Service.wsdl" />
+    <None Include="Service References\wsVtex\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsVtex\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsVtex\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsVtex\Service3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsVtex\Service4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsVtex\Service5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsVtex\Service6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.AddressDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.BrandDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.BuyTogetherBuyGainDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.BuyTogetherDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.BuyTogetherTakeXPayYDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.CategoryDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.ClientCandidateDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.ClientDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.ClientExtendedDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.CollectionDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.DistributionCenterDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.EmailQueueDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.FieldDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.FreightDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.FreightValueDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.GiftCardDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.GiftListDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.GiftListMemberDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.GiftListStockKeepingUnitDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.GiftListTypeDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.ImageDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.IntegrationDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.IntegrationErrorDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.IntegrationInterfaceDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.NewsletterDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.OrderDeliveryDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.OrderDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.OrderStatusDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.PaymentDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.ProductDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.ServiceDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.ServicePriceDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.StockKeepingUnitDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.StockKeepingUnitKitDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.StockKeepingUnitServiceDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.StoreDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.WareHouseIStockableDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\wsVtex\Solution.wsVtex.ZipCodeDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <Content Include="VTex-JSON\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="Web References\wsTrayVirtJo\Chaves.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\Cliente.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\ClienteAvancado.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\ClienteSemDadosPedido.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\ClienteSemDadosPedidoAvancado.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\DadosBuscaLista.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\DadosBuscaListaVendas.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\EnderecoClienteComId.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\Item_pedido.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\Pagamentos.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\Parcela_pedido.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\Pedido.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.vb</LastGenOutput>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\RelacionamentoImposto.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsTrayVirtJo\ws_servidor.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.aspx.designer.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About.aspx.vb">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.vb">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.vb">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.vb">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.vb">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.vb">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.vb">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Ciashop Framework\baixaPedido.vb" />
+    <Compile Include="ciashop\AssemblyInfo.vb" />
+    <Compile Include="ciashop\Integracao.aspx.designer.vb">
+      <DependentUpon>Integracao.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ciashop\Integracao.aspx.vb">
+      <DependentUpon>Integracao.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ciashop\ObjReturn.vb" />
+    <Compile Include="ciashop\WebPedidos.vb" />
+    <Compile Include="ciashop\WebSincronia.vb" />
+    <Compile Include="common\Funcs.vb" />
+    <Compile Include="IntegracoesDAO\produto_fiscalDAO.vb" />
+    <Compile Include="IntegracoesDAO\EmpresaDAO.vb" />
+    <Compile Include="IntegracoesDAO\EmpresaVO.vb" />
+    <Compile Include="IntegracoesDAO\notaDAO.vb" />
+    <Compile Include="IntegracoesDAO\notaVO.vb" />
+    <Compile Include="IntegracoesDAO\Pedidos_ItensDAO.vb" />
+    <Compile Include="IntegracoesDAO\Pedidos_ItensVO.vb" />
+    <Compile Include="ciashop\Geral.vb" />
+    <Compile Include="ciashop\IBatis.vb" />
+    <Compile Include="ciashop\Log.vb" />
+    <Compile Include="IntegracoesDAO\PedidosDAO.vb" />
+    <Compile Include="IntegracoesDAO\PedidosVO.vb" />
+    <Compile Include="ciashop\WebForm1.aspx.designer.vb">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ciashop\WebForm1.aspx.vb">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ciashop\WebConfComprador.aspx.designer.vb">
+      <DependentUpon>WebConfComprador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ciashop\WebConfComprador.aspx.vb">
+      <DependentUpon>WebConfComprador.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ezcommerce\api1.aspx.designer.vb">
+      <DependentUpon>api1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ezcommerce\api1.aspx.vb">
+      <DependentUpon>api1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ezcommerce\api2.aspx.designer.vb">
+      <DependentUpon>api2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ezcommerce\api2.aspx.vb">
+      <DependentUpon>api2.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ezcommerce\api3.aspx.designer.vb">
+      <DependentUpon>api3.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ezcommerce\api3.aspx.vb">
+      <DependentUpon>api3.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="IntegracoesDAO\produto_fiscalVO.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Rakuten EC\ChangeOrderEC.vb" />
+    <Compile Include="Rakuten EC\NewOrder.vb" />
+    <Compile Include="rakuten\IntegraChangeRakuten.vb" />
+    <Compile Include="rakuten\OldIntegraChange_Rakuten.aspx.designer.vb">
+      <DependentUpon>OldIntegraChange_Rakuten.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rakuten\OldIntegraChange_Rakuten.aspx.vb">
+      <DependentUpon>OldIntegraChange_Rakuten.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="rakuten\OldRetrieveNewOrders_rakuten.aspx.designer.vb">
+      <DependentUpon>OldRetrieveNewOrders_rakuten.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="rakuten\OldRetrieveNewOrders_rakuten.aspx.vb">
+      <DependentUpon>OldRetrieveNewOrders_rakuten.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="rakuten\RetrieveNewOrdersRakuten.vb" />
+    <Compile Include="Rotinas\varreduraShopLine.vb" />
+    <Compile Include="Service References\Pedidos\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\pedidos_rakuten_prod\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsciashop\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsRakutenEC\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\wsVtex\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.designer.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.vb">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tray - WS\fWSAtualizaListaToDo.vb" />
+    <Compile Include="Tray - WS\fWSImportaPedidos .vb" />
+    <Compile Include="VTex-JSON\ChangeStatus.vb" />
+    <Compile Include="VTex-JSON\GetOrder.vb" />
+    <Compile Include="VTex-WS\AcessaWebService.vb" />
+    <Compile Include="VTex-WS\ChangeOrder.vb" />
+    <Compile Include="VTex-WS\OrderGet.vb" />
+    <Compile Include="Web References\wsTrayVirtJo\Reference.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="Site.Master" />
+    <None Include="Service References\Pedidos\PedidoWS.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ciashopV2\" />
+    <Folder Include="ciashop\IBatis\App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Pedidos\" />
+    <WCFMetadataStorage Include="Service References\pedidos_rakuten_prod\" />
+    <WCFMetadataStorage Include="Service References\wsciashop\" />
+    <WCFMetadataStorage Include="Service References\wsRakutenEC\" />
+    <WCFMetadataStorage Include="Service References\wsVtex\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://www.virtualjoias.com/webservice/v2/ws_servidor.php%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\wsTrayVirtJo\</RelPath>
+      <UpdateFromURL>http://www.virtualjoias.com/webservice/v2/ws_servidor.php%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>MySettings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Solution_wsTrayVirtJo_TrayWebServicewsdl</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>33479</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

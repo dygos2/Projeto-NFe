@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://wssmb.ciashop.com.br/WSIntegSMB" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://wssmb.ciashop.com.br/WSIntegSMB" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://wssmb.ciashop.com.br/WSIntegSMB">
+      <s:element name="Pedidos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PedidosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="PedidosResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmaPedidos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmaPedidosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmaPedidosResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusPedido">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="StatusPedidoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="StatusPedidoResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaStatusPedidos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConsultaStatusPedidosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConsultaStatusPedidosResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Compradores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompradoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CompradoresResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmaCompradores">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmaCompradoresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmaCompradoresResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Produtos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ProdutosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ProdutosResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Variantes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="VariantesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="VariantesResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Departamentos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DepartamentosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DepartamentosResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DepartamentosProdutos">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DepartamentosProdutosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DepartamentosProdutosResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizaEstoque">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AtualizaEstoqueResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AtualizaEstoqueResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviaImagem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="stream" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="caminho" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="nome_arquivo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sku" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="idx" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EnviaImagemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EnviaImagemResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmaDados">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="confirmaLeitura" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmaDadosResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConfirmaDadosResult" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="PedidosSoapIn">
+    <wsdl:part name="parameters" element="tns:Pedidos" />
+  </wsdl:message>
+  <wsdl:message name="PedidosSoapOut">
+    <wsdl:part name="parameters" element="tns:PedidosResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmaPedidosSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmaPedidos" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmaPedidosSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmaPedidosResponse" />
+  </wsdl:message>
+  <wsdl:message name="StatusPedidoSoapIn">
+    <wsdl:part name="parameters" element="tns:StatusPedido" />
+  </wsdl:message>
+  <wsdl:message name="StatusPedidoSoapOut">
+    <wsdl:part name="parameters" element="tns:StatusPedidoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaStatusPedidosSoapIn">
+    <wsdl:part name="parameters" element="tns:ConsultaStatusPedidos" />
+  </wsdl:message>
+  <wsdl:message name="ConsultaStatusPedidosSoapOut">
+    <wsdl:part name="parameters" element="tns:ConsultaStatusPedidosResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompradoresSoapIn">
+    <wsdl:part name="parameters" element="tns:Compradores" />
+  </wsdl:message>
+  <wsdl:message name="CompradoresSoapOut">
+    <wsdl:part name="parameters" element="tns:CompradoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmaCompradoresSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmaCompradores" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmaCompradoresSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmaCompradoresResponse" />
+  </wsdl:message>
+  <wsdl:message name="ProdutosSoapIn">
+    <wsdl:part name="parameters" element="tns:Produtos" />
+  </wsdl:message>
+  <wsdl:message name="ProdutosSoapOut">
+    <wsdl:part name="parameters" element="tns:ProdutosResponse" />
+  </wsdl:message>
+  <wsdl:message name="VariantesSoapIn">
+    <wsdl:part name="parameters" element="tns:Variantes" />
+  </wsdl:message>
+  <wsdl:message name="VariantesSoapOut">
+    <wsdl:part name="parameters" element="tns:VariantesResponse" />
+  </wsdl:message>
+  <wsdl:message name="DepartamentosSoapIn">
+    <wsdl:part name="parameters" element="tns:Departamentos" />
+  </wsdl:message>
+  <wsdl:message name="DepartamentosSoapOut">
+    <wsdl:part name="parameters" element="tns:DepartamentosResponse" />
+  </wsdl:message>
+  <wsdl:message name="DepartamentosProdutosSoapIn">
+    <wsdl:part name="parameters" element="tns:DepartamentosProdutos" />
+  </wsdl:message>
+  <wsdl:message name="DepartamentosProdutosSoapOut">
+    <wsdl:part name="parameters" element="tns:DepartamentosProdutosResponse" />
+  </wsdl:message>
+  <wsdl:message name="AtualizaEstoqueSoapIn">
+    <wsdl:part name="parameters" element="tns:AtualizaEstoque" />
+  </wsdl:message>
+  <wsdl:message name="AtualizaEstoqueSoapOut">
+    <wsdl:part name="parameters" element="tns:AtualizaEstoqueResponse" />
+  </wsdl:message>
+  <wsdl:message name="EnviaImagemSoapIn">
+    <wsdl:part name="parameters" element="tns:EnviaImagem" />
+  </wsdl:message>
+  <wsdl:message name="EnviaImagemSoapOut">
+    <wsdl:part name="parameters" element="tns:EnviaImagemResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmaDadosSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmaDados" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmaDadosSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmaDadosResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsIntegracaoSoap">
+    <wsdl:operation name="Pedidos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todos os pedidos e clientes ainda não processados pela integração</wsdl:documentation>
+      <wsdl:input message="tns:PedidosSoapIn" />
+      <wsdl:output message="tns:PedidosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmaPedidos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para confirmação do processamento de pedidos</wsdl:documentation>
+      <wsdl:input message="tns:ConfirmaPedidosSoapIn" />
+      <wsdl:output message="tns:ConfirmaPedidosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="StatusPedido">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método principal para atualização dos status do pedido</wsdl:documentation>
+      <wsdl:input message="tns:StatusPedidoSoapIn" />
+      <wsdl:output message="tns:StatusPedidoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaStatusPedidos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para verificar o status atual de um pedido</wsdl:documentation>
+      <wsdl:input message="tns:ConsultaStatusPedidosSoapIn" />
+      <wsdl:output message="tns:ConsultaStatusPedidosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Compradores">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todos os clientes ainda não processados pela integração</wsdl:documentation>
+      <wsdl:input message="tns:CompradoresSoapIn" />
+      <wsdl:output message="tns:CompradoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmaCompradores">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para confirmação do processamento de pedidos</wsdl:documentation>
+      <wsdl:input message="tns:ConfirmaCompradoresSoapIn" />
+      <wsdl:output message="tns:ConfirmaCompradoresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Produtos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para gerenciamento de produtos</wsdl:documentation>
+      <wsdl:input message="tns:ProdutosSoapIn" />
+      <wsdl:output message="tns:ProdutosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Variantes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método principal para gerenciamento de variantes</wsdl:documentation>
+      <wsdl:input message="tns:VariantesSoapIn" />
+      <wsdl:output message="tns:VariantesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Departamentos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método principal para atualização dos dados de departamentos</wsdl:documentation>
+      <wsdl:input message="tns:DepartamentosSoapIn" />
+      <wsdl:output message="tns:DepartamentosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DepartamentosProdutos">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método principal para atualização dos dados de ligações de departamentos com produtos</wsdl:documentation>
+      <wsdl:input message="tns:DepartamentosProdutosSoapIn" />
+      <wsdl:output message="tns:DepartamentosProdutosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AtualizaEstoque">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método principal para atualização do estoque do produto</wsdl:documentation>
+      <wsdl:input message="tns:AtualizaEstoqueSoapIn" />
+      <wsdl:output message="tns:AtualizaEstoqueSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EnviaImagem">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Método para envio de imagens para o servidor</wsdl:documentation>
+      <wsdl:input message="tns:EnviaImagemSoapIn" />
+      <wsdl:output message="tns:EnviaImagemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmaDados">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retorna todos os dados enviados com alguma inconsistencia ao servidor</wsdl:documentation>
+      <wsdl:input message="tns:ConfirmaDadosSoapIn" />
+      <wsdl:output message="tns:ConfirmaDadosSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsIntegracaoSoap" type="tns:wsIntegracaoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Pedidos">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/Pedidos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmaPedidos">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/ConfirmaPedidos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusPedido">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/StatusPedido" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaStatusPedidos">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/ConsultaStatusPedidos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Compradores">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/Compradores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmaCompradores">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/ConfirmaCompradores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Produtos">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/Produtos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variantes">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/Variantes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Departamentos">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/Departamentos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DepartamentosProdutos">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/DepartamentosProdutos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizaEstoque">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/AtualizaEstoque" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviaImagem">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/EnviaImagem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmaDados">
+      <soap:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/ConfirmaDados" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsIntegracaoSoap12" type="tns:wsIntegracaoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Pedidos">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/Pedidos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmaPedidos">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/ConfirmaPedidos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StatusPedido">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/StatusPedido" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaStatusPedidos">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/ConsultaStatusPedidos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Compradores">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/Compradores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmaCompradores">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/ConfirmaCompradores" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Produtos">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/Produtos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Variantes">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/Variantes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Departamentos">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/Departamentos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DepartamentosProdutos">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/DepartamentosProdutos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AtualizaEstoque">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/AtualizaEstoque" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EnviaImagem">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/EnviaImagem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmaDados">
+      <soap12:operation soapAction="https://wssmb.ciashop.com.br/WSIntegSMB/ConfirmaDados" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsIntegracao">
+    <wsdl:port name="wsIntegracaoSoap" binding="tns:wsIntegracaoSoap">
+      <soap:address location="https://wssmb.ciashop.com.br/WSIntegSMB/wsIntegracao.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsIntegracaoSoap12" binding="tns:wsIntegracaoSoap12">
+      <soap12:address location="https://wssmb.ciashop.com.br/WSIntegSMB/wsIntegracao.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
