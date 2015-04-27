@@ -218,23 +218,23 @@
           </xsl:if>
         </emit>
         <dest>
-            <xsl:choose>
-              <xsl:when test="NFe/infNFe/dest/CNPJ != ''">
-					<CNPJ>
-					  <xsl:value-of select="NFe/infNFe/dest/CNPJ"/>
-					</CNPJ>
-			  </xsl:when>
-              <xsl:when test="NFe/infNFe/dest/CPF != '' and  NFe/infNFe/dest/CPF != 0">
-					<CPF>
-					  <xsl:value-of select="translate(NFe/infNFe/dest/CPF,'-','')"/>
-					</CPF>
-			  </xsl:when>
-              <xsl:when test="NFe/infNFe/dest/idEstrangeiro != ''">
-					<idEstrangeiro>
-					  <xsl:value-of select="NFe/infNFe/dest/idEstrangeiro"/>
-					</idEstrangeiro>
-			  </xsl:when>
-            </xsl:choose>
+          <xsl:choose>
+            <xsl:when test="NFe/infNFe/dest/CNPJ != ''">
+              <CNPJ>
+                <xsl:value-of select="NFe/infNFe/dest/CNPJ"/>
+              </CNPJ>
+            </xsl:when>
+            <xsl:when test="NFe/infNFe/dest/CPF != '' and  NFe/infNFe/dest/CPF != 0">
+              <CPF>
+                <xsl:value-of select="translate(NFe/infNFe/dest/CPF,'-','')"/>
+              </CPF>
+            </xsl:when>
+            <xsl:when test="NFe/infNFe/dest/idEstrangeiro != ''">
+              <idEstrangeiro>
+                <xsl:value-of select="NFe/infNFe/dest/idEstrangeiro"/>
+              </idEstrangeiro>
+            </xsl:when>
+          </xsl:choose>
           <xNome>
             <xsl:value-of select="NFe/infNFe/dest/xNome"></xsl:value-of>
           </xNome>
@@ -531,16 +531,16 @@
                     <tpIntermedio>
                       <xsl:value-of select="tpIntermedio"/>
                     </tpIntermedio>
-			<xsl:if test="CNPJ != ''">
-	                    <CNPJ>
-	                      <xsl:value-of select="CNPJ"/>
-	                    </CNPJ>
-			</xsl:if>
-<xsl:if test="UFTerceiro != ''">
-                    <UFTerceiro>
-                      <xsl:value-of select="UFTerceiro"/>
-                    </UFTerceiro>
-</xsl:if>
+                    <xsl:if test="CNPJ != ''">
+                      <CNPJ>
+                        <xsl:value-of select="CNPJ"/>
+                      </CNPJ>
+                    </xsl:if>
+                    <xsl:if test="UFTerceiro != ''">
+                      <UFTerceiro>
+                        <xsl:value-of select="UFTerceiro"/>
+                      </UFTerceiro>
+                    </xsl:if>
                     <cExportador>
                       <xsl:value-of select="cExportador"/>
                     </cExportador>
@@ -1445,19 +1445,19 @@
                     </IPI>
                   </xsl:if>
                   <!-- Início II -->
-                  <xsl:if test="number(imposto/II/vBC) > 0 or number(imposto/II/vII) > 0">
+                  <xsl:if test="number(prod/DI/nDI) > 0">
                     <II>
                       <vBC>
-                        <xsl:value-of select="imposto/II/vBC"/>
+			<xsl:value-of select="format-number(imposto/II/vBC, '#0.00') "/>
                       </vBC>
                       <vDespAdu>
-                        <xsl:value-of select="imposto/II/vDespAdu"/>
+			<xsl:value-of select="format-number(imposto/II/vDespAdu, '#0.00') "/>
                       </vDespAdu>
                       <vII>
-                        <xsl:value-of select="imposto/II/vII"/>
+			<xsl:value-of select="format-number(imposto/II/vII, '#0.00') "/>
                       </vII>
                       <vIOF>
-                        <xsl:value-of select="imposto/II/vIOF"/>
+			<xsl:value-of select="format-number(imposto/II/vIOF, '#0.00') "/>
                       </vIOF>
                     </II>
                   </xsl:if>
