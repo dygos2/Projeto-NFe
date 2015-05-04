@@ -996,12 +996,6 @@
                             <xsl:value-of select="imposto/ICMS/ICMS99/pICMS"/>
                           </pICMS>
                         </xsl:if>
-                        <xsl:if test="imposto/ICMS/ICMS99/vICMS != ''">
-                          <vICMS>
-                            <xsl:value-of select="format-number(imposto/ICMS/ICMS99/vICMS, '#0.00')"/>
-                          </vICMS>
-                        </xsl:if>
-
                         <xsl:if test="imposto/ICMS/ICMS99/vICMSOp != ''">
                           <vICMSOp>
                             <xsl:value-of select="format-number(imposto/ICMS/ICMS99/vICMSOp, '#0.00')"/>
@@ -1016,6 +1010,11 @@
                           <vICMSDif>
                             <xsl:value-of select="format-number(imposto/ICMS/ICMS99/vICMSDif, '#0.00')"/>
                           </vICMSDif>
+                        </xsl:if>
+                        <xsl:if test="imposto/ICMS/ICMS99/vICMS != ''">
+                          <vICMS>
+                            <xsl:value-of select="format-number(imposto/ICMS/ICMS99/vICMS, '#0.00')"/>
+                          </vICMS>
                         </xsl:if>
                       </ICMS51>
                     </xsl:if>
