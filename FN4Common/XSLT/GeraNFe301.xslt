@@ -976,42 +976,42 @@
                         <CST>
                           <xsl:value-of select="format-number(imposto/ICMS/ICMS99/CST,'00')"/>
                         </CST>
-                        <xsl:if test="imposto/ICMS/ICMS99/modBC != ''">
+                        <xsl:if test="imposto/ICMS/ICMS99/modBC != '' and number(imposto/ICMS/ICMS99/modBC) > 0">
                           <modBC>
                             <xsl:value-of select="imposto/ICMS/ICMS99/modBC"/>
                           </modBC>
                         </xsl:if>
-                        <xsl:if test="imposto/ICMS/ICMS99/pRedBC != ''">
+                        <xsl:if test="imposto/ICMS/ICMS99/pRedBC != '' and number(imposto/ICMS/ICMS99/pRedBC) > 0">
                           <pRedBC>
                             <xsl:value-of select="imposto/ICMS/ICMS99/pRedBC"/>
                           </pRedBC>
                         </xsl:if>
-                        <xsl:if test="imposto/ICMS/ICMS99/vBC != ''">
+                        <xsl:if test="imposto/ICMS/ICMS99/vBC != '' and number(imposto/ICMS/ICMS99/vBC) > 0">
                           <vBC>
                             <xsl:value-of select="format-number(imposto/ICMS/ICMS99/vBC, '#0.00')"/>
                           </vBC>
                         </xsl:if>
-                        <xsl:if test="imposto/ICMS/ICMS99/pICMS != ''">
+                        <xsl:if test="imposto/ICMS/ICMS99/pICMS != '' and number(imposto/ICMS/ICMS99/pICMS) > 0">
                           <pICMS>
                             <xsl:value-of select="imposto/ICMS/ICMS99/pICMS"/>
                           </pICMS>
                         </xsl:if>
-                        <xsl:if test="imposto/ICMS/ICMS99/vICMSOp != ''">
+                        <xsl:if test="imposto/ICMS/ICMS99/vICMSOp != '' and number(imposto/ICMS/ICMS99/vICMSOp) > 0">
                           <vICMSOp>
                             <xsl:value-of select="format-number(imposto/ICMS/ICMS99/vICMSOp, '#0.00')"/>
                           </vICMSOp>
                         </xsl:if>
-                        <xsl:if test="imposto/ICMS/ICMS99/pDif != ''">
+                        <xsl:if test="imposto/ICMS/ICMS99/pDif != '' and number(imposto/ICMS/ICMS99/pDif) > 0">
                           <pDif>
                             <xsl:value-of select="format-number(imposto/ICMS/ICMS99/pDif, '#0.0000')"/>
                           </pDif>
                         </xsl:if>
-                        <xsl:if test="imposto/ICMS/ICMS99/vICMSDif != ''">
+                        <xsl:if test="imposto/ICMS/ICMS99/vICMSDif != '' and number(imposto/ICMS/ICMS99/vICMSDif) > 0">
                           <vICMSDif>
                             <xsl:value-of select="format-number(imposto/ICMS/ICMS99/vICMSDif, '#0.00')"/>
                           </vICMSDif>
                         </xsl:if>
-                        <xsl:if test="imposto/ICMS/ICMS99/vICMS != ''">
+                        <xsl:if test="imposto/ICMS/ICMS99/vICMS != '' and number(imposto/ICMS/ICMS99/vICMS) > 0">
                           <vICMS>
                             <xsl:value-of select="format-number(imposto/ICMS/ICMS99/vICMS, '#0.00')"/>
                           </vICMS>
@@ -1447,16 +1447,16 @@
                   <xsl:if test="number(prod/DI/nDI) > 0">
                     <II>
                       <vBC>
-			<xsl:value-of select="format-number(imposto/II/vBC, '#0.00') "/>
+                        <xsl:value-of select="format-number(imposto/II/vBC, '#0.00') "/>
                       </vBC>
                       <vDespAdu>
-			<xsl:value-of select="format-number(imposto/II/vDespAdu, '#0.00') "/>
+                        <xsl:value-of select="format-number(imposto/II/vDespAdu, '#0.00') "/>
                       </vDespAdu>
                       <vII>
-			<xsl:value-of select="format-number(imposto/II/vII, '#0.00') "/>
+                        <xsl:value-of select="format-number(imposto/II/vII, '#0.00') "/>
                       </vII>
                       <vIOF>
-			<xsl:value-of select="format-number(imposto/II/vIOF, '#0.00') "/>
+                        <xsl:value-of select="format-number(imposto/II/vIOF, '#0.00') "/>
                       </vIOF>
                     </II>
                   </xsl:if>
