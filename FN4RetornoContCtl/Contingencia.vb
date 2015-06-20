@@ -342,18 +342,28 @@ Public Class Contingencia
                 Try
                     ws.Url = webservice.url
                     ws.ClientCertificates.Add(certificado)
+                Catch ex As Exception
+                    Log.registrarInfo("Erro ao adicionar a url e o certificado - " & ex.Message, "Contingencia")
+                End Try
+
+
+                Try
                     If ufWs = "SVCAN" Then
                         ws.nfeCabecMsgValue = New FN4EnvioCtl.NFe.ConsultaServicos1.nfeCabecMsg
                     Else
                         ws.nfeCabecMsgValue = New FN4EnvioCtl.NFe.ConsultaServicosRS.nfeCabecMsg
                     End If
+                Catch ex As Exception
+                    Log.registrarInfo("Erro ao buscar o Webservice de envio - " & ex.Message, "Contingencia")
+                End Try
 
+                Try
                     ws.nfeCabecMsgValue.cUF = FN4Common.Helpers.UFs.ListaDeCodigos(ufs.uf)
                     ws.nfeCabecMsgValue.versaoDados = cabecMsg.InnerText
                 Catch ex As Exception
-                    Log.registrarInfo("Erro ao montar o Webservice de envio", "Contingencia")
+                    Log.registrarInfo("Erro ao montar a versão do Webservice de envio - " & ex.Message, "Contingencia")
                 End Try
-                
+
 
                 Try
                     Log.registrarInfo("Buscando status da contingencia, estado  " & ufs.uf & " com problemas de conexao - URL " & ws.Url, "Contingencia")
