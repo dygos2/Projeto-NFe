@@ -165,7 +165,7 @@ Public Class Form1
 
     Private Sub Button3_Click_1(sender As System.Object, e As System.EventArgs) Handles Button3.Click
         mon12 = New FN4ZipXmlCtl.ZipMonitor
-        mon12.run()
+        mon12.geraZip(3)
         Label2.Text = "Rodando"
     End Sub
 

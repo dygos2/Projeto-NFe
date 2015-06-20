@@ -15,4 +15,10 @@ Public Class notaDAO
 
     End Function
 
+    Public Shared Function obterNotasCustomizado() As List(Of notaVO)
+
+        Return IBatisNETHelper.Instance.QueryForList(Of notaVO)("obterNotasCustomizado", Nothing)
+
+    End Function
+
 End Class

@@ -65,11 +65,15 @@ Public Class ZipMonitor
             Dim notas As List(Of notaVO)
 
 
-            If proc_now = "1" Then
-                notas = notaDAO.obterNotasTotaisParaZip
-            Else
-                notas = notaDAO.obterNotasParaZip
-            End If
+            Select Case proc_now
+
+                Case "1"
+                    notas = notaDAO.obterNotasTotaisParaZip
+                Case "2"
+                    notas = notaDAO.obterNotasParaZip
+                Case "3"
+                    notas = notaDAO.obterNotasCustomizado
+            End Select
 
             For Each nota In notas
                 Try
