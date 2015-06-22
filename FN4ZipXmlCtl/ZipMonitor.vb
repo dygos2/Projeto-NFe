@@ -66,7 +66,6 @@ Public Class ZipMonitor
 
 
             Select Case proc_now
-
                 Case "1"
                     notas = notaDAO.obterNotasTotaisParaZip
                 Case "2"
@@ -133,16 +132,13 @@ Public Class ZipMonitor
                             'se o arquivo encontrado for procNFe ou cancNFe/retorno_cancNFe
                             'colocar dentro do zip
                             If InStr(Path.GetFileName(file), "procNFe") > 0 Then
-                                zip.AddFile(file, "processadas\Serie " & nota.serie)
+                                zip.AddFile(file, "Autorizadas\Serie " & nota.serie)
                             End If
-                            If InStr(Path.GetFileName(file), "cancNFe") > 0 Or InStr(Path.GetFileName(file), "Canc_lote_enviado") > 0 Or InStr(Path.GetFileName(file), "Canc_Retorno") > 0 Then
-                                zip.AddFile(file, "canceladas\Serie " & nota.serie & "\Num. " & nota.NFe_ide_nNF)
+                            If InStr(Path.GetFileName(file), "proc_evento") > 0 And InStr(Path.GetFileName(file), "110111") > 0 Then
+                                zip.AddFile(file, "Canceladas\Serie " & nota.serie & "\Num. " & nota.NFe_ide_nNF)
                             End If
-                            If InStr(Path.GetFileName(file), "dpec_assinado") > 0 Or InStr(Path.GetFileName(file), "reciboDpec") > 0 Then
-                                zip.AddFile(file, "contingencia-dpec\Serie " & nota.serie & "\Num. " & nota.NFe_ide_nNF)
-                            End If
-                            If InStr(Path.GetFileName(file), "CCe3_lote_enviado") > 0 Or InStr(Path.GetFileName(file), "CCe_Retorno") > 0 Then
-                                zip.AddFile(file, "cce\Serie " & nota.serie & "\Num. " & nota.NFe_ide_nNF)
+                            If InStr(Path.GetFileName(file), "proc_evento") > 0 And InStr(Path.GetFileName(file), "110110") > 0 Then
+                                zip.AddFile(file, "Cartas de Correção\Serie " & nota.serie & "\Num. " & nota.NFe_ide_nNF)
                             End If
                         Next
                     End If

@@ -258,6 +258,10 @@
         SELECT * FROM notas
       </select>
 
+      <select id="obterNotasCustomizado" resultMap="notaCompleta" >
+        SELECT * FROM notas where pastaDeTrabalho is not null and ret_post_data > "0000-00-00 00:00:00" and NFe_ide_dEmi like '%2014%'  and nfe_ide_nnf in(37913,37901) order by NFe_ide_dEmi;
+      </select>
+      
       <select id="obterNotasProcessadas" parameterClass="int" resultMap="notaCompleta" >
         SELECT *
         FROM notas
